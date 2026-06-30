@@ -1,0 +1,30 @@
+{
+  "name": "natt-pundit",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "services/*",
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "concurrently -n gateway,edge,web -c cyan,magenta,green \"npm run dev -w @natt-pundit/txline-gateway\" \"npm run dev -w @natt-pundit/edge-api\" \"npm run dev -w @natt-pundit/web\"",
+    "build": "npm run build -w @natt-pundit/contracts && npm run build -w @natt-pundit/natt-core && npm run build -w @natt-pundit/txline-gateway && npm run build -w @natt-pundit/edge-api && npm run build -w @natt-pundit/web",
+    "test": "npm run test -w @natt-pundit/natt-core && npm run test -w @natt-pundit/txline-gateway",
+    "lint": "npm run lint -w @natt-pundit/web",
+    "txline:subscribe": "node scripts/txline-subscribe.mjs"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "@coral-xyz/anchor": "^0.31.1",
+    "@solana/spl-token": "^0.4.13",
+    "@solana/web3.js": "^1.98.2"
+  },
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "overrides": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  }
+}

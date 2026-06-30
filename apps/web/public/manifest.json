@@ -1,0 +1,17 @@
+{
+  "name": "Natt Pundit",
+  "short_name": "Pundit",
+  "description": "Natt Oracle live World Cup — TxLINE powered",
+  "start_url": "/fr/nattpundit/",
+  "display": "standalone",
+  "background_color": "#0A0A0F",
+  "theme_color": "#0A0A0F",
+  "icons": [
+    {
+      "src": "/fr/nattpundit/logo-natt-pundit.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
