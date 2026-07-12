@@ -7,6 +7,30 @@
 /** Last group-stage kickoff window ends 27 Jun 2026 UTC (FIFA WC26 schedule). */
 export const WC26_GROUP_STAGE_END_MS = Date.parse("2026-06-27T23:59:59.999Z");
 
+/** FIFA WC 2026 tournament window (list UI + archive gate). */
+export const WC26_TOURNAMENT_START_MS = Date.parse("2026-06-01T00:00:00.000Z");
+export const WC26_TOURNAMENT_END_MS = Date.parse("2026-07-19T23:59:59.999Z");
+
+export type WcFixtureListGate = {
+  kickoffAt: string;
+  competition?: string;
+};
+
+/** True when a fixture belongs on the WC26 product surface (not friendlies / other comps). */
+export function isWc26ListableFixture(f: WcFixtureListGate): boolean {
+  const ms = Date.parse(f.kickoffAt);
+  if (!Number.isFinite(ms) || ms < WC26_TOURNAMENT_START_MS || ms > WC26_TOURNAMENT_END_MS) {
+    return false;
+  }
+  const comp = f.competition?.trim().toLowerCase();
+  if (comp && !comp.includes("world cup")) return false;
+  return true;
+}
+
+export function filterWc26ListableFixtures<T extends WcFixtureListGate>(fixtures: T[]): T[] {
+  return fixtures.filter(isWc26ListableFixture);
+}
+
 export type WcMatchFormat = "group" | "knockout";
 
 export function wcMatchFormat(kickoffAt: string): WcMatchFormat {

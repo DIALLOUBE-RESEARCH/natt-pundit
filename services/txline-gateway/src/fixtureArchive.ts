@@ -1,6 +1,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname } from "node:path";
 import type { Fixture } from "@natt-pundit/contracts";
+import { filterWc26ListableFixtures } from "@natt-pundit/natt-core";
 
 /**
  * Permanent fixture archive for wallet history / settled matches.
@@ -47,8 +48,9 @@ function archiveEntryChanged(prev: Fixture | undefined, next: Fixture): boolean 
 }
 
 export function rememberFixtures(fixtures: Fixture[]): void {
+  const wc = filterWc26ListableFixtures(fixtures);
   let changed = false;
-  for (const f of fixtures) {
+  for (const f of wc) {
     if (archiveEntryChanged(archive[f.fixtureId], f)) {
       archive[f.fixtureId] = f;
       changed = true;

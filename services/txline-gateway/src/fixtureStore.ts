@@ -1,6 +1,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname } from "node:path";
 import type { Fixture } from "@natt-pundit/contracts";
+import { filterWc26ListableFixtures, isWc26ListableFixture } from "@natt-pundit/natt-core";
 import { rememberFixtures } from "./fixtureArchive.js";
 
 /**
@@ -42,13 +43,14 @@ export function mergeWithStore(
   const merged: FixtureStore = {};
 
   for (const [id, entry] of Object.entries(prev)) {
+    if (!isWc26ListableFixture(entry.fixture)) continue;
     if (kickoffMs(entry.fixture) >= now - retentionMs) merged[id] = entry;
   }
   for (const f of live) {
     merged[f.fixtureId] = { fixture: f, lastSeenAt: now };
   }
 
-  let kept = Object.values(merged);
+  let kept = Object.values(merged).filter((e) => isWc26ListableFixture(e.fixture));
   if (kept.length > maxEntries) {
     kept = kept
       .sort((a, b) => kickoffMs(b.fixture) - kickoffMs(a.fixture))
@@ -95,12 +97,13 @@ let store: FixtureStore = loadStore();
  * to disk, and return the full visible fixture list (sorted by kickoff asc).
  */
 export function reconcileFixtures(live: Fixture[]): Fixture[] {
+  const wcLive = filterWc26ListableFixtures(live);
   const now = Date.now();
-  const { fixtures, next } = mergeWithStore(live, store, now);
+  const { fixtures, next } = mergeWithStore(wcLive, store, now);
   store = next;
   persist(store);
   rememberFixtures(fixtures);
-  rememberFixtures(live);
+  rememberFixtures(wcLive);
   return fixtures;
 }
 

@@ -11,6 +11,7 @@ function fx(id: string, kickoffMsFromNow: number, now: number, extra: Partial<Fi
     awayTeam: `A${id}`,
     kickoffAt: new Date(now + kickoffMsFromNow).toISOString(),
     status: "scheduled",
+    competition: "World Cup",
     ...extra,
   };
 }
@@ -22,7 +23,7 @@ function storeOf(entries: Array<{ f: Fixture; seen: number }>): FixtureStore {
 }
 
 describe("fixtureStore.mergeWithStore", () => {
-  const now = 1_700_000_000_000;
+  const now = Date.parse("2026-07-10T12:00:00.000Z");
 
   it("keeps a recently-finished match that dropped from the live snapshot", () => {
     const finished = fx("100", -2 * HOUR, now, { status: "finished" });
@@ -77,5 +78,27 @@ describe("fixtureStore.mergeWithStore", () => {
 
     expect(fixtures.map((f) => f.fixtureId)).toEqual(["mid", "new"]);
     expect(Object.keys(next).sort()).toEqual(["mid", "new"]);
+  });
+
+  it("drops friendlies and post-tournament fixtures from the store", () => {
+    const prev = storeOf([
+      {
+        f: fx("friendly", 2 * HOUR, now, { competition: "Friendlies" }),
+        seen: now,
+      },
+      {
+        f: {
+          ...fx("sep", 0, now),
+          kickoffAt: "2026-09-25T15:00:00.000Z",
+          competition: "World Cup",
+        },
+        seen: now,
+      },
+    ]);
+    const live = [fx("wc", 3 * HOUR, now)];
+
+    const { fixtures } = mergeWithStore(live, prev, now);
+
+    expect(fixtures.map((f) => f.fixtureId)).toEqual(["wc"]);
   });
 });

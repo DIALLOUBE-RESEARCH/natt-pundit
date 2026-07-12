@@ -3,6 +3,7 @@ import {
   allowsDrawBetting,
   displayMinuteFromSeconds,
   escrowOutcomeFromScore,
+  isWc26ListableFixture,
   resolveKnockoutWinner,
   wcMatchFormat,
   WC26_GROUP_STAGE_END_MS,
@@ -31,5 +32,26 @@ describe("wcMatchRules", () => {
   it("knockout_winner_from_pen_score", () => {
     expect(resolveKnockoutWinner({ home: 1, away: 1 }, { home: 2, away: 4 })).toBe("away");
     expect(escrowOutcomeFromScore({ home: 1, away: 1 }, "knockout", { home: 2, away: 4 })).toBe("away");
+  });
+
+  it("list_gate_rejects_friendlies_and_post_tournament", () => {
+    expect(
+      isWc26ListableFixture({
+        kickoffAt: "2026-09-25T15:00:00.000Z",
+        competition: "Friendlies",
+      }),
+    ).toBe(false);
+    expect(
+      isWc26ListableFixture({
+        kickoffAt: "2026-07-10T19:00:00.000Z",
+        competition: "World Cup",
+      }),
+    ).toBe(true);
+    expect(
+      isWc26ListableFixture({
+        kickoffAt: "2026-07-18T15:00:00.000Z",
+        competition: "Friendlies",
+      }),
+    ).toBe(false);
   });
 });

@@ -11,6 +11,7 @@ import {
   TXLINE_API_BASE,
   WC_FREE_SERVICE_LEVEL_REALTIME,
   SUBSCRIBE_DURATION_WEEKS,
+  filterWc26ListableFixtures,
 } from "@natt-pundit/natt-core";
 import { z } from "zod";
 import { txlineGet, fetchScoreUpdates } from "./txlineClient.js";
@@ -75,7 +76,8 @@ export async function listFixtures(): Promise<{
   // Rolling store (36h) + permanent archive so finished WC matches stay listable
   // after TxLINE drops them from its snapshot (jury / post-tournament demo).
   const visible = reconcileFixtures(live);
-  const fixtures = mergeVisibleWithArchive(visible, listArchivedFixtures());
+  const merged = mergeVisibleWithArchive(visible, listArchivedFixtures());
+  const fixtures = filterWc26ListableFixtures(merged);
   return { fixtures, source: "txline" };
 }
 

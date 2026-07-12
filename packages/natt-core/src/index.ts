@@ -59,12 +59,17 @@ export {
 } from "./cpi_args.js";
 export {
   WC26_GROUP_STAGE_END_MS,
+  WC26_TOURNAMENT_START_MS,
+  WC26_TOURNAMENT_END_MS,
   wcMatchFormat,
   allowsDrawBetting,
   displayMinuteFromSeconds,
   resolveKnockoutWinner,
   escrowOutcomeFromScore,
+  isWc26ListableFixture,
+  filterWc26ListableFixtures,
   type WcMatchFormat,
+  type WcFixtureListGate,
 } from "./wcMatchRules.js";
 export {
   resolveCpiScoreTarget,
