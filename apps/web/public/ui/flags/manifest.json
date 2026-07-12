@@ -1,0 +1,327 @@
+{
+  "model": "gemini-3-pro-image-preview",
+  "flags": {
+    "ar": {
+      "file": "ar.png",
+      "bytes": 1090772,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "at": {
+      "file": "at.png",
+      "bytes": 1145641,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "au": {
+      "file": "au.png",
+      "bytes": 1214110,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "ba": {
+      "file": "ba.png",
+      "bytes": 1189886,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "be": {
+      "file": "be.png",
+      "bytes": 1006506,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "br": {
+      "file": "br.png",
+      "bytes": 920100,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "ca": {
+      "file": "ca.png",
+      "bytes": 1107516,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "cd": {
+      "file": "cd.png",
+      "bytes": 957439,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "ch": {
+      "file": "ch.png",
+      "bytes": 1095993,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "ci": {
+      "file": "ci.png",
+      "bytes": 1014825,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "cl": {
+      "file": "cl.png",
+      "bytes": 1141161,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "cm": {
+      "file": "cm.png",
+      "bytes": 917253,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "co": {
+      "file": "co.png",
+      "bytes": 1100653,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "cr": {
+      "file": "cr.png",
+      "bytes": 1027829,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "cv": {
+      "file": "cv.png",
+      "bytes": 1067052,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "cw": {
+      "file": "cw.png",
+      "bytes": 1129867,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "cz": {
+      "file": "cz.png",
+      "bytes": 1025096,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "de": {
+      "file": "de.png",
+      "bytes": 934433,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "dk": {
+      "file": "dk.png",
+      "bytes": 1025810,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "dz": {
+      "file": "dz.png",
+      "bytes": 990728,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "ec": {
+      "file": "ec.png",
+      "bytes": 1081772,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "eg": {
+      "file": "eg.png",
+      "bytes": 912585,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "es": {
+      "file": "es.png",
+      "bytes": 1051101,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "fr": {
+      "file": "fr.png",
+      "bytes": 902885,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "gb-eng": {
+      "file": "gb-eng.png",
+      "bytes": 976966,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "gb-nir": {
+      "file": "gb-nir.png",
+      "bytes": 1067343,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "gb-sct": {
+      "file": "gb-sct.png",
+      "bytes": 1024104,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "gb-wls": {
+      "file": "gb-wls.png",
+      "bytes": 912169,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "gh": {
+      "file": "gh.png",
+      "bytes": 927968,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "gr": {
+      "file": "gr.png",
+      "bytes": 1082602,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "hr": {
+      "file": "hr.png",
+      "bytes": 857724,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "ht": {
+      "file": "ht.png",
+      "bytes": 952341,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "ie": {
+      "file": "ie.png",
+      "bytes": 681597,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "iq": {
+      "file": "iq.png",
+      "bytes": 974477,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "ir": {
+      "file": "ir.png",
+      "bytes": 1027842,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "it": {
+      "file": "it.png",
+      "bytes": 1150776,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "jm": {
+      "file": "jm.png",
+      "bytes": 1037435,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "jo": {
+      "file": "jo.png",
+      "bytes": 1045428,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "jp": {
+      "file": "jp.png",
+      "bytes": 1047982,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "kr": {
+      "file": "kr.png",
+      "bytes": 1040440,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "ma": {
+      "file": "ma.png",
+      "bytes": 1154737,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "mx": {
+      "file": "mx.png",
+      "bytes": 1156263,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "ng": {
+      "file": "ng.png",
+      "bytes": 1116096,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "nl": {
+      "file": "nl.png",
+      "bytes": 1019150,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "no": {
+      "file": "no.png",
+      "bytes": 999317,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "nz": {
+      "file": "nz.png",
+      "bytes": 1052148,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "pa": {
+      "file": "pa.png",
+      "bytes": 1002032,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "pe": {
+      "file": "pe.png",
+      "bytes": 1005875,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "pl": {
+      "file": "pl.png",
+      "bytes": 876963,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "pt": {
+      "file": "pt.png",
+      "bytes": 941475,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "py": {
+      "file": "py.png",
+      "bytes": 1158019,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "qa": {
+      "file": "qa.png",
+      "bytes": 866375,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "ro": {
+      "file": "ro.png",
+      "bytes": 1000835,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "rs": {
+      "file": "rs.png",
+      "bytes": 949375,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "sa": {
+      "file": "sa.png",
+      "bytes": 944303,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "se": {
+      "file": "se.png",
+      "bytes": 1051609,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "sn": {
+      "file": "sn.png",
+      "bytes": 1145504,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "tn": {
+      "file": "tn.png",
+      "bytes": 1041663,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "tr": {
+      "file": "tr.png",
+      "bytes": 903938,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "ua": {
+      "file": "ua.png",
+      "bytes": 1037678,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "us": {
+      "file": "us.png",
+      "bytes": 636186,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "uy": {
+      "file": "uy.png",
+      "bytes": 891449,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "uz": {
+      "file": "uz.png",
+      "bytes": 1193941,
+      "model": "gemini-3-pro-image-preview"
+    },
+    "za": {
+      "file": "za.png",
+      "bytes": 1049002,
+      "model": "gemini-3-pro-image-preview"
+    }
+  },
+  "expected_count": 64,
+  "regenerated_count": 64
+}

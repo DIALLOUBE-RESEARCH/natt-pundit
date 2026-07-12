@@ -1,0 +1,24 @@
+---
+description: Natt Pundit UI — 8 langues obligatoires (en fr es zh ja ru pt de). Pas de strings hardcodees dans les composants.
+alwaysApply: true
+---
+
+# Natt Pundit — i18n 8 langues (NON NEGOCIABLE)
+
+Locales canoniques : `apps/web/lib/locales.ts` — **en, fr, es, zh, ja, ru, pt, de**.
+
+## Regle agent
+
+- Toute **nouvelle** chaine UI user-facing → `apps/web/lib/i18n.ts` (UiCopy) **ou** `apps/web/lib/escrowI18n.ts` (escrow).
+- **Jamais** de texte FR/EN hardcode dans les composants (sauf commentaires code).
+- Pattern : `ui(lang)` pour shell app ; `escrowCopy(lang)` pour panel escrow.
+- Fallback : `UI_COPY[lang] ?? UI_COPY.en` — les 8 entrees doivent exister.
+- Present mode jury (`presentCopy.ts`) : en/fr OK avec `copyFor` ; si texte user-visible hors jury, preferer `i18n.ts`.
+
+## Fichiers source de verite
+
+| Scope | Fichier |
+|-------|---------|
+| Nav, home, datas, match shell | `lib/i18n.ts` |
+| Escrow panel + pills cartes | `lib/escrowI18n.ts` |
+| Locale list + storage | `lib/locales.ts` |

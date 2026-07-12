@@ -1,0 +1,34 @@
+{
+  "fixtures": [
+    {
+      "fixtureId": "mock-replay-1",
+      "homeTeam": "Argentina",
+      "awayTeam": "Germany",
+      "kickoffAt": "2026-06-10T15:00:00Z",
+      "venueTimezone": "America/New_York",
+      "status": "finished",
+      "score": { "home": 2, "away": 1 },
+      "competition": "FIFA World Cup 2026"
+    }
+  ],
+  "odds": [
+    {
+      "fixtureId": "mock-replay-1",
+      "market": "1X2",
+      "selection": "home",
+      "implied": 0.51,
+      "openImplied": 0.48,
+      "ts": "2026-06-10T16:50:00Z"
+    }
+  ],
+  "scores": {
+    "fixtureId": "mock-replay-1",
+    "score": { "home": 2, "away": 1 },
+    "events": [
+      { "type": "goal", "minute": 12, "player": "LM", "team": "home" },
+      { "type": "goal", "minute": 44, "player": "HA", "team": "away" },
+      { "type": "goal", "minute": 78, "player": "LM", "team": "home" }
+    ],
+    "ts": "2026-06-10T16:55:00Z"
+  }
+}

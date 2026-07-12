@@ -1,0 +1,43 @@
+{
+  "fixtures": [
+    {
+      "fixtureId": "mock-live-1",
+      "homeTeam": "France",
+      "awayTeam": "Brazil",
+      "kickoffAt": "2026-06-24T19:00:00Z",
+      "venueTimezone": "America/Mexico_City",
+      "status": "live",
+      "score": { "home": 1, "away": 1 },
+      "competition": "FIFA World Cup 2026"
+    }
+  ],
+  "odds": [
+    {
+      "fixtureId": "mock-live-1",
+      "market": "1X2",
+      "selection": "home",
+      "implied": 0.42,
+      "openImplied": 0.38,
+      "ts": "2026-06-24T19:32:00Z"
+    }
+  ],
+  "scores": {
+    "fixtureId": "mock-live-1",
+    "score": { "home": 1, "away": 1 },
+    "events": [
+      {
+        "type": "goal",
+        "minute": 23,
+        "player": "MB",
+        "team": "home"
+      },
+      {
+        "type": "goal",
+        "minute": 67,
+        "player": "VI",
+        "team": "away"
+      }
+    ],
+    "ts": "2026-06-24T19:32:00Z"
+  }
+}

@@ -1,0 +1,95 @@
+# Quickstart — 5 minutes
+
+**Track:** TxODDS World Cup — Prediction Markets & Settlement  
+**Live app (English UI):** https://hypernatt.com/fr/nattpundit?lang=en
+
+Read this first, then [`USER_GUIDE.md`](./USER_GUIDE.md) (betting + wallet) and [`SUBMISSION_KIT.md`](./SUBMISSION_KIT.md) (curl smoke).
+
+---
+
+## 1. Open the product (30 s)
+
+| What | URL |
+|------|-----|
+| App | https://hypernatt.com/fr/nattpundit?lang=en |
+| **User manual (8 langs)** | https://hypernatt.com/fr/nattpundit?lang=en&tab=docs |
+| Wallet + bet history | https://hypernatt.com/fr/nattpundit?lang=en&tab=wallet |
+| Data Lab | https://hypernatt.com/fr/nattpundit/datas?lang=en |
+| Agent dashboard (read-only) | https://hypernatt.com/fr/nattpundit/agent?lang=en |
+
+Change language in the header — Docs tab follows (**en, fr, es, de, pt, ru, ja, zh**).
+
+---
+
+## 2. Smoke APIs (1 min)
+
+```bash
+curl -sf https://hypernatt.com/api/natt-pundit/txline/health
+curl -sf https://hypernatt.com/api/natt-pundit/edge/health
+curl -sf https://hypernatt.com/mcp-pundit/health
+curl -sf https://hypernatt.com/mcp-pundit/pundit/info
+curl -s https://hypernatt.com/api/natt-pundit/edge/v1/edge/summary | head -c 400
+```
+
+Merkle proof (example fixture):
+
+```bash
+curl -s https://hypernatt.com/api/natt-pundit/txline/v1/fixtures/18172280/proof
+curl -s https://hypernatt.com/api/natt-pundit/txline/v1/fixtures/18172280/proof/verify
+```
+
+---
+
+## 3. Devnet escrow demo (2 min)
+
+**Not real money** — Solana Devnet USDC + SOL only.
+
+| Step | Action |
+|------|--------|
+| Fund | [SOL faucet](https://faucet.solana.com/) + [USDC faucet](https://faucet.circle.com/) (Solana Devnet) |
+| Connect | App header → connect Phantom/Solflare (Devnet) |
+| Bet | Match page → pick side + stake → **Place bet** (≥ 0.01 USDC, pre-kickoff) |
+| After FT | **Collect payout** on match page (settlement + claim handled for you) |
+| Archived match | **Wallet tab** → **Collect payout** / **Refund stake** on each row |
+
+Pool modes: **Shared pool** (2+ countries backed) → collect after FT · **Solo side** (one country only) → refund after kickoff.
+
+---
+
+## 4. Connect an AI agent (1 min)
+
+**MCP URL:** `https://hypernatt.com/mcp-pundit/protocol` — **20 tools** (HTTP streamable — not on Smithery)
+
+| Client | How |
+|--------|-----|
+| **Cursor** | App → **Connect Agent** → Cursor, or see [`CURSOR_NATT_PUNDIT_MCP.md`](./CURSOR_NATT_PUNDIT_MCP.md) |
+| **Claude.ai** | Connectors → custom → Name `Natt Pundit`, URL above, OAuth empty |
+| **Claude Code** | `claude mcp add --scope user --transport http natt-pundit https://hypernatt.com/mcp-pundit/protocol` |
+| **Other** | Connect Agent → Other → copy JSON or URL |
+
+First tool call: **`get_pundit_manifest`**
+
+x402: some reads cost $0.01 devnet USDC (separate from escrow deposits). Hackathon VPS may have `devnet_open_access` enabled.
+
+---
+
+## 5. What to look for (checklist)
+
+- [ ] SETUP/HOLD badges on fixtures (edge ≠ blind tips)
+- [ ] Merkle proof panel on finished matches
+- [ ] Escrow 4-step flow on match page
+- [ ] Wallet tab: balances + bet history + claim from archived fixtures
+- [ ] Docs tab in your language (faucets, MCP, betting, GitHub link)
+- [ ] MCP health + manifest + agent connect modal
+
+---
+
+## Doc map
+
+| File | Audience |
+|------|----------|
+| [`QUICKSTART_JURY.md`](./QUICKSTART_JURY.md) | This page — 5 min orientation |
+| [`USER_GUIDE.md`](./USER_GUIDE.md) | End-user: wallet, bet, claim, MCP |
+| [`SUBMISSION_KIT.md`](./SUBMISSION_KIT.md) | Full smoke curls + agent autonomous script |
+| [`CURSOR_NATT_PUNDIT_MCP.md`](./CURSOR_NATT_PUNDIT_MCP.md) | Cursor / MCP config detail |
+| [README](../README.md) | Architecture + limitations |

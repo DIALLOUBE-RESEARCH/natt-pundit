@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Natt Settlement</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary": "#e5c469",
+                      "inverse-primary": "#745b04",
+                      "error": "#ffb4ab",
+                      "on-primary-fixed": "#241a00",
+                      "on-surface": "#e9e1d7",
+                      "primary-container": "#c8a951",
+                      "surface-dim": "#16130d",
+                      "secondary-fixed-dim": "#bec6e3",
+                      "on-primary-container": "#503e00",
+                      "on-error-container": "#ffdad6",
+                      "primary-fixed-dim": "#e4c368",
+                      "surface-variant": "#38342d",
+                      "tertiary-fixed-dim": "#bac3ff",
+                      "primary-fixed": "#ffe08d",
+                      "surface-tint": "#e4c368",
+                      "secondary-container": "#414861",
+                      "on-surface-variant": "#cfc5b2",
+                      "tertiary-container": "#9ea8e8",
+                      "surface": "#16130d",
+                      "on-secondary-container": "#b0b7d4",
+                      "surface-container-highest": "#38342d",
+                      "surface-container-high": "#2d2a23",
+                      "tertiary-fixed": "#dee0ff",
+                      "tertiary": "#bbc4ff",
+                      "surface-container-lowest": "#100e08",
+                      "on-tertiary-fixed": "#09154e",
+                      "on-tertiary-container": "#313c74",
+                      "outline-variant": "#4c4638",
+                      "on-primary-fixed-variant": "#584400",
+                      "on-primary": "#3d2f00",
+                      "outline": "#98907e",
+                      "on-tertiary": "#212b63",
+                      "inverse-surface": "#e9e1d7",
+                      "on-secondary-fixed": "#131b31",
+                      "inverse-on-surface": "#333029",
+                      "background": "#16130d",
+                      "on-secondary-fixed-variant": "#3e465e",
+                      "on-background": "#e9e1d7",
+                      "secondary-fixed": "#dae1ff",
+                      "on-secondary": "#283047",
+                      "surface-container": "#221f19",
+                      "surface-bright": "#3c3932",
+                      "surface-container-low": "#1e1b15",
+                      "error-container": "#93000a",
+                      "secondary": "#bec6e3",
+                      "on-error": "#690005",
+                      "on-tertiary-fixed-variant": "#38427b",
+                      "card-surface": "#141C32",
+                      "accent-blue": "#1D428A",
+                      "status-green": "#22c55e",
+                      "status-gray": "#9ca3af"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "8px",
+                      "grid_module": "48px",
+                      "sm": "12px",
+                      "md": "16px",
+                      "base": "4px",
+                      "lg": "24px",
+                      "xl": "32px",
+                      "safe": "env(safe-area-inset-bottom)"
+              },
+              "fontFamily": {
+                      "body-sm": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-lg": ["Barlow Condensed"],
+                      "data-mono": ["JetBrains Mono"],
+                      "label-caps": ["Inter"],
+                      "headline-sm": ["Barlow Condensed"],
+                      "display-lg": ["Barlow Condensed"]
+              },
+              "fontSize": {
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["32px", {"lineHeight": "36px", "fontWeight": "700"}],
+                      "headline-lg": ["40px", {"lineHeight": "44px", "fontWeight": "700"}],
+                      "data-mono": ["14px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-sm": ["20px", {"lineHeight": "24px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "52px", "fontWeight": "700"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        /* Geometric Grid Pattern Background */
+        body {
+            background-color: #0A0E1A; /* Deep Navy Base */
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 48px 48px;
+            background-attachment: fixed;
+        }
+        
+        /* High-end atmospheric gradient for top section */
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(200, 169, 81, 0.15), transparent 60%),
+                        radial-gradient(circle at top left, rgba(29, 66, 138, 0.1), transparent 50%);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(200, 169, 81, 0.3);
+            border-radius: 4px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface antialiased overflow-x-hidden min-h-screen pb-[120px]">
+<!-- Fixed Background Image Element (Optional subtle stadium context as requested in prompt image) -->
+<div class="fixed inset-0 w-full h-1/2 bg-cover bg-center opacity-30 pointer-events-none z-[-1] mix-blend-overlay" data-alt="A subtle, dark, atmospheric background image of a massive modern soccer stadium at night, highly stylized and desaturated. Deep navy tones and deep blacks dominate. A faint glow of stadium lights creates a dramatic horizon line. Premium technical aesthetic, suited for a data analytics platform. Minimalist and corporate, preventing distraction from UI elements." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB88cawJmAb9I-x7MyD_pxQ97JYJ91BcHrUQGJHxaV2ENm-y7k0HKXBkhQ5WrMKiMzImZvwKfd47b-UAyjUbDRSsokf9t-Xa9OOl4NduiLI-iXO4QpIRK02vzVOWc8vvZ5CqR81Yy5WNxWFz41BBpXhJ7jchJAXu7rlsDGOlHXo9u76-gEYUVyAwbmE4uHLu5DbKu_C_gt_lUa4jX8p_pJOfGPVvTelWFrwquAt8rWRBm_I0loNadCyzppcbZ6ReBTKDCobtuPuBiRt')"></div>
+<!-- Top Area (Header Info) -->
+<header class="w-full px-md pt-12 pb-sm hero-gradient">
+<div class="flex flex-col items-start gap-1">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile uppercase text-on-surface tracking-wide leading-none">
+                Natt<br/>Settlement
+            </h1>
+<p class="font-label-caps text-label-caps text-primary mt-2 uppercase tracking-widest">
+                FIFA WORLD CUP 2026
+            </p>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">
+                ANALYTICS PWA
+            </p>
+<div class="w-16 h-1 bg-primary mt-4 rounded-full"></div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="w-full px-md mt-lg space-y-sm">
+<div class="flex items-end justify-between mb-2">
+<h2 class="font-display-lg text-[36px] uppercase text-on-surface leading-none tracking-tight">Today's Fixtures</h2>
+</div>
+<!-- Fixture Cards List (Bento-inspired, high density) -->
+<div class="space-y-sm relative">
+<!-- Card 1 -->
+<div class="bg-card-surface rounded-[20px] p-md border-l-[4px] border-l-primary flex items-center justify-between shadow-[0_4px_24px_rgba(0,0,0,0.3)] transition-all active:brightness-110">
+<div class="flex items-center gap-lg w-full max-w-[65%]">
+<div class="flex flex-col items-center gap-1 w-12">
+<!-- Flag Placeholder -->
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-variant border border-outline-variant shadow-sm shrink-0">
+<img class="w-full h-full object-cover" data-alt="Icon representing the United States flag, circular, flat digital style, simple graphic, high contrast for dark mode UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCuh_398scOubkXAWFx_C4ww-V3WXSp-Ho3mLPqGjzQGcvZk4ZfbvBDyEsg6Cw0sX18B4I6tF5qlM4MdHADHXDAiKqXbw4IjJZqYw8f-HMmx_8eksVWZEM4dbd6mo9j6Havht4Ybfp4oY-mLlu1sKc-sb2lyef_hGAQTpYQJUSQDiVwCEZru57bhO7KPjDhrNELbfmHuD_UPwH-a36URk62cfWiwRQpN32frE5cK2vHnrnQdeT19fbjjdjwy6x_e_YdRE4SzOnKduy"/>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface">USA</span>
+</div>
+<div class="flex flex-col items-center justify-center flex-1">
+<span class="font-data-mono text-data-mono text-on-surface text-lg">06:30</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase mt-1">VS</span>
+</div>
+<div class="flex flex-col items-center gap-1 w-12">
+<!-- Flag Placeholder -->
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-variant border border-outline-variant shadow-sm shrink-0">
+<img class="w-full h-full object-cover" data-alt="Icon representing the Mexico flag, circular, flat digital style, simple graphic, high contrast for dark mode UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL4B6fJ_DdfLqExh3VG-klKzoVD-zLMC4IRG--mor7-vWvxRIVZBEU69wPesgdg2U5p-qSuoXTqnuDJS84vtKO6ghucw_xJrWjDBe5bgBXsr6z7qbtQP5D9SZtIkPVgO__FXWbA68F7te3utvE8f36gI3hAGRE_uXJ_N5GvDi5e8RphsTenk88Zt5sMWOG4CvdzR8v-wK50Cs0M4MyHaLryVbWxSqa_Ih-pIFIvrP2C4Fz1F85Fzvuk0FSN95rlJvjgmV6zIlKE1kT"/>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface">Mexico</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center gap-1 min-w-[80px]">
+<button class="bg-status-green text-surface-container-lowest font-headline-sm text-[16px] px-4 py-1.5 rounded-full uppercase w-full shadow-[inset_0_-2px_0_rgba(0,0,0,0.2)] hover:opacity-90 transition-opacity">
+                        Setup
+                    </button>
+<span class="font-label-caps text-[10px] text-primary">Upcoming</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-card-surface rounded-[20px] p-md border-l-[4px] border-l-primary flex items-center justify-between shadow-[0_4px_24px_rgba(0,0,0,0.3)] transition-all active:brightness-110">
+<div class="flex items-center gap-lg w-full max-w-[65%]">
+<div class="flex flex-col items-center gap-1 w-12">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-variant border border-outline-variant shadow-sm shrink-0">
+<img class="w-full h-full object-cover" data-alt="Icon representing the Brazil flag, circular, flat digital style, simple graphic, high contrast for dark mode UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOSq2M2yHEFmRc11eAqMCh0ygYoBZxrLszwK35xi4W98GhyCFkW9bQ3rCjcTD2TOkm5kE3DlzfaFL6RTQc6wt1sKaIl6g66KNtq5YUC3jysRgsHe6-vryqcoM0aCLnEu0B1CB7iWX0ppObiGYmADFddGYNwcnY6SSg2vL8dUark6LiugvESu2pc-5spxqQPEmULSWMIenBVoAolbjWDRuw9V-bwOoZFnWvjQF04rRbQEXoKqApBK6fN8YgBgRj0mf2ala-Yaj1Gih6"/>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface">Brazil</span>
+</div>
+<div class="flex flex-col items-center justify-center flex-1">
+<span class="font-data-mono text-data-mono text-on-surface text-lg">13:00</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase mt-1">VS</span>
+</div>
+<div class="flex flex-col items-center gap-1 w-12">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-variant border border-outline-variant shadow-sm shrink-0">
+<img class="w-full h-full object-cover" data-alt="Icon representing the France flag, circular, flat digital style, simple graphic, high contrast for dark mode UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8rzt2TyS4O-hYVWXqHOd6-_MH_8GKoswhzOQkXPRPIDHxzv_ZT3WXV6dz2RrxOnIMCMsadQEFS9HXG2WwxdYbyYYLbljGrz1grWs-bSXRklprpYWwk2NvhLaPivF1zaTKdJQOYsFU3W8lB-Qs35iEy7fRVBV3e4Tdo4YMz8gPY8waYF7CpQpl3Gj_2sklOBKL8TyJR_nwEfhRgQPV230Z5JHxwYKHXUjZkWwbypjRHEojHFQhGratedPyiub3nc2T4NWM3T8bYWox"/>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface">France</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center gap-1 min-w-[80px]">
+<button class="bg-status-green text-surface-container-lowest font-headline-sm text-[16px] px-4 py-1.5 rounded-full uppercase w-full shadow-[inset_0_-2px_0_rgba(0,0,0,0.2)] hover:opacity-90 transition-opacity">
+                        Setup
+                    </button>
+<span class="font-label-caps text-[10px] text-primary">Upcoming</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-card-surface rounded-[20px] p-md border-l-[4px] border-l-surface-variant flex items-center justify-between shadow-[0_4px_24px_rgba(0,0,0,0.3)] transition-all active:brightness-110 opacity-75">
+<div class="flex items-center gap-lg w-full max-w-[65%]">
+<div class="flex flex-col items-center gap-1 w-12">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-variant border border-outline-variant shadow-sm shrink-0">
+<img class="w-full h-full object-cover grayscale opacity-80" data-alt="Icon representing the United States flag, circular, flat digital style, simple graphic, muted colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBE-WubVoMtIgv0GOGNS09YFGMg_SpDVeEG-LFgkHPm7k6RfoPvnpPp7bKf2qo0--Ul-sm9LlrafwV1KBZ6yTB5srPDq7MYmN8VJ70TMwR9vZAYQreksdEmwZImlxmqNiYdYVcyJgzhxL2SlpvUkvHAcfqXlFcvd4WW47WRxBBNm3rvklGJkO-YzWMFZW4OJN32ZQ2ETRYaneF9mBpuXw9iNtnV-taZ_cdirw9t9HxZlLYcQI3PpRVvDjwpYnZGlHXOhLPvc9JXUgEX"/>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">USA</span>
+</div>
+<div class="flex flex-col items-center justify-center flex-1">
+<span class="font-data-mono text-data-mono text-on-surface-variant text-lg">09:00</span>
+<span class="font-label-caps text-[10px] text-surface-variant uppercase mt-1">VS</span>
+</div>
+<div class="flex flex-col items-center gap-1 w-12">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-variant border border-outline-variant shadow-sm shrink-0">
+<img class="w-full h-full object-cover grayscale opacity-80" data-alt="Icon representing the Portugal flag, circular, flat digital style, simple graphic, muted colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqwjFhDevcK_kRx0Hd-90ICcSbocQY_pHl-72azvmExAvFfyCm2iPoKZ6b7JRmtJkvrahqwUFRKoJ92eYVlS4O5OdOnk0AIDvx9D3CZOFCkzJ3slzOK91F7yyNJJXFfJCgqBJioyl-52QEha5OG2T_SQfpjKklVhYJCQZt04bZZ4kEwmPcVCjmsk_DZK8FX0YFXvJRDJ7LeNCGglv3jef3wtOVjKho1A1LpTsXi-ZP9KaIWQXdM3B-1ocReraTBbWiSwH8le2172Jh"/>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Portugal</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center gap-1 min-w-[80px]">
+<button class="bg-surface-variant text-on-surface-variant font-headline-sm text-[16px] px-4 py-1.5 rounded-full uppercase w-full cursor-not-allowed">
+                        Hold
+                    </button>
+<span class="font-label-caps text-[10px] text-on-surface-variant invisible">Upcoming</span>
+</div>
+</div>
+<!-- Card 4 (Partial, as seen in image) -->
+<div class="bg-card-surface rounded-[20px] p-md border-l-[4px] border-l-surface-variant flex items-center justify-between shadow-[0_4px_24px_rgba(0,0,0,0.3)] transition-all active:brightness-110 opacity-50 relative overflow-hidden">
+<div class="flex items-center gap-lg w-full max-w-[65%]">
+<div class="flex flex-col items-center gap-1 w-12">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-variant border border-outline-variant shadow-sm shrink-0">
+<img class="w-full h-full object-cover grayscale opacity-80" data-alt="Icon representing the Brazil flag, circular, flat digital style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCicgQdkDp5sHTWW0cVOI5n-aU78vKDy33p9TMNc-sZ8aUPyrmoUa6Gp8bqg1_9H-3mwQkKxVp2yUE8bfu10yZLtEdlN4jSu8C4ap67_7_YMP50WMH0bzMnD7Kyjc-pCHlqYXknIlmNORi8hLWeqySx4Siz9_7n0QJtxppH251Gb2wOFtl7BzuCFrSDUAJFp0UsQmuPoK1PpLdJu6DDlZscHvxnsEmCk9h-tKVqi4UvECJCgbotD6Ze3UnBtpEOgxkS25LuLJoh62hL"/>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center flex-1">
+<span class="font-data-mono text-data-mono text-on-surface-variant text-lg">13:00</span>
+</div>
+<div class="flex flex-col items-center gap-1 w-12">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-variant border border-outline-variant shadow-sm shrink-0">
+<img class="w-full h-full object-cover grayscale opacity-80" data-alt="Icon representing the France flag, circular, flat digital style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfKgCAuwcElPIC3mz3a7sv8qt5cPPvRF77D97ris0pbQBzM0ik6-3otpz2vzI8dsQRg_oOXy8ThfMpxBEPSVfgYbfV_o_kFTqOpX9jEH8eL1Fm5HnCecOyOJbl5QwKC-uQS81EgdsPIywPJUySTCXf1fK0mbhw5OyGtt4hyS7seVBIHzlVRWJLgvKlWe9oebtKQy9JCdCTWVgefTDxz-aDjdorkMpxJ0mv0ejXOXsvBgrOexSWujYd-oNkzMXVKpnQxD9xDqN6ADJj"/>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center gap-1 min-w-[80px]">
+<button class="bg-surface-variant text-on-surface-variant font-headline-sm text-[16px] px-4 py-1.5 rounded-full uppercase w-full cursor-not-allowed">
+                        Hold
+                    </button>
+</div>
+<!-- Fade out overlay at bottom -->
+<div class="absolute bottom-0 left-0 w-full h-8 bg-gradient-to-t from-background to-transparent z-10"></div>
+</div>
+</div>
+<div class="py-lg flex justify-center">
+<a class="font-label-caps text-label-caps text-accent-blue uppercase tracking-widest hover:underline flex items-center gap-1" href="#">
+                 TxLINE
+                 <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Semantic Shell implementation) -->
+<!-- Active state: Matches (Intent match for Today's Fixtures) -->
+<nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container dark:bg-surface-container" style="box-shadow: 0 -4px 20px rgba(0,0,0,0.5);">
+<!-- Separation gradient subtle -->
+<div class="absolute top-0 left-0 w-full h-[1px] bg-white opacity-5"></div>
+<div class="flex justify-around items-center px-4 py-3">
+<!-- Home -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-fixed transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="font-label-caps text-[10px] mt-1">Home</span>
+</button>
+<!-- Matches (Active) -->
+<button class="flex flex-col items-center justify-center text-primary translate-y-[-2px] transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sports_soccer</span>
+<span class="font-label-caps text-[10px] mt-1">Matches</span>
+<div class="w-1 h-1 rounded-full bg-primary mt-1 absolute -bottom-2"></div>
+</button>
+<!-- Analytics -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-fixed transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">bar_chart</span>
+<span class="font-label-caps text-[10px] mt-1">Analytics</span>
+</button>
+<!-- Settings -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-fixed transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+<span class="font-label-caps text-[10px] mt-1">Settings</span>
+</button>
+<!-- Profile -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-fixed transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+<span class="font-label-caps text-[10px] mt-1">Profile</span>
+</button>
+</div>
+<!-- Footer embedded in nav area per design system instructions (mb-safe handling) -->
+<div class="flex flex-col items-center justify-center pt-2 pb-2 px-md opacity-60">
+<span class="font-data-mono text-[10px] text-on-surface-variant">Powered by TxODDS</span>
+</div>
+</nav>
+<!-- Scroll indication line (Right side as in image) -->
+<div class="fixed right-2 top-1/2 -translate-y-1/2 w-1 h-24 bg-surface-variant rounded-full opacity-50 hidden md:block"></div>
+</body></html>

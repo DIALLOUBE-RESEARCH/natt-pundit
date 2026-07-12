@@ -1,0 +1,16 @@
+{
+  "colorMode": "DARK",
+  "theme": {
+    "primary": "#C8A951",
+    "secondary": "#1D428A",
+    "background": "#0A0A0A",
+    "surface": "#141C32",
+    "onBackground": "#FFFFFF",
+    "onSurface": "#FFFFFF"
+  },
+  "typography": {
+    "display": "Barlow Condensed",
+    "body": "Inter",
+    "mono": "JetBrains Mono"
+  }
+}

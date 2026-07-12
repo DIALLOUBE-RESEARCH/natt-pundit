@@ -1,0 +1,355 @@
+/**
+ * F88N — Stitch dark theme (glass slate iOS).
+ * Scope: html.stitch-route | html.sandbox-route + data-theme="dark".
+ */
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Core palette */
+  --stitch-light-page: #0b0f17;
+  --stitch-light-page-bottom: #111827;
+  --stitch-light-text: #f1f5f9;
+  --stitch-light-text-secondary: #94a3b8;
+  --stitch-light-text-muted: #64748b;
+
+  --stitch-glass-fill: rgba(30, 41, 59, 0.55);
+  --stitch-glass-border: rgba(148, 163, 184, 0.22);
+  --stitch-tabbar-bg: rgba(30, 41, 59, 0.88);
+  --stitch-tab-active: #60a5fa;
+
+  --stitch-btn-agent-bg: rgba(30, 58, 138, 0.28);
+  --stitch-btn-agent-border: rgba(96, 165, 250, 0.35);
+  --stitch-btn-agent-text: #93c5fd;
+  --stitch-btn-wallet-bg: rgba(99, 102, 241, 0.18);
+  --stitch-btn-wallet-border: rgba(129, 140, 248, 0.35);
+  --stitch-btn-wallet-text: #a5b4fc;
+
+  /* Semantic surfaces */
+  --stitch-surface-elevated: rgba(30, 41, 59, 0.82);
+  --stitch-surface-elevated-strong: rgba(30, 41, 59, 0.88);
+  --stitch-surface-elevated-soft: rgba(30, 41, 59, 0.62);
+  --stitch-surface-card-overlay: rgba(15, 23, 42, 0.48);
+  --stitch-surface-thumb: #1e293b;
+  --stitch-border-soft: rgba(148, 163, 184, 0.2);
+  --stitch-border-glass-strong: rgba(148, 163, 184, 0.22);
+  --stitch-border-glass: rgba(148, 163, 184, 0.2);
+  --stitch-border-glass-match: rgba(148, 163, 184, 0.18);
+  --stitch-shadow-soft: rgba(0, 0, 0, 0.32);
+  --stitch-shadow-medium: rgba(0, 0, 0, 0.45);
+  --stitch-inset-highlight: rgba(255, 255, 255, 0.06);
+  --stitch-link: #60a5fa;
+  --stitch-accent-blue: #93c5fd;
+  --stitch-accent-blue-soft: #bfdbfe;
+  --stitch-error: #f87171;
+  --stitch-success: #6ee7b7;
+  --stitch-success-emerald: #34d399;
+  --stitch-pill-setup-text: #6ee7b7;
+  --stitch-pill-bet-text: #fde68a;
+  --stitch-pill-setup-bg: rgba(16, 185, 129, 0.22);
+  --stitch-pill-setup-border: rgba(52, 211, 153, 0.4);
+  --stitch-pill-bet-bg: linear-gradient(180deg, rgba(234, 179, 8, 0.35) 0%, rgba(202, 138, 4, 0.42) 100%);
+  --stitch-pill-bet-border: rgba(250, 204, 21, 0.45);
+  --stitch-pill-hold-bg: rgba(51, 65, 85, 0.85);
+  --stitch-pill-finished-text: #000000;
+  --stitch-pill-finished-bg: #bbf7d0;
+  --stitch-pill-finished-border: #4ade80;
+  --stitch-pill-agent-bg: rgba(30, 58, 138, 0.35);
+  --stitch-pill-agent-border: rgba(96, 165, 250, 0.35);
+  --stitch-pill-wallet-bg: linear-gradient(180deg, rgba(67, 56, 202, 0.35) 0%, rgba(49, 46, 129, 0.45) 100%);
+  --stitch-pill-wallet-border: rgba(129, 140, 248, 0.35);
+  --stitch-pill-wallet-text: #c7d2fe;
+  --stitch-divider: rgba(148, 163, 184, 0.25);
+  --stitch-divider-subtle: rgba(148, 163, 184, 0.18);
+  --stitch-footer-muted: rgba(148, 163, 184, 0.55);
+  --stitch-settlement-label: rgba(148, 163, 184, 0.55);
+  --stitch-settlement-hr: rgba(148, 163, 184, 0.2);
+  --stitch-hero-fade-top: #0b0f17;
+  --stitch-hero-fade-mid: rgba(11, 15, 23, 0.92);
+  --stitch-hero-fade-low: rgba(17, 24, 39, 0.55);
+  --stitch-hero-fade-fixed-1: #0b0f17;
+  --stitch-hero-fade-fixed-2: rgba(11, 15, 23, 0.9);
+  --stitch-hero-fade-fixed-3: rgba(17, 24, 39, 0.5);
+  --stitch-glass-surface: rgba(30, 41, 59, 0.55);
+  --stitch-glass-card-bg: rgba(30, 41, 59, 0.62);
+  --stitch-glass-card-border: rgba(148, 163, 184, 0.18);
+  --stitch-glass-card-shadow: rgba(0, 0, 0, 0.35);
+  --stitch-agent-overlay: rgba(11, 15, 23, 0.78);
+  --stitch-agent-modal-bg: rgba(30, 41, 59, 0.92);
+  --stitch-agent-modal-border: rgba(148, 163, 184, 0.2);
+  --stitch-agent-tabs-bg: rgba(15, 23, 42, 0.65);
+  --stitch-agent-tabs-border: rgba(148, 163, 184, 0.15);
+  --stitch-agent-thumb-bg: #334155;
+  --stitch-agent-thumb-border: rgba(148, 163, 184, 0.25);
+  --stitch-agent-primary-bg: rgba(30, 58, 138, 0.45);
+  --stitch-agent-primary-border: rgba(96, 165, 250, 0.4);
+  --stitch-agent-secondary-bg: rgba(51, 65, 85, 0.75);
+  --stitch-agent-secondary-border: rgba(148, 163, 184, 0.22);
+  --stitch-agent-banner-bg: rgba(51, 65, 85, 0.55);
+  --stitch-agent-banner-border: rgba(148, 163, 184, 0.28);
+  --stitch-progress-track: rgba(51, 65, 85, 0.65);
+  --stitch-flag-border: rgba(148, 163, 184, 0.35);
+  --stitch-docs-nav-bg: rgba(30, 41, 59, 0.55);
+  --stitch-docs-nav-border: rgba(148, 163, 184, 0.25);
+  --stitch-jury-select-bg: rgba(30, 41, 59, 0.85);
+  --stitch-jury-select-border: rgba(148, 163, 184, 0.3);
+  --stitch-action-btn-bg: rgba(30, 58, 138, 0.28);
+  --stitch-action-btn-border: rgba(96, 165, 250, 0.3);
+  --stitch-doc-alert-bg: rgba(59, 130, 246, 0.15);
+  --stitch-doc-alert-border: rgba(96, 165, 250, 0.3);
+  --stitch-badge-wait-bg: rgba(100, 116, 139, 0.25);
+  --stitch-badge-wait-text: #cbd5e1;
+  --stitch-badge-ok-bg: rgba(16, 185, 129, 0.2);
+  --stitch-badge-ok-text: #6ee7b7;
+  --stitch-toggle-sun: #fbbf24;
+  --stitch-toggle-moon: #818cf8;
+  --stitch-toggle-icon-muted: #64748b;
+  --stitch-card-match-shadow: rgba(0, 0, 0, 0.35);
+  --stitch-glow-opacity: 0.35;
+  --stitch-card-stadium-opacity: 0.52;
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] body {
+  background: var(--stitch-light-page-bottom) !important;
+}
+
+/* Hero image treatment — dark uses same dual-layer fade via page tokens */
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-light-hero img,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-light-hero--stage img {
+  filter: saturate(0.88) contrast(1.05) brightness(0.42);
+}
+
+/* Match card glow — slightly softer in dark */
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-match-card::before {
+  opacity: var(--stitch-glow-opacity);
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-card-stadium-bg {
+  filter: blur(var(--stitch-card-stadium-blur)) saturate(1.05) brightness(0.92) contrast(1.08);
+}
+
+/* Flag circles */
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-flag-circle .team-flag-wrap--circle {
+  border-color: var(--stitch-flag-border) !important;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Live badge stays green (brand) */
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-live-badge {
+  color: #fff;
+  background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+  border-color: rgba(52, 211, 153, 0.45);
+  box-shadow:
+    0 3px 12px rgba(16, 185, 129, 0.35),
+    0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+/* Glass base + liquid */
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-glass {
+  background: var(--stitch-glass-surface);
+  border-color: var(--stitch-border-glass);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.06);
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-liquid-glass {
+  box-shadow:
+    inset 0 0 15px rgba(255, 255, 255, 0.04),
+    0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Pills in match cards — opaque dark surfaces */
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-match-card .stitch-lg-pill {
+  border-color: var(--stitch-border-glass);
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-lg-pill {
+  border-color: var(--stitch-border-glass);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 var(--stitch-inset-highlight),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-lg-pill__shine {
+  box-shadow:
+    inset 0 2px 6px -2px rgba(255, 255, 255, 0.08),
+    inset 0 -2px 5px -2px rgba(0, 0, 0, 0.2);
+}
+
+/* Tab bar */
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-tabbar.stitch-lg-glass-bar {
+  box-shadow:
+    0 8px 28px var(--stitch-shadow-medium),
+    inset 0 1px 0 var(--stitch-inset-highlight);
+}
+
+/* Theme toggle */
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-theme-toggle {
+  box-shadow:
+    0 4px 16px var(--stitch-shadow-soft),
+    inset 0 1px 0 var(--stitch-inset-highlight);
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-theme-toggle-thumb {
+  box-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Footer TxODDS */
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-panel-footer .powered-by-txodds-link {
+  color: var(--stitch-light-text-muted);
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-panel-footer .powered-by-txodds-link:hover {
+  color: var(--stitch-light-text);
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-panel-footer .txodds-wordmark {
+  color: var(--stitch-light-text);
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-panel-footer .powered-by-txodds-link:hover .txodds-wordmark,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-panel-footer .powered-by-txodds-link:active .txodds-wordmark,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-panel-footer .powered-by-txodds-link:focus-visible .txodds-wordmark {
+  color: var(--stitch-light-text);
+}
+
+/* Docs nav active — keep blue accent */
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-docs-nav-item--active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+}
+
+/* Agent modal extras */
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-agent-connect .agent-connect-close:hover {
+  color: var(--stitch-light-text);
+  background: rgba(51, 65, 85, 0.95);
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-agent-connect .agent-connect-banner--live {
+  background: rgba(16, 185, 129, 0.18);
+  border-color: rgba(52, 211, 153, 0.35);
+  color: var(--stitch-badge-ok-text);
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-agent-connect .agent-connect-modal .agent-connect-primary:hover {
+  background: rgba(30, 58, 138, 0.55);
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-agent-connect .agent-connect-toast {
+  color: var(--stitch-badge-ok-text);
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(52, 211, 153, 0.25);
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-agent-connect .agent-connect-tabs-thumb {
+  box-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-agent-connect .agent-connect-modal {
+  box-shadow:
+    0 20px 48px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 var(--stitch-inset-highlight);
+}
+
+/* Progress bar gradient stays vivid */
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-progress-fill {
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+}
+
+/* Home kicker event */
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-home-kicker--event {
+  color: var(--stitch-accent-blue-soft);
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] button.stitch-card-star {
+  color: var(--stitch-light-text);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :is(html.stitch-route, html.sandbox-route)[data-theme="dark"] button.stitch-card-star:hover:not(.stitch-card-star--active) {
+    color: var(--stitch-gold-bet);
+  }
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] button.stitch-card-star.stitch-card-star--active {
+  color: var(--stitch-gold-bet);
+}
+
+/* F97N — Match detail dark (tokens remapped on :root dark block above) */
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-match-countdown {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-score-win {
+  color: var(--stitch-light-text);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  :is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-liquid-glass,
+  :is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-match-card::after,
+  :is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-tabbar,
+  :is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-lg-glass-bar,
+  :is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-glass,
+  :is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-theme-toggle,
+  :is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-lg-pill__effect,
+  :is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-glass-card,
+  :is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-agent-connect .agent-connect-modal,
+  :is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-agent-connect.agent-connect-overlay {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  :is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-match-card::after {
+    background: rgba(15, 23, 42, 0.88);
+  }
+
+  :is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-lg-pill--hold .stitch-lg-pill__tint {
+    background: rgba(51, 65, 85, 0.92);
+  }
+
+  :is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-agent-connect.agent-connect-overlay {
+    background: rgba(11, 15, 23, 0.95);
+  }
+
+  :is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-agent-connect .agent-connect-modal {
+    background: rgba(30, 41, 59, 0.98);
+  }
+}
+
+/* Timeline dark — readable on glass sections */
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-match-section-body .timeline-accordion-trigger {
+  background: rgba(30, 41, 59, 0.72);
+  border-color: var(--stitch-glass-card-border);
+  color: var(--stitch-light-text);
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-match-section-body .goal-feed-row {
+  background: rgba(30, 41, 59, 0.55);
+  border-color: var(--stitch-glass-card-border);
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-match-section-body .goal-feed-row--goal {
+  background: rgba(16, 185, 129, 0.18);
+  border-color: rgba(52, 211, 153, 0.35);
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-match-section-body .goal-feed-team,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-match-section-body .goal-feed-minute,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-match-section-body .timeline-accordion-summary {
+  color: var(--stitch-light-text);
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-match-section-body .goal-feed-kind,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-match-section-body .goal-feed-player {
+  color: var(--stitch-light-text-secondary);
+}

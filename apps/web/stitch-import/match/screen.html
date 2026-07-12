@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Match Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#313c74",
+                        "on-surface-variant": "#cfc5b2",
+                        "on-secondary-container": "#b0b7d4",
+                        "on-secondary-fixed": "#131b31",
+                        "error": "#ffb4ab",
+                        "primary-fixed-dim": "#e4c368",
+                        "on-primary-container": "#503e00",
+                        "on-surface": "#e9e1d7",
+                        "on-secondary-fixed-variant": "#3e465e",
+                        "tertiary-fixed": "#dee0ff",
+                        "secondary-fixed-dim": "#bec6e3",
+                        "secondary-fixed": "#dae1ff",
+                        "on-secondary": "#283047",
+                        "surface-container": "#221f19",
+                        "secondary": "#bec6e3",
+                        "secondary-container": "#414861",
+                        "surface-variant": "#38342d",
+                        "on-tertiary-fixed": "#09154e",
+                        "on-error-container": "#ffdad6",
+                        "on-primary": "#3d2f00",
+                        "tertiary": "#bbc4ff",
+                        "on-error": "#690005",
+                        "outline": "#98907e",
+                        "on-tertiary-fixed-variant": "#38427b",
+                        "tertiary-container": "#9ea8e8",
+                        "on-background": "#e9e1d7",
+                        "surface-dim": "#16130d",
+                        "primary-fixed": "#ffe08d",
+                        "inverse-surface": "#e9e1d7",
+                        "tertiary-fixed-dim": "#bac3ff",
+                        "surface-container-low": "#1e1b15",
+                        "on-tertiary": "#212b63",
+                        "surface-bright": "#3c3932",
+                        "surface-container-highest": "#38342d",
+                        "surface": "#16130d",
+                        "primary": "#e5c469",
+                        "inverse-on-surface": "#333029",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#2d2a23",
+                        "surface-tint": "#e4c368",
+                        "primary-container": "#c8a951",
+                        "surface-container-lowest": "#100e08",
+                        "on-primary-fixed-variant": "#584400",
+                        "inverse-primary": "#745b04",
+                        "background": "#16130d",
+                        "on-primary-fixed": "#241a00",
+                        "outline-variant": "#4c4638",
+                        "card-surface": "#141C32", // Adding specific TxODDS Navy
+                        "status-live": "#4ADE80"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "20px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "md": "16px",
+                        "sm": "12px",
+                        "lg": "24px",
+                        "base": "4px",
+                        "xs": "8px",
+                        "grid_module": "48px",
+                        "safe": "34px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Barlow Condensed"],
+                        "display-lg": ["Barlow Condensed"],
+                        "data-mono": ["JetBrains Mono"],
+                        "headline-lg": ["Barlow Condensed"],
+                        "label-caps": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", { "lineHeight": "24px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "52px", "fontWeight": "700" }],
+                        "data-mono": ["14px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)"
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            background-image: theme('backgroundImage.grid-pattern');
+            background-size: theme('spacing.grid_module') theme('spacing.grid_module');
+            background-position: center top;
+            background-attachment: fixed;
+            color: theme('colors.on-background');
+        }
+        
+        .card-border-accent {
+            border-left: 4px solid theme('colors.primary-container');
+        }
+        
+        @keyframes pulse-live {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .animate-pulse-live {
+            animation: pulse-live 2s infinite;
+        }
+
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 15s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen flex flex-col relative pb-safe">
+<!-- Top Navigation (Task-focused, so no Bottom Nav later) -->
+<header class="sticky top-0 z-40 bg-surface dark:bg-surface border-b-4 border-primary px-md pt-lg pb-sm w-full flex items-center justify-between">
+<button aria-label="Go back" class="text-primary hover:opacity-80 active:scale-95 duration-100 p-2 -ml-2">
+<span class="material-symbols-outlined font-variation-settings: 'FILL' 1;">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface uppercase font-bold tracking-tight text-center flex-1">Match Details</h1>
+<div class="w-8"></div> <!-- Spacer for centering -->
+</header>
+<main class="flex-1 flex flex-col gap-sm p-md w-full max-w-[600px] mx-auto">
+<!-- Hero Section -->
+<section class="bg-card-surface rounded-2xl p-md card-border-accent relative overflow-hidden flex flex-col items-center justify-center py-xl">
+<div class="absolute inset-0 opacity-20 pointer-events-none" data-alt="A subtle, dark, abstract background texture evoking a stadium floodlight atmosphere at night. Deep navy blues and shadows, no distinct subjects, just atmospheric lighting designed for a data-centric mobile app background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD2_7gupfcbz5Bavrian2ya_RPIzfJQYlMvdlm6nJ1CBt6xHqX8QnQtZYtnbScu5CH6mDstxF1YlfIcgypvEa_bUiTG9ATdesapo29C_vMlugXaTJxTUm4Azwlny1Lu06Tb_D5f6pxab5rpkGrI9fVu6PN-1C1sAifnwgoo4FsY3RkBVGZjHNqrRBdbSCoBVrDSOtfOditDygqCojVHkt61dH-93LObtZCaRjo9eQio51FYEr2vOFL11Tvn3dQrcqjcWr5XKCMB9gF3')"></div>
+<div class="flex items-center justify-center gap-4 mb-4 z-10 w-full">
+<!-- Team 1 -->
+<div class="flex flex-col items-center flex-1">
+<img class="w-16 h-16 rounded-full object-cover border-2 border-surface-variant mb-2 shadow-lg" data-alt="A high-quality, circular digital rendering of the United States flag. The design is flat and modern, optimized for a dark-mode mobile UI, representing the USA national team." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoadlOhCKNfwJ4lJw0ZSi_5Ya7FcGIzuPVSrceRJ47YrqPbaQeE96-_V8zZITPfYgIZ45h6RkIbWqnNbvwYvbKn9M3fMp_cE8NdtJE7iUSmaGUwdlp459JnlwSPKjEF_Fk9elMx9Jh38I1Hiz5MxhQ-ImFQhcjjsdPLtadxibIZxjRrOpC_pzxfhLwrCITfME8icNF4cUv3k9vfhYxVYy4y0tkZBXyJ5TfpY9324Hi9oMRO3r5DRpXrGYPEd9BRCG1X50jclwg5HeA"/>
+<span class="font-label-caps text-label-caps text-on-surface uppercase">USA</span>
+</div>
+<!-- Score -->
+<div class="flex flex-col items-center justify-center mx-4">
+<div class="flex items-center gap-xs mb-1">
+<div class="w-2 h-2 rounded-full bg-status-live animate-pulse-live"></div>
+<span class="font-data-mono text-data-mono text-status-live uppercase tracking-widest text-[10px]">LIVE 72'</span>
+</div>
+<div class="font-display-lg text-display-lg text-primary-container flex gap-4">
+<span>2</span>
+<span class="text-surface-variant">-</span>
+<span>1</span>
+</div>
+</div>
+<!-- Team 2 -->
+<div class="flex flex-col items-center flex-1">
+<img class="w-16 h-16 rounded-full object-cover border-2 border-surface-variant mb-2 shadow-lg" data-alt="A high-quality, circular digital rendering of the Mexico flag. The design is flat and modern, optimized for a dark-mode mobile UI, representing the Mexico national team." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4ZB2ZI5Bjg1du1SEzeD-KVjh5G-8UwPUGVPTpQtTXtH95rl4YuaKjdHVaTu-n8YAo96r_FhE0YZQPC7QzGDK3TKMZZb36i6IxMoBC7mCXkI4IPVfOl4T2lnqtFrS22Snxy_qhP-DpKbO1ERYI-oifp4bd6BRCRlJ_KNJMHzPXKpmPBjYhjLOXw7xQmahiz8YKIKVprrNGDIINO3P_X5B3ZJpoQ-jJ042Mejtzt2MOyM8ThzccB003wVNQ8npPnVvE5O9TC8JBGu_M"/>
+<span class="font-label-caps text-label-caps text-on-surface uppercase">MEXICO</span>
+</div>
+</div>
+</section>
+<!-- Odds Ticker Marquee -->
+<div class="bg-card-surface rounded-lg py-2 px-md border-y border-surface-variant marquee-container">
+<div class="marquee-content font-data-mono text-data-mono text-primary flex gap-8">
+<span>USA WIN: <span class="text-on-surface">1.45</span></span>
+<span>DRAW: <span class="text-on-surface">3.80</span></span>
+<span>MEX WIN: <span class="text-on-surface">5.20</span></span>
+<span>O/U 2.5: <span class="text-on-surface">OVER 1.90</span></span>
+</div>
+</div>
+<!-- Conviction Gauge -->
+<section class="bg-card-surface rounded-2xl p-md card-border-accent flex flex-col gap-sm">
+<h2 class="font-headline-sm text-headline-sm text-on-surface uppercase border-b border-surface-variant pb-2">Engine Conviction</h2>
+<div class="flex justify-center items-center py-4 relative h-32">
+<!-- SVG Semi-circle Gauge -->
+<svg class="w-full max-w-[200px] h-auto overflow-visible absolute bottom-0" viewbox="0 0 100 50">
+<path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="theme('colors.surface-variant')" stroke-linecap="round" stroke-width="8"></path>
+<path class="transition-all duration-1000" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="theme('colors.primary-container')" stroke-dasharray="125.6" stroke-dashoffset="31.4" stroke-linecap="round" stroke-width="8"></path>
+</svg>
+<div class="absolute bottom-2 flex flex-col items-center">
+<span class="font-display-lg text-headline-lg-mobile text-primary">75%</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">High Confidence</span>
+</div>
+</div>
+</section>
+<!-- Outcome Decomposition Table -->
+<section class="bg-card-surface rounded-2xl p-md card-border-accent flex flex-col gap-sm">
+<h2 class="font-headline-sm text-headline-sm text-on-surface uppercase border-b border-surface-variant pb-2">Outcome Decomposition</h2>
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-surface-variant text-on-surface-variant font-label-caps text-label-caps uppercase">
+<th class="py-2 px-1 font-semibold">Outcome</th>
+<th class="py-2 px-1 font-semibold text-right">pi_tx</th>
+<th class="py-2 px-1 font-semibold text-right">pi_model</th>
+</tr>
+</thead>
+<tbody class="font-data-mono text-data-mono">
+<tr class="border-b border-surface-variant/50 hover:bg-surface-variant/20">
+<td class="py-3 px-1 text-on-surface">Home Win</td>
+<td class="py-3 px-1 text-right text-primary">0.65</td>
+<td class="py-3 px-1 text-right text-on-surface-variant">0.68</td>
+</tr>
+<tr class="border-b border-surface-variant/50 hover:bg-surface-variant/20 bg-surface-dim/30">
+<td class="py-3 px-1 text-on-surface">Draw</td>
+<td class="py-3 px-1 text-right text-primary">0.20</td>
+<td class="py-3 px-1 text-right text-on-surface-variant">0.18</td>
+</tr>
+<tr class="hover:bg-surface-variant/20">
+<td class="py-3 px-1 text-on-surface">Away Win</td>
+<td class="py-3 px-1 text-right text-primary">0.15</td>
+<td class="py-3 px-1 text-right text-on-surface-variant">0.14</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Merkle Settlement Proof Panel -->
+<section class="bg-surface-container-high rounded-2xl p-md border border-surface-variant flex flex-col gap-xs mt-lg mb-xl">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">security</span>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Merkle Settlement Proof</h3>
+</div>
+<div class="bg-surface-lowest p-sm rounded bg-black/40 overflow-x-auto">
+<p class="font-data-mono text-[10px] leading-tight text-on-surface opacity-70 mb-2 whitespace-nowrap">
+                    ROOT: 0x8f2a9b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a
+                </p>
+<p class="font-data-mono text-[10px] leading-tight text-on-surface opacity-50 whitespace-nowrap">
+                    TX_HASH: 0x3e4f...7c8d
+                </p>
+<p class="font-data-mono text-[10px] leading-tight text-on-surface opacity-50 whitespace-nowrap mt-1">
+                    STATE: CONFIRMED_L2
+                </p>
+</div>
+</section>
+</main>
+<!-- Footer Component from JSON -->
+<footer class="bg-surface dark:bg-surface full-width mb-safe flex flex-col items-center justify-center py-xl px-md opacity-60 mt-auto border-t border-surface-variant">
+<div class="font-data-mono text-data-mono text-primary mb-2 text-center uppercase tracking-widest">Powered by TxODDS</div>
+<div class="flex gap-4">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:underline" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:underline" href="#">Terms of Service</a>
+</div>
+</footer>
+</body></html>

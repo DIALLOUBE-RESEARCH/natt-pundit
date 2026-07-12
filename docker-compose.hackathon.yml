@@ -1,0 +1,49 @@
+services:
+  txline-gateway:
+    build:
+      context: .
+      dockerfile: services/txline-gateway/Dockerfile
+    ports:
+      - "4001:4001"
+    environment:
+      PORT: "4001"
+      TXODDS_MOCK: "${TXODDS_MOCK:-false}"
+      TXLINE_API_TOKEN: "${TXLINE_API_TOKEN:-}"
+      CORS_ORIGIN: "${CORS_ORIGIN:-https://hypernatt.com}"
+      FIXTURE_STORE_PATH: "/data/fixtures-store.json"
+    volumes:
+      - natt_pundit_data:/data
+
+  edge-api:
+    build:
+      context: .
+      dockerfile: services/edge-api/Dockerfile
+    ports:
+      - "4002:4002"
+    environment:
+      PORT: "4002"
+      TXLINE_GATEWAY_URL: "http://txline-gateway:4001"
+      CORS_ORIGIN: "${CORS_ORIGIN:-https://hypernatt.com}"
+      DATA_LOG_DIR: "/data"
+    volumes:
+      - natt_pundit_logs:/data
+    depends_on:
+      - txline-gateway
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      args:
+        NEXT_PUBLIC_TXLINE_GATEWAY_URL: "${NEXT_PUBLIC_TXLINE_GATEWAY_URL:-https://hypernatt.com/api/natt-pundit/txline}"
+        NEXT_PUBLIC_EDGE_API_URL: "${NEXT_PUBLIC_EDGE_API_URL:-https://hypernatt.com/api/natt-pundit/edge}"
+        NEXT_PUBLIC_BASE_PATH: "${NEXT_PUBLIC_BASE_PATH:-/fr/nattpundit}"
+    ports:
+      - "3010:3000"
+    depends_on:
+      - txline-gateway
+      - edge-api
+
+volumes:
+  natt_pundit_data:
+  natt_pundit_logs:

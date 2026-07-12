@@ -1,0 +1,38 @@
+{
+  "name": "@natt-pundit/natt-core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./escrow_pool_mode": {
+      "types": "./dist/escrow_pool_mode.d.ts",
+      "import": "./dist/escrow_pool_mode.js"
+    },
+    "./fan_bet_status": {
+      "types": "./dist/fan_bet_status.d.ts",
+      "import": "./dist/fan_bet_status.js"
+    },
+    "./wcMatchRules": {
+      "types": "./dist/wcMatchRules.d.ts",
+      "import": "./dist/wcMatchRules.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@natt-pundit/contracts": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.9"
+  }
+}

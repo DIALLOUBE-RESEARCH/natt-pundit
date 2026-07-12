@@ -1,0 +1,37 @@
+{
+  "projectId": "11054509379967306836",
+  "title": "Natt Settlement 2026-06-30",
+  "modelId": "GEMINI_3_PRO",
+  "designSystem": {
+    "colorMode": "DARK",
+    "theme": {
+      "primary": "#C8A951",
+      "secondary": "#1D428A",
+      "background": "#0A0A0A",
+      "surface": "#141C32",
+      "onBackground": "#FFFFFF",
+      "onSurface": "#FFFFFF"
+    },
+    "typography": {
+      "display": "Barlow Condensed",
+      "body": "Inter",
+      "mono": "JetBrains Mono"
+    }
+  },
+  "screens": [
+    {
+      "slug": "home",
+      "screenId": "87fdbfdb61094313b3ad84e6afa2736f",
+      "device": "MOBILE",
+      "htmlBytes": 21196,
+      "imgBytes": 61725
+    },
+    {
+      "slug": "match",
+      "screenId": "60cf6eddf00946c093a03831a2420995",
+      "device": "MOBILE",
+      "htmlBytes": 15557,
+      "imgBytes": 36399
+    }
+  ]
+}

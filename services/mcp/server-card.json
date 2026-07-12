@@ -1,0 +1,51 @@
+{
+  "serverInfo": {
+    "name": "natt-pundit",
+    "title": "Natt Pundit — TxLINE World Cup MCP",
+    "version": "0.3.4",
+    "description": "TxLINE WC data + SETUP/HOLD edge + Data Lab CLV + Merkle proofs + autonomous agent escrow loop (edge-gated deposits). Public access — no OAuth.",
+    "homepage": "https://hypernatt.com/fr/nattpundit",
+    "transport": {
+      "type": "streamable-http",
+      "url": "https://hypernatt.com/mcp-pundit/protocol"
+    }
+  },
+  "authentication": {
+    "required": false,
+    "type": "public",
+    "oauth": false,
+    "note": "No user OAuth. Call get_pundit_manifest first."
+  },
+  "agentWorkflow": {
+    "first_tool": "get_pundit_manifest",
+    "steps": [
+      "get_pundit_manifest",
+      "get_clv_verdict",
+      "get_wc_fixtures",
+      "get_fixture_agent_status",
+      "get_match_edge / get_match_odds / get_live_scores"
+    ]
+  },
+  "tools": [
+    { "name": "get_pundit_manifest", "description": "CALL FIRST — discovery + agent betting policy.", "pricing": "free" },
+    { "name": "get_wc_fixtures", "description": "World Cup fixtures (fixture_id).", "pricing": "free" },
+    { "name": "get_settlement_proof", "description": "Merkle proof.", "pricing": "free" },
+    { "name": "verify_settlement_proof", "description": "Verify proof.", "pricing": "free" },
+    { "name": "get_clv_verdict", "description": "Data Lab CLV certification gate.", "pricing": "free" },
+    { "name": "get_data_lab_index", "description": "JSONL stream stats (odds/edge/ticks).", "pricing": "free" },
+    { "name": "get_escrow_pool", "description": "Escrow pool state devnet.", "pricing": "free" },
+    { "name": "get_fixture_agent_status", "description": "Analysis + edge + CLV gate; wallet optional.", "pricing": "free" },
+    { "name": "build_escrow_create_pool_tx", "description": "Unsigned create pool tx.", "pricing": "free" },
+    { "name": "build_escrow_claim_tx", "description": "Unsigned claim tx.", "pricing": "free" },
+    { "name": "build_escrow_refund_tx", "description": "Unsigned refund (unmatched pool).", "pricing": "free" },
+    { "name": "build_escrow_refund_all_tx", "description": "Unsigned refund (void winning issue).", "pricing": "free" },
+    { "name": "submit_signed_escrow_tx", "description": "Broadcast signed tx devnet.", "pricing": "free" },
+    { "name": "get_match_edge", "description": "SETUP/HOLD edge.", "pricing": { "usdc": 0.01, "network": "solana-devnet", "bypass": "devnet_open_access" } },
+    { "name": "get_edge_summary", "description": "Edge board.", "pricing": { "usdc": 0.01, "network": "solana-devnet", "bypass": "devnet_open_access" } },
+    { "name": "get_match_odds", "description": "1X2 odds.", "pricing": { "usdc": 0.01, "network": "solana-devnet", "bypass": "devnet_open_access" } },
+    { "name": "get_live_scores", "description": "Live scores.", "pricing": { "usdc": 0.01, "network": "solana-devnet", "bypass": "devnet_open_access" } },
+    { "name": "build_escrow_deposit_tx", "description": "Unsigned deposit tx (respect deposit_policy).", "pricing": { "usdc": 0.01, "network": "solana-devnet", "bypass": "devnet_open_access" } },
+    { "name": "get_cpi_settle_args", "description": "TxLINE CPI args.", "pricing": { "usdc": 0.01, "network": "solana-devnet", "bypass": "devnet_open_access" } },
+    { "name": "build_escrow_settle_tx", "description": "Unsigned settle tx.", "pricing": { "usdc": 0.01, "network": "solana-devnet", "bypass": "devnet_open_access" } }
+  ]
+}

@@ -1,0 +1,4541 @@
+/**
+ * F67N — Stitch light glass tokens (Google Stitch dossier + mockup v2)
+ */
+
+:root {
+  --stitch-light-page: #ffffff;
+  --stitch-light-page-bottom: #f8fafc;
+  --stitch-light-text: #0f172a;
+  --stitch-light-text-secondary: #475569;
+  --stitch-light-text-muted: #94a3b8;
+
+  --stitch-glass-blur: 25px;
+  --stitch-card-glass-blur: 0px;
+  --stitch-card-stadium-blur: 2px;
+  --stitch-card-stadium-opacity: 0.55;
+  --stitch-gold-bet: #facc15;
+  --stitch-live-green: #10b981;
+  --stitch-glass-saturate: 180%;
+  --stitch-glass-brightness: 1.1;
+  --stitch-glass-fill: rgba(255, 255, 255, 0.22);
+  --stitch-glass-border: rgba(255, 255, 255, 0.45);
+  --stitch-glass-radius-squircle: 32px;
+  --stitch-glass-radius-pill: 999px;
+
+  --stitch-btn-agent-bg: rgba(30, 58, 138, 0.05);
+  --stitch-btn-agent-border: rgba(30, 58, 138, 0.15);
+  --stitch-btn-agent-text: #1e3a8a;
+  --stitch-btn-wallet-bg: rgba(153, 69, 255, 0.04);
+  --stitch-btn-wallet-border: rgba(153, 69, 255, 0.2);
+  --stitch-btn-wallet-text: #6366f1;
+
+  --stitch-tabbar-bg: rgba(255, 255, 255, 0.8);
+  --stitch-tab-active: #3b82f6;
+
+  /* Semantic surfaces — overridden in tokens-stitch-dark.css */
+  --stitch-surface-elevated: rgba(255, 255, 255, 0.78);
+  --stitch-surface-elevated-strong: rgba(255, 255, 255, 0.82);
+  --stitch-surface-elevated-soft: rgba(255, 255, 255, 0.55);
+  --stitch-surface-card-overlay: rgba(255, 255, 255, 0.14);
+  --stitch-surface-thumb: #ffffff;
+  --stitch-border-soft: rgba(15, 23, 42, 0.1);
+  --stitch-border-glass-strong: rgba(255, 255, 255, 0.72);
+  --stitch-border-glass: rgba(255, 255, 255, 0.68);
+  --stitch-border-glass-match: rgba(255, 255, 255, 0.55);
+  --stitch-shadow-soft: rgba(15, 23, 42, 0.12);
+  --stitch-shadow-medium: rgba(15, 23, 42, 0.16);
+  --stitch-inset-highlight: rgba(255, 255, 255, 0.95);
+  --stitch-link: #2563eb;
+  --stitch-accent-blue: #1e3a8a;
+  --stitch-accent-blue-soft: #93c5fd;
+  --stitch-error: #dc2626;
+  --stitch-success: #047857;
+  --stitch-success-emerald: #059669;
+  --stitch-pill-setup-text: #065f46;
+  --stitch-pill-bet-text: #422006;
+  --stitch-pill-setup-bg: rgba(209, 250, 229, 0.82);
+  --stitch-pill-setup-border: rgba(16, 185, 129, 0.45);
+  --stitch-pill-bet-bg: linear-gradient(180deg, rgba(254, 240, 138, 0.92) 0%, rgba(250, 204, 21, 0.82) 100%);
+  --stitch-pill-bet-border: rgba(234, 179, 8, 0.5);
+  --stitch-pill-hold-bg: rgba(255, 255, 255, 0.78);
+  --stitch-pill-finished-text: #000000;
+  --stitch-pill-finished-bg: #bbf7d0;
+  --stitch-pill-finished-border: #4ade80;
+  --stitch-pill-agent-bg: rgba(239, 246, 255, 0.84);
+  --stitch-pill-agent-border: rgba(30, 58, 138, 0.28);
+  --stitch-pill-wallet-bg: linear-gradient(180deg, rgba(237, 233, 254, 0.9) 0%, rgba(199, 210, 254, 0.78) 100%);
+  --stitch-pill-wallet-border: rgba(99, 102, 241, 0.38);
+  --stitch-pill-wallet-text: #4338ca;
+  --stitch-divider: rgba(255, 255, 255, 0.45);
+  --stitch-divider-subtle: rgba(148, 163, 184, 0.2);
+  --stitch-footer-muted: rgba(15, 23, 42, 0.4);
+  --stitch-settlement-label: rgba(15, 23, 42, 0.4);
+  --stitch-settlement-hr: rgba(255, 255, 255, 0.35);
+  --stitch-hero-fade-top: #ffffff;
+  --stitch-hero-fade-mid: rgba(255, 255, 255, 0.86);
+  --stitch-hero-fade-low: rgba(248, 250, 252, 0.5);
+  --stitch-hero-fade-fixed-1: rgba(255, 255, 255, 0.94);
+  --stitch-hero-fade-fixed-2: rgba(255, 255, 255, 0.82);
+  --stitch-hero-fade-fixed-3: rgba(248, 250, 252, 0.5);
+  --stitch-glass-surface: rgba(255, 255, 255, 0.4);
+  --stitch-glass-card-bg: rgba(255, 255, 255, 0.55);
+  --stitch-glass-card-border: rgba(255, 255, 255, 0.65);
+  --stitch-glass-card-shadow: rgba(15, 23, 42, 0.06);
+  --stitch-agent-overlay: rgba(248, 250, 252, 0.72);
+  --stitch-agent-modal-bg: rgba(255, 255, 255, 0.88);
+  --stitch-agent-modal-border: rgba(255, 255, 255, 0.72);
+  --stitch-agent-tabs-bg: rgba(255, 255, 255, 0.55);
+  --stitch-agent-tabs-border: rgba(15, 23, 42, 0.08);
+  --stitch-agent-thumb-bg: #ffffff;
+  --stitch-agent-thumb-border: rgba(30, 58, 138, 0.12);
+  --stitch-agent-primary-bg: rgba(239, 246, 255, 0.92);
+  --stitch-agent-primary-border: rgba(30, 58, 138, 0.28);
+  /* Escrow / proof legacy panels — dark globals.css gold/green remapped for light bg */
+  --stitch-escrow-accent: #92400e;
+  --stitch-escrow-accent-strong: #78350f;
+  --stitch-escrow-warn: #b45309;
+  --stitch-escrow-live: #047857;
+  --stitch-escrow-live-bright: #059669;
+  --stitch-escrow-pool-surface: rgba(241, 245, 249, 0.95);
+  --stitch-escrow-pool-border: rgba(100, 116, 139, 0.38);
+  --stitch-escrow-pool-bar-track: rgba(148, 163, 184, 0.35);
+  --stitch-escrow-pool-bar-fill: linear-gradient(90deg, #ca8a04, #eab308);
+  --stitch-agent-secondary-bg: rgba(255, 255, 255, 0.78);
+  --stitch-agent-secondary-border: rgba(15, 23, 42, 0.12);
+  --stitch-agent-banner-bg: rgba(148, 163, 184, 0.2);
+  --stitch-agent-banner-border: rgba(148, 163, 184, 0.35);
+  --stitch-progress-track: rgba(148, 163, 184, 0.25);
+  --stitch-flag-border: rgba(255, 255, 255, 0.85);
+  --stitch-docs-nav-bg: rgba(255, 255, 255, 0.5);
+  --stitch-docs-nav-border: rgba(148, 163, 184, 0.35);
+  --stitch-jury-select-bg: #ffffff;
+  --stitch-jury-select-border: rgba(148, 163, 184, 0.4);
+  --stitch-action-btn-bg: rgba(30, 58, 138, 0.08);
+  --stitch-action-btn-border: rgba(30, 58, 138, 0.2);
+  --stitch-doc-alert-bg: rgba(59, 130, 246, 0.1);
+  --stitch-doc-alert-border: rgba(59, 130, 246, 0.25);
+  --stitch-badge-wait-bg: rgba(148, 163, 184, 0.2);
+  --stitch-badge-wait-text: #475569;
+  --stitch-badge-ok-bg: rgba(16, 185, 129, 0.15);
+  --stitch-badge-ok-text: #047857;
+  --stitch-toggle-sun: #f59e0b;
+  --stitch-toggle-moon: #6366f1;
+  --stitch-toggle-icon-muted: #94a3b8;
+  --stitch-card-match-shadow: rgba(0, 0, 0, 0.05);
+  --stitch-glow-opacity: 0.5;
+
+  --stitch-glow-red: 255, 90, 90;
+  --stitch-glow-gold: 255, 200, 80;
+  --stitch-glow-blue: 80, 160, 255;
+  --stitch-glow-green: 80, 220, 160;
+
+  --stitch-font-display: Inter, -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+  --stitch-font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+
+  --stitch-column-max: 430px;
+  --stitch-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Doit couvrir la hauteur reelle de la tabbar (~62px) + son offset bottom:24px, sinon le
+     footer "Powered by TxODDS" se retrouve partiellement cache derriere la tabbar. */
+  --stitch-tabbar-clearance: calc(104px + env(safe-area-inset-bottom));
+  --stitch-mobile-header-h: calc(60px + env(safe-area-inset-top, 0px));
+}
+
+html.stitch-route,
+html.sandbox-route {
+  color-scheme: light;
+}
+
+html.stitch-route body,
+html.sandbox-route body {
+  background: var(--stitch-light-page-bottom) !important;
+}
+
+/* Fond plat = meme teinte que le bas du fondu herbe (evite la couture blanc / #f8fafc). */
+html.stitch-route .stitch-light-app,
+html.sandbox-route .stitch-light-app {
+  background: var(--stitch-light-page-bottom);
+}
+
+/* ── App shell ── */
+/* Sandbox shell — colonne pleine hauteur, 2 zones flex symetriques autour des cards */
+.stitch-light-app {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100dvh;
+  max-height: 100dvh;
+  min-height: 0;
+  width: 100%;
+  background: linear-gradient(180deg, var(--stitch-light-page) 0%, var(--stitch-light-page-bottom) 100%);
+  color: var(--stitch-light-text);
+  font-family: var(--stitch-font-display);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+.stitch-light-hero {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 28vh;
+  max-height: 300px;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.stitch-light-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 72%;
+  transform: scale(1.02);
+  filter: saturate(1.08) contrast(1.05) brightness(1.02);
+}
+
+.stitch-light-hero-fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    var(--stitch-hero-fade-fixed-1) 0%,
+    var(--stitch-hero-fade-fixed-2) 16%,
+    var(--stitch-hero-fade-fixed-3) 58%,
+    var(--stitch-light-page-bottom) 100%
+  );
+}
+
+/* Sandbox — header sticky (toujours visible), herbe + logo dans le scroll */
+.stitch-light-column--sandbox {
+  padding-top: 0;
+}
+
+.stitch-light-column--sandbox > .stitch-light-header {
+  position: sticky;
+  top: 0;
+  z-index: 35;
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: max(10px, calc(env(safe-area-inset-top, 0px) + 8px)) 14px 10px;
+  background: transparent;
+}
+
+/* Sandbox : aucune bande/bloc blanc derriere le header (toggle + boutons).
+   Le fondu header/herbe = .stitch-light-hero-fade sur Home/Matches uniquement. */
+.stitch-light-column--sandbox > .stitch-light-header::before {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.stitch-top-stage--grass {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  flex: 0 0 auto;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: clamp(140px, 22vh, 260px);
+  margin-top: -18px;
+  padding: 4px 0 6px;
+  background: var(--stitch-light-page-bottom);
+}
+
+.stitch-light-hero--stage {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.stitch-light-hero--stage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 72%;
+  transform: scale(1.02);
+  filter: saturate(1.08) contrast(1.05) brightness(1.02);
+}
+
+/* Fondu herbe : haut = page top, bas = page-bottom OPAQUE (meme hex que le fond scroll). */
+.stitch-light-hero--stage .stitch-light-hero-fade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to top,
+      var(--stitch-light-page-bottom) 0%,
+      var(--stitch-light-page-bottom) 24%,
+      transparent 64%
+    ),
+    linear-gradient(
+      180deg,
+      var(--stitch-light-page) 0%,
+      color-mix(in srgb, var(--stitch-light-page) 55%, transparent) 18%,
+      transparent 40%
+    );
+}
+
+.stitch-top-stage--grass .stitch-brand-zone--shell {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 88px;
+  padding: 0 16px 8px;
+  margin: 0;
+  background: transparent;
+}
+
+.stitch-light-ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.stitch-light-column {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: min(100%, var(--stitch-column-max));
+  max-width: var(--stitch-column-max);
+  margin-inline: auto;
+  align-self: center;
+  box-sizing: border-box;
+  height: 100dvh;
+  max-height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+  padding: max(18px, calc(env(safe-area-inset-top) + 12px)) 14px 0;
+}
+
+.stitch-light-header {
+  position: relative;
+  z-index: 3;
+  flex-shrink: 0;
+  margin-bottom: 0;
+}
+
+.stitch-light-header::before {
+  content: "";
+  position: absolute;
+  inset: -10px -14px 4px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(255, 255, 255, 0.55) 75%,
+    transparent 100%
+  );
+  border-radius: 0 0 24px 24px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --stitch-column-max: 560px;
+  }
+
+  .stitch-light-column {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .stitch-light-column--sandbox {
+    padding-top: 0;
+  }
+
+  .stitch-light-hero {
+    height: 34vh;
+    max-height: 380px;
+  }
+
+  .stitch-top-stage--grass {
+    min-height: clamp(160px, 26vh, 300px);
+  }
+
+  .stitch-light-hero-fade {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.72) 18%,
+      rgba(248, 250, 252, 0.42) 55%,
+      var(--stitch-light-page-bottom) 100%
+    );
+  }
+
+  /* Desktop/tablet : pas de flex-grow vertical (evite le vide geant) */
+  .stitch-brand-zone {
+    flex: 0 0 auto;
+    min-height: 0;
+    padding: 18px 0;
+  }
+
+  .stitch-brand-zone .stitch-brand-contest-logo,
+  .stitch-brand-zone .contest-logo {
+    width: min(280px, 48vw);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --stitch-column-max: 960px;
+  }
+
+  .stitch-light-column {
+    width: min(960px, calc(100% - 48px));
+    padding-top: 10px;
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .stitch-light-column--sandbox {
+    padding-top: 0;
+  }
+
+  .stitch-light-header {
+    width: 100%;
+    margin-bottom: -10px;
+  }
+
+  .stitch-light-hero {
+    height: 36vh;
+    max-height: 440px;
+  }
+
+  .stitch-top-stage--grass {
+    min-height: clamp(176px, 28vh, 340px);
+  }
+
+  .stitch-brand-zone {
+    flex: 0 0 auto;
+    min-height: 0;
+    padding: 0 0 14px;
+    margin-top: 0;
+    width: 100%;
+  }
+
+  .stitch-brand-zone .stitch-brand-contest-logo,
+  .stitch-brand-zone .contest-logo {
+    width: min(320px, 42vw);
+  }
+
+  .stitch-cards-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    align-items: start;
+    width: 100%;
+  }
+
+  .stitch-tabbar-wrap {
+    max-width: min(520px, calc(100% - 32px));
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --stitch-column-max: 1080px;
+  }
+
+  .stitch-light-column {
+    width: min(1080px, calc(100% - 64px));
+  }
+}
+
+/* ── Liquid glass base (Stitch snippet) ── */
+.stitch-liquid-glass {
+  backdrop-filter: blur(var(--stitch-glass-blur)) saturate(var(--stitch-glass-saturate))
+    brightness(var(--stitch-glass-brightness));
+  -webkit-backdrop-filter: blur(var(--stitch-glass-blur)) saturate(var(--stitch-glass-saturate))
+    brightness(var(--stitch-glass-brightness));
+  background: var(--stitch-glass-fill);
+  border: 0.8px solid var(--stitch-glass-border);
+  box-shadow:
+    inset 0 0 15px rgba(255, 255, 255, 0.3),
+    0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.stitch-glass {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255, 255, 255, 0.4);
+  border: 0.5px solid rgba(255, 255, 255, 0.6);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+/* ── Header controls ── */
+.stitch-theme-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 36px;
+  padding: 3px;
+  border: 0.8px solid rgba(15, 23, 42, 0.1);
+  border-radius: var(--stitch-glass-radius-pill);
+  background: var(--stitch-pill-hold-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow:
+    0 4px 16px rgba(15, 23, 42, 0.12),
+    0 1px 3px rgba(15, 23, 42, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition: box-shadow 0.22s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.stitch-theme-toggle:active {
+  transform: scale(0.98);
+}
+
+.stitch-theme-toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--stitch-surface-thumb);
+  box-shadow:
+    0 2px 10px rgba(15, 23, 42, 0.16),
+    0 0 0 0.5px rgba(15, 23, 42, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  transition: transform 0.42s cubic-bezier(0.32, 0.72, 0, 1);
+  will-change: transform;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.stitch-theme-toggle[data-mode="dark"] .stitch-theme-toggle-thumb {
+  transform: translateX(32px);
+}
+
+.stitch-theme-toggle-icon {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  color: var(--stitch-toggle-icon-muted);
+  pointer-events: none;
+  transition:
+    color 0.32s cubic-bezier(0.32, 0.72, 0, 1),
+    transform 0.42s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.stitch-theme-toggle[data-mode="light"] .stitch-theme-toggle-icon--sun {
+  color: var(--stitch-toggle-sun);
+  transform: scale(1.06);
+}
+
+.stitch-theme-toggle[data-mode="dark"] .stitch-theme-toggle-icon--moon {
+  color: var(--stitch-toggle-moon);
+  transform: scale(1.06);
+}
+
+.stitch-theme-toggle-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.stitch-theme-toggle-icon--sun svg {
+  stroke-width: 1.5;
+}
+
+.stitch-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+/* Header sandbox — une seule ligne mobile (toggle + pills + lang) */
+.stitch-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  width: 100%;
+  min-width: 0;
+}
+
+.stitch-btn-agent,
+.stitch-btn-wallet {
+  border-radius: var(--stitch-glass-radius-pill);
+  padding: 6px 10px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 150ms var(--stitch-ease);
+}
+
+.stitch-btn-agent {
+  background: var(--stitch-btn-agent-bg);
+  border: 1px solid var(--stitch-btn-agent-border);
+  color: var(--stitch-btn-agent-text);
+}
+
+.stitch-btn-wallet {
+  background: var(--stitch-btn-wallet-bg);
+  border: 1px solid var(--stitch-btn-wallet-border);
+  color: var(--stitch-btn-wallet-text);
+}
+
+.stitch-btn-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: var(--stitch-glass-radius-pill);
+  padding: 6px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  background: var(--stitch-surface-elevated);
+  border: 0.8px solid var(--stitch-border-soft);
+  color: var(--stitch-light-text-secondary);
+  cursor: pointer;
+  box-shadow:
+    0 4px 14px rgba(15, 23, 42, 0.1),
+    0 1px 3px rgba(15, 23, 42, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.lang-selector--stitch .lang-toggle-code {
+  letter-spacing: 0.06em;
+}
+
+.lang-toggle-chevron--stitch {
+  width: 10px;
+  height: 10px;
+  opacity: 0.7;
+  transition: transform 0.15s ease;
+}
+
+.lang-toggle-chevron--stitch.is-open {
+  transform: rotate(180deg);
+}
+
+.lang-menu-dropdown--stitch {
+  width: 11rem;
+  border-radius: 14px;
+  border: 0.8px solid var(--stitch-agent-modal-border);
+  background: var(--stitch-agent-modal-bg);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  box-shadow:
+    0 16px 40px rgba(15, 23, 42, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.lang-menu-item--stitch {
+  color: var(--stitch-light-text-secondary);
+  font-size: 0.78rem;
+}
+
+.lang-menu-item--stitch:hover {
+  background: rgba(59, 130, 246, 0.08);
+}
+
+.lang-menu-item--stitch.lang-menu-item--active {
+  background: rgba(59, 130, 246, 0.14);
+  color: var(--stitch-accent-blue);
+}
+
+/* Zone logo — centre entre boutons et cards (flex, cards intactes) */
+.stitch-brand-zone {
+  flex: 1 1 0;
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+}
+
+.stitch-brand-zone .stitch-brand-contest-logo,
+.stitch-brand-zone .contest-logo {
+  width: min(240px, 82vw);
+  height: auto;
+  object-fit: contain;
+}
+
+.stitch-brand-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.stitch-brand-row .stitch-brand-contest-logo,
+.stitch-brand-row .contest-logo {
+  width: min(240px, 82vw);
+  height: auto;
+  object-fit: contain;
+}
+
+.stitch-section-title {
+  margin: 20px 0 14px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--stitch-light-text);
+}
+
+/* ── Match cards — 1 seule couche glass (::after), pas de cadre empilé ── */
+.stitch-match-card {
+  position: relative;
+  border-radius: var(--stitch-glass-radius-squircle);
+  overflow: hidden;
+  isolation: isolate;
+  border: 0.8px solid var(--stitch-border-glass-match);
+  box-shadow: 0 12px 40px var(--stitch-card-match-shadow);
+}
+
+.stitch-match-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  /* 1 seul voile léger — pas de backdrop-filter (évite le double-glass) */
+  background: var(--stitch-surface-card-overlay);
+  pointer-events: none;
+}
+
+.stitch-match-card::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: calc(var(--stitch-glass-radius-squircle) + 3px);
+  z-index: -2;
+  opacity: 0.5;
+  filter: blur(14px);
+}
+
+.stitch-match-card--glow-red::before {
+  background: radial-gradient(ellipse at 25% 15%, rgba(var(--stitch-glow-red), 0.75), transparent 58%),
+    radial-gradient(ellipse at 85% 85%, rgba(var(--stitch-glow-gold), 0.35), transparent 52%);
+}
+
+.stitch-match-card--glow-gold::before {
+  background: radial-gradient(ellipse at 20% 25%, rgba(var(--stitch-glow-gold), 0.8), transparent 58%),
+    radial-gradient(ellipse at 80% 75%, rgba(var(--stitch-glow-red), 0.28), transparent 52%);
+}
+
+.stitch-match-card--glow-blue::before {
+  background: radial-gradient(ellipse at 22% 20%, rgba(var(--stitch-glow-blue), 0.72), transparent 58%),
+    radial-gradient(ellipse at 78% 80%, rgba(var(--stitch-glow-green), 0.32), transparent 52%);
+}
+
+.stitch-match-card--glow-green::before {
+  background: radial-gradient(ellipse at 28% 18%, rgba(var(--stitch-glow-green), 0.68), transparent 58%),
+    radial-gradient(ellipse at 82% 82%, rgba(var(--stitch-glow-blue), 0.3), transparent 52%);
+}
+
+.stitch-card-stadium-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(var(--stitch-card-stadium-blur)) saturate(1.1) brightness(1.02);
+  transform: scale(1.04);
+  opacity: var(--stitch-card-stadium-opacity);
+}
+
+.stitch-card-inner {
+  position: relative;
+  z-index: 2;
+  padding: 12px 14px 10px;
+}
+
+.stitch-card-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 20px;
+  margin-bottom: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text);
+}
+
+.stitch-card-stadium {
+  max-width: calc(100% - 32px);
+  text-align: center;
+}
+
+.stitch-card-star {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 17px;
+  line-height: 1;
+  color: var(--stitch-light-text);
+  flex-shrink: 0;
+}
+
+button.stitch-card-star {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: var(--stitch-light-text);
+  transition:
+    color var(--duration-fast, 0.15s) ease-out,
+    transform var(--duration-fast, 0.15s) ease-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  button.stitch-card-star:hover:not(.stitch-card-star--active) {
+    color: var(--stitch-gold-bet);
+    transform: scale(1.08);
+  }
+}
+
+button.stitch-card-star.stitch-card-star--active {
+  color: var(--stitch-gold-bet);
+}
+
+.stitch-card-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stitch-card-flags {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.stitch-flag-circle .team-flag-wrap--circle {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  max-width: 44px !important;
+  max-height: 44px !important;
+  flex: 0 0 44px !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
+  box-shadow:
+    0 4px 12px rgba(15, 23, 42, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
+}
+
+.stitch-flag-circle {
+  position: relative;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+}
+
+.stitch-vs {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text);
+  padding: 0 2px;
+}
+
+.stitch-card-divider {
+  width: 1px;
+  align-self: stretch;
+  min-height: 52px;
+  background: var(--stitch-divider);
+  flex-shrink: 0;
+}
+
+.stitch-card-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  padding: 0 4px;
+}
+
+.stitch-card-date {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text);
+}
+
+.stitch-card-score {
+  font-family: var(--stitch-font-mono);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--stitch-light-text);
+  margin: 2px 0;
+  white-space: nowrap;
+}
+
+.stitch-card-status {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text);
+}
+
+.stitch-live-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  padding: 3px 9px;
+  border-radius: var(--stitch-glass-radius-pill);
+  font-family: var(--stitch-font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #fff;
+  background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+  border: 0.8px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 3px 12px rgba(16, 185, 129, 0.4),
+    0 1px 3px rgba(15, 23, 42, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.stitch-card-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  width: 108px;
+  flex-shrink: 0;
+}
+
+/* ── Liquid Glass pills — même recette que .stitch-theme-toggle (visible) ── */
+.stitch-lg-pill {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  min-height: 34px;
+  padding: 0 10px;
+  border: 0.8px solid rgba(255, 255, 255, 0.68);
+  border-radius: var(--stitch-glass-radius-pill);
+  overflow: hidden;
+  cursor: default;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background: var(--stitch-pill-hold-bg);
+  backdrop-filter: blur(24px) saturate(185%) brightness(1.06);
+  -webkit-backdrop-filter: blur(24px) saturate(185%) brightness(1.06);
+  box-shadow:
+    0 4px 16px rgba(15, 23, 42, 0.14),
+    0 1px 3px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 2px rgba(15, 23, 42, 0.05);
+  transition:
+    box-shadow 0.22s cubic-bezier(0.32, 0.72, 0, 1),
+    transform 150ms var(--stitch-ease);
+}
+
+@supports (backdrop-filter: url("#stitch-lg-refract-pill")) {
+  .stitch-lg-pill--header {
+    backdrop-filter: blur(20px) saturate(190%) brightness(1.06) url(#stitch-lg-refract-pill);
+    -webkit-backdrop-filter: blur(20px) saturate(190%) brightness(1.06) url(#stitch-lg-refract-pill);
+  }
+}
+
+/* Dans les cards : pills opaques — PAS de backdrop/refract sur le stade */
+.stitch-match-card .stitch-lg-pill {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.stitch-match-card .stitch-lg-pill::before,
+.stitch-match-card .stitch-lg-pill::after {
+  display: none;
+}
+
+.stitch-lg-pill--bet {
+  cursor: pointer;
+  background: var(--stitch-pill-bet-bg);
+  border-color: var(--stitch-pill-bet-border);
+  box-shadow:
+    0 4px 16px rgba(234, 179, 8, 0.32),
+    0 1px 3px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -1px 2px rgba(180, 120, 0, 0.12);
+}
+
+.stitch-lg-pill--setup {
+  background: var(--stitch-pill-setup-bg);
+  border-color: var(--stitch-pill-setup-border);
+}
+
+.stitch-lg-pill--bet:hover {
+  box-shadow:
+    0 6px 20px rgba(234, 179, 8, 0.38),
+    0 2px 6px rgba(15, 23, 42, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -1px 2px rgba(180, 120, 0, 0.14);
+}
+
+.stitch-lg-pill--bet:active {
+  transform: scale(0.97);
+}
+
+.stitch-lg-pill__effect {
+  display: none;
+}
+
+.stitch-lg-pill__tint {
+  display: none;
+}
+
+.stitch-lg-pill__shine {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    inset 0 2px 6px -2px rgba(255, 255, 255, 0.95),
+    inset 0 -2px 5px -2px rgba(15, 23, 42, 0.07);
+}
+
+.stitch-lg-pill__content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.stitch-lg-pill--finished {
+  background: var(--stitch-pill-finished-bg);
+  border-color: var(--stitch-pill-finished-border);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow:
+    0 2px 8px rgba(16, 185, 129, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  cursor: default;
+}
+
+.stitch-lg-pill--finished .stitch-lg-pill__shine {
+  display: none;
+}
+
+.stitch-lg-pill--finished .stitch-lg-pill__content,
+.stitch-lg-pill--finished .stitch-lg-pill-val {
+  color: var(--stitch-pill-finished-text);
+  font-weight: 800;
+}
+
+.stitch-match-card .stitch-lg-pill--hold .stitch-lg-pill__content {
+  font-size: 8px;
+  letter-spacing: 0.04em;
+}
+
+.stitch-lg-pill--hold .stitch-lg-pill__content,
+.stitch-lg-pill--hold .stitch-lg-pill-val {
+  color: var(--stitch-light-text);
+  font-family: var(--stitch-font-mono);
+}
+
+.stitch-lg-pill--setup .stitch-lg-pill__content,
+.stitch-lg-pill--setup .stitch-lg-pill-val {
+  color: var(--stitch-pill-setup-text);
+  font-family: var(--stitch-font-mono);
+}
+
+.stitch-lg-pill--bet .stitch-lg-pill__content {
+  color: var(--stitch-pill-bet-text);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.stitch-lg-pill--header {
+  width: auto;
+  min-height: 32px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.stitch-lg-pill--agent {
+  background: var(--stitch-pill-agent-bg);
+  border-color: var(--stitch-pill-agent-border);
+}
+
+.stitch-lg-pill--agent .stitch-lg-pill__content {
+  color: var(--stitch-accent-blue);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.stitch-lg-pill--wallet {
+  background: var(--stitch-pill-wallet-bg);
+  border-color: var(--stitch-pill-wallet-border);
+}
+
+.stitch-lg-pill--wallet .stitch-lg-pill__content {
+  color: var(--stitch-pill-wallet-text);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.stitch-lg-pill--header:active {
+  transform: scale(0.97);
+}
+
+.stitch-lg-pill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/feTurbulence%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+.stitch-lg-pill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.28s ease;
+  background: radial-gradient(
+    90px circle at var(--lg-mx, 50%) var(--lg-my, 28%),
+    rgba(255, 255, 255, 0.22),
+    rgba(255, 255, 255, 0.06) 42%,
+    transparent 72%
+  );
+  mix-blend-mode: soft-light;
+}
+
+.stitch-lg-pill:hover::after {
+  opacity: 1;
+}
+
+.stitch-lg-pill-val {
+  font-family: var(--stitch-font-mono);
+  font-weight: 600;
+}
+
+.stitch-upcoming {
+  align-self: center;
+  text-align: center;
+  width: 100%;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text);
+  margin-top: -2px;
+}
+
+.stitch-finished {
+  align-self: center;
+  text-align: center;
+  width: 100%;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text-muted);
+  margin-top: -2px;
+}
+
+.stitch-card-settlement {
+  margin-top: 10px;
+  padding-top: 8px;
+}
+
+.stitch-card-settlement hr {
+  border: none;
+  height: 1px;
+  background: var(--stitch-settlement-hr);
+  margin: 0 0 8px;
+}
+
+.stitch-settlement-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.stitch-settlement-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+}
+
+.stitch-settlement-label {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stitch-settlement-label);
+}
+
+.stitch-settlement-val {
+  font-family: var(--stitch-font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--stitch-light-text);
+}
+
+/* Mobile / tablet : liste verticale — detail dans bloc mobile en fin de fichier */
+
+/* Powered by TxODDS — fin de scroll de chaque onglet, au-dessus du tab bar */
+.stitch-panel-footer {
+  flex: 0 0 auto;
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0 0;
+  padding: 8px 0 var(--stitch-tabbar-clearance);
+  width: 100%;
+}
+
+.stitch-panel-footer .powered-by-txodds {
+  margin-top: 0;
+  padding: 0;
+  border-top: none;
+  background: none;
+}
+
+.stitch-panel-footer .powered-by-txodds-link {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--stitch-light-text-muted);
+}
+
+.stitch-panel-footer .powered-by-txodds-link:hover {
+  color: var(--stitch-light-text);
+}
+
+.stitch-panel-footer .powered-by-label {
+  color: var(--stitch-toggle-icon-muted);
+  font-size: 0.52rem;
+  letter-spacing: 0.16em;
+  white-space: nowrap;
+}
+
+.stitch-panel-footer .powered-by-brand-row {
+  gap: 0.35rem;
+}
+
+.stitch-panel-footer .powered-by-logo {
+  filter: none;
+  height: 20px !important;
+  width: auto !important;
+}
+
+.stitch-panel-footer .txodds-wordmark {
+  color: var(--stitch-light-text);
+  font-size: 0.92rem;
+  white-space: nowrap;
+}
+
+/* globals.css legacy hover uses white wordmark — invisible on light stitch background */
+.stitch-panel-footer .powered-by-txodds-link:hover .txodds-wordmark,
+.stitch-panel-footer .powered-by-txodds-link:active .txodds-wordmark,
+.stitch-panel-footer .powered-by-txodds-link:focus-visible .txodds-wordmark {
+  color: var(--stitch-light-text);
+}
+
+.stitch-brand-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.stitch-brand-link:hover {
+  opacity: 0.88;
+}
+
+.stitch-brand-link:active {
+  transform: scale(0.98);
+}
+
+.stitch-brand-link:focus-visible {
+  outline: 2px solid var(--stitch-accent-blue);
+  outline-offset: 4px;
+}
+
+/* ── Floating tab bar — liquid glass pill ── */
+.stitch-tabbar-wrap {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  width: calc(100% - 32px);
+  max-width: calc(var(--stitch-column-max) - 24px);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.stitch-tabbar.stitch-lg-glass-bar {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0.8px solid var(--stitch-border-glass-strong);
+  border-radius: var(--stitch-glass-radius-pill);
+  overflow: hidden;
+  background: var(--stitch-surface-elevated-strong);
+  backdrop-filter: blur(28px) saturate(190%) brightness(1.05);
+  -webkit-backdrop-filter: blur(28px) saturate(190%) brightness(1.05);
+  box-shadow:
+    0 8px 28px rgba(15, 23, 42, 0.16),
+    0 2px 6px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 2px rgba(15, 23, 42, 0.05);
+  cursor: default;
+}
+
+.stitch-tabbar.stitch-lg-glass-bar .stitch-lg-pill__shine {
+  border-radius: inherit;
+}
+
+.stitch-tabbar-inner {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  width: 100%;
+  padding: 8px 10px;
+  position: relative;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+.stitch-tabbar-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 0;
+  min-width: 0;
+  gap: 2px;
+  padding: 4px 4px 6px;
+  border: none;
+  background: transparent;
+  color: var(--stitch-light-text-muted);
+  font-size: 9px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 200ms var(--stitch-ease);
+}
+
+.stitch-tabbar-item--active {
+  color: var(--stitch-tab-active);
+}
+
+.stitch-tabbar-item svg {
+  width: 22px;
+  height: 22px;
+}
+
+.stitch-tabbar-dot {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--stitch-tab-active);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .stitch-lg-pill::after,
+  .stitch-lg-pill:hover::after {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .stitch-liquid-glass,
+  .stitch-match-card::after,
+  .stitch-tabbar,
+  .stitch-lg-glass-bar,
+  .stitch-glass,
+  .stitch-theme-toggle,
+  .stitch-light-header::before,
+  .stitch-lg-pill__effect {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .stitch-match-card::after {
+    background: rgba(255, 255, 255, 0.94);
+  }
+
+  .stitch-lg-pill--hold .stitch-lg-pill__tint {
+    background: rgba(255, 255, 255, 0.94);
+  }
+
+  .stitch-lg-pill--bet .stitch-lg-pill__tint {
+    background: rgba(250, 204, 21, 0.88);
+  }
+
+  .stitch-lg-pill--setup .stitch-lg-pill__tint {
+    background: rgba(16, 185, 129, 0.35);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stitch-tabbar-item,
+  .stitch-lg-pill,
+  .stitch-lg-pill::after,
+  .stitch-theme-toggle-thumb,
+  .stitch-theme-toggle-icon,
+  .stitch-theme-toggle {
+    transition: none;
+  }
+
+  .stitch-theme-toggle:active {
+    transform: none;
+  }
+
+  .stitch-lg-pill--bet:active,
+  .stitch-lg-pill--header:active {
+    transform: none;
+  }
+}
+
+/* ── Dev overlay: full mockup PNG at 430px ── */
+.stitch-mockup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.5;
+  background: center top / min(430px, 100vw) auto no-repeat;
+}
+
+/*
+ * Mobile reel (<1024px) — viewport verrouille + colonne pleine largeur.
+ * BUG iOS : align-items:center sur .stitch-light-app compressait la colonne
+ * (flex-shrink) → cards ecrasees. Scroll sur la colonne, pas sur cards-list.
+ * Desktop >=1024px : non impacte.
+ */
+@media (max-width: 1023px) {
+  .stitch-light-app {
+    align-items: stretch;
+    min-height: 0;
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
+    overscroll-behavior: contain;
+  }
+
+  .stitch-light-column {
+    flex: 1 1 auto;
+    flex-shrink: 0;
+    align-self: stretch;
+    width: 100%;
+    max-width: 100%;
+    min-height: 0;
+    min-width: 0;
+    height: 100%;
+    max-height: 100%;
+    margin-inline: 0;
+    overflow: hidden;
+    padding-top: 0;
+    padding-left: max(14px, env(safe-area-inset-left, 0px));
+    padding-right: max(14px, env(safe-area-inset-right, 0px));
+    padding-bottom: 0;
+  }
+
+  .stitch-light-column--sandbox {
+    padding-top: 0;
+    padding-left: max(14px, env(safe-area-inset-left, 0px));
+    padding-right: max(14px, env(safe-area-inset-right, 0px));
+  }
+
+  /* position:fixed (pas seulement sticky) : garantit que le header (toggle jour/nuit,
+     Connect Agent/Wallet, langue) reste TOUJOURS visible au scroll, meme si le
+     viewport mobile reel (barre d'adresse dynamique) casse le calcul 100dvh et
+     provoque un scroll de page plutot qu'un scroll interne du seul tab-content. */
+  .stitch-light-column--sandbox > .stitch-light-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 50;
+    padding: max(10px, calc(env(safe-area-inset-top, 0px) + 8px))
+      max(14px, env(safe-area-inset-right, 0px)) 10px
+      max(14px, env(safe-area-inset-left, 0px));
+  }
+
+  /* Header fixed = sorti du flux : on reserve sa hauteur en haut du contenu scrollable.
+     Le bloc herbe garde son leger tuck -18px (regle de base, pas d'override ici) pour
+     le fondu au niveau de la couture header/herbe, SANS remonter de toute la hauteur du
+     header (sinon le logo centre dans le bloc se retrouve cache derriere le header, et
+     tout ce qui suit — cartes matches — se decale de facon incoherente). */
+  .stitch-light-column--sandbox .stitch-tab-content {
+    padding-top: var(--stitch-mobile-header-h);
+  }
+
+  .stitch-header-row {
+    position: relative;
+    z-index: 1;
+    flex-wrap: nowrap;
+    gap: 3px;
+  }
+
+  .stitch-header-actions {
+    flex: 1 1 0;
+    min-width: 0;
+    flex-wrap: nowrap;
+    gap: 3px;
+    justify-content: flex-end;
+  }
+
+  .stitch-header-actions .stitch-lg-pill--header {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    max-width: none;
+    padding: 6px 8px;
+    min-height: 32px;
+  }
+
+  .stitch-header-actions .stitch-lg-pill--agent .stitch-lg-pill__content,
+  .stitch-header-actions .stitch-lg-pill--wallet .stitch-lg-pill__content {
+    font-size: 9px;
+    white-space: nowrap;
+    letter-spacing: 0.03em;
+  }
+
+  .stitch-btn-lang {
+    flex: 0 0 auto;
+    padding: 6px 9px;
+  }
+
+  .stitch-theme-toggle {
+    flex: 0 0 auto;
+  }
+
+  .stitch-brand-zone {
+    flex: 0 0 auto;
+    min-height: 0;
+    width: 100%;
+    padding: 8px 8px 12px;
+  }
+
+  .stitch-cards-list {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    min-width: 0;
+    overflow: visible;
+  }
+
+  .stitch-match-card {
+    width: 100%;
+    min-width: 0;
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
+
+  .stitch-card-main {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .stitch-card-center {
+    flex: 1 1 auto;
+    min-width: 3.5rem;
+  }
+
+  .stitch-card-score {
+    font-size: clamp(0.9rem, 4.2vw, 1.15rem);
+  }
+
+  .stitch-card-actions {
+    width: 100px;
+  }
+
+  .stitch-panel-footer {
+    flex: 0 0 auto;
+    min-height: 0;
+    width: 100%;
+    padding-bottom: var(--stitch-tabbar-clearance);
+  }
+}
+
+/* ── F87N tab panels — scroll unique sur tab-content ── */
+.stitch-brand-zone--shell {
+  flex: 0 0 auto;
+  width: 100%;
+  padding: 0 8px 8px;
+  margin-top: 0;
+}
+
+.stitch-tab-content {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 0;
+}
+
+.stitch-tab-content::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.stitch-panel {
+  width: 100%;
+  min-width: 0;
+}
+
+.stitch-match-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  min-width: 0;
+}
+
+.stitch-home-hero {
+  text-align: center;
+  padding: 0 8px 16px;
+  width: 100%;
+}
+
+.stitch-home-kicker {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text-secondary);
+}
+
+.stitch-home-kicker--event {
+  color: var(--stitch-accent-blue);
+  margin-bottom: 6px;
+}
+
+.stitch-home-title {
+  margin: 8px 0 6px;
+  font-family: "Barlow Condensed", var(--stitch-font-display);
+  font-size: clamp(1.65rem, 7vw, 2rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+}
+
+.stitch-home-lead {
+  margin: 0 auto;
+  max-width: 36ch;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--stitch-light-text-secondary);
+}
+
+.stitch-section-label {
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text);
+  text-align: center;
+  width: 100%;
+}
+
+.stitch-featured-wrap {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.stitch-link-btn {
+  margin: 16px auto 8px;
+  display: block;
+  background: none;
+  border: none;
+  color: var(--stitch-link);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.stitch-panel-error {
+  color: var(--stitch-error);
+  font-size: 0.85rem;
+  margin: 8px 0;
+}
+
+.stitch-panel-empty {
+  color: var(--stitch-light-text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 24px 12px;
+}
+
+.stitch-jury-hint {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--stitch-light-text-muted);
+}
+
+.stitch-glass-card {
+  margin: 12px 0;
+  padding: 14px 16px;
+  border-radius: 20px;
+  background: var(--stitch-glass-card-bg);
+  border: 1px solid var(--stitch-glass-card-border);
+  box-shadow: 0 8px 24px var(--stitch-glass-card-shadow);
+}
+
+.stitch-glass-card h2 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.stitch-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.stitch-card-lead {
+  margin: 0 0 12px;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--stitch-light-text-secondary);
+}
+
+.stitch-badge {
+  flex-shrink: 0;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+.stitch-badge--ok {
+  background: var(--stitch-badge-ok-bg);
+  color: var(--stitch-badge-ok-text);
+}
+
+.stitch-badge--wait {
+  background: var(--stitch-badge-wait-bg);
+  color: var(--stitch-badge-wait-text);
+}
+
+.stitch-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.stitch-stat-label {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--stitch-light-text-muted);
+}
+
+.stitch-stat-value {
+  font-family: var(--stitch-font-mono);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.stitch-meta-line {
+  font-size: 0.78rem;
+  color: var(--stitch-light-text-muted);
+  margin: 6px 0 0;
+}
+
+.stitch-progress {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--stitch-progress-track);
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.stitch-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+  border-radius: inherit;
+}
+
+.stitch-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--stitch-action-btn-border);
+  background: var(--stitch-action-btn-bg);
+  color: var(--stitch-accent-blue);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.stitch-action-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.stitch-action-btn--link {
+  text-decoration: none;
+}
+
+.stitch-simple-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.stitch-simple-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--stitch-divider-subtle);
+  font-size: 0.82rem;
+}
+
+.stitch-simple-list--mono li span:last-child {
+  font-family: var(--stitch-font-mono);
+  font-size: 0.75rem;
+  color: var(--stitch-light-text-secondary);
+}
+
+.stitch-verdict {
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.stitch-verdict--setup {
+  color: var(--stitch-success-emerald);
+}
+
+.stitch-inline-link {
+  color: var(--stitch-link);
+}
+
+.stitch-panel--docs {
+  display: block;
+  width: 100%;
+}
+
+.stitch-docs-nav {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  flex-shrink: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.stitch-docs-nav-item {
+  flex: 0 0 auto;
+  border: 1px solid var(--stitch-docs-nav-border);
+  background: var(--stitch-docs-nav-bg);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--stitch-light-text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.stitch-docs-nav-item--active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+}
+
+.stitch-docs-scroll {
+  padding-right: 4px;
+  min-width: 0;
+}
+
+.stitch-panel--docs .stitch-docs-scroll {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.stitch-panel--docs .stitch-panel-footer {
+  margin-top: 32px;
+  width: 100%;
+  justify-content: center;
+  align-self: center;
+}
+
+.stitch-panel--docs .stitch-panel-footer .powered-by-txodds {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.stitch-panel--docs .stitch-panel-footer .powered-by-txodds-link {
+  justify-content: center;
+}
+
+.stitch-docs-intro {
+  margin-bottom: 16px;
+}
+
+.stitch-doc-section {
+  margin-bottom: 28px;
+  scroll-margin-top: 12px;
+}
+
+.stitch-doc-h2 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 0 0 10px;
+}
+
+.stitch-doc-h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 16px 0 8px;
+}
+
+.stitch-doc-p {
+  margin: 0 0 12px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--stitch-light-text-secondary);
+}
+
+.stitch-doc-ul {
+  margin: 0 0 12px;
+  padding-left: 1.2rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--stitch-light-text-secondary);
+}
+
+.stitch-doc-alert {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--stitch-doc-alert-bg);
+  border: 1px solid var(--stitch-doc-alert-border);
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.stitch-doc-code {
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  font-size: 12px;
+  line-height: 1.45;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.stitch-doc-link-row {
+  margin: 0 0 12px;
+}
+
+.stitch-doc-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1d4ed8;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.stitch-doc-link:hover {
+  color: #1e40af;
+}
+
+.stitch-jury-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.stitch-jury-lang {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: var(--stitch-light-text-secondary);
+}
+
+.stitch-jury-select {
+  border-radius: 10px;
+  border: 1px solid var(--stitch-jury-select-border);
+  padding: 8px 10px;
+  background: var(--stitch-jury-select-bg);
+  font-size: 0.85rem;
+}
+
+.stitch-jury-steps {
+  margin: 0 0 12px;
+  padding-left: 1.2rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--stitch-light-text-secondary);
+}
+
+.stitch-jury-steps li {
+  margin-bottom: 8px;
+}
+
+@media (min-width: 1024px) {
+  .stitch-panel--docs {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+    padding-bottom: var(--stitch-tabbar-clearance);
+  }
+
+  .stitch-docs-nav {
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+    max-height: calc(100dvh - var(--stitch-tabbar-clearance) - 80px);
+  }
+
+  .stitch-docs-nav-item {
+    text-align: left;
+    border-radius: 12px;
+  }
+
+  .stitch-panel--docs .stitch-docs-scroll {
+    padding-bottom: 8px;
+  }
+
+  .stitch-panel--docs .stitch-panel-footer {
+    padding-bottom: 0;
+  }
+}
+
+/* ── Mobile (<=1023px, meme portee que le header fixed) : le bloc herbe prenait
+   trop de hauteur pour rien. On le reduit et le logo World Cup Hackathon s'adapte
+   au nouvel espace disponible sans garder un vide inutile au-dessus des cartes.
+   Desktop (>=1024px) non touche — clamp desktop reste dans le bloc 1024px. ── */
+@media (max-width: 1023px) {
+  .stitch-top-stage--grass {
+    min-height: clamp(84px, 15vh, 150px);
+  }
+
+  /* Le calque image+fondu (stitch-light-hero--stage) heritait de
+     height: 28vh / max-height: 300px du .stitch-light-hero de base (fixed,
+     plein ecran ailleurs sur le site). Sur le sandbox mobile il est absolu
+     dans le bloc herbe : sans cette regle il debordait de ~120px SOUS le
+     bloc herbe reduit et recouvrait la 1ere card de match (fondu blanc au
+     premier plan). On le borne exactement a la hauteur du bloc herbe. */
+  .stitch-top-stage--grass .stitch-light-hero--stage {
+    height: clamp(84px, 15vh, 150px);
+    max-height: clamp(84px, 15vh, 150px);
+  }
+
+  .stitch-top-stage--grass .stitch-brand-zone--shell {
+    min-height: 56px;
+    padding: 0 12px 4px;
+  }
+
+  .stitch-top-stage--grass .stitch-brand-contest-logo,
+  .stitch-top-stage--grass .contest-logo {
+    width: min(190px, 66vw);
+  }
+}
+
+/* Mobile Home uniquement : reduire legerement les vides bas de page (card → CTA → TxODDS)
+   sans toucher hero/herbe/cards/tailles de texte. Matches et autres onglets inchanges. */
+@media (max-width: 1023px) {
+  .stitch-panel--home .stitch-home-hero {
+    padding-bottom: 12px;
+  }
+
+  /* Kicker TxODDS : 2 lignes sur mobile (ligne 1 = marque, ligne 2 = tagline). */
+  .stitch-panel--home .stitch-home-kicker--split {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    line-height: 1.25;
+  }
+
+  .stitch-panel--home .stitch-home-kicker--split .stitch-home-kicker-brand {
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .stitch-panel--home .stitch-home-kicker--split .stitch-home-kicker-sub {
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    font-size: 10px;
+    line-height: 1.2;
+    white-space: nowrap;
+    max-width: none;
+  }
+
+  .stitch-panel--home .stitch-featured-wrap {
+    margin-top: 6px;
+  }
+
+  .stitch-panel--home .stitch-section-label {
+    margin: 0 0 8px;
+  }
+
+  .stitch-panel--home .stitch-link-btn {
+    margin: 10px auto 4px;
+    padding: 4px 8px;
+  }
+
+  .stitch-panel--home .stitch-panel-footer {
+    margin-top: 6px;
+    padding: 4px 0 calc(92px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Desktop / tablet large : kicker TxODDS sur une seule ligne avec separateur. */
+@media (min-width: 1024px) {
+  .stitch-home-kicker--split .stitch-home-kicker-sub::before {
+    content: " · ";
+  }
+}
+
+/* ── F87N Stitch sandbox — Connect Agent modal (variant="stitch") ── */
+.stitch-agent-connect.agent-connect-overlay {
+  background: var(--stitch-agent-overlay);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+}
+
+.stitch-agent-connect .agent-connect-modal {
+  width: min(100%, 28rem);
+  max-height: min(90vh, 52rem);
+  padding: 16px 18px 18px;
+  border-radius: 24px;
+  border: 1px solid var(--stitch-agent-modal-border);
+  background: var(--stitch-agent-modal-bg);
+  backdrop-filter: blur(24px) saturate(180%) brightness(1.04);
+  -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.04);
+  box-shadow:
+    0 20px 48px rgba(15, 23, 42, 0.12),
+    0 4px 12px rgba(15, 23, 42, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  color: var(--stitch-light-text);
+  text-align: center;
+}
+
+.stitch-agent-connect .agent-connect-modal-head {
+  position: relative;
+  display: block;
+  text-align: center;
+  margin-bottom: 12px;
+  padding-right: 28px;
+}
+
+.stitch-agent-connect .agent-connect-modal-head > div {
+  width: 100%;
+}
+
+.stitch-agent-connect .agent-connect-modal-head h2 {
+  font-family: "Barlow Condensed", var(--stitch-font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text);
+}
+
+.stitch-agent-connect .agent-connect-lead {
+  color: var(--stitch-light-text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  margin-inline: auto;
+  max-width: 30ch;
+}
+
+.stitch-agent-connect .agent-connect-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: var(--stitch-glass-radius-pill);
+  border: 0.8px solid var(--stitch-border-soft);
+  background: var(--stitch-surface-elevated);
+  color: var(--stitch-light-text-muted);
+  font-size: 1.25rem;
+  padding: 0;
+}
+
+.stitch-agent-connect .agent-connect-close:hover {
+  color: var(--stitch-light-text);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.stitch-agent-connect .agent-connect-banner,
+.stitch-agent-connect .agent-connect-banner--info {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--stitch-agent-banner-bg);
+  border: 1px solid var(--stitch-agent-banner-border);
+  color: var(--stitch-badge-wait-text);
+  text-align: center;
+  line-height: 1.35;
+}
+
+.stitch-agent-connect .agent-connect-banner--live {
+  background: var(--stitch-badge-ok-bg);
+  border-color: rgba(16, 185, 129, 0.35);
+  color: var(--stitch-badge-ok-text);
+}
+
+.stitch-agent-connect .agent-connect-tabs {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  padding: 3px;
+  margin-bottom: 14px;
+  border-radius: var(--stitch-glass-radius-pill);
+  border: 0.8px solid var(--stitch-agent-tabs-border);
+  background: var(--stitch-agent-tabs-bg);
+}
+
+.stitch-agent-connect .agent-connect-tabs-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: calc((100% - 6px) / 3);
+  height: calc(100% - 6px);
+  border-radius: var(--stitch-glass-radius-pill);
+  background: var(--stitch-agent-thumb-bg);
+  border: 0.8px solid var(--stitch-agent-thumb-border);
+  box-shadow:
+    0 2px 10px rgba(15, 23, 42, 0.1),
+    0 0 0 0.5px rgba(15, 23, 42, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  transition: transform 0.42s cubic-bezier(0.32, 0.72, 0, 1);
+  will-change: transform;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.stitch-agent-connect .agent-connect-tabs[data-client="claude"] .agent-connect-tabs-thumb {
+  transform: translateX(100%);
+}
+
+.stitch-agent-connect .agent-connect-tabs[data-client="other"] .agent-connect-tabs-thumb {
+  transform: translateX(200%);
+}
+
+.stitch-agent-connect .agent-connect-tab {
+  position: relative;
+  z-index: 1;
+  border: 0.8px solid transparent;
+  border-radius: var(--stitch-glass-radius-pill);
+  background: transparent;
+  color: var(--stitch-light-text-secondary);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 8px 6px;
+  min-height: 32px;
+  text-align: center;
+}
+
+.stitch-agent-connect .agent-connect-tab.is-active {
+  border-color: transparent;
+  background: transparent;
+  color: var(--stitch-accent-blue);
+  box-shadow: none;
+}
+
+.stitch-agent-connect .agent-connect-panel {
+  align-items: center;
+  text-align: center;
+}
+
+.stitch-agent-connect .agent-connect-actions {
+  width: 100%;
+}
+
+.stitch-agent-connect .agent-connect-modal .agent-connect-primary {
+  border: 0.8px solid var(--stitch-agent-primary-border);
+  background: var(--stitch-agent-primary-bg);
+  color: var(--stitch-accent-blue);
+  border-radius: var(--stitch-glass-radius-pill);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow:
+    0 4px 14px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.stitch-agent-connect .agent-connect-modal .agent-connect-primary:hover {
+  background: rgba(219, 234, 254, 0.95);
+}
+
+.stitch-agent-connect .agent-connect-modal .agent-connect-secondary {
+  border: 0.8px solid var(--stitch-agent-secondary-border);
+  background: var(--stitch-agent-secondary-bg);
+  color: var(--stitch-light-text-secondary);
+  border-radius: var(--stitch-glass-radius-pill);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.stitch-agent-connect .agent-connect-hint {
+  color: var(--stitch-light-text-muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  text-align: center;
+  max-width: 32ch;
+  margin-inline: auto;
+}
+
+.stitch-agent-connect .agent-connect-guide {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--stitch-agent-modal-border);
+  background: rgba(255, 255, 255, 0.45);
+  text-align: left;
+}
+
+.stitch-agent-connect .agent-connect-guide--after {
+  border-color: rgba(16, 185, 129, 0.28);
+  background: var(--stitch-badge-ok-bg);
+}
+
+.stitch-agent-connect .agent-connect-guide-title {
+  margin: 0 0 8px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text);
+}
+
+.stitch-agent-connect .agent-connect-steps {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: var(--stitch-light-text-muted);
+  text-align: left;
+}
+
+.stitch-agent-connect .agent-connect-steps--compact {
+  font-size: 0.72rem;
+}
+
+.stitch-agent-connect .agent-connect-url-preview {
+  margin-top: 10px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.04);
+  border: 1px solid var(--stitch-agent-modal-border);
+  font-size: 0.72rem;
+  text-align: left;
+  overflow-x: auto;
+}
+
+.stitch-agent-connect .agent-connect-url-preview code {
+  color: var(--stitch-light-text);
+  word-break: break-all;
+}
+
+.stitch-agent-connect .agent-connect-note {
+  margin-top: 10px;
+  font-size: 0.74rem;
+  line-height: 1.45;
+  color: var(--stitch-light-text-muted);
+  text-align: left;
+}
+
+.stitch-agent-connect .agent-connect-note--ok {
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: var(--stitch-badge-ok-bg);
+  border: 1px solid rgba(16, 185, 129, 0.22);
+  color: var(--stitch-badge-ok-text);
+}
+
+.stitch-agent-connect .agent-connect-prompt-preview {
+  margin: 10px 0 8px;
+  padding: 10px 12px;
+  border-left: 3px solid rgba(59, 130, 246, 0.45);
+  border-radius: 0 12px 12px 0;
+  background: rgba(59, 130, 246, 0.06);
+  font-size: 0.74rem;
+  line-height: 1.45;
+  color: var(--stitch-light-text);
+  text-align: left;
+}
+
+.stitch-agent-connect .agent-connect-copy-prompt {
+  width: 100%;
+}
+
+.stitch-agent-connect .agent-connect-fields {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(59, 130, 246, 0.22);
+  background: rgba(59, 130, 246, 0.06);
+  text-align: left;
+}
+
+.stitch-agent-connect .agent-connect-field-list {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stitch-agent-connect .agent-connect-field-row {
+  display: grid;
+  grid-template-columns: minmax(4rem, 5rem) 1fr;
+  gap: 6px 10px;
+  align-items: start;
+}
+
+.stitch-agent-connect .agent-connect-field-row--note {
+  grid-template-columns: 1fr;
+}
+
+.stitch-agent-connect .agent-connect-field-row dt {
+  margin: 0;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text-muted);
+}
+
+.stitch-agent-connect .agent-connect-field-row dd {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.stitch-agent-connect .agent-connect-field-row code {
+  font-size: 0.72rem;
+  color: var(--stitch-light-text);
+  word-break: break-all;
+}
+
+.stitch-agent-connect .agent-connect-field-copy {
+  align-self: flex-start;
+  border: 0.8px solid var(--stitch-agent-secondary-border);
+  background: var(--stitch-agent-secondary-bg);
+  color: var(--stitch-light-text-secondary);
+  border-radius: 999px;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.stitch-agent-connect .agent-connect-code {
+  margin: 0 0 8px;
+  text-align: left;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.stitch-agent-connect .agent-connect-toast {
+  margin-top: 12px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--stitch-badge-ok-text);
+  background: var(--stitch-badge-ok-bg);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stitch-agent-connect .agent-connect-tabs-thumb {
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .stitch-agent-connect.agent-connect-overlay {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--stitch-light-page-bottom);
+  }
+
+  .stitch-agent-connect .agent-connect-modal {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--stitch-agent-modal-bg);
+  }
+}
+
+/* ── F97N Match detail — liquid glass hero + sections (mobile + desktop) ── */
+.stitch-panel--match {
+  width: 100%;
+  min-width: 0;
+  padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+}
+
+.stitch-match-detail-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+.stitch-match-detail-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--stitch-link);
+  text-decoration: none;
+  padding: 6px 4px;
+}
+
+.stitch-match-detail-back:hover {
+  text-decoration: underline;
+}
+
+.stitch-match-card--detail {
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.stitch-match-detail-inner {
+  padding: 14px 16px 12px;
+}
+
+.stitch-match-detail-competition {
+  margin: 0 0 10px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text-secondary);
+}
+
+.stitch-match-detail-teams {
+  display: grid;
+  grid-template-columns: minmax(76px, 1fr) minmax(0, 1.2fr) minmax(76px, 1fr);
+  align-items: start;
+  gap: 10px 8px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.stitch-match-detail-team {
+  display: flex;
+  align-items: flex-start;
+  min-width: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.stitch-match-detail-team--home {
+  justify-content: flex-end;
+}
+
+.stitch-match-detail-team--away {
+  justify-content: flex-start;
+}
+
+.stitch-match-detail-team-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  width: 56px;
+  flex-shrink: 0;
+}
+
+.stitch-match-detail-team--muted {
+  opacity: 0.55;
+}
+
+.stitch-flag-circle--detail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stitch-flag-circle--detail .team-flag-wrap--circle {
+  width: 56px !important;
+  height: 56px !important;
+  min-width: 56px !important;
+  min-height: 56px !important;
+  max-width: 56px !important;
+  max-height: 56px !important;
+  flex: 0 0 56px !important;
+}
+
+.stitch-match-detail-team-label {
+  display: block;
+  width: 100%;
+  max-width: 72px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--stitch-light-text);
+  line-height: 1.2;
+  white-space: normal;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.stitch-match-detail-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  min-width: 0;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.stitch-match-detail-score {
+  font-family: var(--stitch-font-display);
+  font-size: clamp(1.5rem, 6vw, 2rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  color: var(--stitch-light-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.stitch-score-sep {
+  opacity: 0.45;
+  margin: 0 0.1em;
+}
+
+.stitch-score-win {
+  color: var(--stitch-light-text);
+}
+
+.stitch-score-lose {
+  opacity: 0.45;
+}
+
+.stitch-match-detail-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+  padding: 3px 10px;
+  border-radius: var(--stitch-glass-radius-pill);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(180deg, #ef4444 0%, #dc2626 100%);
+  border: 0.8px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 2px 10px rgba(239, 68, 68, 0.35);
+}
+
+.stitch-match-detail-live--pen {
+  background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+  box-shadow: 0 2px 10px rgba(245, 158, 11, 0.35);
+}
+
+.stitch-live-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+  animation: stitchLivePulse 1.4s ease-in-out infinite;
+}
+
+@keyframes stitchLivePulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(0.92);
+  }
+}
+
+.stitch-match-detail-ft {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text-secondary);
+  margin-bottom: 2px;
+}
+
+.stitch-match-detail-pen-note {
+  margin: 2px 0 0;
+  font-size: 10px;
+  color: var(--stitch-light-text-muted);
+}
+
+.stitch-match-detail-countdown-wrap {
+  width: 100%;
+  margin-top: 12px;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.stitch-match-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.stitch-match-detail-odds-pill {
+  width: auto;
+  max-width: 100%;
+  min-height: 32px;
+  padding: 6px 12px;
+}
+
+.stitch-match-detail-odds-pill .stitch-lg-pill__content {
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+.stitch-match-detail-odds-tag {
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.stitch-match-detail-odds-values {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+}
+
+.stitch-match-detail-odds-outcome {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
+  white-space: nowrap;
+}
+
+.stitch-match-detail-odds-sep {
+  margin: 0 4px;
+  opacity: 0.55;
+  font-weight: 700;
+}
+
+.stitch-match-detail-odds-key {
+  font-size: 8px;
+  font-weight: 800;
+  opacity: 0.85;
+}
+
+.stitch-match-detail-odds-dec {
+  font-family: var(--stitch-font-mono);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.stitch-match-detail-odds-wait {
+  font-family: var(--stitch-font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+.stitch-match-detail-odds-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  flex: 1 1 100%;
+  max-width: 100%;
+}
+
+.stitch-match-detail-odds-pill.stitch-lg-pill {
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+  min-height: auto;
+}
+
+.stitch-match-detail-odds-pill .stitch-lg-pill__content {
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.stitch-match-detail-odds-hint {
+  width: 100%;
+  margin: 0;
+  padding: 0 8px;
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  text-align: center;
+  color: var(--stitch-light-text-secondary);
+}
+
+.stitch-match-detail-odds-outcome--favorite .stitch-match-detail-odds-dec {
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.stitch-match-detail-odds-fav {
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.9;
+  margin-left: 2px;
+}
+
+.stitch-match-countdown {
+  margin-top: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: var(--stitch-glass-card-bg);
+  border: 1px solid var(--stitch-glass-card-border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  overflow: hidden;
+}
+
+.stitch-match-countdown-label {
+  margin: 0;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text-secondary);
+  text-align: center;
+}
+
+.stitch-match-countdown-digits {
+  margin-top: 6px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0;
+  width: 100%;
+  max-width: 100%;
+  flex-wrap: nowrap;
+}
+
+.stitch-match-countdown-digit-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 3.25rem;
+}
+
+.stitch-match-countdown-digit {
+  font-family: var(--stitch-font-mono);
+  font-size: clamp(0.95rem, 4.2vw, 1.35rem);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  color: var(--stitch-light-text);
+}
+
+.stitch-match-countdown-unit {
+  margin-top: 3px;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text-muted);
+  white-space: nowrap;
+}
+
+.stitch-match-countdown-sep {
+  font-family: var(--stitch-font-mono);
+  font-size: clamp(0.75rem, 3vw, 1.1rem);
+  font-weight: 600;
+  color: var(--stitch-light-text-muted);
+  padding-bottom: 10px;
+  flex: 0 0 auto;
+  line-height: 1;
+}
+
+.stitch-match-countdown-schedule {
+  margin: 8px 0 0;
+  font-size: 10px;
+  line-height: 1.35;
+  color: var(--stitch-light-text-muted);
+  text-align: center;
+  word-break: break-word;
+}
+
+.stitch-match-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.stitch-match-section-title {
+  margin: 0 0 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text);
+}
+
+.stitch-match-section-body {
+  margin: 0;
+}
+
+.stitch-match-section-body.stitch-glass-card {
+  padding: 12px 14px;
+}
+
+.stitch-present-callout {
+  margin: 0 0 8px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: var(--stitch-glass-card-bg);
+  border: 1px solid var(--stitch-glass-card-border);
+}
+
+.stitch-present-callout-title {
+  margin: 0 0 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text);
+}
+
+.stitch-present-callout-body {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--stitch-light-text-secondary);
+}
+
+.stitch-match-edge-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stitch-edge-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.stitch-edge-panel .stitch-lg-pill {
+  min-width: 108px;
+}
+
+.stitch-edge-pill-tier {
+  font-size: 8px;
+  opacity: 0.85;
+  letter-spacing: 0.04em;
+}
+
+.stitch-stat-grid {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.42);
+  border: 1px solid var(--stitch-glass-card-border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.stitch-stat-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--stitch-divider-subtle);
+}
+
+.stitch-stat-row:last-child {
+  border-bottom: none;
+}
+
+.stitch-stat-row dt {
+  flex: 0 0 42%;
+  margin: 0;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text-muted);
+  text-align: left;
+}
+
+.stitch-stat-row dd {
+  flex: 1;
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--stitch-light-text);
+  text-align: right;
+}
+
+.stitch-stat-row__value--accent {
+  color: var(--stitch-success-emerald);
+}
+
+/* Fan bet slip — Stitch iOS grade (F96N) */
+.stitch-fan-bet-slip {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.stitch-fan-bet-slip-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.stitch-fan-bet-disclaimer {
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.45;
+  color: var(--stitch-light-text-muted);
+}
+
+.stitch-fan-bet-cluster {
+  min-height: 28px !important;
+  padding-inline: 12px !important;
+  font-size: 8px !important;
+}
+
+.stitch-fan-bet-demo {
+  margin: 0;
+}
+
+.stitch-fan-bet-faucets {
+  margin: 6px 0 0;
+  font-size: 10px;
+}
+
+.stitch-fan-bet-faucets a {
+  color: var(--stitch-link);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.stitch-fan-bet-faucets a:hover {
+  text-decoration: underline;
+}
+
+.stitch-fan-bet-hint {
+  margin: 0;
+  font-size: 11px;
+  color: var(--stitch-light-text-muted);
+  text-align: center;
+}
+
+.stitch-fan-bet-status {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--stitch-glass-card-border);
+  text-align: center;
+}
+
+.stitch-fan-bet-status-label {
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text-muted);
+}
+
+.stitch-fan-bet-status-text {
+  margin: 6px 0 0;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--stitch-light-text);
+}
+
+.stitch-fan-bet-ticket,
+.stitch-fan-bet-pool {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.48);
+  border: 1px solid var(--stitch-glass-card-border);
+  text-align: center;
+}
+
+.stitch-fan-bet-ticket-title,
+.stitch-fan-bet-pool-title {
+  margin: 0 0 6px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text-muted);
+}
+
+.stitch-fan-bet-ticket-main {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.stitch-fan-bet-ticket-amount {
+  font-weight: 800;
+  color: var(--stitch-light-text);
+}
+
+.stitch-fan-bet-ticket-side {
+  font-weight: 600;
+  color: var(--stitch-light-text-secondary);
+}
+
+.stitch-fan-bet-claim-pill {
+  display: inline-flex;
+  margin-top: 8px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #000;
+  background: #bbf7d0;
+  border: 1px solid #4ade80;
+}
+
+.stitch-fan-bet-pool-meta {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 16px;
+  font-size: 11px;
+  color: var(--stitch-light-text-secondary);
+}
+
+.stitch-fan-bet-pool-meta strong {
+  color: var(--stitch-light-text);
+}
+
+.stitch-fan-bet-wallet {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--stitch-light-text-secondary);
+  text-align: center;
+}
+
+.stitch-fan-bet-connect {
+  width: 100%;
+  min-height: 40px !important;
+  cursor: pointer;
+}
+
+.stitch-fan-bet-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stitch-fan-bet-outcomes {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.stitch-fan-bet-outcome {
+  flex: 1;
+  max-width: 108px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 8px;
+  border-radius: 16px;
+  border: 1px solid var(--stitch-glass-card-border);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    transform 0.12s ease;
+}
+
+.stitch-fan-bet-outcome:active {
+  transform: scale(0.97);
+}
+
+.stitch-fan-bet-outcome--active {
+  border-color: rgba(234, 179, 8, 0.65);
+  background: linear-gradient(180deg, rgba(254, 249, 195, 0.95) 0%, rgba(253, 224, 71, 0.75) 100%);
+  box-shadow:
+    0 4px 14px rgba(234, 179, 8, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.stitch-flag-circle--bet .team-flag-wrap--circle {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+}
+
+.stitch-fan-bet-outcome-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.stitch-fan-bet-stake {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stitch-fan-bet-stake-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text-muted);
+  text-align: center;
+}
+
+.stitch-fan-bet-stake-input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--stitch-glass-card-border);
+  background: rgba(255, 255, 255, 0.72);
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--stitch-light-text);
+  outline: none;
+}
+
+.stitch-fan-bet-stake-input:focus {
+  border-color: rgba(30, 58, 138, 0.35);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+.stitch-fan-bet-cta {
+  width: 100%;
+  min-height: 40px !important;
+  cursor: pointer;
+}
+
+.stitch-fan-bet-cta:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.stitch-fan-bet-error {
+  margin: 0;
+  font-size: 11px;
+  color: var(--stitch-error);
+  text-align: center;
+}
+
+.stitch-fan-bet-tx {
+  margin: 0;
+  font-size: 10px;
+  text-align: center;
+}
+
+.stitch-fan-bet-tx a {
+  color: var(--stitch-link);
+  font-weight: 600;
+}
+
+/* Live timeline — Stitch iOS grade (fix light-mode white-on-white) */
+.stitch-match-section-body .timeline-accordion {
+  gap: 10px;
+}
+
+.stitch-match-section-body .timeline-accordion-trigger {
+  border: 1px solid var(--stitch-glass-card-border);
+  background: rgba(255, 255, 255, 0.52);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: var(--stitch-light-text);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.stitch-match-section-body .timeline-accordion-trigger:hover {
+  border-color: rgba(30, 58, 138, 0.22);
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.stitch-match-section-body .timeline-accordion-chevron {
+  color: var(--stitch-light-text-muted);
+  font-size: 9px;
+}
+
+.stitch-match-section-body .timeline-accordion-summary {
+  color: var(--stitch-light-text);
+}
+
+.stitch-match-section-body .timeline-accordion-action {
+  color: var(--stitch-link);
+  font-weight: 700;
+}
+
+.stitch-match-section-body .goal-feed {
+  gap: 6px;
+}
+
+.stitch-match-section-body .goal-feed-row {
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid var(--stitch-glass-card-border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.stitch-match-section-body .goal-feed-row--goal {
+  background: rgba(209, 250, 229, 0.62);
+  border-color: rgba(16, 185, 129, 0.38);
+}
+
+.stitch-match-section-body .goal-feed-row--card {
+  background: rgba(254, 249, 195, 0.55);
+  border-color: rgba(234, 179, 8, 0.35);
+}
+
+.stitch-match-section-body .goal-feed-minute {
+  color: var(--stitch-light-text);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.stitch-match-section-body .goal-feed-team {
+  color: var(--stitch-light-text);
+  font-size: 12px;
+}
+
+.stitch-match-section-body .goal-feed-kind {
+  color: var(--stitch-light-text-secondary);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.stitch-match-section-body .goal-feed-player {
+  color: var(--stitch-light-text);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.stitch-match-section-body .goal-feed-shootout {
+  border-top-color: var(--stitch-divider-subtle);
+}
+
+.stitch-match-section-body .goal-feed-shootout-title {
+  color: var(--stitch-light-text);
+  font-size: 10px;
+}
+
+.stitch-match-section-body .goal-feed-shootout-icon {
+  filter: none;
+}
+
+.stitch-match-section-body .proof-panel .section-title {
+  display: none;
+}
+
+.stitch-match-section-body .proof-panel.glass-panel {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.stitch-match-section-body .proof-dl {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.42);
+  border: 1px solid var(--stitch-glass-card-border);
+}
+
+.stitch-match-section-body .proof-dl > div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--stitch-divider-subtle);
+}
+
+.stitch-match-section-body .proof-dl > div:last-child {
+  border-bottom: none;
+}
+
+.stitch-match-section-body .proof-dl dt {
+  flex: 0 0 38%;
+  margin: 0;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text-muted);
+  text-align: left;
+}
+
+.stitch-match-section-body .proof-dl dd {
+  flex: 1;
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--stitch-light-text);
+  text-align: right;
+  word-break: break-all;
+}
+
+.stitch-match-section-body .proof-dl-wide {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.stitch-match-section-body .proof-dl-wide dd {
+  text-align: left;
+  margin-top: 4px;
+}
+
+.stitch-match-section-body .proof-source {
+  margin: 0 0 10px;
+  font-size: 10px;
+  color: var(--stitch-light-text-muted);
+  text-align: center;
+}
+
+.stitch-match-edge-why {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--stitch-light-text-secondary);
+}
+
+.stitch-match-settlement-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Legacy panels inside stitch match — token skin (no globals edit) */
+html.stitch-route .stitch-panel--match .odds-ticker {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+html.stitch-route .stitch-panel--match .odds-ticker-label,
+html.stitch-route .stitch-panel--match .ticker-item {
+  color: var(--stitch-light-text);
+}
+
+html.stitch-route .stitch-panel--match .edge-badge {
+  align-self: flex-start;
+}
+
+html.stitch-route .stitch-panel--match .edge-dl {
+  color: var(--stitch-light-text-secondary);
+}
+
+html.stitch-route .stitch-panel--match .edge-dl dt {
+  color: var(--stitch-light-text-muted, rgba(15, 23, 42, 0.55));
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+html.stitch-route .stitch-panel--match .edge-dl dd {
+  color: var(--stitch-light-text);
+  font-weight: 600;
+}
+
+html.stitch-route .stitch-panel--match .edge-direction {
+  color: var(--natt-setup, #2ecc71);
+}
+
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-panel.glass-panel,
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .proof-panel.glass-panel {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  color: var(--stitch-light-text);
+}
+
+/* Escrow + settlement proof — remap legacy dark-theme gold/green for light mode */
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-connected,
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-disclaimer,
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-phase-headline,
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-phase-countdown,
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-rules,
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-steps,
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-pool-side-label,
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-pool-side-amt,
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-pool-empty,
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-disabled-hint,
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-your-bet-hint,
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-tx,
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .proof-dl dd {
+  color: var(--stitch-light-text-secondary);
+}
+
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-connected-addr,
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-hint,
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-board-title,
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-your-bet-side,
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-pool-meta strong,
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-phase-badge,
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-phase-next,
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-rules summary,
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .proof-link,
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .proof-hash-link {
+  color: var(--stitch-escrow-accent);
+}
+
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-pool-mode-unmatched {
+  color: var(--stitch-escrow-warn);
+}
+
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-pool-mode-parimutuel {
+  color: var(--stitch-escrow-live-bright);
+  font-weight: 600;
+}
+
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-pool-board {
+  background: var(--stitch-escrow-pool-surface);
+  border: 1px solid var(--stitch-escrow-pool-border);
+}
+
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-your-bet {
+  border-color: rgba(146, 64, 14, 0.35);
+  background: linear-gradient(135deg, rgba(254, 243, 199, 0.55), rgba(255, 255, 255, 0.85));
+}
+
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-your-bet-amount {
+  color: var(--stitch-light-text);
+}
+
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-pool-side-bar-wrap {
+  background: var(--stitch-escrow-pool-bar-track);
+}
+
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-pool-side-bar {
+  background: var(--stitch-escrow-pool-bar-fill);
+}
+
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-steps li {
+  border-color: rgba(15, 23, 42, 0.12);
+  color: var(--stitch-light-text-muted);
+}
+
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-step-active {
+  border-color: var(--stitch-escrow-accent) !important;
+  color: var(--stitch-escrow-accent-strong);
+  background: rgba(254, 243, 199, 0.45);
+}
+
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-step-done {
+  border-color: rgba(5, 150, 105, 0.55) !important;
+  color: var(--stitch-escrow-live);
+  background: rgba(209, 250, 229, 0.45);
+}
+
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-phase-banner {
+  border-color: rgba(148, 163, 184, 0.35);
+}
+
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-phase-open {
+  border-color: rgba(146, 64, 14, 0.35);
+  background: rgba(254, 243, 199, 0.4);
+}
+
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-phase-wait {
+  border-color: rgba(37, 99, 235, 0.3);
+  background: rgba(239, 246, 255, 0.75);
+}
+
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-phase-locked {
+  border-color: rgba(220, 38, 38, 0.28);
+  background: rgba(254, 242, 242, 0.75);
+}
+
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-phase-done {
+  border-color: rgba(5, 150, 105, 0.35);
+  background: rgba(209, 250, 229, 0.55);
+}
+
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .wallet-connect-btn {
+  color: var(--stitch-accent-blue);
+  border-color: rgba(30, 58, 138, 0.35);
+  background: rgba(239, 246, 255, 0.92);
+}
+
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .wallet-connect-btn:hover {
+  color: var(--stitch-accent-blue);
+  border-color: rgba(30, 58, 138, 0.55);
+  background: rgba(219, 234, 254, 0.95);
+}
+
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-side-btn {
+  border-color: rgba(146, 64, 14, 0.28);
+  color: var(--stitch-light-text);
+}
+
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .escrow-side-btn-active {
+  border-color: var(--stitch-escrow-accent);
+  background: rgba(254, 243, 199, 0.35);
+}
+
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .proof-dl dt {
+  color: var(--stitch-light-text-muted);
+}
+
+:is(html.stitch-route, html.sandbox-route):not([data-theme="dark"]) .stitch-panel--match .proof-stale-hint {
+  color: var(--stitch-escrow-warn);
+}
+
+html.stitch-route .stitch-panel--match .present-callout.glass-panel {
+  background: var(--stitch-glass-card-bg);
+  border: 1px solid var(--stitch-glass-card-border);
+  color: var(--stitch-light-text);
+}
+
+.stitch-panel--match .stitch-panel-footer {
+  margin-top: 16px;
+  padding-bottom: 8px;
+}
+
+@media (min-width: 1024px) {
+  .stitch-match-card--detail {
+    max-width: 720px;
+    margin-inline: auto;
+  }
+
+  .stitch-flag-circle--detail .team-flag-wrap--circle {
+    width: 64px !important;
+    height: 64px !important;
+    min-width: 64px !important;
+    min-height: 64px !important;
+    max-width: 64px !important;
+    max-height: 64px !important;
+    flex: 0 0 64px !important;
+  }
+
+  .stitch-match-detail-team-stack {
+    width: 64px;
+    gap: 11px;
+  }
+
+  .stitch-match-detail-team-label {
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    max-width: 64px;
+    margin-top: 6px;
+  }
+
+  .stitch-match-detail-score {
+    font-size: 2.25rem;
+  }
+
+  .stitch-match-detail-countdown-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .stitch-match-countdown {
+    max-width: 320px;
+    padding: 12px 16px;
+  }
+
+  .stitch-match-countdown-digit {
+    font-size: 1.35rem;
+  }
+
+  .stitch-match-countdown-unit {
+    font-size: 8px;
+  }
+
+  .stitch-match-sections {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    align-items: start;
+  }
+
+  .stitch-match-section--span-full {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 1023px) {
+  .stitch-panel--match {
+    padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .stitch-match-detail-inner {
+    padding: 12px 10px 10px;
+  }
+
+  .stitch-match-detail-teams {
+    gap: 6px 4px;
+    grid-template-columns: minmax(56px, 1fr) minmax(0, 1.1fr) minmax(56px, 1fr);
+    margin-top: -6px;
+  }
+
+  .stitch-match-detail-team-stack {
+    gap: 10px;
+  }
+
+  .stitch-match-detail-team-label {
+    font-size: 8px;
+    letter-spacing: 0.03em;
+    margin-top: 3px;
+  }
+
+  .stitch-match-detail-score {
+    font-size: clamp(1.25rem, 5.5vw, 1.65rem);
+  }
+
+  .stitch-match-detail-countdown-wrap {
+    margin-top: 10px;
+    padding: 0 2px;
+  }
+
+  .stitch-match-countdown {
+    padding: 8px 6px;
+    border-radius: 14px;
+  }
+
+  .stitch-match-countdown-label {
+    font-size: 8px;
+    letter-spacing: 0.1em;
+  }
+
+  .stitch-match-countdown-digit-group {
+    max-width: 2.5rem;
+  }
+
+  .stitch-match-countdown-digit {
+    font-size: clamp(0.82rem, 3.6vw, 1rem);
+  }
+
+  .stitch-match-countdown-sep {
+    padding-bottom: 8px;
+    margin: 0 -1px;
+  }
+
+  .stitch-match-countdown-schedule {
+    font-size: 9px;
+    line-height: 1.3;
+    padding: 0 4px;
+  }
+
+  .stitch-match-detail-actions {
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .stitch-match-detail-odds-pill {
+    padding: 6px 10px;
+  }
+
+  .stitch-match-detail-odds-tag,
+  .stitch-match-detail-odds-key {
+    font-size: 7px;
+  }
+
+  .stitch-match-detail-odds-dec,
+  .stitch-match-detail-odds-wait {
+    font-size: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stitch-live-badge-dot {
+    animation: none;
+  }
+}
+
+/* ——— Wallet tab (portfolio) ——— */
+.stitch-panel--wallet {
+  padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+}
+
+.stitch-wallet-hero {
+  margin-bottom: 20px;
+}
+
+.stitch-wallet-kicker {
+  margin: 0 0 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stitch-text-muted, #64748b);
+}
+
+.stitch-wallet-hero-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.stitch-wallet-title {
+  margin: 0;
+  font-size: clamp(1.65rem, 4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--stitch-text-primary, #0f172a);
+}
+
+.stitch-wallet-lead {
+  margin: 8px 0 0;
+  max-width: 36rem;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--stitch-text-secondary, #475569);
+}
+
+.stitch-wallet-cluster-badge {
+  flex-shrink: 0;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0f766e;
+  background: rgba(20, 184, 166, 0.12);
+  border: 1px solid rgba(20, 184, 166, 0.22);
+}
+
+/* F94N — Agent dashboard (reuses wallet layout) */
+.stitch-agent-identity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 0 12px;
+}
+
+.stitch-agent-identity-name {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.stitch-agent-identity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0 0 14px;
+}
+
+.stitch-agent-identity-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.stitch-agent-identity-row dt {
+  min-width: 108px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.stitch-agent-identity-row dd {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  min-width: 0;
+}
+
+.stitch-agent-identity-row code {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: min(60vw, 340px);
+}
+
+.stitch-agent-policy-body {
+  margin: 4px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+  opacity: 0.92;
+}
+
+.stitch-wallet-balance-card {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 16px;
+  padding: 22px 20px 18px;
+  border-radius: 22px;
+  color: #f8fafc;
+  background:
+    radial-gradient(120% 80% at 100% 0%, rgba(56, 189, 248, 0.28), transparent 55%),
+    linear-gradient(145deg, #0f172a 0%, #1e293b 48%, #0f766e 140%);
+  box-shadow:
+    0 18px 40px rgba(15, 23, 42, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.stitch-wallet-balance-label {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(248, 250, 252, 0.72);
+}
+
+.stitch-wallet-balance-main {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0 0 18px;
+}
+
+.stitch-wallet-balance-amount {
+  font-size: clamp(2rem, 6vw, 2.65rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.stitch-wallet-balance-unit {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(248, 250, 252, 0.7);
+}
+
+.stitch-wallet-token-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.stitch-wallet-token-chip {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.stitch-wallet-token-chip--accent {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.stitch-wallet-token-name {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(248, 250, 252, 0.62);
+}
+
+.stitch-wallet-token-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.stitch-wallet-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+@media (min-width: 640px) {
+  .stitch-wallet-stats-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.stitch-wallet-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+}
+
+.stitch-wallet-stat-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--stitch-text-muted, #64748b);
+}
+
+.stitch-wallet-stat-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--stitch-text-primary, #0f172a);
+}
+
+.stitch-wallet-num--up,
+.stitch-wallet-stat-value--up,
+.stitch-wallet-pnl--up {
+  color: #047857;
+}
+
+.stitch-wallet-num--down,
+.stitch-wallet-stat-value--down,
+.stitch-wallet-pnl--down {
+  color: #b91c1c;
+}
+
+.stitch-wallet-num--neutral,
+.stitch-wallet-pnl--neutral {
+  color: var(--stitch-text-muted, #64748b);
+}
+
+.stitch-wallet-balance-amount.stitch-wallet-num--neutral,
+.stitch-wallet-token-value.stitch-wallet-num--neutral,
+.stitch-wallet-stat-value.stitch-wallet-num--neutral,
+.stitch-wallet-activity-stake.stitch-wallet-num--neutral {
+  color: var(--stitch-text-primary, #0f172a);
+}
+
+.stitch-wallet-activity {
+  margin-bottom: 12px;
+}
+
+.stitch-wallet-activity-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.stitch-wallet-activity-title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.stitch-wallet-activity-lead {
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--stitch-text-secondary, #475569);
+}
+
+.stitch-wallet-refresh-btn {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--stitch-text-primary, #0f172a);
+  cursor: pointer;
+}
+
+.stitch-wallet-refresh-btn:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.stitch-wallet-activity-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stitch-wallet-activity-expand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 14px;
+  border: 1px dashed rgba(15, 23, 42, 0.14);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.55);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--stitch-text-secondary, #475569);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.stitch-wallet-activity-expand:hover {
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--stitch-text-primary, #0f172a);
+}
+
+.stitch-wallet-activity-expand-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.stitch-wallet-activity-expand-icon--open {
+  transform: rotate(180deg);
+}
+
+.stitch-wallet-activity-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+}
+
+.stitch-wallet-activity-match {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 650;
+  color: var(--stitch-text-primary, #0f172a);
+  text-decoration: none;
+}
+
+.stitch-wallet-activity-match:hover {
+  text-decoration: underline;
+}
+
+.stitch-wallet-activity-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--stitch-text-secondary, #475569);
+}
+
+.stitch-wallet-activity-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.stitch-wallet-status {
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.stitch-wallet-status--win {
+  color: #047857;
+  background: rgba(16, 185, 129, 0.12);
+}
+
+.stitch-wallet-status--loss {
+  color: #b91c1c;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.stitch-wallet-status--open {
+  color: #1d4ed8;
+  background: rgba(59, 130, 246, 0.12);
+}
+
+.stitch-wallet-status--neutral {
+  color: #64748b;
+  background: rgba(100, 116, 139, 0.12);
+}
+
+.stitch-wallet-pnl {
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.stitch-wallet-pnl-net {
+  display: block;
+  margin-top: 2px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--stitch-light-text-muted, #64748b);
+  font-variant-numeric: tabular-nums;
+}
+
+.stitch-wallet-activity-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.stitch-wallet-action-btn {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  background: rgba(16, 185, 129, 0.12);
+  color: #047857;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.stitch-wallet-action-btn:hover:not(:disabled) {
+  background: rgba(16, 185, 129, 0.2);
+}
+
+.stitch-wallet-action-btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.stitch-wallet-action-error {
+  font-size: 10px;
+  color: #b91c1c;
+  max-width: 140px;
+  text-align: right;
+  line-height: 1.3;
+}
+
+.stitch-wallet-stat-hint {
+  display: block;
+  margin-top: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--stitch-light-text-muted, #64748b);
+  letter-spacing: 0.04em;
+}
+
+.stitch-wallet-empty {
+  padding: 28px 18px;
+  text-align: center;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px dashed rgba(15, 23, 42, 0.12);
+}
+
+.stitch-wallet-empty-title {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.stitch-wallet-empty-hint {
+  margin: 0 0 16px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--stitch-text-secondary, #475569);
+}
+
+.stitch-wallet-updated {
+  margin: 12px 0 0;
+  font-size: 11px;
+  color: var(--stitch-text-muted, #64748b);
+  text-align: right;
+}
+
+.stitch-wallet-connect-card {
+  margin: 8px 0 20px;
+  padding: 32px 22px;
+  text-align: center;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+}
+
+.stitch-wallet-connect-icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 14px;
+  color: #0f766e;
+}
+
+.stitch-wallet-connect-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.stitch-wallet-connect-title {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.stitch-wallet-connect-body {
+  margin: 0 auto 18px;
+  max-width: 22rem;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--stitch-text-secondary, #475569);
+}
+
+.stitch-wallet-primary-btn {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #0f766e, #0ea5e9);
+  box-shadow: 0 10px 24px rgba(14, 165, 233, 0.28);
+  cursor: pointer;
+}
+
+.stitch-wallet-secondary-btn {
+  margin-top: 10px;
+  padding: 10px 18px;
+  border: 1px solid rgba(15, 118, 110, 0.35);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--stitch-text-primary, #0f172a);
+  background: transparent;
+  cursor: pointer;
+}
+
+.stitch-wallet-header-pill-hint {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.stitch-wallet-inline-pill {
+  pointer-events: none;
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-wallet-balance-card {
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-wallet-stat,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-wallet-activity-item,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-wallet-connect-card,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-wallet-empty {
+  background: rgba(15, 23, 42, 0.72);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-wallet-title,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-wallet-activity-title,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-wallet-activity-match {
+  color: #f8fafc;
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-wallet-stat-value.stitch-wallet-num--neutral,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-wallet-balance-amount.stitch-wallet-num--neutral,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-wallet-token-value.stitch-wallet-num--neutral,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-wallet-activity-stake.stitch-wallet-num--neutral {
+  color: #f8fafc;
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-wallet-num--up,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-wallet-stat-value--up,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-wallet-pnl--up {
+  color: #34d399;
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-wallet-num--down,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-wallet-stat-value--down,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-wallet-pnl--down {
+  color: #f87171;
+}

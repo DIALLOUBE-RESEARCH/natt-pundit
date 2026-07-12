@@ -1,0 +1,20 @@
+{
+  "name": "@natt-pundit/natt-edge-engine",
+  "version": "0.0.0-stub",
+  "private": true,
+  "description": "Public mirror stub — real engine is server-only on hypernatt.com",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "node -e \"process.exit(0)\""
+  },
+  "dependencies": {
+    "@natt-pundit/contracts": "*",
+    "@natt-pundit/natt-core": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2"
+  }
+}
