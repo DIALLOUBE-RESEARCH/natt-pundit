@@ -1,6 +1,9 @@
 import type { DocsPack } from "../types";
 import {
+  DOCS_AGENT_DASHBOARD_URL,
   DOCS_APP_URL,
+  DOCS_CDP_PORTAL_URL,
+  DOCS_MCP_INFO_URL,
   DOCS_MCP_URL,
   DOCS_PUBLIC_REPO,
   DOCS_SOL_FAUCET,
@@ -212,6 +215,43 @@ export const zhDocs: DocsPack = {
           type: "code",
           text: `claude mcp add --scope user --transport http natt-pundit ${DOCS_MCP_URL}`,
         },
+      ],
+    },
+    {
+      id: "autonomous-agent-cdp",
+      title: "自主代理（CDP 钱包）",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "球迷在应用内用 Phantom/Reown 下注。自主代理使用同一 MCP，用自己的 Solana 钱包签署 escrow 交易 — Natt 服务器不持有私钥。",
+        },
+        { type: "heading3", text: "流程" },
+        {
+          type: "list",
+          items: [
+            "MCP → 工具 → 未签名交易。",
+            "代理钱包签名 — 推荐 CDP Server Wallet。",
+            "submit_signed_escrow_tx → 轮询至完成。",
+          ],
+        },
+        { type: "link", label: "演示 dashboard", href: DOCS_AGENT_DASHBOARD_URL },
+        { type: "link", label: "MCP manifest", href: DOCS_MCP_INFO_URL },
+        { type: "heading3", text: "方案 A — CDP" },
+        {
+          type: "list",
+          items: [
+            "Coinbase CDP 项目 + CDP_API_KEY_* + CDP_WALLET_SECRET。",
+            "Solana devnet 账户 + 充值 SOL/USDC。",
+          ],
+        },
+        { type: "link", label: "CDP 门户", href: DOCS_CDP_PORTAL_URL },
+        {
+          type: "code",
+          text: `node scripts/natt-agent-cdp-autonomous.mjs auto --fixture <ID> --outcome home`,
+        },
+        { type: "heading3", text: "方案 B — 本地 keypair" },
+        { type: "list", items: ["natt-agent-autonomous.mjs", "AGENT_WALLET_SECRET"] },
+        { type: "alert", text: "公开仓库：docs/AUTONOMOUS_AGENT_CDP.md" },
       ],
     },
     { id: "fixtures-board", title: "赛程板", blocks: [{ type: "paragraph", text: "TxLINE 赛程。" }] },

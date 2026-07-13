@@ -1,6 +1,9 @@
 import type { DocsPack } from "../types";
 import {
+  DOCS_AGENT_DASHBOARD_URL,
   DOCS_APP_URL,
+  DOCS_CDP_PORTAL_URL,
+  DOCS_MCP_INFO_URL,
   DOCS_MCP_URL,
   DOCS_PUBLIC_REPO,
   DOCS_SOL_FAUCET,
@@ -216,6 +219,43 @@ export const ruDocs: DocsPack = {
           type: "code",
           text: `claude mcp add --scope user --transport http natt-pundit ${DOCS_MCP_URL}`,
         },
+      ],
+    },
+    {
+      id: "autonomous-agent-cdp",
+      title: "Автономный агент (CDP-кошелек)",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Фанаты ставят через Phantom/Reown. Автономный агент использует тот же MCP и подписывает escrow-tx своим Solana-кошельком — без приватных ключей на серверах Natt.",
+        },
+        { type: "heading3", text: "Как работает" },
+        {
+          type: "list",
+          items: [
+            "MCP → инструменты → неподписанные транзакции.",
+            "Кошелек агента подписывает — CDP Server Wallet или keypair.",
+            "submit_signed_escrow_tx → опрос до done.",
+          ],
+        },
+        { type: "link", label: "Демо-dashboard", href: DOCS_AGENT_DASHBOARD_URL },
+        { type: "link", label: "Манифест MCP", href: DOCS_MCP_INFO_URL },
+        { type: "heading3", text: "Вариант A — CDP" },
+        {
+          type: "list",
+          items: [
+            "Проект Coinbase CDP + CDP_API_KEY_* + CDP_WALLET_SECRET.",
+            "Solana devnet; пополнить SOL/USDC.",
+          ],
+        },
+        { type: "link", label: "Портал CDP", href: DOCS_CDP_PORTAL_URL },
+        {
+          type: "code",
+          text: `node scripts/natt-agent-cdp-autonomous.mjs auto --fixture <ID> --outcome home`,
+        },
+        { type: "heading3", text: "Вариант B — keypair" },
+        { type: "list", items: ["natt-agent-autonomous.mjs", "AGENT_WALLET_SECRET"] },
+        { type: "alert", text: "docs/AUTONOMOUS_AGENT_CDP.md в публичном репо." },
       ],
     },
     { id: "fixtures-board", title: "Список матчей", blocks: [{ type: "paragraph", text: "TxLINE fixtures." }] },

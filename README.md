@@ -12,6 +12,7 @@
 | **4. Live app (English UI)** | https://hypernatt.com/fr/nattpundit?lang=en |
 | **5. Technical smoke** | [`docs/SUBMISSION_KIT.md`](./docs/SUBMISSION_KIT.md) |
 | **6. Cursor / MCP setup** | [`docs/CURSOR_NATT_PUNDIT_MCP.md`](./docs/CURSOR_NATT_PUNDIT_MCP.md) |
+| **7. Autonomous agent (CDP)** | [`docs/AUTONOMOUS_AGENT_CDP.md`](./docs/AUTONOMOUS_AGENT_CDP.md) |
 
 **Devnet faucets:** [SOL](https://faucet.solana.com/) · [USDC](https://faucet.circle.com/) (Solana Devnet) · **MCP:** `https://hypernatt.com/mcp-pundit/protocol`
 
@@ -49,7 +50,7 @@ Pre-submission multi-layer audit (Anchor escrow, MCP Pundit server, x402 Solana 
 - **Settlement**: TxLINE stat-validation Merkle proofs verified off-chain (SHA-256, sibling order); on-chain CPI `validate_stat` on devnet escrow
 - **Escrow (devnet)**: USDC **shared pool** per WC fixture — bet by country, collect payout, refund
 - **Wallet UX (Solana)**: **Reown AppKit** + **WalletConnect** — Phantom, Solflare, mobile deeplink; signed deposit / settle / claim / refund; Sign-In With Solana for Data Lab export (not EVM / wagmi)
-- **Agents**: MCP server (20 tools) + x402 micropayments on Solana devnet; autonomous deposit/refund loop; read-only agent dashboard at `/agent`
+- **Agents**: MCP server (20 tools) + x402 micropayments on Solana devnet; **autonomous betting loop** via CDP Server Wallet (`scripts/natt-agent-cdp-autonomous.mjs`) or dev keypair; read-only dashboard at `/agent` — see [`docs/AUTONOMOUS_AGENT_CDP.md`](./docs/AUTONOMOUS_AGENT_CDP.md)
 - **Data Lab** (`/datas`): append-only odds/edge/proof logger + CLV harness; ZIP export gated by Sign-In With Solana (allowlist)
 
 ---

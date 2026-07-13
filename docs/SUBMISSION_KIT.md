@@ -63,9 +63,28 @@ Cursor: add `"url": "https://hypernatt.com/mcp-pundit/protocol"` in MCP settings
 
 Paid reads: **$0.01 USDC** Solana devnet (intro-free + optional env wallet bypass). **Separate** from escrow SPL deposits.
 
-## Agent autonome (F73N)
+## Agent autonome (F73N / F74N)
 
-VPS script (CDP wallet, no private key in chat):
+**Guide complet :** [`AUTONOMOUS_AGENT_CDP.md`](./AUTONOMOUS_AGENT_CDP.md)
+
+| Piece | Detail |
+|-------|--------|
+| Demo dashboard | https://hypernatt.com/fr/nattpundit/agent |
+| Wallet | Coinbase **CDP Server Wallet** (Solana devnet) — no private key on Natt VPS |
+| Script | `scripts/natt-agent-cdp-autonomous.mjs` |
+| Alt dev | `scripts/natt-agent-autonomous.mjs` + `AGENT_WALLET_SECRET` |
+
+### Quick start (CDP)
+
+1. [CDP portal](https://portal.cdp.coinbase.com/) → API keys + Wallet Secret.
+2. Fund agent address (SOL + USDC devnet).
+3. Run:
+
+```bash
+node scripts/natt-agent-cdp-autonomous.mjs auto --fixture <FIXTURE_ID> --outcome home
+```
+
+### Docker (VPS)
 
 ```bash
 docker run --rm -v ~/HYPERNATT/hackathon/natt-pundit:/app -w /app \
@@ -75,6 +94,8 @@ docker run --rm -v ~/HYPERNATT/hackathon/natt-pundit:/app -w /app \
 ```
 
 Flow: create pool → deposit → poll → refund/settle/claim until `done`.
+
+In-app (8 langs): Docs tab → **Autonomous agent (CDP wallet)**.
 
 ## Endpoints (smoke)
 

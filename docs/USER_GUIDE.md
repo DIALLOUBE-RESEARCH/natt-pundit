@@ -103,4 +103,21 @@ See also: [CURSOR_NATT_PUNDIT_MCP.md](./CURSOR_NATT_PUNDIT_MCP.md)
 
 ---
 
+## 5. Autonomous agent (CDP wallet — same stack as us)
+
+**Read-only demo:** https://hypernatt.com/fr/nattpundit/agent?lang=en
+
+| Step | Action |
+|------|--------|
+| 1 | [Coinbase CDP](https://portal.cdp.coinbase.com/) project + API keys + Wallet Secret |
+| 2 | Env: `CDP_API_KEY_ID`, `CDP_API_KEY_SECRET`, `CDP_WALLET_SECRET` |
+| 3 | Fund agent Solana devnet address (SOL + USDC faucets) |
+| 4 | `node scripts/natt-agent-cdp-autonomous.mjs auto --fixture <ID> --outcome home` |
+
+Full guide: [`AUTONOMOUS_AGENT_CDP.md`](./AUTONOMOUS_AGENT_CDP.md) · In-app Docs → **Autonomous agent (CDP wallet)** (8 languages).
+
+**Dev alternative:** `scripts/natt-agent-autonomous.mjs` + `AGENT_WALLET_SECRET` (local keypair).
+
+---
+
 *Full sections: wallet, Data Lab, API, limitations — in-app Docs tab (switch language in header: en, fr, es, zh, ja, ru, pt, de).*

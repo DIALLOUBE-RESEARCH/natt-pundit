@@ -93,4 +93,4 @@ curl -sf https://hypernatt.com/mcp-pundit/pundit/info
 
 **x402 micropayment ≠ escrow USDC deposit** — two independent flows (see README).
 
-See also: [`USER_GUIDE.md`](./USER_GUIDE.md) · [`QUICKSTART_JURY.md`](./QUICKSTART_JURY.md)
+See also: [`USER_GUIDE.md`](./USER_GUIDE.md) · [`QUICKSTART_JURY.md`](./QUICKSTART_JURY.md) · [`AUTONOMOUS_AGENT_CDP.md`](./AUTONOMOUS_AGENT_CDP.md)

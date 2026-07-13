@@ -1,6 +1,9 @@
 import type { DocsPack } from "../types";
 import {
+  DOCS_AGENT_DASHBOARD_URL,
   DOCS_APP_URL,
+  DOCS_CDP_PORTAL_URL,
+  DOCS_MCP_INFO_URL,
   DOCS_MCP_URL,
   DOCS_PUBLIC_REPO,
   DOCS_SOL_FAUCET,
@@ -357,6 +360,90 @@ export const frDocs: DocsPack = {
         {
           type: "alert",
           text: "x402 : certains outils lecture peuvent couter 0,01 USDC devnet. Les depots escrow sont separes des frais MCP.",
+        },
+      ],
+    },
+    {
+      id: "autonomous-agent-cdp",
+      title: "Agent autonome (wallet CDP)",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Les fans parient avec Phantom/Reown dans l'app. Un agent autonome utilise le meme MCP mais signe les txs escrow avec son propre wallet Solana — aucune cle privee sur les serveurs Natt.",
+        },
+        {
+          type: "heading3",
+          text: "Fonctionnement",
+        },
+        {
+          type: "list",
+          items: [
+            "Connecte le MCP (Cursor, Claude ou script) → appelle les tools (edge, pool, build txs).",
+            "Le MCP renvoie des transactions Solana non signees (deposit, settle, claim, refund).",
+            "Ton wallet agent signe — CDP Server Wallet (recommande) ou keypair dev.",
+            "Soumission via submit_signed_escrow_tx — poll jusqu'a refund / settle / claim / done.",
+          ],
+        },
+        {
+          type: "link",
+          label: "Dashboard demo lecture seule (notre agent)",
+          href: DOCS_AGENT_DASHBOARD_URL,
+        },
+        {
+          type: "link",
+          label: "Manifest MCP (GET navigateur OK)",
+          href: DOCS_MCP_INFO_URL,
+        },
+        {
+          type: "heading3",
+          text: "Option A — CDP Server Wallet (stack prod)",
+        },
+        {
+          type: "list",
+          items: [
+            "Cree un projet Coinbase Developer Platform (CDP) + cles API.",
+            "Active Server Wallet — compte Solana devnet (nom par defaut : natt-pundit-agent).",
+            "Env : CDP_API_KEY_ID, CDP_API_KEY_SECRET, CDP_WALLET_SECRET.",
+            "Optionnel : NATT_PUNDIT_CDP_SOLANA_ADDRESS apres la premiere creation.",
+            "Finance SOL + USDC devnet (faucet CDP dans le script, ou faucets publics).",
+          ],
+        },
+        {
+          type: "link",
+          label: "Portail Coinbase CDP",
+          href: DOCS_CDP_PORTAL_URL,
+        },
+        {
+          type: "code",
+          text: `CDP_API_KEY_ID=...\nCDP_API_KEY_SECRET=...\nCDP_WALLET_SECRET=...\nNATT_PUNDIT_CDP_SOLANA_ADDRESS=...\nNATT_PUNDIT_MCP_URL=${DOCS_MCP_URL}`,
+        },
+        {
+          type: "heading3",
+          text: "Lancer la boucle autonome (scripts/)",
+        },
+        {
+          type: "code",
+          text: `node scripts/natt-agent-cdp-autonomous.mjs status --fixture <ID>\nnode scripts/natt-agent-cdp-autonomous.mjs auto --fixture <ID> --outcome home\nnode scripts/natt-agent-cdp-autonomous.mjs recover --fixture <ID>`,
+        },
+        {
+          type: "paragraph",
+          text: "auto : depot avant coup d'envoi (si politique SETUP OK) → poll → refund, settle ou claim. recover : encaissement post-match seulement.",
+        },
+        {
+          type: "heading3",
+          text: "Option B — keypair local (dev)",
+        },
+        {
+          type: "list",
+          items: [
+            "Script : scripts/natt-agent-autonomous.mjs",
+            "Env : AGENT_WALLET_SECRET ou AGENT_WALLET_KEYPAIR_PATH",
+            "Memes commandes auto / recover / status.",
+          ],
+        },
+        {
+          type: "alert",
+          text: "Jury rapide : MCP seulement (section au-dessus) pour lire les data. Pari autonome = ton wallet devnet finance (CDP ou keypair). Repo : docs/AUTONOMOUS_AGENT_CDP.md",
         },
       ],
     },

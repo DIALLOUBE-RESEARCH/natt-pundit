@@ -1,6 +1,9 @@
 import type { DocsPack } from "../types";
 import {
+  DOCS_AGENT_DASHBOARD_URL,
   DOCS_APP_URL,
+  DOCS_CDP_PORTAL_URL,
+  DOCS_MCP_INFO_URL,
   DOCS_MCP_URL,
   DOCS_PUBLIC_REPO,
   DOCS_SOL_FAUCET,
@@ -216,6 +219,43 @@ export const ptDocs: DocsPack = {
           type: "code",
           text: `claude mcp add --scope user --transport http natt-pundit ${DOCS_MCP_URL}`,
         },
+      ],
+    },
+    {
+      id: "autonomous-agent-cdp",
+      title: "Agente autonomo (wallet CDP)",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Fas apostam com Phantom/Reown na app. Agente autonomo usa o mesmo MCP e assina txs escrow com wallet Solana proprio — sem chaves privadas nos servidores Natt.",
+        },
+        { type: "heading3", text: "Fluxo" },
+        {
+          type: "list",
+          items: [
+            "MCP → tools → txs nao assinadas.",
+            "Wallet assina — CDP Server Wallet ou keypair dev.",
+            "submit_signed_escrow_tx → poll ate done.",
+          ],
+        },
+        { type: "link", label: "Dashboard demo", href: DOCS_AGENT_DASHBOARD_URL },
+        { type: "link", label: "Manifest MCP", href: DOCS_MCP_INFO_URL },
+        { type: "heading3", text: "Opcao A — CDP" },
+        {
+          type: "list",
+          items: [
+            "Projeto Coinbase CDP + CDP_API_KEY_* + CDP_WALLET_SECRET.",
+            "Conta Solana devnet; fundar SOL/USDC.",
+          ],
+        },
+        { type: "link", label: "Portal CDP", href: DOCS_CDP_PORTAL_URL },
+        {
+          type: "code",
+          text: `node scripts/natt-agent-cdp-autonomous.mjs auto --fixture <ID> --outcome home`,
+        },
+        { type: "heading3", text: "Opcao B — keypair" },
+        { type: "list", items: ["natt-agent-autonomous.mjs", "AGENT_WALLET_SECRET"] },
+        { type: "alert", text: "docs/AUTONOMOUS_AGENT_CDP.md no repo publico." },
       ],
     },
     { id: "fixtures-board", title: "Jogos", blocks: [{ type: "paragraph", text: "Board TxLINE." }] },

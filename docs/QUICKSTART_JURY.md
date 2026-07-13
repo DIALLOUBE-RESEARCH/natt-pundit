@@ -16,6 +16,7 @@ Read this first, then [`USER_GUIDE.md`](./USER_GUIDE.md) (betting + wallet) and 
 | Wallet + bet history | https://hypernatt.com/fr/nattpundit?lang=en&tab=wallet |
 | Data Lab | https://hypernatt.com/fr/nattpundit/datas?lang=en |
 | Agent dashboard (read-only) | https://hypernatt.com/fr/nattpundit/agent?lang=en |
+| MCP manifest (GET) | https://hypernatt.com/mcp-pundit/pundit/info |
 
 Change language in the header — Docs tab follows (**en, fr, es, de, pt, ru, ja, zh**).
 
@@ -71,6 +72,8 @@ Pool modes: **Shared pool** (2+ countries backed) → collect after FT · **Solo
 
 First tool call: **`get_pundit_manifest`**
 
+**Autonomous agent (CDP):** [`AUTONOMOUS_AGENT_CDP.md`](./AUTONOMOUS_AGENT_CDP.md) — reproduce our betting agent with Coinbase Server Wallet + `natt-agent-cdp-autonomous.mjs`.
+
 x402: some reads cost $0.01 devnet USDC (separate from escrow deposits). Hackathon VPS may have `devnet_open_access` enabled.
 
 ---
@@ -86,6 +89,7 @@ x402: some reads cost $0.01 devnet USDC (separate from escrow deposits). Hackath
 - [ ] Wallet tab: balances + bet history + claim from archived fixtures
 - [ ] Docs tab in your language (faucets, MCP, betting, GitHub link)
 - [ ] MCP health + manifest + agent connect modal
+- [ ] **Autonomous agent** — `/agent` dashboard + [`AUTONOMOUS_AGENT_CDP.md`](./AUTONOMOUS_AGENT_CDP.md)
 
 ---
 
@@ -95,6 +99,7 @@ x402: some reads cost $0.01 devnet USDC (separate from escrow deposits). Hackath
 |------|----------|
 | [`QUICKSTART_JURY.md`](./QUICKSTART_JURY.md) | This page — 5 min orientation |
 | [`USER_GUIDE.md`](./USER_GUIDE.md) | End-user: wallet, bet, claim, MCP |
+| [`AUTONOMOUS_AGENT_CDP.md`](./AUTONOMOUS_AGENT_CDP.md) | CDP Server Wallet + autonomous betting loop |
 | [`SUBMISSION_KIT.md`](./SUBMISSION_KIT.md) | Full smoke curls + agent autonomous script |
 | [`CURSOR_NATT_PUNDIT_MCP.md`](./CURSOR_NATT_PUNDIT_MCP.md) | Cursor / MCP config detail |
 | [README](../README.md) | Architecture + limitations |

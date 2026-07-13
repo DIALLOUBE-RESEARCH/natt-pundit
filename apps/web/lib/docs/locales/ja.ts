@@ -1,6 +1,9 @@
 import type { DocsPack } from "../types";
 import {
+  DOCS_AGENT_DASHBOARD_URL,
   DOCS_APP_URL,
+  DOCS_CDP_PORTAL_URL,
+  DOCS_MCP_INFO_URL,
   DOCS_MCP_URL,
   DOCS_PUBLIC_REPO,
   DOCS_SOL_FAUCET,
@@ -216,6 +219,43 @@ export const jaDocs: DocsPack = {
           type: "code",
           text: `claude mcp add --scope user --transport http natt-pundit ${DOCS_MCP_URL}`,
         },
+      ],
+    },
+    {
+      id: "autonomous-agent-cdp",
+      title: "自律エージェント（CDPウォレット）",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "ファンはアプリで Phantom/Reown。自律エージェントは同じ MCP で escrow トランザクションを自分の Solana ウォレットで署名 — Natt サーバーに秘密鍵なし。",
+        },
+        { type: "heading3", text: "流れ" },
+        {
+          type: "list",
+          items: [
+            "MCP → ツール → 未署名 tx。",
+            "エージェントウォレットが署名 — CDP Server Wallet 推奨。",
+            "submit_signed_escrow_tx → done までポール。",
+          ],
+        },
+        { type: "link", label: "デモ dashboard", href: DOCS_AGENT_DASHBOARD_URL },
+        { type: "link", label: "MCP manifest", href: DOCS_MCP_INFO_URL },
+        { type: "heading3", text: "オプション A — CDP" },
+        {
+          type: "list",
+          items: [
+            "Coinbase CDP プロジェクト + CDP_API_KEY_* + CDP_WALLET_SECRET。",
+            "Solana devnet 口座 + SOL/USDC 資金。",
+          ],
+        },
+        { type: "link", label: "CDP ポータル", href: DOCS_CDP_PORTAL_URL },
+        {
+          type: "code",
+          text: `node scripts/natt-agent-cdp-autonomous.mjs auto --fixture <ID> --outcome home`,
+        },
+        { type: "heading3", text: "オプション B — keypair" },
+        { type: "list", items: ["natt-agent-autonomous.mjs", "AGENT_WALLET_SECRET"] },
+        { type: "alert", text: "公開 repo: docs/AUTONOMOUS_AGENT_CDP.md" },
       ],
     },
     { id: "fixtures-board", title: "試合一覧", blocks: [{ type: "paragraph", text: "TxLINE フィクスチャ。" }] },

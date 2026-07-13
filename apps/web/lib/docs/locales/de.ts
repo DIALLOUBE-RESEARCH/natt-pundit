@@ -1,6 +1,9 @@
 import type { DocsPack } from "../types";
 import {
+  DOCS_AGENT_DASHBOARD_URL,
   DOCS_APP_URL,
+  DOCS_CDP_PORTAL_URL,
+  DOCS_MCP_INFO_URL,
   DOCS_MCP_URL,
   DOCS_PUBLIC_REPO,
   DOCS_SOL_FAUCET,
@@ -257,6 +260,53 @@ export const deDocs: DocsPack = {
           text: `claude mcp add --scope user --transport http natt-pundit ${DOCS_MCP_URL}`,
         },
         { type: "alert", text: "x402: 0,01 USDC devnet pro Tool moglich." },
+      ],
+    },
+    {
+      id: "autonomous-agent-cdp",
+      title: "Autonomer Agent (CDP-Wallet)",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Fans wetten mit Phantom/Reown in der App. Ein autonomer Agent nutzt denselben MCP, signiert Escrow-Txs mit eigenem Solana-Wallet — keine Private Keys auf Natt-Servern.",
+        },
+        { type: "heading3", text: "Ablauf" },
+        {
+          type: "list",
+          items: [
+            "MCP verbinden → Tools (Edge, Pool, Tx-Builder).",
+            "MCP liefert unsignierte Transaktionen.",
+            "Agent-Wallet signiert — CDP Server Wallet (empfohlen) oder Dev-Keypair.",
+            "submit_signed_escrow_tx → Poll bis done.",
+          ],
+        },
+        { type: "link", label: "Demo-Dashboard (unser Agent)", href: DOCS_AGENT_DASHBOARD_URL },
+        { type: "link", label: "MCP-Manifest (GET)", href: DOCS_MCP_INFO_URL },
+        { type: "heading3", text: "Option A — CDP Server Wallet" },
+        {
+          type: "list",
+          items: [
+            "Coinbase CDP Projekt + API-Keys.",
+            "Server Wallet Solana devnet (natt-pundit-agent).",
+            "Env: CDP_API_KEY_ID, CDP_API_KEY_SECRET, CDP_WALLET_SECRET.",
+            "Optional: NATT_PUNDIT_CDP_SOLANA_ADDRESS.",
+            "Devnet SOL + USDC funden.",
+          ],
+        },
+        { type: "link", label: "CDP Portal", href: DOCS_CDP_PORTAL_URL },
+        {
+          type: "code",
+          text: `node scripts/natt-agent-cdp-autonomous.mjs auto --fixture <ID> --outcome home\nnode scripts/natt-agent-cdp-autonomous.mjs recover --fixture <ID>`,
+        },
+        { type: "heading3", text: "Option B — lokales Keypair" },
+        {
+          type: "list",
+          items: ["scripts/natt-agent-autonomous.mjs", "AGENT_WALLET_SECRET", "Gleiche Befehle."],
+        },
+        {
+          type: "alert",
+          text: "Jury schnell: nur MCP zum Lesen. Autonom wetten = eigenes devnet-Wallet. docs/AUTONOMOUS_AGENT_CDP.md",
+        },
       ],
     },
     {
