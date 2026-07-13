@@ -39,7 +39,7 @@ Pre-submission multi-layer audit (Anchor escrow, MCP Pundit server, x402 Solana 
 | **In-app manual (8 langs)** | https://hypernatt.com/fr/nattpundit?lang=en&tab=docs |
 | **MCP endpoint** | https://hypernatt.com/mcp-pundit/protocol |
 | **Data Lab** | https://hypernatt.com/fr/nattpundit/datas?lang=en |
-| **Hackathon** | TxODDS World Cup — deadline **2026-07-19** |
+| **Hackathon** | [TxODDS World Cup — Prediction Markets & Settlement](https://superteam.fun/earn/listing/prediction-markets-and-settlement) — deadline **2026-07-19** |
 | **TxLINE docs** | https://txline.txodds.com/documentation/worldcup |
 | **Smoke kit** | [`docs/SUBMISSION_KIT.md`](docs/SUBMISSION_KIT.md) |
 
