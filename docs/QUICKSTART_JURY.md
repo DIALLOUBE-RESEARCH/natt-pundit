@@ -3,7 +3,7 @@
 **Track:** TxODDS World Cup — Prediction Markets & Settlement  
 **Live app (English UI):** https://hypernatt.com/fr/nattpundit?lang=en
 
-Read this first, then [`USER_GUIDE.md`](./USER_GUIDE.md) (betting + wallet) and [`SUBMISSION_KIT.md`](./SUBMISSION_KIT.md) (curl smoke).
+Read this first, then [`USER_GUIDE.md`](./USER_GUIDE.md) (betting + wallet), [`TXLINE_SETTLEMENT.md`](./TXLINE_SETTLEMENT.md) (CPI / Merkle), and [`SUBMISSION_KIT.md`](./SUBMISSION_KIT.md) (curl smoke).
 
 ---
 

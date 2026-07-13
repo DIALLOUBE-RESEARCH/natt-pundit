@@ -4,7 +4,11 @@
 
 **Deadline:** 2026-07-19
 
-**Docs:** start with [`QUICKSTART_JURY.md`](./QUICKSTART_JURY.md) → [`USER_GUIDE.md`](./USER_GUIDE.md) → this file (smoke curls).
+**Docs:** start with [`QUICKSTART_JURY.md`](./QUICKSTART_JURY.md) → [`USER_GUIDE.md`](./USER_GUIDE.md) → [`TXLINE_SETTLEMENT.md`](./TXLINE_SETTLEMENT.md) → this file (smoke curls).
+
+### Superteam Earn — short description (copy-paste)
+
+Natt Settlement turns TxLINE World Cup data into trustless Solana prediction-market settlement on **devnet USDC** (demo — not real money). TxLINE streams odds and publishes Merkle match-result proofs; our Anchor escrow CPI-validates via `validate_stat` (fail-closed); a permissionless keeper settles finished pools; users alone sign deposit and claim. Live app + MCP agents + public repo.
 
 ## Live URLs
 
@@ -147,6 +151,18 @@ curl -s -o /dev/null -w "%{http_code}\n" \
 ```
 
 Requires `gh` auth to `DIALLOUBE-RESEARCH/natt-pundit`.
+
+## Jury Q&A (prep)
+
+| Question | Short answer |
+|----------|----------------|
+| Who decides the match result? | **TxLINE** Merkle proof + on-chain CPI `validate_stat`. Our backend does not pick scores. |
+| Is this real-money gambling? | **No** — Solana **devnet** demo USDC only; research / settlement-engine showcase for the TxODDS track. |
+| Why USDC and not TxLINE token? | Track rules: no TxLINE token for P2P wagering. We use Circle devnet USDC in escrow. |
+| Can you steal user funds? | **No custody.** Fans sign deposit/claim. Keeper signs permissionless `settle` only (fee payer). F79N submit whitelist blocks arbitrary SPL drains. |
+| What if TxLINE has no proof? | **Fail-closed:** no settle, `refund_all` / solo `refund` paths; no payout on unproven data. |
+| Why is SETUP/HOLD not open source? | Proprietary edge engine; settlement is independent. Jury can verify CPI + pool math + CLV harness in public repo. |
+| Single deployer key on Anchor? | Devnet iteration only; documented — production would use multisig (see README limitations). |
 
 ## Contact
 

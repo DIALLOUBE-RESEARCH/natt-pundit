@@ -81,6 +81,8 @@ node scripts/natt-agent-cdp-autonomous.mjs auto --fixture <FIXTURE_ID> --outcome
 node scripts/natt-agent-cdp-autonomous.mjs recover --fixture <FIXTURE_ID>
 ```
 
+**Fan web app (production):** post-match `settle` is broadcast by the **escrow keeper** (`services/escrow-keeper`); fans sign **claim** only. Autonomous MCP/CDP agents may still sign `settle` in their own wallet loop — see [`TXLINE_SETTLEMENT.md`](./TXLINE_SETTLEMENT.md).
+
 **Docker (VPS smoke):**
 
 ```bash

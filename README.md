@@ -16,6 +16,20 @@
 
 The backend is **not** the score oracle — **TxLINE is the verifiable source of truth**; the on-chain program enforces settlement.
 
+> **Legal / demo scope:** Solana **devnet** only — **not real money**, not a licensed sportsbook or gambling product. USDC here is Circle test mint on devnet. This submission demonstrates a **verifiable settlement engine** for prediction-market research (TxODDS hackathon track). Users connect their own wallets; we do not custody fan funds.
+
+### What we do NOT claim
+
+| We do **not** claim | What we **do** show |
+|---------------------|---------------------|
+| Mainnet production sportsbook | Devnet parimutuel escrow + CPI settlement |
+| Custody of user keys or USDC | User-signed deposit / claim; keeper fee-payer only on `settle` |
+| Open-source edge formula (SETUP/HOLD) | Observable verdict badges + CLV harness in Data Lab |
+| Multi-oracle consensus | Single TxLINE Merkle + CPI path (documented) |
+| Multisig program upgrade (devnet) | Fast-iteration deployer key; multisig noted as prod requirement |
+
+**Deep dive:** [`docs/TXLINE_SETTLEMENT.md`](./docs/TXLINE_SETTLEMENT.md) · On-chain program: [`../solana-escrow/`](../solana-escrow/)
+
 ## Start here
 
 | Step | Link |
@@ -25,8 +39,10 @@ The backend is **not** the score oracle — **TxLINE is the verifiable source of
 | **3. In-app manual (8 languages)** | https://hypernatt.com/fr/nattpundit?lang=en&tab=docs |
 | **4. Live app (English UI)** | https://hypernatt.com/fr/nattpundit?lang=en |
 | **5. Technical smoke** | [`docs/SUBMISSION_KIT.md`](./docs/SUBMISSION_KIT.md) |
+| **6. TxLINE settlement (CPI)** | [`docs/TXLINE_SETTLEMENT.md`](./docs/TXLINE_SETTLEMENT.md) |
 | **6. Cursor / MCP setup** | [`docs/CURSOR_NATT_PUNDIT_MCP.md`](./docs/CURSOR_NATT_PUNDIT_MCP.md) |
 | **7. Autonomous agent (CDP)** | [`docs/AUTONOMOUS_AGENT_CDP.md`](./docs/AUTONOMOUS_AGENT_CDP.md) |
+| **Anchor escrow (devnet)** | [`../solana-escrow/`](../solana-escrow/) — program `GPSU49hPRqWeEtTyMghWLWrXagV8hobFPkbFKVK3jxUD` |
 
 **Devnet faucets:** [SOL](https://faucet.solana.com/) · [USDC](https://faucet.circle.com/) (Solana Devnet) · **MCP:** `https://hypernatt.com/mcp-pundit/protocol`
 
@@ -63,7 +79,7 @@ Pre-submission multi-layer audit (Anchor escrow, MCP Pundit server, x402 Solana 
 - **Edge**: two-source combine vs Shin consensus `pi_tx`; **SETUP** only when net disagreement exceeds a pre-registered threshold (else **HOLD**)
 - **Settlement**: TxLINE stat-validation Merkle proofs verified off-chain (SHA-256, sibling order); on-chain CPI `validate_stat` on devnet escrow
 - **Escrow (devnet)**: USDC **shared pool** per WC fixture — bet by country, collect payout, refund; **escrow keeper** auto-settles pools post-proof (fan signs **claim** only)
-- **Wallet UX (Solana)**: **Reown AppKit** + **WalletConnect** — Phantom, Solflare, mobile deeplink; signed deposit / settle / claim / refund; Sign-In With Solana for Data Lab export (not EVM / wagmi)
+- **Wallet UX (Solana)**: **Reown AppKit** + **WalletConnect** — Phantom, Solflare, mobile deeplink; fans sign **deposit + claim** (keeper auto-`settle`); agents/MCP may sign full loop; Sign-In With Solana for Data Lab export (not EVM / wagmi)
 - **Agents**: MCP server (20 tools) + x402 micropayments on Solana devnet; **autonomous betting loop** via CDP Server Wallet (`scripts/natt-agent-cdp-autonomous.mjs`) or dev keypair; read-only dashboard at `/agent` — see [`docs/AUTONOMOUS_AGENT_CDP.md`](./docs/AUTONOMOUS_AGENT_CDP.md)
 - **Data Lab** (`/datas`): append-only odds/edge/proof logger + CLV harness; ZIP export gated by Sign-In With Solana (allowlist)
 
