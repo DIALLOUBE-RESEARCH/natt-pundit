@@ -6,6 +6,16 @@
 
 > **Public mirror note:** This repo is synced from the private NATTAPP monorepo (`hackathon/natt-pundit/` via `scripts/sync-public-github.ps1`). Git history here is incremental mirror commits, not the full dev timeline. Proprietary edge engine stays off the public tree.
 
+## In 20 seconds
+
+**Natt Settlement** turns TxLINE World Cup data into **trustless Solana prediction-market settlement** (devnet USDC — not real money).
+
+1. **TxLINE** streams odds and publishes a cryptographic match-result proof (Merkle).
+2. Our **Anchor escrow** CPI-validates that proof on Solana devnet (`validate_stat`) — fail-closed if invalid.
+3. A **permissionless keeper** settles finished pools (fee payer only); **users alone** sign deposit and USDC **claim**.
+
+The backend is **not** the score oracle — **TxLINE is the verifiable source of truth**; the on-chain program enforces settlement.
+
 ## Start here
 
 | Step | Link |
