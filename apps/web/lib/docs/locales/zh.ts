@@ -25,6 +25,10 @@ export const zhDocs: DocsPack = {
           text: "生产级 Solana 钱包：Reown AppKit + WalletConnect（Phantom、Solflare、移动深链接）— 见「钱包集成」章节。",
         },
         {
+          type: "paragraph",
+          text: "全应用 8 种语言 + Stitch 浅/深主题 — 见「8 种语言与浅色/深色模式」章节。",
+        },
+        {
           type: "link",
           label: "GitHub — DIALLOUBE-RESEARCH/natt-pundit",
           href: DOCS_PUBLIC_REPO,
@@ -46,6 +50,48 @@ export const zhDocs: DocsPack = {
             "文档 — 本指南（当前语言）。",
             "Connect Agent — Cursor / Claude / MCP。",
           ],
+        },
+      ],
+    },
+    {
+      id: "i18n-theme",
+      title: "8 种语言与浅色/深色模式",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Natt Settlement 面向全球评审与球迷 — 非仅英语。完整球迷路径已翻译；Stitch 玻璃 UI 含生产级浅色/深色主题。",
+        },
+        {
+          type: "heading3",
+          text: "8 种语言（完整 UI）",
+        },
+        {
+          type: "list",
+          items: [
+            "语言：English、Français、Español、中文、日本語、Русский、Português、Deutsch。",
+            "页头语言选择 — 即时切换；URL ?lang=zh。",
+            "文档标签 — 本指南随所选语言（含钱包集成等全部章节）。",
+            "赛程、SETUP/HOLD、下注、钱包、代理 — 8 种语言。",
+            "与 HyperNatt 共享 locale（hypernatt_locale）。",
+          ],
+        },
+        {
+          type: "heading3",
+          text: "浅色 / 深色",
+        },
+        {
+          type: "list",
+          items: [
+            "主题切换 — 左上角太阳/月亮（iOS 风 Stitch 玻璃）。",
+            "浏览器持久化；所有标签页生效。",
+            "Reown 钱包弹窗同步同一主题。",
+            "深色：slate 玻璃、比赛详情可读标签、夜间球场图。",
+            "浅色：评审默认演示。",
+          ],
+        },
+        {
+          type: "alert",
+          text: "评审提示：?lang=fr&tab=docs，切深色，连接 Wallet。",
         },
       ],
     },

@@ -43,6 +43,8 @@ Pre-submission multi-layer audit (Anchor escrow, MCP Pundit server, x402 Solana 
 ## What it does
 
 - **2D dashboard**: WC fixtures, live odds (TxLINE), scores, SETUP/HOLD badges
+- **i18n (8 languages)**: **en, fr, es, zh, ja, ru, pt, de** — full fan journey (fixtures, match detail, bet slip, wallet, in-app docs, agent connect); header switch + `?lang=` URL
+- **Light/dark mode**: Stitch glass theme toggle (top-left); persists locally; **Reown wallet modal** syncs theme; night stadium art in dark mode
 - **Edge**: two-source combine vs Shin consensus `pi_tx`; **SETUP** only when net disagreement exceeds a pre-registered threshold (else **HOLD**)
 - **Settlement**: TxLINE stat-validation Merkle proofs verified off-chain (SHA-256, sibling order); on-chain CPI `validate_stat` on devnet escrow
 - **Escrow (devnet)**: USDC **shared pool** per WC fixture — bet by country, collect payout, refund

@@ -11,10 +11,24 @@ Switch language in the header — **en, fr, es, zh, ja, ru, pt, de** — the Doc
 | Topic | URL |
 |-------|-----|
 | App | https://hypernatt.com/fr/nattpundit?lang=en |
+| **8 languages** | `?lang=en` / `fr` / `es` / `zh` / `ja` / `ru` / `pt` / `de` — header pill or URL |
+| **In-app docs (8 langs)** | https://hypernatt.com/fr/nattpundit?lang=en&tab=docs |
 | Wallet tab | https://hypernatt.com/fr/nattpundit?lang=en&tab=wallet |
 | MCP endpoint | https://hypernatt.com/mcp-pundit/protocol |
 | SOL devnet faucet | https://faucet.solana.com/ |
 | USDC devnet faucet | https://faucet.circle.com/ (select Solana Devnet) |
+
+---
+
+## 0. UI: 8 languages & light/dark mode
+
+| Feature | How |
+|---------|-----|
+| **Languages** | Header language pill — **en, fr, es, zh, ja, ru, pt, de**. Docs tab follows. Deep link: `?lang=fr` |
+| **Light / dark** | Sun/moon toggle **top-left** — Stitch glass theme on all tabs; Reown wallet modal matches |
+| **Jury demo** | Try `?lang=es&tab=docs` → toggle dark → connect Wallet |
+
+Full detail in-app: Docs → **8 languages & light/dark mode** (translated in all 8 locales).
 
 ---
 

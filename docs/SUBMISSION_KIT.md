@@ -34,6 +34,8 @@
 
 **Wallet stack (Solana, not wagmi):** Reown AppKit + `@reown/appkit-adapter-solana` — Phantom, Solflare, WalletConnect mobile; custom Phantom deeplink on mobile Chrome/Safari; signed flows: deposit, settle, claim, refund, Sign-In With Solana (Data Lab export).
 
+**i18n + theme (jury UX):** **8 languages** (en, fr, es, zh, ja, ru, pt, de) on the full fan path — fixtures, match detail, bet slip, wallet, in-app docs, agent connect. **Light/dark** Stitch glass toggle (top-left) with Reown modal theme sync and night stadium card art.
+
 **Pool modes** (pure fn of `side_totals`):
 
 - **Solo side** (≤1 country backed): after kickoff → `refund()` 100%, no settle.

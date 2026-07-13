@@ -25,6 +25,10 @@ export const ptDocs: DocsPack = {
           text: "UX wallet Solana de producao: Reown AppKit + WalletConnect (Phantom, Solflare, deeplink mobile) — veja Integracao wallet.",
         },
         {
+          type: "paragraph",
+          text: "8 idiomas + tema claro/escuro Stitch em toda a app — veja 8 idiomas e modo claro/escuro.",
+        },
+        {
           type: "link",
           label: "GitHub — DIALLOUBE-RESEARCH/natt-pundit",
           href: DOCS_PUBLIC_REPO,
@@ -46,6 +50,48 @@ export const ptDocs: DocsPack = {
             "Docs — este guia.",
             "Connect Agent — Cursor, Claude, MCP.",
           ],
+        },
+      ],
+    },
+    {
+      id: "i18n-theme",
+      title: "8 idiomas e modo claro/escuro",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Natt Settlement e para jurado e fas globais — nao so ingles. Todo o fluxo fan esta traduzido e a UI Stitch glass tem tema claro/escuro de producao.",
+        },
+        {
+          type: "heading3",
+          text: "8 idiomas (UI completa)",
+        },
+        {
+          type: "list",
+          items: [
+            "Idiomas: English, Francais, Espanol, 中文, 日本語, Русский, Portugues, Deutsch.",
+            "Pill de idioma no header — troca instantanea; URL ?lang=pt.",
+            "Aba Docs — este guia segue seu idioma (todas as secoes, incl. Integracao wallet).",
+            "Board, SETUP/HOLD, slip, wallet, agente — 8 idiomas.",
+            "Locale compartilhada com HyperNatt (hypernatt_locale).",
+          ],
+        },
+        {
+          type: "heading3",
+          text: "Claro / escuro",
+        },
+        {
+          type: "list",
+          items: [
+            "Toggle tema — sol/lua canto superior esquerdo (glass Stitch iOS).",
+            "Persiste no browser; todos os tabs.",
+            "Modal Reown segue o mesmo tema.",
+            "Escuro: slate glass, labels legiveis, arte estadio noite.",
+            "Claro: demo jury padrao.",
+          ],
+        },
+        {
+          type: "alert",
+          text: "Dica jury: ?lang=fr&tab=docs, modo escuro, conectar Wallet.",
         },
       ],
     },

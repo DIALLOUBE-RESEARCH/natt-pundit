@@ -25,6 +25,10 @@ export const ruDocs: DocsPack = {
           text: "Продакшен UX кошелька Solana: Reown AppKit + WalletConnect (Phantom, Solflare, mobile deeplink) — см. раздел «Интеграция кошелька».",
         },
         {
+          type: "paragraph",
+          text: "8 языков + светлая/тёмная тема Stitch во всём приложении — см. раздел «8 языков и светлая/тёмная тема».",
+        },
+        {
           type: "link",
           label: "GitHub — DIALLOUBE-RESEARCH/natt-pundit",
           href: DOCS_PUBLIC_REPO,
@@ -46,6 +50,48 @@ export const ruDocs: DocsPack = {
             "Docs — это руководство на вашем языке.",
             "Connect Agent — Cursor, Claude, MCP.",
           ],
+        },
+      ],
+    },
+    {
+      id: "i18n-theme",
+      title: "8 языков и светлая/тёмная тема",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Natt Settlement создан для глобального жюри и фанатов — не только английский. Весь путь фаната переведён; Stitch glass UI с продакшен-темой светлый/тёмный.",
+        },
+        {
+          type: "heading3",
+          text: "8 языков (полный UI)",
+        },
+        {
+          type: "list",
+          items: [
+            "Языки: English, Francais, Espanol, 中文, 日本語, Русский, Portugues, Deutsch.",
+            "Переключатель в шапке — мгновенно; URL ?lang=ru.",
+            "Вкладка Docs — руководство на выбранном языке (все разделы, вкл. Интеграция кошелька).",
+            "Список матчей, SETUP/HOLD, ставка, wallet, агент — 8 языков.",
+            "Общий locale с HyperNatt (hypernatt_locale).",
+          ],
+        },
+        {
+          type: "heading3",
+          text: "Светлая / тёмная тема",
+        },
+        {
+          type: "list",
+          items: [
+            "Переключатель — солнце/луна слева вверху (Stitch glass iOS).",
+            "Сохраняется в браузере; все вкладки.",
+            "Модал Reown синхронизирует тему.",
+            "Тёмная: slate glass, читаемые labels, ночные стадионы.",
+            "Светлая: демо для жюри по умолчанию.",
+          ],
+        },
+        {
+          type: "alert",
+          text: "Совет жюри: ?lang=fr&tab=docs, тёмная тема, подключить Wallet.",
         },
       ],
     },

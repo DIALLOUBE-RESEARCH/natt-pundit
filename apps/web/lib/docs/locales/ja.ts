@@ -25,6 +25,10 @@ export const jaDocs: DocsPack = {
           text: "本番 Solana ウォレット UX：Reown AppKit + WalletConnect（Phantom、Solflare、モバイルディープリンク）—「ウォレット統合」参照。",
         },
         {
+          type: "paragraph",
+          text: "アプリ全体で8言語 + Stitch ライト/ダークテーマ —「8言語とライト/ダークモード」参照。",
+        },
+        {
           type: "link",
           label: "GitHub — DIALLOUBE-RESEARCH/natt-pundit",
           href: DOCS_PUBLIC_REPO,
@@ -46,6 +50,48 @@ export const jaDocs: DocsPack = {
             "Docs — このガイド（選択言語）。",
             "Connect Agent — Cursor / Claude / MCP。",
           ],
+        },
+      ],
+    },
+    {
+      id: "i18n-theme",
+      title: "8言語とライト/ダークモード",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Natt Settlement はグローバルな審査員とファン向け — 英語だけではありません。ファン導線全体が翻訳され、Stitch glass UI に本番のライト/ダークテーマがあります。",
+        },
+        {
+          type: "heading3",
+          text: "8言語（UI全体）",
+        },
+        {
+          type: "list",
+          items: [
+            "言語: English, Francais, Espanol, 中文, 日本語, Русский, Portugues, Deutsch.",
+            "ヘッダーの言語ピル — 即時切替; URL ?lang=ja.",
+            "Docsタブ — 選択言語のこのガイド（ウォレット統合を含む全セクション）。",
+            "試合一覧、SETUP/HOLD、ベット、ウォレット、エージェント — 8言語。",
+            "HyperNatt と共有 locale (hypernatt_locale)。",
+          ],
+        },
+        {
+          type: "heading3",
+          text: "ライト / ダーク",
+        },
+        {
+          type: "list",
+          items: [
+            "テーマ切替 — 左上の太陽/月（iOS風 Stitch glass）。",
+            "ブラウザに保存; 全タブに適用。",
+            "Reown ウォレットモーダルも同じテーマに同期。",
+            "ダーク: slate glass、試合詳細の読みやすいラベル、夜のスタジアム画像。",
+            "ライト: 審査用デフォルトデモ。",
+          ],
+        },
+        {
+          type: "alert",
+          text: "審査のコツ: ?lang=fr&tab=docs、ダークモード、Wallet 接続。",
         },
       ],
     },

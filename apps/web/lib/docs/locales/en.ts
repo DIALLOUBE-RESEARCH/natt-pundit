@@ -26,6 +26,10 @@ export const enDocs: DocsPack = {
         },
         {
           type: "paragraph",
+          text: "8 languages + light/dark Stitch theme across the full app — see 8 languages & light/dark mode section.",
+        },
+        {
+          type: "paragraph",
           text: "SETUP flags measurable disagreement between our model and Shin de-vig market consensus. HOLD is a first-class decision — not a failure.",
         },
         {
@@ -49,6 +53,48 @@ export const enDocs: DocsPack = {
             "Docs tab — this guide, in your language.",
             "Connect Agent button (header) — link Cursor, Claude, or any MCP client.",
           ],
+        },
+      ],
+    },
+    {
+      id: "i18n-theme",
+      title: "8 languages & light/dark mode",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Natt Settlement is built for a global jury and fan base — not English-only. The entire fan journey is translated and the Stitch glass UI ships with a production light/dark theme.",
+        },
+        {
+          type: "heading3",
+          text: "8 languages (full UI)",
+        },
+        {
+          type: "list",
+          items: [
+            "Locales: English, Francais, Espanol, 中文, 日本語, Русский, Portugues, Deutsch.",
+            "Header language pill — instant switch; URL param ?lang=fr (en, fr, es, zh, ja, ru, pt, de).",
+            "Docs tab — this manual follows your selected language (all sections, including Wallet integration).",
+            "Match board, SETUP/HOLD, bet slip, wallet tab, agent connect modal — all 8 languages.",
+            "Shared locale storage with HyperNatt (hypernatt_locale) for cross-app consistency.",
+          ],
+        },
+        {
+          type: "heading3",
+          text: "Light / dark mode",
+        },
+        {
+          type: "list",
+          items: [
+            "Theme toggle — top-left sun/moon switch (iOS-style Stitch glass).",
+            "Persists in browser; applies to every tab (Home, Matches, Docs, Wallet).",
+            "Reown wallet modal follows the same theme (light/dark sync on open).",
+            "Dark mode: slate glass surfaces, readable labels on match detail, night stadium card art.",
+            "Light mode: default jury demo — unchanged WC hero and match cards.",
+          ],
+        },
+        {
+          type: "alert",
+          text: "Jury tip: open ?lang=es&tab=docs, toggle dark mode, then connect Wallet — shows i18n + theme + Reown stack in one flow.",
         },
       ],
     },

@@ -25,6 +25,10 @@ export const deDocs: DocsPack = {
           text: "Produktions-Wallet-UX auf Solana: Reown AppKit + WalletConnect (Phantom, Solflare, Mobile-Deeplink) — siehe Wallet-Integration.",
         },
         {
+          type: "paragraph",
+          text: "8 Sprachen + Hell/Dunkel-Stitch-Theme in der ganzen App — siehe 8 Sprachen & Hell/Dunkel-Modus.",
+        },
+        {
           type: "link",
           label: "GitHub — DIALLOUBE-RESEARCH/natt-pundit",
           href: DOCS_PUBLIC_REPO,
@@ -49,6 +53,48 @@ export const deDocs: DocsPack = {
             "Docs — diese Anleitung in deiner Sprache.",
             "Connect Agent — Cursor, Claude oder MCP-Client.",
           ],
+        },
+      ],
+    },
+    {
+      id: "i18n-theme",
+      title: "8 Sprachen & Hell/Dunkel-Modus",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Natt Settlement ist fur ein globales Publikum gebaut — nicht nur Englisch. Der gesamte Fan-Pfad ist ubersetzt; die Stitch-Glass-UI hat einen produktionsreifen Hell/Dunkel-Modus.",
+        },
+        {
+          type: "heading3",
+          text: "8 Sprachen (volle UI)",
+        },
+        {
+          type: "list",
+          items: [
+            "Sprachen: English, Francais, Espanol, 中文, 日本語, Русский, Portugues, Deutsch.",
+            "Sprach-Pill im Header — sofortiger Wechsel; URL ?lang=de.",
+            "Docs-Tab — dieses Handbuch folgt deiner Sprache (alle Abschnitte inkl. Wallet-Integration).",
+            "Spiele-Board, SETUP/HOLD, Wettschein, Wallet, Agent — alle 8 Sprachen.",
+            "Gemeinsamer Locale-Speicher mit HyperNatt (hypernatt_locale).",
+          ],
+        },
+        {
+          type: "heading3",
+          text: "Hell / Dunkel",
+        },
+        {
+          type: "list",
+          items: [
+            "Theme-Toggle — Sonne/Mond oben links (iOS-Stitch-Glass).",
+            "Speichert im Browser; gilt fur alle Tabs.",
+            "Reown-Wallet-Modal folgt demselben Theme.",
+            "Dunkel: Slate-Glass, lesbare Labels auf Match-Detail, Nacht-Stadion-Art.",
+            "Hell: Standard-Jury-Demo.",
+          ],
+        },
+        {
+          type: "alert",
+          text: "Jury-Tipp: ?lang=fr&tab=docs, Dunkelmodus, Wallet verbinden — i18n + Theme + Reown in einem Flow.",
         },
       ],
     },

@@ -25,6 +25,10 @@ export const esDocs: DocsPack = {
           text: "UX wallet Solana de produccion: Reown AppKit + WalletConnect (Phantom, Solflare, deeplink movil) — ver Integracion wallet.",
         },
         {
+          type: "paragraph",
+          text: "8 idiomas + tema claro/oscuro Stitch en toda la app — ver 8 idiomas y modo claro/oscuro.",
+        },
+        {
           type: "link",
           label: "GitHub — DIALLOUBE-RESEARCH/natt-pundit",
           href: DOCS_PUBLIC_REPO,
@@ -49,6 +53,48 @@ export const esDocs: DocsPack = {
             "Pestana Docs — esta guia en tu idioma.",
             "Boton Connect Agent — enlaza Cursor, Claude u otro cliente MCP.",
           ],
+        },
+      ],
+    },
+    {
+      id: "i18n-theme",
+      title: "8 idiomas y modo claro/oscuro",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Natt Settlement esta pensado para un jurado y fans globales — no solo ingles. Todo el recorrido fan esta traducido y la UI Stitch glass incluye tema claro/oscuro de produccion.",
+        },
+        {
+          type: "heading3",
+          text: "8 idiomas (UI completa)",
+        },
+        {
+          type: "list",
+          items: [
+            "Idiomas: English, Francais, Espanol, 中文, 日本語, Русский, Portugues, Deutsch.",
+            "Selector en el header — cambio instantaneo; URL ?lang=es (en, fr, es, zh, ja, ru, pt, de).",
+            "Pestana Docs — este manual sigue tu idioma (todas las secciones, incl. Integracion wallet).",
+            "Tablero, SETUP/HOLD, slip de apuesta, wallet, agente MCP — 8 idiomas.",
+            "Locale compartida con HyperNatt (hypernatt_locale).",
+          ],
+        },
+        {
+          type: "heading3",
+          text: "Modo claro / oscuro",
+        },
+        {
+          type: "list",
+          items: [
+            "Toggle tema — sol/luna arriba a la izquierda (glass Stitch estilo iOS).",
+            "Persiste en el navegador; aplica a todos los tabs.",
+            "Modal wallet Reown sincroniza el mismo tema.",
+            "Oscuro: slate glass, labels legibles en detalle, arte estadio nocturno.",
+            "Claro: demo jury por defecto.",
+          ],
+        },
+        {
+          type: "alert",
+          text: "Tip jury: ?lang=fr&tab=docs, modo oscuro, conectar Wallet — i18n + tema + Reown en un flujo.",
         },
       ],
     },

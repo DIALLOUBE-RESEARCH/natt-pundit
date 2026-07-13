@@ -19,6 +19,8 @@ Read this first, then [`USER_GUIDE.md`](./USER_GUIDE.md) (betting + wallet) and 
 
 Change language in the header — Docs tab follows (**en, fr, es, de, pt, ru, ja, zh**).
 
+**Also try:** sun/moon toggle (top-left) for **light/dark** Stitch theme — wallet modal syncs.
+
 ---
 
 ## 2. Smoke APIs (1 min)
@@ -76,6 +78,8 @@ x402: some reads cost $0.01 devnet USDC (separate from escrow deposits). Hackath
 ## 5. What to look for (checklist)
 
 - [ ] SETUP/HOLD badges on fixtures (edge ≠ blind tips)
+- [ ] **8 languages** — switch header or `?lang=fr` ; Docs tab translated
+- [ ] **Light/dark mode** — sun/moon toggle top-left ; Reown modal follows
 - [ ] **Wallet connect** — Reown AppKit + WalletConnect; sign deposit → collect on devnet
 - [ ] Merkle proof panel on finished matches
 - [ ] Escrow 4-step flow on match page
