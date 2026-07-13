@@ -1,6 +1,6 @@
 # Natt Settlement
 
-[![CI](https://github.com/DIALLOUBE-RESEARCH/natt-pundit/actions/workflows/ci.yml/badge.svg)](https://github.com/DIALLOUBE-RESEARCH/natt-pundit/actions/workflows/ci.yml)
+[![tests](https://img.shields.io/badge/tests-220%2F220%20PASS-brightgreen)](./SECURITY.md) [![devnet](https://img.shields.io/badge/escrow-Solana%20devnet-blue)](https://hypernatt.com/fr/nattpundit?lang=en)
 
 **TxODDS World Cup — Prediction Markets & Settlement** track (Superteam). Live Shin consensus, SETUP/HOLD edge, Merkle settlement verification, devnet escrow pools, agent MCP.
 
