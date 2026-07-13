@@ -11,3 +11,6 @@ apps/web/public/fallback-*.js
 
 # F86N v2 — proprietary edge formula (VPS/private only, never commit)
 packages/natt-edge-engine/
+
+# Nano Banana flag PNGs (~1MB each) — prod uses CDN circle-flags; regenerate locally only
+apps/web/public/ui/flags/*.png

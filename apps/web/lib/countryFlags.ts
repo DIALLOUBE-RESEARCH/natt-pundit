@@ -157,7 +157,7 @@ export function teamCircleFlagUrl(team: string): string | null {
   return `https://hatscripts.github.io/circle-flags/flags/${iso.toLowerCase()}.svg`;
 }
 
-/** Nano Banana bundled flags (public/ui/flags/{iso}.png). */
+/** Nano Banana bundled flags (public/ui/flags/{iso}.png) — optional local R&D; prod uses circle-flags CDN. */
 export function teamNanoFlagUrl(team: string): string | null {
   const iso = teamFlagIso(team);
   if (!iso) return null;

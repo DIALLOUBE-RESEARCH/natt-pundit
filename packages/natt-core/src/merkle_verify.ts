@@ -102,6 +102,11 @@ function verifyStatTerm(
 function verifySubtreeAndMainTree(
   input: TxlineProofNodesInput,
 ): { valid: boolean; reason: string } {
+  // TxLINE main-tree proof shape varies by endpoint/version: some responses include
+  // the merkle root as a terminal sibling node, others expect the full path walk.
+  // We accept the first strategy that matches (strict body walk, full-path walk,
+  // manual terminal pairing, stat-subtree root == daily root). Not brute-force —
+  // each path is a documented TxLINE layout; see natt-core merkle tests.
   if (!verifyMerklePath(input.eventStatRoot, input.subTreeProof, input.summarySubTreeRoot)) {
     return { valid: false, reason: "subtree_proof_mismatch" };
   }

@@ -1,5 +1,7 @@
 {
   "model": "gemini-3-pro-image-preview",
+  "shipped_in_repo": false,
+  "note": "Flag PNGs are gitignored (~1MB each). Prod uses circle-flags CDN. Regenerate with npm run ui:flags.",
   "flags": {
     "ar": {
       "file": "ar.png",

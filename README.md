@@ -1,6 +1,10 @@
 # Natt Settlement
 
+[![CI](https://github.com/DIALLOUBE-RESEARCH/natt-pundit/actions/workflows/ci.yml/badge.svg)](https://github.com/DIALLOUBE-RESEARCH/natt-pundit/actions/workflows/ci.yml)
+
 **TxODDS World Cup — Prediction Markets & Settlement** track (Superteam). Live Shin consensus, SETUP/HOLD edge, Merkle settlement verification, devnet escrow pools, agent MCP.
+
+> **Public mirror note:** This repo is synced from the private NATTAPP monorepo (`hackathon/natt-pundit/` via `scripts/sync-public-github.ps1`). Git history here is incremental mirror commits, not the full dev timeline. Proprietary edge engine stays off the public tree.
 
 ## Start here
 
