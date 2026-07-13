@@ -124,6 +124,14 @@ export const zhDocs: DocsPack = {
           type: "list",
           items: ["连接钱包", "开赛前选边 + 金额，一键下注", "赛后「结算中…」(keeper) →「领取」— 一次钱包签名（仅 claim）"],
         },
+        { type: "heading3", text: "规则" },
+        {
+          type: "list",
+          items: [
+            "仅开赛前。共享彩池（非固定庄家赔率）。",
+            "该比赛尚无链上池时首次下注：最多 **两次** 钱包确认（创建池 + 存入）。同场后续下注一次。",
+          ],
+        },
       ],
     },
     {
@@ -168,7 +176,7 @@ export const zhDocs: DocsPack = {
           type: "list",
           items: [
             "下注 — 托管存入（开赛前）。",
-            "领取奖金 — 全场结束后结算池并 claim。",
+            "领取奖金 — keeper 自动结算后 **仅 claim**（全场结束后）。",
             "退款 — 单边或无效池。",
             "Sign-In With Solana — Data Lab ZIP 导出随机数签名（白名单）。",
             "钱包标签 — 余额、历史、每行领取/退款操作。",

@@ -128,6 +128,14 @@ export const jaDocs: DocsPack = {
             "試合後「精算中…」(keeper) →「受取」— ウォレット署名1回（claimのみ）",
           ],
         },
+        { type: "heading3", text: "ルール" },
+        {
+          type: "list",
+          items: [
+            "キックオフ前のみ。共有プール（固定オッズではない）。",
+            "オンチェーン・プール未作成の初回ベット：最大 **2回** のウォレット承認（プール作成→デポジット）。同試合の2回目以降は1回。",
+          ],
+        },
       ],
     },
     {
@@ -172,7 +180,7 @@ export const jaDocs: DocsPack = {
           type: "list",
           items: [
             "ベット — エスクロー deposit（キックオフ前）。",
-            "受取 — FT 後にプール settle + claim。",
+            "受取 — keeper の自動 settle 後、**claim のみ**（FT 後）。",
             "返金 — 片側のみまたは void プール。",
             "Sign-In With Solana — Data Lab ZIP エクスポート用 nonce 署名（許可リスト）。",
             "ウォレットタブ — 残高、履歴、各行の claim/refund。",

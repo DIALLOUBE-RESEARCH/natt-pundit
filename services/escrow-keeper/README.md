@@ -14,7 +14,7 @@ Permissionless **settle-only** worker for Natt Pundit devnet pools.
 | Variable | Default | Notes |
 |----------|---------|-------|
 | `NATT_PUNDIT_ESCROW_KEEPER_ENABLED` | `false` | Kill switch |
-| `ESCROW_KEEPER_KEYPAIR` | — | base58 secret or JSON byte array; **never commit** |
+| `ESCROW_KEEPER_KEYPAIR` | — | base58 secret or JSON byte array; **`.env.natt_pundit` on VPS only** — not interpolated from `~/HYPERNATT/.env` |
 | `PUNDIT_GATEWAY_URL` | `http://natt-pundit-gateway:4001` | Internal compose |
 | `ESCROW_KEEPER_POLL_MS` | `60000` | 15s–300s clamp |
 | `ESCROW_KEEPER_PORT` | `4013` | Health HTTP |

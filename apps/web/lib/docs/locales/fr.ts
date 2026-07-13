@@ -186,6 +186,7 @@ export const frDocs: DocsPack = {
             "Phase de groupes : 1X2. Elimination directe : vainqueur seul (prolongations / tirs au but si egalite).",
             "Pool partage : les gagnants se partagent la cagnotte au prorata (pas des cotes fixes bookmaker).",
             "Seul un pays mise : remboursement apres coup d'envoi.",
+            "Premier pari sur un match sans pool on-chain : jusqu'a **deux** approbations wallet (creation du pool, puis depot). Paris suivants sur le meme match : une seule.",
           ],
         },
       ],

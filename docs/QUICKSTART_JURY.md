@@ -52,7 +52,7 @@ curl -s https://hypernatt.com/api/natt-pundit/txline/v1/fixtures/18172280/proof/
 |------|--------|
 | Fund | [SOL faucet](https://faucet.solana.com/) + [USDC faucet](https://faucet.circle.com/) (Solana Devnet) |
 | Connect | App header → **Wallet** pill → Reown modal (Phantom, Solflare, WalletConnect mobile) |
-| Bet | Match page → pick side + stake → **Place bet** (≥ 0.01 USDC, pre-kickoff) |
+| Bet | Match page → pick side + stake → **Place bet** (≥ 0.01 USDC, pre-kickoff). First bet on a new on-chain pool: up to **two** approvals (create pool + deposit). |
 | After FT | **Settlement in progress…** (escrow keeper auto-settles pool) → **Collect payout** — **one signature** (claim only) |
 | Archived match | **Wallet tab** → **Collect payout** / **Refund stake** on each row |
 

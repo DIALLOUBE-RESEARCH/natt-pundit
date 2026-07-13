@@ -128,6 +128,14 @@ export const ptDocs: DocsPack = {
             "Apos o jogo: **Liquidacao em curso…** (keeper escrow) depois **Receber** — uma assinatura (so claim).",
           ],
         },
+        { type: "heading3", text: "Regras" },
+        {
+          type: "list",
+          items: [
+            "So pre-jogo. Pool partilhado — nao sao odds fixas de casa.",
+            "Primeira aposta sem pool on-chain: ate **duas** aprovacoes (criar pool, depois deposito). Mesmo jogo depois: uma.",
+          ],
+        },
       ],
     },
     {
@@ -172,7 +180,7 @@ export const ptDocs: DocsPack = {
           type: "list",
           items: [
             "Apostar — deposito escrow (pre-jogo).",
-            "Receber — settle do pool + claim apos FT.",
+            "Receber — **so claim** apos auto-settle do keeper (pos-FT).",
             "Reembolso — lado solo ou pool void.",
             "Sign-In With Solana — nonce para export ZIP Data Lab (allowlist).",
             "Aba Wallet — saldos, historico, claim/refund por linha.",

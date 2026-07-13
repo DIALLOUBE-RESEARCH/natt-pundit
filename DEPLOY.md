@@ -80,7 +80,7 @@ NEXT_PUBLIC_NATT_ESCROW_PROGRAM_ID=GPSU49hPRqWeEtTyMghWLWrXagV8hobFPkbFKVK3jxUD
 | Env (`.env.natt_pundit` on VPS) | Role |
 |---------------------------------|------|
 | `NATT_PUNDIT_ESCROW_KEEPER_ENABLED=true` | Kill switch |
-| `ESCROW_KEEPER_KEYPAIR` | base58 or JSON byte array — **fee payer only**, never commit |
+| `ESCROW_KEEPER_KEYPAIR` | base58 or JSON byte array — **fee payer only**, never commit; **`.env.natt_pundit` only** (do not duplicate in `~/HYPERNATT/.env` — compose `env_file` is the source) |
 | `NEXT_PUBLIC_NATT_ESCROW_KEEPER_ENABLED=true` | Rebuild `natt-pundit-web` so fans see « Settlement in progress… » |
 
 Fund keeper pubkey with devnet SOL ([faucet](https://faucet.solana.com/)). See [`services/escrow-keeper/README.md`](services/escrow-keeper/README.md).

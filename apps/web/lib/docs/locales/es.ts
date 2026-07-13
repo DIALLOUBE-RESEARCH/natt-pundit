@@ -163,6 +163,7 @@ export const esDocs: DocsPack = {
             "Fase de grupos: 1X2. Eliminatoria: solo ganador (prorroga / penaltis).",
             "Pool compartido: ganadores reparten el bote (no cuotas fijas de casa).",
             "Solo un pais apostado: reembolso tras el kickoff.",
+            "Primer apuesta en un partido sin pool on-chain: hasta **dos** firmas (crear pool, luego deposito). Siguientes apuestas en el mismo partido: una.",
           ],
         },
       ],

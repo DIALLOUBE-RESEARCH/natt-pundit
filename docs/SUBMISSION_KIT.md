@@ -32,14 +32,14 @@
 | Fixtures, edge, Merkle proof | mainnet TxLINE |
 | USDC pool + CPI settle + refund | **devnet** (Reown AppKit / WalletConnect signs) |
 
-**Wallet stack (Solana, not wagmi):** Reown AppKit + `@reown/appkit-adapter-solana` — Phantom, Solflare, WalletConnect mobile; custom Phantom deeplink on mobile Chrome/Safari; signed flows: deposit, settle, claim, refund, Sign-In With Solana (Data Lab export).
+**Wallet stack (Solana, not wagmi):** Reown AppKit + `@reown/appkit-adapter-solana` — Phantom, Solflare, WalletConnect mobile; custom Phantom deeplink on mobile Chrome/Safari. **Fans:** sign deposit (+ optional pool create) and **claim** only — post-match **settle** is done by the **escrow keeper** (VPS fee payer). **Agents (MCP):** may also call settle/claim/refund tools. Sign-In With Solana for Data Lab export.
 
 **i18n + theme (jury UX):** **8 languages** (en, fr, es, zh, ja, ru, pt, de) on the full fan path — fixtures, match detail, bet slip, wallet, in-app docs, agent connect. **Light/dark** Stitch glass toggle (top-left) with Reown modal theme sync and night stadium card art.
 
 **Pool modes** (pure fn of `side_totals`):
 
 - **Solo side** (≤1 country backed): after kickoff → `refund()` 100%, no settle.
-- **Shared pool** (≥2 countries backed): settle + collect pro-rata.
+- **Shared pool** (≥2 countries backed): **keeper** permissionless `settle` on-chain, then fan **claim** pro-rata.
 
 Smoke CPI args:
 
@@ -126,7 +126,7 @@ curl -s -o /dev/null -w "%{http_code}\n" \
 2. **0:30–1:15** — Live app: fixture grid, SETUP/HOLD, match detail decomposition 1X2.
 3. **1:15–2:00** — **Data Lab** `/datas`: CLV progress bar, `CLV_VERIFIED` rare by design (N≥500).
 4. **2:00–2:45** — Settlement panel: Merkle path, green badge (`validated=true`) on finished fixture.
-5. **2:45–3:30** — **Escrow devnet (fan UX)**: connect Phantom → **Place bet** (one CTA pre-kickoff) → after FT **Settlement in progress…** (keeper auto-settles) → **Collect payout** (**one** claim signature). Optional: unmatched **refund** after kickoff.
+5. **2:45–3:30** — **Escrow devnet (fan UX)**: connect Phantom → **Place bet** (one CTA pre-kickoff; **up to two** approvals if the on-chain pool must be created first) → after FT **Settlement in progress…** (keeper auto-settles) → **Collect payout** (**one** claim signature). Optional: unmatched **refund** after kickoff.
 6. **3:30–4:15** — **MCP agent**: Cursor `natt-pundit` server → `get_fixture_agent_status` → unsigned deposit/refund tx; mention x402 ≠ escrow deposit.
 7. **4:15–4:45** — Architecture slide: web → gateway/edge/MCP → TxLINE; devnet escrow; `natt-core` tests.
 8. **4:45–5:00** — CTA: public mirror, TxLINE activate, deadline 2026-07-19.

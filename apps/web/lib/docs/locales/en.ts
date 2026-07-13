@@ -186,6 +186,7 @@ export const enDocs: DocsPack = {
             "Group stage: 1X2 (home / draw / away). Knockout: winner only (ET / penalties if tied).",
             "Shared pool: winners split the pot pro-rata after the official score (not fixed bookmaker odds).",
             "Solo side: only one country backed → refund after kickoff.",
+            "First bet on a fixture with no on-chain pool yet: up to **two** wallet approvals (create pool, then deposit). Later bets on the same match: one approval.",
           ],
         },
       ],

@@ -48,6 +48,7 @@ Full detail in-app: Docs → **8 languages & light/dark mode** (translated in al
 
 1. **Wallet** — connect Solana on the match page.
 2. **Place bet** — tap the **country flag** (or Draw in group stage), enter stake ≥ 0.01 USDC, tap **Place bet**.
+   - First bet on a fixture with no on-chain pool yet: up to **two** wallet approvals (create pool, then deposit). Same match later: one.
 3. **After match** — status **Settlement in progress…** while the **escrow keeper** auto-settles the pool (permissionless on-chain; server fee payer only). Then tap **Collect payout** — **one wallet signature** (claim only).
 
 **UNMATCHED** (one side only): **Refund stake** after kickoff.

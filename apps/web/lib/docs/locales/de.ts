@@ -151,6 +151,7 @@ export const deDocs: DocsPack = {
             "Gruppe: 1X2. K.o.: nur Sieger.",
             "Geteilter Pool: Gewinner teilen den Pot (keine festen Buchmacher-Quoten).",
             "Nur ein Land gesetzt: Erstattung nach Anpfiff.",
+            "Erste Wette ohne On-Chain-Pool: bis zu **zwei** Wallet-Freigaben (Pool erstellen, dann Deposit). Weitere Wetten auf dasselbe Spiel: eine.",
           ],
         },
       ],
@@ -202,7 +203,7 @@ export const deDocs: DocsPack = {
           type: "list",
           items: [
             "Wette platzieren — Escrow-Deposit (Pre-Match).",
-            "Auszahlung abholen — Pool settle + Gewinn-Claim nach FT.",
+            "Auszahlung abholen — **nur Claim** nach Auto-Settle des Keepers (nach FT).",
             "Einsatz erstatten — Solo-Seite oder void Pool.",
             "Sign-In With Solana — Nonce-Nachricht fur Data-Lab-ZIP-Export (Allowlist).",
             "Wallet-Tab — Salden, Historie, Claim/Refund pro Zeile.",
