@@ -9,11 +9,13 @@ import {
   convictionTierLabel,
   edgePublicLabels,
   formatShinConsensusLine,
+  publicEdgeSignalRowShort,
   publicEdgeSummaryText,
 } from "@/lib/edgePublicI18n";
 import { ui } from "@/lib/i18n";
 import { outcomeLabel } from "@/lib/outcomeDiagnostic";
 import type { AppLang } from "@/lib/locales";
+import { StitchModelMarketBar } from "@/features/match/stitch/StitchModelMarketBar";
 
 type Props = {
   verdict: EdgeDisplayVerdict;
@@ -24,9 +26,19 @@ type Props = {
   lang?: AppLang;
 };
 
-function StatRow({ label, value, highlight }: { label: string; value: string; highlight?: boolean }) {
+function StatRow({
+  label,
+  value,
+  highlight,
+  stacked,
+}: {
+  label: string;
+  value: string;
+  highlight?: boolean;
+  stacked?: boolean;
+}) {
   return (
-    <div className="stitch-stat-row">
+    <div className={`stitch-stat-row${stacked ? " stitch-stat-row--stack" : ""}`}>
       <dt>{label}</dt>
       <dd className={highlight ? "stitch-stat-row__value--accent" : undefined}>{value}</dd>
     </div>
@@ -46,6 +58,7 @@ export function StitchEdgePanel({
   const lang = langProp ?? presentLang;
   const t = ui(lang);
   const setup = verdict.verdict === "SETUP";
+  const labels = edgePublicLabels(lang);
 
   if (!isPublicEdgeVerdict(verdict)) {
     return (
@@ -53,22 +66,27 @@ export function StitchEdgePanel({
         <LiquidGlassPill as="div" variant={setup ? "setup" : "hold"}>
           <span className="stitch-lg-pill-val">{setup ? t.verdictSetup : t.verdictHold}</span>
         </LiquidGlassPill>
+        <div className="stitch-edge-signal-block">
+          <p className="stitch-edge-signal-title">{labels.edgeModelSignal}</p>
+          <StitchModelMarketBar
+            modelPct={verdict.pi_model * 100}
+            marketPct={verdict.pi_tx * 100}
+            modelLabel={labels.modelBarModel}
+            marketLabel={labels.modelBarMarket}
+          />
+        </div>
       </div>
     );
   }
 
   const summary = publicEdgeSummaryText(verdict, homeTeam, awayTeam, lang);
+  const signalShort = publicEdgeSignalRowShort(verdict, homeTeam, awayTeam, lang);
 
-  const labels = edgePublicLabels(lang);
   const sideName =
     verdict.direction && verdict.direction !== "none"
       ? outcomeLabel(verdict.direction, homeTeam, awayTeam, lang)
       : "—";
   const conviction = convictionTierLabel(verdict.conviction, lang);
-  const signal =
-    verdict.verdict === "SETUP" && verdict.direction && verdict.direction !== "none"
-      ? labels.setupSummary(sideName, conviction)
-      : labels.holdSummary;
   const convictionDisplay = displayConviction(verdict);
   const convictionExtra =
     convictionDisplay && convictionDisplay !== "none" ? convictionTierLabel(convictionDisplay, lang) : null;
@@ -82,6 +100,11 @@ export function StitchEdgePanel({
 
       <p className="stitch-match-edge-why">{summary}</p>
 
+      <div className="stitch-edge-signal-block">
+        <p className="stitch-edge-signal-title">{labels.edgeModelSignal}</p>
+        <p className="stitch-edge-signal-short">{signalShort}</p>
+      </div>
+
       <dl className="stitch-stat-grid">
         {verdict.verdict === "SETUP" && verdict.direction && verdict.direction !== "none" ? (
           <StatRow label={labels.edgeSide} value={sideName} highlight />
@@ -91,9 +114,9 @@ export function StitchEdgePanel({
           <StatRow
             label={labels.edgeShinMarket}
             value={formatShinConsensusLine(consensus, homeTeam, awayTeam, wcFormat, lang)}
+            stacked
           />
         ) : null}
-        <StatRow label={labels.edgeModelSignal} value={signal} />
       </dl>
     </div>
   );

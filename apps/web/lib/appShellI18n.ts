@@ -54,7 +54,7 @@ const en: AppShellCopy = {
   ariaMainNav: "Main navigation",
   ariaLanguage: "Language",
   walletLabel: "Wallet",
-  walletConnectPill: "Connect Wallet",
+  walletConnectPill: "Wallet",
   walletDisabledTitle: "Set NEXT_PUBLIC_PROJECT_ID",
   walletProjectIdHint: "Set NEXT_PUBLIC_PROJECT_ID for Reown modal (prod).",
   poweredByLabel: "Powered by",

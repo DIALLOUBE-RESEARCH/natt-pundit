@@ -22,6 +22,10 @@ export const enDocs: DocsPack = {
         },
         {
           type: "paragraph",
+          text: "Production Solana wallet UX: Reown AppKit + WalletConnect (Phantom, Solflare, mobile deeplink) — see Wallet integration section.",
+        },
+        {
+          type: "paragraph",
           text: "SETUP flags measurable disagreement between our model and Shin de-vig market consensus. HOLD is a first-class decision — not a failure.",
         },
         {
@@ -172,6 +176,55 @@ export const enDocs: DocsPack = {
         {
           type: "alert",
           text: "If a finished match disappears from the list, use the Wallet tab — do not rely on the fixtures board alone.",
+        },
+      ],
+    },
+    {
+      id: "wallet-integration",
+      title: "Wallet integration (Solana)",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Natt Settlement ships production-grade wallet UX — not a mock connect button. Fans and agents sign real Solana devnet transactions from the PWA (desktop + mobile).",
+        },
+        {
+          type: "heading3",
+          text: "Stack (Solana — not EVM / wagmi)",
+        },
+        {
+          type: "list",
+          items: [
+            "Reown AppKit — WalletConnect modal (same Reown family as HyperNatt; Solana adapter here).",
+            "@reown/appkit-adapter-solana — Phantom, Solflare, WalletConnect on mobile.",
+            "Custom Phantom mobile deeplink — connect and sign in Chrome/Safari, return to the app.",
+            "Anchor escrow on devnet — SPL USDC deposit, settle, claim, refund.",
+          ],
+        },
+        {
+          type: "heading3",
+          text: "Signed flows in the app",
+        },
+        {
+          type: "list",
+          items: [
+            "Place bet — escrow deposit (pre-kickoff).",
+            "Collect payout — settle pool + claim winnings after full time.",
+            "Refund stake — solo-side or void pools.",
+            "Sign-In With Solana — nonce message for Data Lab ZIP export (allowlist).",
+            "Wallet tab — balances, bet history, claim/refund on each row.",
+          ],
+        },
+        {
+          type: "heading3",
+          text: "Mobile Phantom",
+        },
+        {
+          type: "paragraph",
+          text: "On mobile Chrome/Safari: tap Wallet → Phantom opens → approve connection and transactions → you return to Natt Settlement with disconnect in the Reown account view.",
+        },
+        {
+          type: "alert",
+          text: "Escrow uses Solana Devnet only. Switch Phantom/Solflare to Devnet before betting.",
         },
       ],
     },

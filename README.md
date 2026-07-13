@@ -46,6 +46,7 @@ Pre-submission multi-layer audit (Anchor escrow, MCP Pundit server, x402 Solana 
 - **Edge**: two-source combine vs Shin consensus `pi_tx`; **SETUP** only when net disagreement exceeds a pre-registered threshold (else **HOLD**)
 - **Settlement**: TxLINE stat-validation Merkle proofs verified off-chain (SHA-256, sibling order); on-chain CPI `validate_stat` on devnet escrow
 - **Escrow (devnet)**: USDC **shared pool** per WC fixture — bet by country, collect payout, refund
+- **Wallet UX (Solana)**: **Reown AppKit** + **WalletConnect** — Phantom, Solflare, mobile deeplink; signed deposit / settle / claim / refund; Sign-In With Solana for Data Lab export (not EVM / wagmi)
 - **Agents**: MCP server (20 tools) + x402 micropayments on Solana devnet; autonomous deposit/refund loop; read-only agent dashboard at `/agent`
 - **Data Lab** (`/datas`): append-only odds/edge/proof logger + CLV harness; ZIP export gated by Sign-In With Solana (allowlist)
 

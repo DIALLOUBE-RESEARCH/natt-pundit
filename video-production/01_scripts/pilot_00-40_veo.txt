@@ -1,0 +1,6 @@
+=== VIDEO — PAUSED — do not run without owner "go veo" ===
+
+Default intro = logo slate (build_logo_intro.py) + scrcpy. Veo optional only.
+
+If owner approves one more attempt: bright daytime broadcast, NOT night rain.
+Use reference image sofi-stadium.png if image-to-video enabled later.

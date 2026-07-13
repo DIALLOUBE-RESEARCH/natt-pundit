@@ -20,7 +20,31 @@ import {
   type WalletBetRow,
   type WalletPortfolioSummary,
 } from "@/lib/walletPortfolio";
+import { getAssociatedTokenAddressSync } from "@solana/spl-token";
+import { usdcMintAddress } from "@/lib/escrowCluster";
+
 const USER_POSITION_DISCRIMINATOR = Buffer.from([251, 248, 209, 245, 83, 234, 17, 27]);
+
+export type WalletOnChainBalances = {
+  sol: number;
+  usdc: number | null;
+};
+
+export async function fetchWalletOnChainBalances(walletAddress: string): Promise<WalletOnChainBalances> {
+  const owner = new PublicKey(walletAddress);
+  const connection = await serverEscrowConnection();
+  const lamports = await connection.getBalance(owner);
+  let usdc: number | null = null;
+  try {
+    const mint = new PublicKey(usdcMintAddress());
+    const ata = getAssociatedTokenAddressSync(mint, owner);
+    const bal = await connection.getTokenAccountBalance(ata);
+    usdc = Number(bal.value.uiAmountString ?? 0);
+  } catch {
+    usdc = null;
+  }
+  return { sol: lamports / 1e9, usdc };
+}
 
 function gatewayBaseUrl(): string {
   return (

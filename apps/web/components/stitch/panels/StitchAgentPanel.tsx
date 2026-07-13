@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { usePresent } from "@/components/present/PresentProvider";
+import { LiquidGlassPillLink } from "@/design-system/glass/LiquidGlassPill";
 import { StitchPanelFooter } from "@/components/stitch/StitchPanelFooter";
 import { useWalletPortfolio } from "@/hooks/useWalletPortfolio";
 import { agentDashCopy } from "@/lib/agentDashI18n";
@@ -105,6 +106,11 @@ export function StitchAgentPanel() {
 
   return (
     <div className="stitch-panel stitch-panel--wallet stitch-panel--agent">
+      <div className="stitch-agent-nav stitch-nav-pill-row">
+        <LiquidGlassPillLink href="/?tab=matches" className="stitch-nav-pill--compact">
+          ← {a.backToApp}
+        </LiquidGlassPillLink>
+      </div>
       <section className="stitch-wallet-hero">
         <p className="stitch-wallet-kicker">{a.kicker}</p>
         <div className="stitch-wallet-hero-row">
@@ -231,7 +237,7 @@ export function StitchAgentPanel() {
                   const tone = statusTone(bet.status);
                   const pnlEstimated =
                     bet.status === "claimable" || bet.status === "open" || bet.status === "refund_eligible";
-                  const matchHref = `${BASE_PATH}/match/${bet.fixtureId}`;
+                  const matchHref = `/match/${bet.fixtureId}`;
                   const homeLabel = teamLabel(bet.homeTeam, lang);
                   const awayLabel = teamLabel(bet.awayTeam, lang);
                   const pickLabel = betPickCountryLabel(lang, bet.side, bet.homeTeam, bet.awayTeam);

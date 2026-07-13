@@ -162,11 +162,14 @@ export function SettlementProofPanel({ fixtureId, fixtureStatus, score }: Props)
             {proof.statType}: {proof.statValue}
           </dd>
         </div>
-        <div>
+        <div className="proof-dl-row proof-dl-row--valid">
           <dt>{t.validOnchain}</dt>
           <dd>
             {proof.validated ? (
-              <span className="proof-valid-badge">{validationLabel}</span>
+              <span className="proof-valid-badge stitch-proof-valid-badge">
+                <span className="proof-valid-badge__long">{validationLabel}</span>
+                <span className="proof-valid-badge__short">{t.statValidYesShort}</span>
+              </span>
             ) : (
               <span className={proofPending ? "proof-stale-hint" : scoreMismatch ? "proof-stale-hint" : undefined}>
                 {validationLabel}

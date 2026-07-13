@@ -1,0 +1,32 @@
+{
+  "name": "models/veo-3.1-fast-generate-preview/operations/5zm784he6cwk",
+  "metadata": null,
+  "done": true,
+  "error": null,
+  "response": {
+    "generated_videos": [
+      {
+        "video": {
+          "uri": "https://generativelanguage.googleapis.com/v1beta/files/ci5sjsl6v3my:download?alt=media",
+          "video_bytes": null,
+          "mime_type": null
+        }
+      }
+    ],
+    "rai_media_filtered_count": null,
+    "rai_media_filtered_reasons": null
+  },
+  "result": {
+    "generated_videos": [
+      {
+        "video": {
+          "uri": "https://generativelanguage.googleapis.com/v1beta/files/ci5sjsl6v3my:download?alt=media",
+          "video_bytes": null,
+          "mime_type": null
+        }
+      }
+    ],
+    "rai_media_filtered_count": null,
+    "rai_media_filtered_reasons": null
+  }
+}

@@ -20,7 +20,7 @@ Switch language in the header — **en, fr, es, zh, ja, ru, pt, de** — the Doc
 
 ## 1. Fund devnet wallet
 
-1. Connect wallet (Phantom / Solflare via Reown).
+1. Connect wallet — **Reown AppKit** (Phantom / Solflare / **WalletConnect** on mobile). Solana stack, not EVM wagmi.
 2. Switch wallet to **Solana Devnet**.
 3. Get **SOL** from https://faucet.solana.com/ (~0.01+ SOL per tx batch).
 4. Get **USDC** from https://faucet.circle.com/ (min stake **0.01 USDC**).

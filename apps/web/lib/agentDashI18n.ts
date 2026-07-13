@@ -19,6 +19,9 @@ export type AgentDashCopy = {
   notConfiguredTitle: string;
   notConfiguredBody: string;
   loadingProfile: string;
+  backToApp: string;
+  walletEntryCta: string;
+  walletEntryLead: string;
 };
 
 const en: AgentDashCopy = {
@@ -38,6 +41,9 @@ const en: AgentDashCopy = {
   notConfiguredTitle: "Agent not configured",
   notConfiguredBody: "No demo agent wallet is set on this deployment.",
   loadingProfile: "Loading agent profile…",
+  backToApp: "Back to matches",
+  walletEntryCta: "Autonomous agent ledger",
+  walletEntryLead: "Read-only MCP bets, balances and on-chain settlement.",
 };
 
 const fr: AgentDashCopy = {
@@ -57,6 +63,9 @@ const fr: AgentDashCopy = {
   notConfiguredTitle: "Agent non configure",
   notConfiguredBody: "Aucun wallet agent demo n'est defini sur ce deploiement.",
   loadingProfile: "Chargement du profil agent…",
+  backToApp: "Retour aux matchs",
+  walletEntryCta: "Ledger agent autonome",
+  walletEntryLead: "Paris MCP, soldes et settlement on-chain (lecture seule).",
 };
 
 const es: AgentDashCopy = {

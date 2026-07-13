@@ -26,7 +26,7 @@ function StitchWalletPillInner() {
   const { address, isConnected } = useSolanaConnectedWallet();
   const { lang } = usePresent();
   const s = shell(lang);
-  const label = isConnected && address ? shortAddr(address) : s.walletConnectPill;
+  const label = isConnected && address ? shortAddr(address) : s.walletLabel;
 
   return (
     <LiquidGlassPill

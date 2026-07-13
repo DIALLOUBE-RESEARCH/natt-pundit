@@ -1,0 +1,10 @@
+{
+  "instances": [
+    {
+      "prompt": "Instrumental loop only. 95 BPM boom bap hip hop. Warm soul chord chop feel, dusty muffled drum break, unquantized human swing, muted kick, crispy snare, swung hi-hats, round electric bass. Soulful confident head-nod groove. Sparse room for voiceover. Vinyl warmth, lo-fi sampler texture. Seamless loop ending.",
+      "negative_prompt": "vocals, singing, choir, orchestral strings, epic trailer, EDM drop, trap, four-on-the-floor, cymbal crashes",
+      "seed": 143
+    }
+  ],
+  "parameters": {}
+}

@@ -19,6 +19,7 @@ export type UiCopy = {
   sourceTxline: string;
   sourceMock: string;
   statValidYes: string;
+  statValidYesShort: string;
   statValidWait: string;
   statValidFailed: string;
   statScoreMismatch: (proofStat: string, scoreLine: string) => string;
@@ -127,6 +128,7 @@ const en: UiCopy = {
   sourceTxline: "TxLINE (live)",
   sourceMock: "mock (dev)",
   statValidYes: "Merkle verified (local)",
+  statValidYesShort: "Merkle OK",
   statValidWait: "awaiting verification",
   statValidFailed: "Merkle verification failed (local)",
   statScoreMismatch: (proofStat, scoreLine) =>
@@ -242,6 +244,7 @@ const fr: UiCopy = {
   proofUnavailable: "Preuve settlement indisponible",
   settlementTitle: "Settlement (TxLINE / Solana)",
   statValidYes: "Merkle verifie (local)",
+  statValidYesShort: "Merkle OK",
   statValidWait: "en attente verification",
   statValidFailed: "verification Merkle echouee (local)",
   statScoreMismatch: (proofStat, scoreLine) =>

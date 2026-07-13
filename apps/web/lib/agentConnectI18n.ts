@@ -10,6 +10,7 @@ export type AgentConnectCopy = {
   tabOther: string;
   openInCursor: string;
   openInClaudeWeb: string;
+  openInClaudeApp: string;
   copyClaudeCodeCommand: string;
   copyConfig: string;
   copyMcpUrl: string;
@@ -19,6 +20,7 @@ export type AgentConnectCopy = {
   copiedNameToast: string;
   cursorOpenToast: string;
   claudeWebToast: string;
+  claudeAppToast: string;
   claudeCodeToast: string;
   cursorHint: string;
   claudeHint: string;
@@ -44,7 +46,7 @@ export type AgentConnectCopy = {
 };
 
 const en: AgentConnectCopy = {
-  connectAgentPill: "Connect Agent",
+  connectAgentPill: "Agent",
   connectAgentCta: "Connect your Agent",
   modalTitle: "Connect your Agent",
   modalLead: "TxLINE World Cup data in your AI assistant — one-click setup.",
@@ -53,6 +55,7 @@ const en: AgentConnectCopy = {
   tabOther: "Other",
   openInCursor: "Open in Cursor",
   openInClaudeWeb: "Claude.ai (web)",
+  openInClaudeApp: "Open in Claude app",
   copyClaudeCodeCommand: "Copy Claude Code command",
   copyConfig: "Copy JSON configuration",
   copyMcpUrl: "Copy MCP URL only",
@@ -63,7 +66,9 @@ const en: AgentConnectCopy = {
   cursorOpenToast:
     "Cursor will open with NattPundit pre-filled. If tools do not appear, restart Cursor (Settings > Tools & MCP).",
   claudeWebToast:
-    "URL copied! In Connectors: Name = Natt Pundit, paste URL, OAuth empty. Then new chat and enable the connector.",
+    "MCP URL copied. Connector form opens with Name + URL prefilled — tap Add to confirm, then enable in a new chat.",
+  claudeAppToast:
+    "Opening Claude app — add-connector form prefilled. Tap Add, then start a new chat and enable the connector.",
   claudeCodeToast:
     "Command copied! Paste in a terminal, run it, then check with: claude mcp list",
   cursorHint: "One click installs NattPundit via cursor:// deeplink.",
@@ -111,7 +116,7 @@ const en: AgentConnectCopy = {
 };
 
 const fr: AgentConnectCopy = {
-  connectAgentPill: "Connecter Agent",
+  connectAgentPill: "Agent",
   connectAgentCta: "Connecter votre Agent",
   modalTitle: "Connecter votre Agent",
   modalLead: "Donnees TxLINE Coupe du Monde dans votre assistant IA — installation en un clic.",
@@ -120,6 +125,7 @@ const fr: AgentConnectCopy = {
   tabOther: "Autre",
   openInCursor: "Ouvrir dans Cursor",
   openInClaudeWeb: "Claude.ai (site web)",
+  openInClaudeApp: "Ouvrir dans l'app Claude",
   copyClaudeCodeCommand: "Copier commande Claude Code",
   copyConfig: "Copier la configuration JSON",
   copyMcpUrl: "Copier l'URL MCP seule",
@@ -130,7 +136,9 @@ const fr: AgentConnectCopy = {
   cursorOpenToast:
     "Cursor va s'ouvrir avec NattPundit pre-rempli. Si les tools n'apparaissent pas, redemarre Cursor (Settings > Tools & MCP).",
   claudeWebToast:
-    "URL copiee ! Dans Connectors : Nom = Natt Pundit, colle l'URL, OAuth vide. Puis nouveau chat et active le connecteur.",
+    "URL MCP copiee. Formulaire connecteur pre-rempli — valide avec Ajouter, puis nouveau chat.",
+  claudeAppToast:
+    "Ouverture app Claude — formulaire pre-rempli. Valide Ajouter, puis nouveau chat + active le connecteur.",
   claudeCodeToast:
     "Commande copiee ! Colle dans un terminal, execute, puis verifie avec : claude mcp list",
   cursorHint: "Un clic installe NattPundit via le deeplink cursor://.",
@@ -179,7 +187,7 @@ const fr: AgentConnectCopy = {
 
 const es: AgentConnectCopy = {
   ...en,
-  connectAgentPill: "Conectar agente",
+  connectAgentPill: "Agent",
   connectAgentCta: "Conectar tu Agente",
   modalTitle: "Conectar tu Agente",
   modalLead: "Datos TxLINE del Mundial en tu asistente IA — configuracion en un clic.",
@@ -237,7 +245,7 @@ const es: AgentConnectCopy = {
 
 const de: AgentConnectCopy = {
   ...en,
-  connectAgentPill: "Agent verbinden",
+  connectAgentPill: "Agent",
   connectAgentCta: "Agent verbinden",
   modalTitle: "Agent verbinden",
   modalLead: "TxLINE WM-Daten in deinem KI-Assistenten — Ein-Klick-Setup.",
@@ -291,7 +299,7 @@ const de: AgentConnectCopy = {
 
 const pt: AgentConnectCopy = {
   ...en,
-  connectAgentPill: "Conectar agente",
+  connectAgentPill: "Agent",
   connectAgentCta: "Conectar seu Agente",
   modalTitle: "Conectar seu Agente",
   tabOther: "Outro",
@@ -394,7 +402,7 @@ const ru: AgentConnectCopy = {
 
 const ja: AgentConnectCopy = {
   ...en,
-  connectAgentPill: "エージェント接続",
+  connectAgentPill: "Agent",
   connectAgentCta: "エージェントを接続",
   modalTitle: "エージェントを接続",
   tabOther: "その他",
@@ -446,7 +454,7 @@ const ja: AgentConnectCopy = {
 
 const zh: AgentConnectCopy = {
   ...en,
-  connectAgentPill: "连接 Agent",
+  connectAgentPill: "Agent",
   connectAgentCta: "连接你的 Agent",
   modalTitle: "连接你的 Agent",
   tabOther: "其他",

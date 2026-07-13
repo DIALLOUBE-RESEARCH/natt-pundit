@@ -21,6 +21,10 @@ export const esDocs: DocsPack = {
           text: "Natt Settlement es un producto hackathon TxODDS para el Mundial 2026: fixtures TxLINE en vivo, diagnostico edge SETUP/HOLD, pruebas Merkle en Solana y pools escrow de bote compartido en devnet.",
         },
         {
+          type: "paragraph",
+          text: "UX wallet Solana de produccion: Reown AppKit + WalletConnect (Phantom, Solflare, deeplink movil) — ver Integracion wallet.",
+        },
+        {
           type: "link",
           label: "GitHub — DIALLOUBE-RESEARCH/natt-pundit",
           href: DOCS_PUBLIC_REPO,
@@ -143,6 +147,55 @@ export const esDocs: DocsPack = {
         {
           type: "alert",
           text: "Si un partido terminado desaparece del listado, usa Wallet — no solo el board.",
+        },
+      ],
+    },
+    {
+      id: "wallet-integration",
+      title: "Integracion wallet (Solana)",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Natt Settlement incluye UX wallet de produccion — no un boton connect falso. Fans y agentes firman transacciones reales en Solana devnet desde la PWA (escritorio + movil).",
+        },
+        {
+          type: "heading3",
+          text: "Stack (Solana — no EVM / wagmi)",
+        },
+        {
+          type: "list",
+          items: [
+            "Reown AppKit — modal WalletConnect (misma familia Reown que HyperNatt; adaptador Solana aqui).",
+            "@reown/appkit-adapter-solana — Phantom, Solflare, WalletConnect movil.",
+            "Deeplink Phantom movil custom — conectar y firmar en Chrome/Safari, volver a la app.",
+            "Escrow Anchor en devnet — deposito SPL USDC, settle, claim, refund.",
+          ],
+        },
+        {
+          type: "heading3",
+          text: "Flujos firmados en la app",
+        },
+        {
+          type: "list",
+          items: [
+            "Apostar — deposito escrow (pre-partido).",
+            "Cobrar — settle del pool + claim tras el FT.",
+            "Reembolso — lado solo o pool void.",
+            "Sign-In With Solana — nonce para export ZIP Data Lab (allowlist).",
+            "Pestana Wallet — saldos, historial, claim/refund por fila.",
+          ],
+        },
+        {
+          type: "heading3",
+          text: "Phantom movil",
+        },
+        {
+          type: "paragraph",
+          text: "En Chrome/Safari movil: toca Wallet → se abre Phantom → aprueba conexion y transacciones → vuelves a Natt Settlement con disconnect en la vista cuenta Reown.",
+        },
+        {
+          type: "alert",
+          text: "El escrow usa solo Solana Devnet. Cambia Phantom/Solflare a Devnet antes de apostar.",
         },
       ],
     },

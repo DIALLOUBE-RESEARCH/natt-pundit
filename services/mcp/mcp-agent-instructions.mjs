@@ -30,7 +30,8 @@ export const CLAUDE_WEB_CONNECTOR_HINTS = {
   auth_note:
     "Public TxLINE data + optional devnet escrow. No user OAuth. agent_wallet is OPTIONAL for analysis; required only to build/sign escrow txs.",
   setup_steps: [
-    "claude.ai → Customize → Connectors → Add custom connector → paste MCP URL",
+    "Natt Pundit Connect modal → Open in Claude app (Android) or prefilled install link",
+    "Confirm Add custom connector (Name + URL prefilled), OAuth empty",
     "Start a NEW chat after adding (full tool list)",
     "In chat: + → Connectors → enable natt-pundit",
     "First: get_pundit_manifest → get_clv_verdict → get_fixture_agent_status(fixture_id) without wallet",

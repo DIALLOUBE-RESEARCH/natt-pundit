@@ -1,0 +1,11 @@
+{
+  "name": "models/veo-3.1-fast-generate-preview/operations/z14zks0iswg0",
+  "metadata": null,
+  "done": true,
+  "error": {
+    "code": 13,
+    "message": "Video generation failed due to an internal server issue. Please try again in a few minutes. If the problem persists, please contact Gemini API support."
+  },
+  "response": null,
+  "result": null
+}

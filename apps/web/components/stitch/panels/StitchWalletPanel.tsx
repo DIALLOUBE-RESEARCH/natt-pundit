@@ -9,13 +9,14 @@ import { useWalletPortfolio } from "@/hooks/useWalletPortfolio";
 import { useSolanaConnectedWallet } from "@/hooks/useSolanaConnectedWallet";
 import { openNattPunditWalletModal } from "@/features/wallet/nattPunditAppKit";
 import { StitchPanelFooter } from "@/components/stitch/StitchPanelFooter";
+import { agentDashCopy } from "@/lib/agentDashI18n";
 import { WalletBetEscrowAction } from "@/components/stitch/panels/WalletBetEscrowAction";
 import { teamLabel } from "@/lib/teamI18n";
 import { betPickCountryLabel, betStatusLabel, walletCopy } from "@/lib/walletI18n";
+import { formatSolBalance } from "@/lib/formatSolBalance";
 import type { BetLedgerStatus } from "@/lib/walletPortfolio";
 import { walletBetDisplayAmount } from "@/lib/walletPortfolio";
 
-const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const ACTIVITY_COLLAPSED_COUNT = 2;
 
 function fmtUsdc(n: number | null | undefined, digits = 2): string {
@@ -28,10 +29,7 @@ function fmtUsdc(n: number | null | undefined, digits = 2): string {
 
 function fmtSol(n: number | null | undefined): string {
   if (n === null || n === undefined || Number.isNaN(n)) return "—";
-  return n.toLocaleString(undefined, {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 4,
-  });
+  return formatSolBalance(n);
 }
 
 function fmtPnl(n: number | null, pendingLabel: string, estLabel: string, estimated: boolean): string {
@@ -87,6 +85,7 @@ function WalletConnectHero({ onConnect }: { onConnect: () => void }) {
 export function StitchWalletPanel() {
   const { lang } = usePresent();
   const c = walletCopy(lang);
+  const agent = agentDashCopy(lang);
   const { open } = useAppKit();
   const { address, isConnected } = useSolanaConnectedWallet();
   const { balances, bets, summary, loading, error, updatedAt, cluster, refresh } = useWalletPortfolio(
@@ -128,6 +127,21 @@ export function StitchWalletPanel() {
           </div>
           <span className="stitch-wallet-cluster-badge">{clusterLabel}</span>
         </div>
+      </section>
+
+      <section className="stitch-agent-entry-card" aria-labelledby="stitch-agent-entry-title">
+        <Link href="/agent" className="stitch-agent-entry-link">
+          <div>
+            <p id="stitch-agent-entry-title" className="stitch-agent-entry-kicker">
+              MCP
+            </p>
+            <p className="stitch-agent-entry-cta">{agent.walletEntryCta} →</p>
+            <p className="stitch-agent-entry-lead">{agent.walletEntryLead}</p>
+          </div>
+          <span className="stitch-agent-entry-badge" aria-hidden>
+            ◆
+          </span>
+        </Link>
       </section>
 
       {!isConnected || !address ? (
@@ -248,7 +262,7 @@ export function StitchWalletPanel() {
                     bet.status === "claimable" || bet.status === "open" || bet.status === "refund_eligible";
                   const showNetHint =
                     bet.status === "won" && bet.pnlUsdc !== null && bet.estimatedPayoutUsdc !== null;
-                  const matchHref = `${BASE_PATH}/match/${bet.fixtureId}`;
+                  const matchHref = `/match/${bet.fixtureId}`;
                   const homeLabel = teamLabel(bet.homeTeam, lang);
                   const awayLabel = teamLabel(bet.awayTeam, lang);
                   const pickLabel = betPickCountryLabel(lang, bet.side, bet.homeTeam, bet.awayTeam);

@@ -10,11 +10,12 @@ import {
   buildClaudeCodeCommand,
   buildCursorDeepLink,
   CLAUDE_WEB_CONNECTOR_DISPLAY_NAME,
-  CLAUDE_WEB_CONNECTORS_URL,
   getAgentConnectConfig,
   isMcpLive,
+  isMobileUserAgent,
   jsonForClient,
   normalizeMcpClientId,
+  openClaudeConnectorInstall,
   type McpClientId,
 } from "@/lib/agentConnect";
 
@@ -133,10 +134,14 @@ export function AgentConnectModal({ open, onClose, variant = "prod" }: AgentConn
 
   const openClaudeWeb = useCallback(async () => {
     if (!cfg) return;
-    await navigator.clipboard.writeText(cfg.mcpUrl);
-    window.open(CLAUDE_WEB_CONNECTORS_URL, "_blank", "noopener,noreferrer");
-    showToast(t.claudeWebToast);
-  }, [cfg, showToast, t.claudeWebToast]);
+    const mode = await openClaudeConnectorInstall(cfg);
+    showToast(mode === "android_intent" ? t.claudeAppToast : t.claudeWebToast);
+  }, [cfg, showToast, t.claudeAppToast, t.claudeWebToast]);
+
+  const claudePrimaryLabel =
+    typeof navigator !== "undefined" && isMobileUserAgent(navigator.userAgent)
+      ? t.openInClaudeApp
+      : t.openInClaudeWeb;
 
   const copyClaudeCodeCommand = useCallback(async () => {
     if (!claudeCodeCommand) return;
@@ -165,7 +170,7 @@ export function AgentConnectModal({ open, onClose, variant = "prod" }: AgentConn
       <>
         <div className="agent-connect-actions">
           <button type="button" className="agent-connect-primary" onClick={() => void openClaudeWeb()}>
-            {t.openInClaudeWeb}
+            {claudePrimaryLabel}
           </button>
           <button
             type="button"

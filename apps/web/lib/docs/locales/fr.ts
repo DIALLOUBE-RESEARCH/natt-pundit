@@ -22,6 +22,10 @@ export const frDocs: DocsPack = {
         },
         {
           type: "paragraph",
+          text: "UX wallet Solana de prod : Reown AppKit + WalletConnect (Phantom, Solflare, deeplink mobile) — voir la section Integration wallet.",
+        },
+        {
+          type: "paragraph",
           text: "SETUP signale un desaccord mesurable entre notre modele et le consensus marche Shin de-vig. HOLD est une decision de premier plan — pas un echec.",
         },
         {
@@ -172,6 +176,55 @@ export const frDocs: DocsPack = {
         {
           type: "alert",
           text: "Si un match termine disparait de la liste, utilise l'onglet Wallet — ne compte pas sur le board des matchs seul.",
+        },
+      ],
+    },
+    {
+      id: "wallet-integration",
+      title: "Integration wallet (Solana)",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Natt Settlement integre une UX wallet de prod — pas un faux bouton connect. Fans et agents signent de vraies transactions Solana devnet depuis la PWA (desktop + mobile).",
+        },
+        {
+          type: "heading3",
+          text: "Stack (Solana — pas EVM / wagmi)",
+        },
+        {
+          type: "list",
+          items: [
+            "Reown AppKit — modale WalletConnect (meme famille Reown qu'HyperNatt ; adaptateur Solana ici).",
+            "@reown/appkit-adapter-solana — Phantom, Solflare, WalletConnect mobile.",
+            "Deeplink Phantom mobile custom — connect + sign dans Chrome/Safari, retour dans l'app.",
+            "Escrow Anchor sur devnet — depot SPL USDC, settle, claim, refund.",
+          ],
+        },
+        {
+          type: "heading3",
+          text: "Flux signes dans l'app",
+        },
+        {
+          type: "list",
+          items: [
+            "Parier — depot escrow (avant coup d'envoi).",
+            "Encaisser — settle du pool + claim des gains apres FT.",
+            "Remboursement — cote solo ou pool void.",
+            "Sign-In With Solana — message nonce pour export ZIP Data Lab (allowlist).",
+            "Onglet Wallet — soldes, historique, claim/refund sur chaque ligne.",
+          ],
+        },
+        {
+          type: "heading3",
+          text: "Phantom mobile",
+        },
+        {
+          type: "paragraph",
+          text: "Sur Chrome/Safari mobile : tap Wallet → Phantom s'ouvre → approuve connexion et transactions → tu reviens dans Natt Settlement avec disconnect dans la vue compte Reown.",
+        },
+        {
+          type: "alert",
+          text: "L'escrow utilise uniquement Solana Devnet. Passe Phantom/Solflare en Devnet avant de parier.",
         },
       ],
     },

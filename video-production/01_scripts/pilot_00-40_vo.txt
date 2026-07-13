@@ -1,0 +1,14 @@
+=== VOICE — Gemini 3.1 Flash TTS (gemini-3.1-flash-tts-preview) ===
+
+Style instructions:
+[deep male voice] [slow pace] [low register] [authoritative] [netflix documentary]
+Speak like a premium Netflix tech documentary narrator: deep male baritone,
+calm authority, measured pacing, subtle gravitas. Lower pitch, no upspeak,
+no sales energy, no cheerfulness. British-leaning neutral English accent.
+Pause deliberately before the last sentence. Zero hype.
+
+Text:
+Every other prediction market demo you'll see today was built on a desktop —
+for a desktop screen. This one lives where its users do.
+
+Voice: Charon

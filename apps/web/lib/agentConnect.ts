@@ -18,7 +18,55 @@ export const CURSOR_DEEPLINK_INSTALL_NAME = "NattPundit";
 /** Human-readable connector name for Claude.ai web (Add custom connector). */
 export const CLAUDE_WEB_CONNECTOR_DISPLAY_NAME = "Natt Pundit";
 
+/** Opens Customize > Connectors (legacy — prefer buildClaudeConnectorInstallUrl). */
 export const CLAUDE_WEB_CONNECTORS_URL = "https://claude.ai/customize/connectors";
+
+/** Anthropic-documented prefilled Add custom connector dialog. */
+export function buildClaudeConnectorInstallUrl(
+  cfg: AgentConnectConfig,
+  displayName: string = CLAUDE_WEB_CONNECTOR_DISPLAY_NAME,
+): string {
+  const params = new URLSearchParams({
+    modal: "add-custom-connector",
+    connectorName: displayName,
+    connectorUrl: cfg.mcpUrl,
+  });
+  return `https://claude.ai/customize/connectors?${params.toString()}`;
+}
+
+/** Android intent to prefer Claude app (com.anthropic.claude) over Chrome. */
+export function buildClaudeAndroidAppIntentUrl(httpsUrl: string): string {
+  const parsed = new URL(httpsUrl);
+  const pathAndQuery = `${parsed.host}${parsed.pathname}${parsed.search}`;
+  const fallback = encodeURIComponent(httpsUrl);
+  return `intent://${pathAndQuery}#Intent;scheme=https;package=com.anthropic.claude;S.browser_fallback_url=${fallback};end`;
+}
+
+export function isAndroidUserAgent(userAgent: string): boolean {
+  return /Android/i.test(userAgent);
+}
+
+export function isMobileUserAgent(userAgent: string): boolean {
+  return /Android|iPhone|iPad|iPod/i.test(userAgent);
+}
+
+export type ClaudeConnectorOpenMode = "android_intent" | "universal_link";
+
+/** Copy MCP URL + open Claude connector install (app on Android when possible). */
+export async function openClaudeConnectorInstall(
+  cfg: AgentConnectConfig,
+): Promise<ClaudeConnectorOpenMode> {
+  const installUrl = buildClaudeConnectorInstallUrl(cfg);
+  if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(cfg.mcpUrl);
+  }
+  if (typeof navigator !== "undefined" && isAndroidUserAgent(navigator.userAgent)) {
+    window.location.assign(buildClaudeAndroidAppIntentUrl(installUrl));
+    return "android_intent";
+  }
+  window.location.assign(installUrl);
+  return "universal_link";
+}
 
 /** @deprecated use CLAUDE_WEB_CONNECTORS_URL */
 export const CLAUDE_CONNECTOR_MODAL_URL = CLAUDE_WEB_CONNECTORS_URL;

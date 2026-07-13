@@ -88,44 +88,58 @@ async function resolveCdpSolanaAddress(cdp) {
   return addr;
 }
 
-async function ensureDevnetFunds(cdp, address) {
-  const connection = await rpcConnection();
-  const pubkey = new PublicKey(address);
-
-  let sol = await connection.getBalance(pubkey);
-  const minSol = 5_000_000;
-  for (let attempt = 0; sol < minSol && attempt < 5; attempt += 1) {
-    console.log(`[cdp] requesting SOL devnet faucet (attempt ${attempt + 1})…`);
-    try {
-      await cdp.solana.requestFaucet({ address, token: "sol" });
-    } catch (err) {
-      console.warn("[cdp] SOL faucet:", err instanceof Error ? err.message : err);
-    }
-    await sleep(5000);
-    sol = await connection.getBalance(pubkey);
-  }
-  console.log(`[cdp] SOL balance: ${(sol / 1e9).toFixed(4)}`);
-  if (sol < minSol) {
-    console.warn(`[cdp] low SOL (${sol} lamports) — deposit may fail on OpenPosition rent`);
-  }
-
-  const ata = getAssociatedTokenAddressSync(USDC_MINT, pubkey);
+async function readDevnetBalances(connection, pubkey) {
+  const sol = await connection.getBalance(pubkey);
   let usdc = 0;
   try {
+    const ata = getAssociatedTokenAddressSync(USDC_MINT, pubkey);
     const bal = await connection.getTokenAccountBalance(ata);
     usdc = Number(bal.value.uiAmountString || 0);
   } catch {
     usdc = 0;
   }
-  console.log(`[cdp] USDC devnet balance: ${usdc}`);
+  return { sol, usdc };
+}
 
-  if (usdc < DEFAULT_DEPOSIT_USDC) {
-    console.log("[cdp] trying USDC devnet faucet…");
+async function ensureDevnetFunds(cdp, address, { aggressive = false } = {}) {
+  const connection = await rpcConnection();
+  const pubkey = new PublicKey(address);
+  const targetSolLamports = aggressive
+    ? Number(process.env.AGENT_FUND_TARGET_SOL || 5) * 1e9
+    : 5_000_000;
+  const targetUsdc = aggressive
+    ? Number(process.env.AGENT_FUND_TARGET_USDC || 100)
+    : DEFAULT_DEPOSIT_USDC;
+  const maxSolAttempts = aggressive ? Number(process.env.AGENT_FUND_MAX_SOL_ATTEMPTS || 20) : 5;
+  const maxUsdcAttempts = aggressive ? Number(process.env.AGENT_FUND_MAX_USDC_ATTEMPTS || 15) : 1;
+
+  let { sol, usdc } = await readDevnetBalances(connection, pubkey);
+  for (let attempt = 0; sol < targetSolLamports && attempt < maxSolAttempts; attempt += 1) {
+    console.log(
+      `[cdp] requesting SOL devnet faucet (${attempt + 1}/${maxSolAttempts}, have ${(sol / 1e9).toFixed(4)})…`,
+    );
+    try {
+      await cdp.solana.requestFaucet({ address, token: "sol" });
+    } catch (err) {
+      console.warn("[cdp] SOL faucet:", err instanceof Error ? err.message : err);
+    }
+    await sleep(aggressive ? 6000 : 5000);
+    ({ sol } = await readDevnetBalances(connection, pubkey));
+  }
+  console.log(`[cdp] SOL balance: ${(sol / 1e9).toFixed(4)}`);
+  if (sol < 5_000_000) {
+    console.warn(`[cdp] low SOL (${sol} lamports) — deposit may fail on OpenPosition rent`);
+  }
+
+  console.log(`[cdp] USDC devnet balance: ${usdc}`);
+  for (let attempt = 0; usdc < targetUsdc && attempt < maxUsdcAttempts; attempt += 1) {
+    console.log(
+      `[cdp] requesting USDC devnet faucet (${attempt + 1}/${maxUsdcAttempts}, have ${usdc})…`,
+    );
     try {
       await cdp.solana.requestFaucet({ address, token: "usdc" });
-      await sleep(3000);
-      const bal = await connection.getTokenAccountBalance(ata);
-      usdc = Number(bal.value.uiAmountString || 0);
+      await sleep(aggressive ? 6000 : 3000);
+      ({ usdc } = await readDevnetBalances(connection, pubkey));
       console.log(`[cdp] USDC after faucet: ${usdc}`);
     } catch (err) {
       console.warn(
@@ -135,10 +149,34 @@ async function ensureDevnetFunds(cdp, address) {
       console.warn(
         `[cdp] Circle devnet → send USDC to ${address} (mint ${USDC_MINT.toBase58()})`,
       );
+      break;
     }
   }
 
   return { sol, usdc };
+}
+
+async function cmdFund(cdp, address) {
+  const connection = await rpcConnection();
+  const pubkey = new PublicKey(address);
+  const before = await readDevnetBalances(connection, pubkey);
+  console.log("[cdp] fund before:", {
+    sol: before.sol / 1e9,
+    usdc: before.usdc,
+  });
+  const after = await ensureDevnetFunds(cdp, address, { aggressive: true });
+  console.log(
+    JSON.stringify(
+      {
+        wallet: address,
+        before: { sol: before.sol / 1e9, usdc: before.usdc },
+        after: { sol: after.sol / 1e9, usdc: after.usdc },
+      },
+      null,
+      2,
+    ),
+  );
+  return after;
 }
 
 function sleep(ms) {
@@ -476,6 +514,10 @@ async function main() {
 
   await mcpInit();
 
+  if (args.mode === "fund") {
+    await cmdFund(cdp, address);
+    return;
+  }
   if (args.mode === "status") {
     if (!args.fixture) throw new Error("--fixture required");
     await fetchAgentStatus(address, args.fixture, { verbose: true });
@@ -496,7 +538,7 @@ async function main() {
     await cmdAuto(cdp, address, args.fixture, args.outcome, amountUsdc, pollMs);
     return;
   }
-  throw new Error(`unknown mode ${args.mode} — use auto | deposit | recover | status`);
+  throw new Error(`unknown mode ${args.mode} — use fund | auto | deposit | recover | status`);
 }
 
 main().catch((err) => {

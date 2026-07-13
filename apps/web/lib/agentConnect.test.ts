@@ -1,6 +1,8 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
+  buildClaudeAndroidAppIntentUrl,
   buildClaudeCodeCommand,
+  buildClaudeConnectorInstallUrl,
   buildClaudeDesktopJson,
   buildCursorDeepLink,
   buildProjectMcpJson,
@@ -48,6 +50,23 @@ describe("agentConnect", () => {
     expect(buildClaudeCodeCommand(FIXTURE)).toBe(
       "claude mcp add --scope user --transport http natt-pundit https://hypernatt.com/mcp-pundit/protocol",
     );
+  });
+
+  it("buildClaudeConnectorInstallUrl prefills Anthropic install dialog", () => {
+    const url = buildClaudeConnectorInstallUrl(FIXTURE);
+    expect(url).toContain("modal=add-custom-connector");
+    expect(url).toContain("connectorName=Natt+Pundit");
+    expect(url).toContain(
+      `connectorUrl=${encodeURIComponent("https://hypernatt.com/mcp-pundit/protocol")}`,
+    );
+  });
+
+  it("buildClaudeAndroidAppIntentUrl targets Claude Android package", () => {
+    const install = buildClaudeConnectorInstallUrl(FIXTURE);
+    const intent = buildClaudeAndroidAppIntentUrl(install);
+    expect(intent).toContain("intent://claude.ai/customize/connectors");
+    expect(intent).toContain("package=com.anthropic.claude");
+    expect(intent).toContain("browser_fallback_url=");
   });
 
   it("getAgentConnectConfig uses env overrides", () => {

@@ -290,6 +290,26 @@
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
+/* Match detail edge + bet slip — stat blocks keep light rgba in stitch-light.css */
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-stat-grid,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-edge-signal-block,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-fan-bet-status,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-fan-bet-ticket,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-fan-bet-pool {
+  background: rgba(30, 41, 59, 0.78);
+  border-color: var(--stitch-glass-card-border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-stat-row dt,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-edge-signal-title,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-fan-bet-status-label,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-fan-bet-ticket-title,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-fan-bet-pool-title,
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-model-market-bar__key {
+  color: var(--stitch-badge-wait-text);
+}
+
 :is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-score-win {
   color: var(--stitch-light-text);
 }

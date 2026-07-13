@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { holdPillValue, publicEdgeSummaryText, setupPillValue } from "./edgePublicI18n";
+import { holdPillValue, publicEdgeSignalRowShort, publicEdgeSummaryText, setupPillValue } from "./edgePublicI18n";
 
 describe("edgePublicI18n", () => {
   it("setup pill uses real direction and conviction", () => {
@@ -28,5 +28,23 @@ describe("edgePublicI18n", () => {
     );
     expect(text).toContain("England");
     expect(text).toContain("forte");
+  });
+
+  it("short signal row is compact on HOLD", () => {
+    const text = publicEdgeSummaryText(
+      { verdict: "HOLD", direction: "none", conviction: "none" },
+      "A",
+      "B",
+      "en",
+    );
+    expect(text.length).toBeGreaterThan(40);
+    const short = publicEdgeSignalRowShort(
+      { verdict: "HOLD", direction: "none", conviction: "none" },
+      "A",
+      "B",
+      "en",
+    );
+    expect(short).toBe("Aligned with Shin consensus — HOLD");
+    expect(short.length).toBeLessThan(text.length);
   });
 });

@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "output": {
+    "path": "../05_export/final/natt-pundit_submission_auto.mp4",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "audio": {
+    "voiceover": "../02_generative/tts/pilot_hook_20260712_100115.wav",
+    "voiceover_start_sec": 2.0,
+    "music": null,
+    "music_volume": 0.15,
+    "voiceover_volume": 1.0
+  },
+  "segments": [
+    {
+      "id": "logo_intro",
+      "file": "../02_generative/intro/logo_intro_9x16_silent.mp4",
+      "duration_sec": 4.0,
+      "note": "A1 + WC Hackathon / Powered by TxODDS overlay fade-in"
+    },
+    {
+      "id": "scrcpy_home",
+      "file": "../03_capture/mobile/PLACEHOLDER_01_fixtures.mp4",
+      "duration_sec": 40.0,
+      "note": "Replace after scrcpy — fixtures SETUP/HOLD"
+    },
+    {
+      "id": "scrcpy_bet_france",
+      "file": "../03_capture/mobile/PLACEHOLDER_02_bet_france.mp4",
+      "duration_sec": 25.0,
+      "note": "FanBetSlip France home"
+    },
+    {
+      "id": "desktop_agent",
+      "file": "../03_capture/desktop/PLACEHOLDER_agent_dashboard.mp4",
+      "duration_sec": 30.0,
+      "note": "/agent ledger Spain bet"
+    }
+  ],
+  "subtitles": {
+    "enabled": false,
+    "language": "en",
+    "whisper_model": "small"
+  }
+}

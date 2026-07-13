@@ -1,4 +1,6 @@
+import Link from "next/link";
 import {
+  type AnchorHTMLAttributes,
   type ButtonHTMLAttributes,
   type CSSProperties,
   type HTMLAttributes,
@@ -6,7 +8,7 @@ import {
   type ReactNode,
 } from "react";
 
-type Variant = "hold" | "bet" | "setup" | "agent" | "wallet" | "finished";
+type Variant = "hold" | "bet" | "setup" | "agent" | "wallet" | "finished" | "nav";
 
 type BaseProps = {
   variant: Variant;
@@ -77,5 +79,21 @@ export function LiquidGlassPill(props: Props) {
     <button type="button" className={cls} {...liquidGlassPointerProps} {...btnRest}>
       <LiquidGlassLayers>{children}</LiquidGlassLayers>
     </button>
+  );
+}
+
+type LinkProps = {
+  href: string;
+  children: ReactNode;
+  className?: string;
+} & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href" | "children" | "className">;
+
+/** Liquid Glass pill as Next.js link — nav CTAs (match back, view all, etc.). */
+export function LiquidGlassPillLink({ href, children, className = "", ...rest }: LinkProps) {
+  const cls = `stitch-lg-pill stitch-lg-pill--nav ${className}`.trim();
+  return (
+    <Link href={href} className={cls} {...liquidGlassPointerProps} {...rest}>
+      <LiquidGlassLayers>{children}</LiquidGlassLayers>
+    </Link>
   );
 }

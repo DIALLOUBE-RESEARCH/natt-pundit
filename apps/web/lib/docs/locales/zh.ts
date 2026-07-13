@@ -21,6 +21,10 @@ export const zhDocs: DocsPack = {
           text: "TxODDS 黑客松产品，面向 2026 世界杯：TxLINE 赛程、SETUP/HOLD 边缘诊断、Solana Merkle 证明、devnet 共享彩池托管。",
         },
         {
+          type: "paragraph",
+          text: "生产级 Solana 钱包：Reown AppKit + WalletConnect（Phantom、Solflare、移动深链接）— 见「钱包集成」章节。",
+        },
+        {
           type: "link",
           label: "GitHub — DIALLOUBE-RESEARCH/natt-pundit",
           href: DOCS_PUBLIC_REPO,
@@ -84,6 +88,55 @@ export const zhDocs: DocsPack = {
           items: ["钱包历史每行有「领取」/退款按钮。", "已下架比赛请用钱包操作。"],
         },
         { type: "alert", text: "比赛从列表消失？请打开钱包标签。" },
+      ],
+    },
+    {
+      id: "wallet-integration",
+      title: "钱包集成（Solana）",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Natt Settlement 提供生产级钱包体验 — 不是假的连接按钮。用户与代理在 PWA（桌面 + 移动）中签署真实的 Solana devnet 交易。",
+        },
+        {
+          type: "heading3",
+          text: "技术栈（Solana — 非 EVM / wagmi）",
+        },
+        {
+          type: "list",
+          items: [
+            "Reown AppKit — WalletConnect 弹窗（与 HyperNatt 同系 Reown；此处为 Solana 适配器）。",
+            "@reown/appkit-adapter-solana — Phantom、Solflare、移动端 WalletConnect。",
+            "自定义 Phantom 移动深链接 — 在 Chrome/Safari 连接并签名，返回应用。",
+            "devnet Anchor 托管 — SPL USDC 存入、结算、领取、退款。",
+          ],
+        },
+        {
+          type: "heading3",
+          text: "应用内签名流程",
+        },
+        {
+          type: "list",
+          items: [
+            "下注 — 托管存入（开赛前）。",
+            "领取奖金 — 全场结束后结算池并 claim。",
+            "退款 — 单边或无效池。",
+            "Sign-In With Solana — Data Lab ZIP 导出随机数签名（白名单）。",
+            "钱包标签 — 余额、历史、每行领取/退款操作。",
+          ],
+        },
+        {
+          type: "heading3",
+          text: "移动端 Phantom",
+        },
+        {
+          type: "paragraph",
+          text: "移动 Chrome/Safari：点击 Wallet → 打开 Phantom → 批准连接与交易 → 返回 Natt Settlement，可在 Reown 账户视图中断开。",
+        },
+        {
+          type: "alert",
+          text: "托管仅使用 Solana Devnet。下注前请将 Phantom/Solflare 切换到 Devnet。",
+        },
       ],
     },
     {

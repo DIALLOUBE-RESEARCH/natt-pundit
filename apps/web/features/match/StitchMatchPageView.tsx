@@ -1,9 +1,9 @@
-import Link from "next/link";
 import type { PublicMatchEdge } from "@natt-pundit/contracts";
 import { SettlementProofPanel } from "@/components/SettlementProofPanel";
 import { EscrowPanel } from "@/components/EscrowPanel";
 import { FanBetSlip } from "@/features/betting/FanBetSlip";
 import { TransparencySection } from "@/features/betting/TransparencySection";
+import { LiquidGlassPillLink } from "@/design-system/glass/LiquidGlassPill";
 import { fanBetUxEnabled } from "@/lib/fanUiFlag";
 import { GoalFeed } from "@/components/GoalFeed";
 import { TimelineAccordion } from "@/components/TimelineAccordion";
@@ -81,9 +81,11 @@ export function StitchMatchPageView({
     <>
       <header className="stitch-match-detail-top">
         <p className="stitch-section-label">{t.matchDetailsLabel}</p>
-        <Link href="/?tab=matches" className="stitch-match-detail-back">
-          {t.backFixtures}
-        </Link>
+        <div className="stitch-nav-pill-row">
+          <LiquidGlassPillLink href="/?tab=matches" className="stitch-nav-pill--compact">
+            {t.backFixtures}
+          </LiquidGlassPillLink>
+        </div>
       </header>
 
       <MatchDetailHero
@@ -121,7 +123,7 @@ export function StitchMatchPageView({
           </StitchMatchSection>
         ) : null}
 
-        <StitchMatchSection spanFull={data.odds.length === 0} title={edgeBlock.title}>
+        <StitchMatchSection spanFull title={edgeBlock.title}>
           <StitchEdgePanel
             verdict={data.edge}
             homeTeam={data.fixture.homeTeam}

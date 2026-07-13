@@ -10,6 +10,7 @@ import { escrowConnection } from "@/lib/nattEscrow";
 import { isPhantomInAppBrowser } from "@/lib/mobileBrowser";
 import { phantomMobileConnectedWallet } from "@/lib/phantomMobileDeeplink";
 import type { ConnectedWallet } from "@/lib/solanaWallet";
+import { normalizeSolanaAddress } from "@/lib/solanaAddress";
 import { buildLegacyInjectedWallet, connectSolanaWallet, listAvailableWallets } from "@/lib/solanaWallet";
 
 /**
@@ -75,12 +76,13 @@ export function useSolanaConnectedWallet(): {
   }, []);
 
   const wallet = phantomWallet ?? legacyInjectedWallet ?? appKitWallet;
-  const address = phantom.address ?? legacyInjectedWallet?.address ?? appKitAddress;
+  const rawAddress = phantom.address ?? legacyInjectedWallet?.address ?? appKitAddress;
+  const address = normalizeSolanaAddress(rawAddress);
   const isConnected = Boolean(wallet && address);
 
   return {
     wallet,
-    address: address ?? null,
+    address,
     isConnected,
     isAppKit: Boolean(appKitWallet && wallet === appKitWallet),
     isPhantomMobile: Boolean(phantomWallet && wallet === phantomWallet),

@@ -1,0 +1,17 @@
+# Large media — keep locally, do not commit raw captures or exports
+02_generative/**/*.mp4
+02_generative/intro/**/*.mp4
+02_generative/**/*.wav
+02_generative/**/*.mp3
+02_generative/**/*.m4a
+02_generative/**/*.webm
+03_capture/**/*.mp4
+03_capture/**/*.mkv
+03_capture/**/*.mov
+04_edit/**/*
+05_export/**/*
+!05_export/.gitkeep
+!04_edit/.gitkeep
+!03_capture/**/.gitkeep
+!02_generative/**/.gitkeep
+*.cube

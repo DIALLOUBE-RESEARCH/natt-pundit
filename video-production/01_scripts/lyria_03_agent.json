@@ -1,0 +1,10 @@
+{
+  "instances": [
+    {
+      "prompt": "Instrumental only. 95 BPM boom bap pocket, drier mix. Unquantized swing kick and snare, subtle analog synth stab, round bass. Focused tech product mood. Trust and precision. Minimal layers.",
+      "negative_prompt": "vocals, singing, choir, orchestral strings, epic trailer, EDM drop, trap, four-on-the-floor",
+      "seed": 144
+    }
+  ],
+  "parameters": {}
+}

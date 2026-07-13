@@ -1,0 +1,10 @@
+{
+  "model": "lyria-002",
+  "instances": [
+    {
+      "prompt": "Cinematic tech-documentary underscore, deep and atmospheric, slow analog synth pad, subtle sub-bass pulse, minimal percussion. [0:00-0:20] Intro: sparse pad, distant pulse, no percussion. Intensity: 1/10. [0:20-0:35] Build: soft rhythmic pulse enters, tension rises gradually. Intensity: 3/10. [0:35-0:40] Drop back to near silence just before a cut, leaving space. Intensity: 1/10.",
+      "negative_prompt": "vocals, drums, cymbals, orchestral strings, upbeat, cheerful",
+      "seed": 42
+    }
+  ]
+}

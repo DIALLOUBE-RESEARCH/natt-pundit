@@ -21,6 +21,10 @@ export const ruDocs: DocsPack = {
           text: "Natt Settlement — продукт хакатона TxODDS для ЧМ-2026: live-матчи TxLINE, диагностика SETUP/HOLD, Merkle-доказательства на Solana и escrow-пулы с общим банком на devnet.",
         },
         {
+          type: "paragraph",
+          text: "Продакшен UX кошелька Solana: Reown AppKit + WalletConnect (Phantom, Solflare, mobile deeplink) — см. раздел «Интеграция кошелька».",
+        },
+        {
           type: "link",
           label: "GitHub — DIALLOUBE-RESEARCH/natt-pundit",
           href: DOCS_PUBLIC_REPO,
@@ -88,6 +92,55 @@ export const ruDocs: DocsPack = {
           items: ["Кнопки получить/возврат в истории Wallet.", "Архивные матчи — только через Wallet."],
         },
         { type: "alert", text: "Матч пропал из списка? Откройте вкладку Wallet." },
+      ],
+    },
+    {
+      id: "wallet-integration",
+      title: "Интеграция кошелька (Solana)",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Natt Settlement — продакшен UX кошелька, не фейковая кнопка Connect. Фанаты и агенты подписывают реальные транзакции Solana devnet из PWA (десктоп + мобильный).",
+        },
+        {
+          type: "heading3",
+          text: "Стек (Solana — не EVM / wagmi)",
+        },
+        {
+          type: "list",
+          items: [
+            "Reown AppKit — модал WalletConnect (та же семья Reown, что HyperNatt; здесь адаптер Solana).",
+            "@reown/appkit-adapter-solana — Phantom, Solflare, WalletConnect на мобильном.",
+            "Кастомный deeplink Phantom mobile — connect + sign в Chrome/Safari, возврат в приложение.",
+            "Anchor escrow на devnet — SPL USDC deposit, settle, claim, refund.",
+          ],
+        },
+        {
+          type: "heading3",
+          text: "Подписанные сценарии в приложении",
+        },
+        {
+          type: "list",
+          items: [
+            "Ставка — escrow deposit (до начала матча).",
+            "Получить выплату — settle пула + claim после FT.",
+            "Возврат ставки — одна сторона или void-пул.",
+            "Sign-In With Solana — nonce для экспорта ZIP Data Lab (allowlist).",
+            "Вкладка Wallet — балансы, история, claim/refund в каждой строке.",
+          ],
+        },
+        {
+          type: "heading3",
+          text: "Phantom на мобильном",
+        },
+        {
+          type: "paragraph",
+          text: "В мобильном Chrome/Safari: Wallet → открывается Phantom → подтвердите подключение и транзакции → возврат в Natt Settlement, disconnect в аккаунте Reown.",
+        },
+        {
+          type: "alert",
+          text: "Escrow только на Solana Devnet. Переключите Phantom/Solflare на Devnet перед ставкой.",
+        },
       ],
     },
     {

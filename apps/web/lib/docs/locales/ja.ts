@@ -21,6 +21,10 @@ export const jaDocs: DocsPack = {
           text: "2026 FIFA W杯向け TxODDS ハッカソン製品：TxLINE 試合、SETUP/HOLD エッジ、Solana Merkle 証明、devnet 共有プール・エスクロー。",
         },
         {
+          type: "paragraph",
+          text: "本番 Solana ウォレット UX：Reown AppKit + WalletConnect（Phantom、Solflare、モバイルディープリンク）—「ウォレット統合」参照。",
+        },
+        {
           type: "link",
           label: "GitHub — DIALLOUBE-RESEARCH/natt-pundit",
           href: DOCS_PUBLIC_REPO,
@@ -88,6 +92,55 @@ export const jaDocs: DocsPack = {
           items: ["ウォレット履歴の受取/返金ボタン。", "一覧から消えた試合もウォレットから操作。"],
         },
         { type: "alert", text: "試合が一覧にない場合はウォレットタブを使用。" },
+      ],
+    },
+    {
+      id: "wallet-integration",
+      title: "ウォレット統合（Solana）",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "Natt Settlement は本番品質のウォレット UX を搭載 — モックの接続ボタンではありません。ファンとエージェントが PWA（デスクトップ + モバイル）から実際の Solana devnet トランザクションに署名します。",
+        },
+        {
+          type: "heading3",
+          text: "スタック（Solana — EVM / wagmi ではない）",
+        },
+        {
+          type: "list",
+          items: [
+            "Reown AppKit — WalletConnect モーダル（HyperNatt と同系 Reown、ここは Solana アダプター）。",
+            "@reown/appkit-adapter-solana — Phantom、Solflare、モバイル WalletConnect。",
+            "カスタム Phantom モバイルディープリンク — Chrome/Safari で接続・署名しアプリに戻る。",
+            "devnet Anchor エスクロー — SPL USDC の deposit、settle、claim、refund。",
+          ],
+        },
+        {
+          type: "heading3",
+          text: "アプリ内の署名フロー",
+        },
+        {
+          type: "list",
+          items: [
+            "ベット — エスクロー deposit（キックオフ前）。",
+            "受取 — FT 後にプール settle + claim。",
+            "返金 — 片側のみまたは void プール。",
+            "Sign-In With Solana — Data Lab ZIP エクスポート用 nonce 署名（許可リスト）。",
+            "ウォレットタブ — 残高、履歴、各行の claim/refund。",
+          ],
+        },
+        {
+          type: "heading3",
+          text: "モバイル Phantom",
+        },
+        {
+          type: "paragraph",
+          text: "モバイル Chrome/Safari：Wallet をタップ → Phantom が開く → 接続とトランザクションを承認 → Natt Settlement に戻り、Reown アカウント画面で切断可能。",
+        },
+        {
+          type: "alert",
+          text: "エスクローは Solana Devnet のみ。ベット前に Phantom/Solflare を Devnet に切り替えてください。",
+        },
       ],
     },
     {

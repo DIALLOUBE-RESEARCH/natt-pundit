@@ -1,0 +1,20 @@
+{
+  "name": "models/veo-3.1-fast-generate-preview/operations/k78jraebnldk",
+  "metadata": null,
+  "done": true,
+  "error": null,
+  "response": {
+    "generated_videos": null,
+    "rai_media_filtered_count": 1,
+    "rai_media_filtered_reasons": [
+      "We encountered an issue with the audio for your prompt, which means we could not create your video. This can sometimes happen due to our safety filters or other processing issues. Please modify your request and try again. You have not been charged for this attempt."
+    ]
+  },
+  "result": {
+    "generated_videos": null,
+    "rai_media_filtered_count": 1,
+    "rai_media_filtered_reasons": [
+      "We encountered an issue with the audio for your prompt, which means we could not create your video. This can sometimes happen due to our safety filters or other processing issues. Please modify your request and try again. You have not been charged for this attempt."
+    ]
+  }
+}

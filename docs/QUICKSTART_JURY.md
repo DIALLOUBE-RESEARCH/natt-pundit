@@ -47,7 +47,7 @@ curl -s https://hypernatt.com/api/natt-pundit/txline/v1/fixtures/18172280/proof/
 | Step | Action |
 |------|--------|
 | Fund | [SOL faucet](https://faucet.solana.com/) + [USDC faucet](https://faucet.circle.com/) (Solana Devnet) |
-| Connect | App header → connect Phantom/Solflare (Devnet) |
+| Connect | App header → **Wallet** pill → Reown modal (Phantom, Solflare, WalletConnect mobile) |
 | Bet | Match page → pick side + stake → **Place bet** (≥ 0.01 USDC, pre-kickoff) |
 | After FT | **Collect payout** on match page (settlement + claim handled for you) |
 | Archived match | **Wallet tab** → **Collect payout** / **Refund stake** on each row |
@@ -76,6 +76,7 @@ x402: some reads cost $0.01 devnet USDC (separate from escrow deposits). Hackath
 ## 5. What to look for (checklist)
 
 - [ ] SETUP/HOLD badges on fixtures (edge ≠ blind tips)
+- [ ] **Wallet connect** — Reown AppKit + WalletConnect; sign deposit → collect on devnet
 - [ ] Merkle proof panel on finished matches
 - [ ] Escrow 4-step flow on match page
 - [ ] Wallet tab: balances + bet history + claim from archived fixtures

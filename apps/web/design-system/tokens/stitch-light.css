@@ -1122,6 +1122,59 @@ button.stitch-card-star.stitch-card-star--active {
   font-weight: 700;
 }
 
+.stitch-lg-pill--nav {
+  width: auto;
+  min-height: 38px;
+  padding: 0 18px;
+  cursor: pointer;
+  text-decoration: none;
+  background: var(--stitch-agent-primary-bg);
+  border-color: var(--stitch-agent-primary-border);
+  box-shadow:
+    0 4px 14px rgba(30, 58, 138, 0.1),
+    0 1px 3px rgba(15, 23, 42, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.88),
+    inset 0 -1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.stitch-lg-pill--nav .stitch-lg-pill__content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--stitch-accent-blue);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.stitch-lg-pill--nav:active {
+  transform: scale(0.97);
+}
+
+.stitch-nav-pill-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 8px auto 4px;
+}
+
+.stitch-nav-pill-row--home {
+  margin: 16px auto 8px;
+  padding: 0 8px;
+}
+
+.stitch-nav-pill--compact {
+  min-width: min(100%, 220px);
+}
+
+.stitch-nav-pill--wide {
+  width: 100%;
+  max-width: 320px;
+  min-height: 40px;
+}
+
 .stitch-lg-pill--header:active {
   transform: scale(0.97);
 }
@@ -1564,6 +1617,33 @@ button.stitch-card-star.stitch-card-star--active {
     font-size: 9px;
     white-space: nowrap;
     letter-spacing: 0.03em;
+  }
+
+  /* F98N video capture — MCP modal full-width bottom sheet (9:16 scrcpy) */
+  .stitch-agent-connect.agent-connect-overlay {
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .stitch-agent-connect .agent-connect-modal {
+    width: 100%;
+    max-width: 100%;
+    max-height: min(94dvh, 100%);
+    margin: 0;
+    border-radius: 20px 20px 0 0;
+    padding: 16px 16px calc(18px + env(safe-area-inset-bottom, 0px));
+    text-align: left;
+  }
+
+  .stitch-agent-connect .agent-connect-modal-head {
+    text-align: center;
+  }
+
+  .stitch-agent-connect .agent-connect-panel {
+    max-height: min(68dvh, 32rem);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .stitch-btn-lang {
@@ -2169,9 +2249,8 @@ button.stitch-card-star.stitch-card-star--active {
     margin: 0 0 8px;
   }
 
-  .stitch-panel--home .stitch-link-btn {
+  .stitch-panel--home .stitch-nav-pill-row--home {
     margin: 10px auto 4px;
-    padding: 4px 8px;
   }
 
   .stitch-panel--home .stitch-panel-footer {
@@ -3017,6 +3096,7 @@ button.stitch-card-star.stitch-card-star--active {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--stitch-light-text);
+  text-align: center;
 }
 
 .stitch-match-section-body {
@@ -3067,6 +3147,28 @@ button.stitch-card-star.stitch-card-star--active {
 
 .stitch-edge-panel .stitch-lg-pill {
   min-width: 108px;
+}
+
+.stitch-edge-panel .stitch-stat-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: 0;
+  gap: 0;
+}
+
+.stitch-edge-panel .stitch-stat-row {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.stitch-edge-panel .stitch-stat-row dt,
+.stitch-edge-panel .stitch-stat-row dd {
+  flex: none;
+  width: 100%;
+  text-align: center;
 }
 
 .stitch-edge-pill-tier {
@@ -3125,6 +3227,161 @@ button.stitch-card-star.stitch-card-star--active {
   color: var(--stitch-success-emerald);
 }
 
+.stitch-stat-row--stack {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+}
+
+.stitch-stat-row--stack dt {
+  flex: none;
+  width: 100%;
+}
+
+.stitch-stat-row--stack dd {
+  text-align: left;
+  word-break: break-word;
+}
+
+.stitch-edge-panel .stitch-stat-row--stack {
+  align-items: center;
+}
+
+.stitch-edge-panel .stitch-stat-row--stack dd {
+  text-align: center;
+}
+
+.stitch-edge-signal-block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.42);
+  border: 1px solid var(--stitch-glass-card-border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.stitch-edge-signal-title {
+  margin: 0;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text-muted);
+  text-align: center;
+}
+
+.stitch-edge-signal-short {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--stitch-light-text);
+  text-align: center;
+}
+
+.stitch-model-market-bar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stitch-model-market-bar__track {
+  display: flex;
+  width: 100%;
+  min-height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--stitch-progress-track);
+}
+
+.stitch-model-market-bar__fill {
+  min-width: 0;
+  height: 100%;
+}
+
+.stitch-model-market-bar__fill--model {
+  background: linear-gradient(90deg, #059669, #34d399);
+}
+
+.stitch-model-market-bar__fill--market {
+  background: linear-gradient(90deg, #64748b, #94a3b8);
+}
+
+.stitch-model-market-bar__labels {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.stitch-model-market-bar__label {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.stitch-model-market-bar__label--market {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.stitch-model-market-bar__key {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text-muted);
+}
+
+.stitch-model-market-bar__pct {
+  font-family: var(--stitch-font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--stitch-light-text);
+}
+
+.stitch-match-section-body .proof-dl-row--valid {
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.stitch-match-section-body .proof-dl-row--valid dt {
+  flex: 0 0 auto;
+  min-width: 38%;
+}
+
+.stitch-match-section-body .proof-dl-row--valid dd {
+  flex: 1 1 120px;
+  min-width: 0;
+  text-align: right;
+}
+
+.stitch-proof-valid-badge {
+  display: inline-flex;
+  max-width: 100%;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.25;
+  font-size: 10px;
+  padding: 0.28rem 0.5rem;
+}
+
+.proof-valid-badge__short {
+  display: none;
+}
+
+.proof-valid-badge__long {
+  display: inline;
+}
+
 /* Fan bet slip — Stitch iOS grade (F96N) */
 .stitch-fan-bet-slip {
   display: flex;
@@ -3159,11 +3416,18 @@ button.stitch-card-star.stitch-card-star--active {
 
 .stitch-fan-bet-demo {
   margin: 0;
+  text-align: center;
+}
+
+.stitch-fan-bet-demo .stitch-present-callout-title,
+.stitch-fan-bet-demo .stitch-present-callout-body {
+  text-align: center;
 }
 
 .stitch-fan-bet-faucets {
   margin: 6px 0 0;
   font-size: 10px;
+  text-align: center;
 }
 
 .stitch-fan-bet-faucets a {
@@ -3367,7 +3631,8 @@ button.stitch-card-star.stitch-card-star--active {
   width: 100%;
   padding: 10px 12px;
   border-radius: 12px;
-  border: 1px solid var(--stitch-glass-card-border);
+  border: 1.5px solid rgba(30, 58, 138, 0.32);
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.08);
   background: rgba(255, 255, 255, 0.72);
   font-size: 16px;
   font-weight: 700;
@@ -3377,8 +3642,8 @@ button.stitch-card-star.stitch-card-star--active {
 }
 
 .stitch-fan-bet-stake-input:focus {
-  border-color: rgba(30, 58, 138, 0.35);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+  border-color: rgba(30, 58, 138, 0.5);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.16);
 }
 
 .stitch-fan-bet-cta {
@@ -3580,6 +3845,7 @@ button.stitch-card-star.stitch-card-star--active {
   font-size: 0.88rem;
   line-height: 1.45;
   color: var(--stitch-light-text-secondary);
+  text-align: center;
 }
 
 .stitch-match-settlement-stack {
@@ -3828,14 +4094,16 @@ html.stitch-route .stitch-panel--match .present-callout.glass-panel {
   }
 
   .stitch-match-sections {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 16px;
-    align-items: start;
+    width: 100%;
+    max-width: 520px;
+    margin-inline: auto;
   }
 
   .stitch-match-section--span-full {
-    grid-column: 1 / -1;
+    width: 100%;
   }
 }
 
@@ -3905,6 +4173,17 @@ html.stitch-route .stitch-panel--match .present-callout.glass-panel {
   .stitch-match-detail-actions {
     gap: 6px;
     margin-top: 10px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .stitch-match-detail-actions .stitch-lg-pill {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .stitch-match-detail-odds-block {
+    width: 100%;
   }
 
   .stitch-match-detail-odds-pill {
@@ -3919,6 +4198,55 @@ html.stitch-route .stitch-panel--match .present-callout.glass-panel {
   .stitch-match-detail-odds-dec,
   .stitch-match-detail-odds-wait {
     font-size: 8px;
+  }
+
+  .stitch-stat-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .stitch-stat-row dt {
+    flex: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  .stitch-stat-row dd {
+    text-align: center;
+    word-break: break-word;
+  }
+
+  .stitch-match-edge-why {
+    font-size: 0.82rem;
+    text-align: center;
+    padding: 0 2px;
+  }
+
+  .stitch-match-section-body .proof-dl-row--valid {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .stitch-match-section-body .proof-dl-row--valid dd {
+    text-align: left;
+  }
+
+  .stitch-proof-valid-badge .proof-valid-badge__long {
+    display: none;
+  }
+
+  .stitch-proof-valid-badge .proof-valid-badge__short {
+    display: inline;
+  }
+
+  .stitch-model-market-bar__track {
+    min-height: 12px;
+  }
+
+  .stitch-model-market-bar__pct {
+    font-size: 12px;
   }
 }
 
@@ -4038,6 +4366,66 @@ html.stitch-route .stitch-panel--match .present-callout.glass-panel {
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: min(60vw, 340px);
+  word-break: break-all;
+}
+
+.stitch-panel--agent {
+  padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+}
+
+.stitch-agent-nav {
+  margin-bottom: 8px;
+}
+
+.stitch-agent-entry-card {
+  margin-bottom: 16px;
+}
+
+.stitch-agent-entry-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 0.8px solid var(--stitch-agent-primary-border);
+  background: var(--stitch-agent-primary-bg);
+  text-decoration: none;
+  color: inherit;
+}
+
+.stitch-agent-entry-link:active {
+  opacity: 0.92;
+}
+
+.stitch-agent-entry-kicker {
+  margin: 0 0 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stitch-light-text-secondary);
+}
+
+.stitch-agent-entry-cta {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--stitch-light-text);
+}
+
+.stitch-agent-entry-lead {
+  margin: 6px 0 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--stitch-light-text-secondary);
+}
+
+.stitch-agent-entry-badge {
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  color: var(--stitch-link);
+  opacity: 0.85;
 }
 
 .stitch-agent-policy-body {
@@ -4538,4 +4926,16 @@ html.stitch-route .stitch-panel--match .present-callout.glass-panel {
 :is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-wallet-stat-value--down,
 :is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-wallet-pnl--down {
   color: #f87171;
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-fan-bet-stake-input {
+  border-color: rgba(148, 163, 184, 0.45);
+  box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.12);
+  background: rgba(15, 23, 42, 0.55);
+  color: #f8fafc;
+}
+
+:is(html.stitch-route, html.sandbox-route)[data-theme="dark"] .stitch-fan-bet-stake-input:focus {
+  border-color: rgba(96, 165, 250, 0.55);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);
 }

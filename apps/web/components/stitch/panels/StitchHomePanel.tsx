@@ -1,5 +1,6 @@
 import { FixtureCard } from "@/features/fixtures/FixtureCard";
 import { usePresent } from "@/components/present/PresentProvider";
+import { LiquidGlassPill } from "@/design-system/glass/LiquidGlassPill";
 import { featuredSectionLabel, pickFeaturedFixture } from "@/lib/fixtureSort";
 import { fixtureToStitchCard } from "@/lib/stitchCardModel";
 import { useMatchFavorites } from "@/lib/matchFavorites";
@@ -58,9 +59,15 @@ export function StitchHomePanel({ onNavigateTab }: Props) {
         <p className="stitch-panel-empty">{t.homeNoFixtures}</p>
       )}
 
-      <button type="button" className="stitch-link-btn" onClick={() => onNavigateTab("matches")}>
-        {t.viewAllMatches}
-      </button>
+      <div className="stitch-nav-pill-row stitch-nav-pill-row--home">
+        <LiquidGlassPill
+          variant="nav"
+          className="stitch-nav-pill--wide"
+          onClick={() => onNavigateTab("matches")}
+        >
+          {t.viewAllMatches}
+        </LiquidGlassPill>
+      </div>
 
       <StitchPanelFooter />
     </div>

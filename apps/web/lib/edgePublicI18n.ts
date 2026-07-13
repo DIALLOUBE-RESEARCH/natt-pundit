@@ -14,8 +14,12 @@ type EdgePublicCopy = {
   edgeConviction: string;
   edgeShinMarket: string;
   edgeModelSignal: string;
+  modelBarModel: string;
+  modelBarMarket: string;
   setupSummary: (side: string, conviction: string) => string;
   holdSummary: string;
+  holdSummaryShort: string;
+  setupSummaryShort: (side: string, conviction: string) => string;
   consensusLine: (home: string, homePct: string, drawPart: string, away: string, awayPct: string) => string;
 };
 
@@ -30,10 +34,14 @@ const COPY: Record<AppLang, EdgePublicCopy> = {
     edgeConviction: "Conviction",
     edgeShinMarket: "Shin market (de-vig)",
     edgeModelSignal: "Model vs market",
+    modelBarModel: "Model",
+    modelBarMarket: "Market",
     setupSummary: (side, conviction) =>
       `Independent model disagrees with Shin consensus on ${side} (${conviction} conviction).`,
     holdSummary:
       "No outcome clears the net-edge threshold — model aligns with Shin consensus. HOLD is intentional.",
+    holdSummaryShort: "Aligned with Shin consensus — HOLD",
+    setupSummaryShort: (side, conviction) => `${side} · ${conviction}`,
     consensusLine: (home, homePct, drawPart, away, awayPct) =>
       `${home} ${homePct}${drawPart} · ${away} ${awayPct}`,
   },
@@ -47,10 +55,14 @@ const COPY: Record<AppLang, EdgePublicCopy> = {
     edgeConviction: "Conviction",
     edgeShinMarket: "Marche Shin (de-vig)",
     edgeModelSignal: "Modele vs marche",
+    modelBarModel: "Modele",
+    modelBarMarket: "Marche",
     setupSummary: (side, conviction) =>
       `Le modele independant diverge du consensus Shin sur ${side} (conviction ${conviction}).`,
     holdSummary:
       "Aucun outcome ne depasse le seuil d edge net — le modele est aligne avec Shin. HOLD volontaire.",
+    holdSummaryShort: "Aligne avec Shin — HOLD",
+    setupSummaryShort: (side, conviction) => `${side} · ${conviction}`,
     consensusLine: (home, homePct, drawPart, away, awayPct) =>
       `${home} ${homePct}${drawPart} · ${away} ${awayPct}`,
   },
@@ -64,10 +76,14 @@ const COPY: Record<AppLang, EdgePublicCopy> = {
     edgeConviction: "Conviccion",
     edgeShinMarket: "Mercado Shin (de-vig)",
     edgeModelSignal: "Modelo vs mercado",
+    modelBarModel: "Modelo",
+    modelBarMarket: "Mercado",
     setupSummary: (side, conviction) =>
       `El modelo independiente discrepa del consenso Shin en ${side} (conviccion ${conviction}).`,
     holdSummary:
       "Ningun outcome supera el umbral de edge neto — modelo alineado con Shin. HOLD intencional.",
+    holdSummaryShort: "Alineado con Shin — HOLD",
+    setupSummaryShort: (side, conviction) => `${side} · ${conviction}`,
     consensusLine: (home, homePct, drawPart, away, awayPct) =>
       `${home} ${homePct}${drawPart} · ${away} ${awayPct}`,
   },
@@ -81,10 +97,14 @@ const COPY: Record<AppLang, EdgePublicCopy> = {
     edgeConviction: "Ueberzeugung",
     edgeShinMarket: "Shin-Markt (de-vig)",
     edgeModelSignal: "Modell vs Markt",
+    modelBarModel: "Modell",
+    modelBarMarket: "Markt",
     setupSummary: (side, conviction) =>
       `Unabhaengiges Modell weicht vom Shin-Konsens bei ${side} ab (${conviction} Ueberzeugung).`,
     holdSummary:
       "Kein Outcome ueber Netto-Edge-Schwelle — Modell aligned mit Shin. HOLD beabsichtigt.",
+    holdSummaryShort: "Mit Shin aligned — HOLD",
+    setupSummaryShort: (side, conviction) => `${side} · ${conviction}`,
     consensusLine: (home, homePct, drawPart, away, awayPct) =>
       `${home} ${homePct}${drawPart} · ${away} ${awayPct}`,
   },
@@ -98,10 +118,14 @@ const COPY: Record<AppLang, EdgePublicCopy> = {
     edgeConviction: "Conviccao",
     edgeShinMarket: "Mercado Shin (de-vig)",
     edgeModelSignal: "Modelo vs mercado",
+    modelBarModel: "Modelo",
+    modelBarMarket: "Mercado",
     setupSummary: (side, conviction) =>
       `Modelo independente diverge do consenso Shin em ${side} (conviccao ${conviction}).`,
     holdSummary:
       "Nenhum outcome passa o limiar de edge liquido — modelo alinhado com Shin. HOLD intencional.",
+    holdSummaryShort: "Alinhado com Shin — HOLD",
+    setupSummaryShort: (side, conviction) => `${side} · ${conviction}`,
     consensusLine: (home, homePct, drawPart, away, awayPct) =>
       `${home} ${homePct}${drawPart} · ${away} ${awayPct}`,
   },
@@ -115,10 +139,14 @@ const COPY: Record<AppLang, EdgePublicCopy> = {
     edgeConviction: "Uverennost",
     edgeShinMarket: "Rynok Shin (de-vig)",
     edgeModelSignal: "Model vs rynok",
+    modelBarModel: "Model",
+    modelBarMarket: "Rynok",
     setupSummary: (side, conviction) =>
       `Nezavisimaya model raskhoditsya s konsensusom Shin na ${side} (${conviction} uverennost).`,
     holdSummary:
       "Ni odin outcome ne prevysil porog chistogo edge — model v soglasii s Shin. HOLD namerenno.",
+    holdSummaryShort: "Soglasovan s Shin — HOLD",
+    setupSummaryShort: (side, conviction) => `${side} · ${conviction}`,
     consensusLine: (home, homePct, drawPart, away, awayPct) =>
       `${home} ${homePct}${drawPart} · ${away} ${awayPct}`,
   },
@@ -132,9 +160,13 @@ const COPY: Record<AppLang, EdgePublicCopy> = {
     edgeConviction: "確信度",
     edgeShinMarket: "Shin 市場 (de-vig)",
     edgeModelSignal: "モデル vs 市場",
+    modelBarModel: "モデル",
+    modelBarMarket: "市場",
     setupSummary: (side, conviction) =>
       `独立モデルが Shin コンセンサスと ${side} で不一致（確信度 ${conviction}）。`,
     holdSummary: "純 edge 閾値未満 — モデルは Shin と一致。HOLD は意図的。",
+    holdSummaryShort: "Shin と一致 — HOLD",
+    setupSummaryShort: (side, conviction) => `${side} · ${conviction}`,
     consensusLine: (home, homePct, drawPart, away, awayPct) =>
       `${home} ${homePct}${drawPart} · ${away} ${awayPct}`,
   },
@@ -148,9 +180,13 @@ const COPY: Record<AppLang, EdgePublicCopy> = {
     edgeConviction: "置信度",
     edgeShinMarket: "Shin 市场 (de-vig)",
     edgeModelSignal: "模型 vs 市场",
+    modelBarModel: "模型",
+    modelBarMarket: "市场",
     setupSummary: (side, conviction) =>
       `独立模型与 Shin 共识在 ${side} 上分歧（置信度 ${conviction}）。`,
     holdSummary: "无 outcome 超过净 edge 阈值 — 模型与 Shin 一致。HOLD 是有意决策。",
+    holdSummaryShort: "与 Shin 一致 — HOLD",
+    setupSummaryShort: (side, conviction) => `${side} · ${conviction}`,
     consensusLine: (home, homePct, drawPart, away, awayPct) =>
       `${home} ${homePct}${drawPart} · ${away} ${awayPct}`,
   },
@@ -209,6 +245,21 @@ export function publicEdgeSummaryText(
   const side = outcomeLabel(edge.direction, homeTeam, awayTeam, lang);
   const conviction = convictionTierLabel(edge.conviction, lang);
   return c.setupSummary(side, conviction);
+}
+
+export function publicEdgeSignalRowShort(
+  edge: Pick<PublicEdgeVerdict, "verdict" | "direction" | "conviction">,
+  homeTeam: string,
+  awayTeam: string,
+  lang: AppLang,
+): string {
+  const c = copy(lang);
+  if (edge.verdict === "SETUP" && edge.direction && edge.direction !== "none") {
+    const side = outcomeLabel(edge.direction, homeTeam, awayTeam, lang);
+    const conviction = convictionTierLabel(edge.conviction, lang);
+    return c.setupSummaryShort(side, conviction);
+  }
+  return c.holdSummaryShort;
 }
 
 export function formatShinConsensusLine(

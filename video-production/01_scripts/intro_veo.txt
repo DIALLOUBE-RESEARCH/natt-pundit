@@ -1,0 +1,17 @@
+=== CLIP PROMPT OFFICIEL SELECTIONNE (8 secondes) ===
+
+Ce prompt utilise un maillot bleu uni (sans aucun texte) et aucun téléphone dans les mains (bras levés). 
+Le vrai logo officiel de TxODDS (ainsi que celui du Hackathon) sera incrusté en post-production de manière ultra-pro et nette, évitant les déformations de texte typiques de l'IA.
+
+Fichier source : 01_scripts/intro_shots/A2_stadium_joy_dur8sec.txt
+
+---
+9:16 vertical. Eight seconds. High-energy sports betting commercial style, ultra-bright daylight, vibrant colors, crisp details.
+
+Frontal medium shot, filmed directly from the front (de face) inside sunlit football stadium stands packed with thousands of cheering fans. The background shows other cheering fans jumping and waving solid color flags (no logos, no crests).
+
+In the foreground, an excited male fan wearing a premium solid royal blue supporter shirt (completely plain, no text, no logos) is jumping and celebrating with absolute raw ecstasy. Both of his hands are raised high in the air, open palms, with NO devices, NO smartphones, and NO objects in his hands. He is high-fiving another supporter next to him, shouting and cheering in pure unadulterated human joy. High-momentum, extremely clean commercial cinematography, stable human hands.
+
+NOT: smartphones, devices, objects in hands, text on shirt, logo on shirt, Nike, Nike swoosh, Adidas stripes, Puma, dark shadows, CGI, video game, night, rain.
+
+Silent. No dialogue.
