@@ -10,7 +10,7 @@
     "dev": "concurrently -n gateway,edge,web -c cyan,magenta,green \"npm run dev -w @natt-pundit/txline-gateway\" \"npm run dev -w @natt-pundit/edge-api\" \"npm run dev -w @natt-pundit/web\"",
     "build": "node scripts/ensure-edge-engine.mjs && npm run build -w @natt-pundit/contracts && npm run build -w @natt-pundit/natt-core && npm run build -w @natt-pundit/natt-edge-engine && npm run build -w @natt-pundit/txline-gateway && npm run build -w @natt-pundit/edge-api && npm run build -w @natt-pundit/commentary-service && npm run build -w @natt-pundit/web",
     "ensure:engine": "node scripts/ensure-edge-engine.mjs",
-    "test": "npm run test -w @natt-pundit/natt-core && npm run test -w @natt-pundit/edge-api && npm run test -w @natt-pundit/txline-gateway && npm run test -w @natt-pundit/web && npm run test -w @natt-pundit/mcp",
+    "test": "npm run test -w @natt-pundit/natt-core && npm run test -w @natt-pundit/edge-api && npm run test -w @natt-pundit/txline-gateway && npm run test -w @natt-pundit/web && npm run test -w @natt-pundit/mcp && npm run test -w @natt-pundit/escrow-keeper",
     "test:engine": "npm run test -w @natt-pundit/natt-edge-engine",
     "lint": "npm run lint -w @natt-pundit/web",
     "quality": "node -e \"process.platform==='win32'?require('child_process').execSync('powershell -ExecutionPolicy Bypass -File scripts/quality.ps1',{stdio:'inherit'}):require('child_process').execSync('bash scripts/quality.sh',{stdio:'inherit'})\"",

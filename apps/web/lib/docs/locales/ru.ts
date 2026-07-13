@@ -125,7 +125,7 @@ export const ruDocs: DocsPack = {
           items: [
             "Кошелек",
             "Выбор стороны + сумма, одна кнопка до начала",
-            "После матча: «Получить выплату»",
+            "После матча: **Расчет…** (keeper escrow), затем «Получить выплату» — одна подпись (только claim).",
           ],
         },
       ],
@@ -134,7 +134,7 @@ export const ruDocs: DocsPack = {
       id: "claim-settle",
       title: "Получить выигрыш",
       blocks: [
-        { type: "paragraph", text: "После FT нажми «Получить выплату» — settle + claim автоматически." },
+        { type: "paragraph", text: "После FT **keeper escrow** автоматически делает settle пула. Нажми «Получить выплату» — **только claim**, одно подтверждение кошелька." },
         { type: "heading3", text: "Страница матча или Wallet" },
         {
           type: "list",

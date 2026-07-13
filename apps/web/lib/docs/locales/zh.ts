@@ -122,7 +122,7 @@ export const zhDocs: DocsPack = {
         { type: "paragraph", text: "共享彩池下注 — 赢家按比例分配奖池。" },
         {
           type: "list",
-          items: ["连接钱包", "开赛前选边 + 金额，一键下注", "赛后点击「领取」"],
+          items: ["连接钱包", "开赛前选边 + 金额，一键下注", "赛后「结算中…」(keeper) →「领取」— 一次钱包签名（仅 claim）"],
         },
       ],
     },
@@ -130,7 +130,7 @@ export const zhDocs: DocsPack = {
       id: "claim-settle",
       title: "领取奖金",
       blocks: [
-        { type: "paragraph", text: "全场结束后点击「领取」— 应用自动结算并发放奖金。" },
+        { type: "paragraph", text: "全场结束后 **escrow keeper** 自动结算彩池。出现「领取」后点击 — **仅 claim**，一次钱包确认。" },
         { type: "heading3", text: "比赛页或钱包" },
         {
           type: "list",

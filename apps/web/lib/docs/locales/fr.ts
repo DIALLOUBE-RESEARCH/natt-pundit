@@ -172,7 +172,7 @@ export const frDocs: DocsPack = {
           items: [
             "Wallet — connecte un wallet Solana (Reown / Phantom).",
             "Parier — tape sur le pays (drapeau), ou Nul en phase de groupes. Mise ≥ 0,01 USDC, un bouton avant le coup d'envoi.",
-            "Apres le match — Encaisser sur la page match (settlement + claim automatiques).",
+            "Apres le match — statut **Reglement en cours…** pendant que le keeper escrow regle le pool (settle permissionless ; le serveur paie les frais, jamais tes USDC). Puis **Encaisser** — **une signature wallet** (claim uniquement).",
           ],
         },
         {
@@ -196,7 +196,7 @@ export const frDocs: DocsPack = {
       blocks: [
         {
           type: "paragraph",
-          text: "Apres le temps reglementaire et validation TxLINE, appuie sur Encaisser — l'app settle le pool si besoin et envoie les gains sur ton wallet.",
+          text: "Apres le temps reglementaire et validation TxLINE, le **keeper escrow** regle le pool automatiquement (ix `settle` permissionless — payeur de frais seulement). Quand **Encaisser** s'affiche, appuie — **claim uniquement**, une approbation Phantom.",
         },
         {
           type: "heading3",
@@ -257,7 +257,7 @@ export const frDocs: DocsPack = {
           type: "list",
           items: [
             "Parier — depot escrow (avant coup d'envoi).",
-            "Encaisser — settle du pool + claim des gains apres FT.",
+            "Encaisser — **claim uniquement** apres auto-settle du keeper (apres FT).",
             "Remboursement — cote solo ou pool void.",
             "Sign-In With Solana — message nonce pour export ZIP Data Lab (allowlist).",
             "Onglet Wallet — soldes, historique, claim/refund sur chaque ligne.",

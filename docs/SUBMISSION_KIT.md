@@ -126,7 +126,7 @@ curl -s -o /dev/null -w "%{http_code}\n" \
 2. **0:30–1:15** — Live app: fixture grid, SETUP/HOLD, match detail decomposition 1X2.
 3. **1:15–2:00** — **Data Lab** `/datas`: CLV progress bar, `CLV_VERIFIED` rare by design (N≥500).
 4. **2:00–2:45** — Settlement panel: Merkle path, green badge (`validated=true`) on finished fixture.
-5. **2:45–3:30** — **Escrow devnet (fan UX)**: connect Phantom → **Place bet** (one CTA pre-kickoff) → after FT tap **Collect payout** (settle+claim orchestrated). Optional: unmatched **refund** after kickoff.
+5. **2:45–3:30** — **Escrow devnet (fan UX)**: connect Phantom → **Place bet** (one CTA pre-kickoff) → after FT **Settlement in progress…** (keeper auto-settles) → **Collect payout** (**one** claim signature). Optional: unmatched **refund** after kickoff.
 6. **3:30–4:15** — **MCP agent**: Cursor `natt-pundit` server → `get_fixture_agent_status` → unsigned deposit/refund tx; mention x402 ≠ escrow deposit.
 7. **4:15–4:45** — Architecture slide: web → gateway/edge/MCP → TxLINE; devnet escrow; `natt-core` tests.
 8. **4:45–5:00** — CTA: public mirror, TxLINE activate, deadline 2026-07-19.

@@ -125,7 +125,7 @@ export const ptDocs: DocsPack = {
           items: [
             "Wallet",
             "Escolher lado + valor, um toque antes do apito",
-            "Apos o jogo: «Receber»",
+            "Apos o jogo: **Liquidacao em curso…** (keeper escrow) depois **Receber** — uma assinatura (so claim).",
           ],
         },
       ],
@@ -134,7 +134,7 @@ export const ptDocs: DocsPack = {
       id: "claim-settle",
       title: "Recuperar ganhos",
       blocks: [
-        { type: "paragraph", text: "Apos FT toca «Receber» — settle + claim automaticos." },
+        { type: "paragraph", text: "Apos FT o **keeper escrow** liquida o pool automaticamente. Quando «Receber» aparecer — **so claim**, uma aprovacao na carteira." },
         { type: "heading3", text: "Pagina do jogo ou Wallet" },
         {
           type: "list",

@@ -48,7 +48,7 @@ Full detail in-app: Docs → **8 languages & light/dark mode** (translated in al
 
 1. **Wallet** — connect Solana on the match page.
 2. **Place bet** — tap the **country flag** (or Draw in group stage), enter stake ≥ 0.01 USDC, tap **Place bet**.
-3. **After match** — tap **Collect payout** on the match page (or Wallet tab for archived fixtures).
+3. **After match** — status **Settlement in progress…** while the **escrow keeper** auto-settles the pool (permissionless on-chain; server fee payer only). Then tap **Collect payout** — **one wallet signature** (claim only).
 
 **UNMATCHED** (one side only): **Refund stake** after kickoff.
 
@@ -60,7 +60,7 @@ Technical Merkle proof details: **Transparency** section on finished matches.
 
 Finished matches may leave the fixtures board. Use **Wallet → Bet activity**:
 
-- **Collect payout** — claimable or open after kickoff (settlement + claim in one step).
+- **Collect payout** — after keeper settled the pool (**claim only**, one signature).
 - **Refund stake** — refund eligible.
 
 ---

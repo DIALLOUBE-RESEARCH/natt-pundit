@@ -52,7 +52,7 @@ Pre-submission multi-layer audit (Anchor escrow, MCP Pundit server, x402 Solana 
 - **Light/dark mode**: Stitch glass theme toggle (top-left); persists locally; **Reown wallet modal** syncs theme; night stadium art in dark mode
 - **Edge**: two-source combine vs Shin consensus `pi_tx`; **SETUP** only when net disagreement exceeds a pre-registered threshold (else **HOLD**)
 - **Settlement**: TxLINE stat-validation Merkle proofs verified off-chain (SHA-256, sibling order); on-chain CPI `validate_stat` on devnet escrow
-- **Escrow (devnet)**: USDC **shared pool** per WC fixture — bet by country, collect payout, refund
+- **Escrow (devnet)**: USDC **shared pool** per WC fixture — bet by country, collect payout, refund; **escrow keeper** auto-settles pools post-proof (fan signs **claim** only)
 - **Wallet UX (Solana)**: **Reown AppKit** + **WalletConnect** — Phantom, Solflare, mobile deeplink; signed deposit / settle / claim / refund; Sign-In With Solana for Data Lab export (not EVM / wagmi)
 - **Agents**: MCP server (20 tools) + x402 micropayments on Solana devnet; **autonomous betting loop** via CDP Server Wallet (`scripts/natt-agent-cdp-autonomous.mjs`) or dev keypair; read-only dashboard at `/agent` — see [`docs/AUTONOMOUS_AGENT_CDP.md`](./docs/AUTONOMOUS_AGENT_CDP.md)
 - **Data Lab** (`/datas`): append-only odds/edge/proof logger + CLV harness; ZIP export gated by Sign-In With Solana (allowlist)
@@ -171,6 +171,7 @@ flowchart TB
   GW[txline-gateway :4001]
   Edge[edge-api :4002]
   MCP[natt-pundit-mcp :4012]
+  KPR[escrow-keeper :4013]
   Comm[commentary-service :4003]
   Tx[TxLINE API]
   Sol[Solana devnet escrow + CPI]
@@ -181,6 +182,8 @@ flowchart TB
   MCP --> GW
   MCP --> Edge
   MCP --> Sol
+  KPR --> GW
+  KPR --> Sol
   Edge --> GW
   GW --> Tx
   Web --> Sol
@@ -193,6 +196,7 @@ flowchart TB
 | `services/txline-gateway` | TxLINE proxy, Merkle `/proof`, CPI args `/cpi-args` |
 | `services/edge-api` | Shin + combine + SETUP/HOLD + data logger + ZIP builder (internal) |
 | `services/mcp` | 20 MCP tools, x402 $0.01 USDC devnet on paid reads |
+| `services/escrow-keeper` | F96N P1 — auto `settle` on finished pools (permissionless ix; fee payer only; never user claim) |
 | `services/commentary-service` | Optional live audio moments (F76N, kill switch) |
 | `packages/natt-core` | Pure math: shin, combine, merkle_verify, escrow_pool_mode, clv |
 | `hackathon/solana-escrow` | Anchor `natt_escrow` program (devnet) |

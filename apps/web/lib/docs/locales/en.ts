@@ -172,7 +172,7 @@ export const enDocs: DocsPack = {
           items: [
             "Wallet — connect Solana wallet (Reown / Phantom).",
             "Place bet — tap the country (flag), or Draw in group stage only. Stake ≥ 0.01 USDC, one tap before kickoff.",
-            "After the match — Collect payout on the match page (settlement + claim handled automatically).",
+            "After the match — **Settlement in progress…** while the escrow keeper auto-settles the pool (permissionless on-chain; server pays fees only, never your USDC). Then tap **Collect payout** — **one wallet signature** (claim only).",
           ],
         },
         {
@@ -196,7 +196,7 @@ export const enDocs: DocsPack = {
       blocks: [
         {
           type: "paragraph",
-          text: "After full time and TxLINE proof validation, tap Collect payout — the app settles the pool if needed and sends winnings to your wallet.",
+          text: "After full time and TxLINE proof validation, the **escrow keeper** settles the pool automatically (permissionless `settle` ix — fee payer only, cannot move user funds). When **Collect payout** appears, tap it — **claim only**, one Phantom approval.",
         },
         {
           type: "heading3",
@@ -257,7 +257,7 @@ export const enDocs: DocsPack = {
           type: "list",
           items: [
             "Place bet — escrow deposit (pre-kickoff).",
-            "Collect payout — settle pool + claim winnings after full time.",
+            "Collect payout — **claim only** after keeper auto-settle (post full time).",
             "Refund stake — solo-side or void pools.",
             "Sign-In With Solana — nonce message for Data Lab ZIP export (allowlist).",
             "Wallet tab — balances, bet history, claim/refund on each row.",

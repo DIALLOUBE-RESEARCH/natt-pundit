@@ -125,7 +125,7 @@ export const jaDocs: DocsPack = {
           items: [
             "ウォレット接続",
             "キックオフ前にサイド + 金額を選びワンタップでベット",
-            "試合後「受取」",
+            "試合後「精算中…」(keeper) →「受取」— ウォレット署名1回（claimのみ）",
           ],
         },
       ],
@@ -134,7 +134,7 @@ export const jaDocs: DocsPack = {
       id: "claim-settle",
       title: "賞金の受取",
       blocks: [
-        { type: "paragraph", text: "FT 後「受取」をタップ — アプリが settle + claim をまとめて処理。" },
+        { type: "paragraph", text: "FT 後、**escrow keeper** がプールを自動 settle。 「受取」表示後にタップ — **claim のみ**、署名1回。" },
         { type: "heading3", text: "試合ページまたはウォレット" },
         {
           type: "list",

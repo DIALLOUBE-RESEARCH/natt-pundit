@@ -68,6 +68,22 @@ describe("mapFanBetStatus", () => {
     ).toBe("settling");
   });
 
+  it("collect_available when keeper settled pool for winner", () => {
+    expect(
+      mapFanBetStatus({
+        ...base,
+        keeperEnabled: true,
+        positionExists: true,
+        positionAmountBase: 10000n,
+        fixtureStatus: "finished",
+        beforeKickoff: false,
+        poolSettled: true,
+        winningSide: 0,
+        userOnWinningSide: true,
+      }),
+    ).toBe("collect_available");
+  });
+
   it("lost when settled on losing side", () => {
     expect(
       mapFanBetStatus({

@@ -31,6 +31,7 @@ curl -sf https://hypernatt.com/api/natt-pundit/txline/health
 curl -sf https://hypernatt.com/api/natt-pundit/edge/health
 curl -sf https://hypernatt.com/mcp-pundit/health
 curl -sf https://hypernatt.com/mcp-pundit/pundit/info
+# escrow keeper (internal compose — jury: trust README + fan UX on live app)
 curl -s https://hypernatt.com/api/natt-pundit/edge/v1/edge/summary | head -c 400
 ```
 
@@ -52,7 +53,7 @@ curl -s https://hypernatt.com/api/natt-pundit/txline/v1/fixtures/18172280/proof/
 | Fund | [SOL faucet](https://faucet.solana.com/) + [USDC faucet](https://faucet.circle.com/) (Solana Devnet) |
 | Connect | App header → **Wallet** pill → Reown modal (Phantom, Solflare, WalletConnect mobile) |
 | Bet | Match page → pick side + stake → **Place bet** (≥ 0.01 USDC, pre-kickoff) |
-| After FT | **Collect payout** on match page (settlement + claim handled for you) |
+| After FT | **Settlement in progress…** (escrow keeper auto-settles pool) → **Collect payout** — **one signature** (claim only) |
 | Archived match | **Wallet tab** → **Collect payout** / **Refund stake** on each row |
 
 Pool modes: **Shared pool** (2+ countries backed) → collect after FT · **Solo side** (one country only) → refund after kickoff.
@@ -85,7 +86,7 @@ x402: some reads cost $0.01 devnet USDC (separate from escrow deposits). Hackath
 - [ ] **Light/dark mode** — sun/moon toggle top-left ; Reown modal follows
 - [ ] **Wallet connect** — Reown AppKit + WalletConnect; sign deposit → collect on devnet
 - [ ] Merkle proof panel on finished matches
-- [ ] Escrow 4-step flow on match page
+- [ ] **Fan bet slip** — Place bet (pre-kickoff) → after FT **Settlement in progress…** → **Collect payout** (1 claim signature; keeper auto-settles pool)
 - [ ] Wallet tab: balances + bet history + claim from archived fixtures
 - [ ] Docs tab in your language (faucets, MCP, betting, GitHub link)
 - [ ] MCP health + manifest + agent connect modal

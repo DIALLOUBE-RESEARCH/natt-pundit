@@ -588,6 +588,31 @@ export async function submitSignedEscrowTx({ signed_transaction_base64, agent_wa
   };
 }
 
+/** F96N P1 — keeper signs and broadcasts permissionless settle (fee payer only). */
+export async function broadcastSettleTx({ fixture_id, outcome, signerKeypair, cpi_args }) {
+  if (!signerKeypair?.publicKey) {
+    throw new Error("keeper_keypair_required");
+  }
+  const wallet = signerKeypair.publicKey.toBase58();
+  let args = cpi_args;
+  if (!args) {
+    const fetched = await fetchCpiSettleArgs(fixture_id, outcome);
+    args = fetched?.cpi_args ?? fetched;
+  }
+  const built = await buildSettleTx({
+    fixture_id,
+    outcome,
+    agent_wallet: wallet,
+    cpi_args: args,
+  });
+  const tx = Transaction.from(Buffer.from(built.transaction_base64, "base64"));
+  tx.sign(signerKeypair);
+  return submitSignedEscrowTx({
+    signed_transaction_base64: tx.serialize().toString("base64"),
+    agent_wallet: wallet,
+  });
+}
+
 async function buildRefundStyleTx({ fixture_id, agent_wallet, method }) {
   const user = requireAgentWallet(agent_wallet);
   const programId = getEscrowProgramId();

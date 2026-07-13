@@ -152,7 +152,7 @@ export const esDocs: DocsPack = {
           items: [
             "Wallet — conecta Solana (Reown / Phantom).",
             "Apostar — toca el pais (bandera) o Empate en fase de grupos. ≥ 0,01 USDC, un toque antes del kickoff.",
-            "Tras el partido — Cobrar en la pagina del partido (settlement + claim automaticos).",
+            "Tras el partido — **Liquidacion en curso…** mientras el keeper escrow liquida el pool (settle permissionless; el servidor solo paga fees). Luego **Cobrar** — **una firma** (solo claim).",
           ],
         },
         { type: "heading3", text: "Reglas" },
@@ -173,7 +173,7 @@ export const esDocs: DocsPack = {
       blocks: [
         {
           type: "paragraph",
-          text: "Tras el tiempo reglamentario y prueba TxLINE, pulsa Cobrar — la app settlea si hace falta y envia ganancias a tu wallet.",
+          text: "Tras el tiempo reglamentario y prueba TxLINE, el **keeper escrow** liquida el pool automaticamente. Cuando veas **Cobrar**, pulsa — **solo claim**, una firma en la wallet.",
         },
         { type: "heading3", text: "Desde la pagina del partido" },
         {
@@ -228,7 +228,7 @@ export const esDocs: DocsPack = {
           type: "list",
           items: [
             "Apostar — deposito escrow (pre-partido).",
-            "Cobrar — settle del pool + claim tras el FT.",
+            "Cobrar — **solo claim** tras auto-settle del keeper (post FT).",
             "Reembolso — lado solo o pool void.",
             "Sign-In With Solana — nonce para export ZIP Data Lab (allowlist).",
             "Pestana Wallet — saldos, historial, claim/refund por fila.",

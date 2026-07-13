@@ -140,7 +140,7 @@ export const deDocs: DocsPack = {
           items: [
             "Wallet verbinden.",
             "Seite + Einsatz wahlen, vor Anpfiff ein Tippen.",
-            "Nach Spiel: Auszahlung abholen.",
+            "Nach dem Spiel — **Abrechnung lauft…** wahrend der Escrow-Keeper den Pool automatisch settled (permissionless; Server zahlt nur Fees). Dann **Auszahlung abholen** — **eine Signatur** (nur Claim).",
           ],
         },
         { type: "heading3", text: "Regeln" },
@@ -159,7 +159,7 @@ export const deDocs: DocsPack = {
       id: "claim-settle",
       title: "Gewinne abholen",
       blocks: [
-        { type: "paragraph", text: "Nach FT «Auszahlung abholen» — Settle + Claim automatisch." },
+        { type: "paragraph", text: "Nach FT: der **Escrow-Keeper** settled den Pool automatisch (permissionless). Bei «Auszahlung abholen» tippen — **nur Claim**, eine Phantom-Freigabe." },
         { type: "heading3", text: "Spielseite" },
         { type: "list", items: ["Wettschein unten: Abholen oder Erstattung."] },
         { type: "heading3", text: "Wallet-Tab (archivierte Spiele)" },

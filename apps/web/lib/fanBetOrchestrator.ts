@@ -17,6 +17,7 @@ import {
 } from "@/lib/nattEscrow";
 import type { ConnectedWallet } from "@/lib/solanaWallet";
 import { resolveWcFormat } from "@/lib/wcMatchRules";
+import { escrowKeeperEnabled } from "@/lib/fanUiFlag";
 import type { WalletBetRow } from "@/lib/walletPortfolio";
 
 export type FanPostMatchAction = "collect" | "refund";
@@ -128,7 +129,9 @@ export async function collectFanPayout(
   const refundSig = await refundIfEligible(wallet, fixtureId);
   if (refundSig) return refundSig;
 
-  await settleIfNeeded(wallet, fixtureId, kickoffAt);
+  if (!escrowKeeperEnabled) {
+    await settleIfNeeded(wallet, fixtureId, kickoffAt);
+  }
 
   const act = await fetchEscrowActivity(fixtureId, wallet.address);
   if (act?.pool.settled && act.yourPosition?.exists && !act.yourPosition.claimed) {

@@ -179,7 +179,7 @@ export function FanBetSlip({
     Boolean(wallet && programId && beforeKickoff && status !== "finished" && !placing) &&
     (fanStatus === "ready_to_bet" || (fanStatus === "ticket_open" && positionAmountBase === BigInt(0)));
 
-  const canCollect = fanStatus === "collect_available" && !escrowKeeperEnabled;
+  const canCollect = fanStatus === "collect_available";
   const canRefund = fanStatus === "refund_available";
 
   function onConnect() {

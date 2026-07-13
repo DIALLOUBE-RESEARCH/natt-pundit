@@ -73,7 +73,27 @@ NEXT_PUBLIC_NATT_ESCROW_ENABLED=true
 NEXT_PUBLIC_NATT_ESCROW_PROGRAM_ID=GPSU49hPRqWeEtTyMghWLWrXagV8hobFPkbFKVK3jxUD
 ```
 
-**WalletConnect:** the user signs deposit/settle/claim — **never** a private key on the VPS.
+**WalletConnect:** the user signs deposit/**claim**/refund — **never** a private key on the VPS for fan funds. Post-match **pool settle** is permissionless: the **escrow keeper** service signs `settle` only (devnet SOL for fees).
+
+### Escrow keeper (F96N P1)
+
+| Env (`.env.natt_pundit` on VPS) | Role |
+|---------------------------------|------|
+| `NATT_PUNDIT_ESCROW_KEEPER_ENABLED=true` | Kill switch |
+| `ESCROW_KEEPER_KEYPAIR` | base58 or JSON byte array — **fee payer only**, never commit |
+| `NEXT_PUBLIC_NATT_ESCROW_KEEPER_ENABLED=true` | Rebuild `natt-pundit-web` so fans see « Settlement in progress… » |
+
+Fund keeper pubkey with devnet SOL ([faucet](https://faucet.solana.com/)). See [`services/escrow-keeper/README.md`](services/escrow-keeper/README.md).
+
+```bash
+cd ~/HYPERNATT && export COMPOSE_FILE=docker-compose.prod.yml && git pull origin main && docker compose up -d --build --no-deps natt-pundit-escrow-keeper natt-pundit-web && docker compose restart nginx
+```
+
+Smoke (in-container):
+
+```bash
+docker compose exec -T natt-pundit-escrow-keeper node -e "fetch('http://127.0.0.1:4013/health').then(r=>r.json()).then(console.log)"
+```
 
 TxLINE devnet: enable a subscription on **devnet** (`txline-dev.txodds.com`) with the same wallet, then optional `TXLINE_DEV_API_TOKEN`.
 

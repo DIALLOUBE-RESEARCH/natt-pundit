@@ -17,6 +17,7 @@ Match outcomes are never asserted by a client. The escrow program (`GPSU49...`) 
 | Escrow program `GPSU49...` (devnet) | F78N CPI-derived `winning_side`; F80N canonical USDC mint + token account constraints; F95N removed `settle_knockout_tab` (the only instruction that accepted a client-asserted winner) |
 | `/mcp-pundit/` MCP (20 tools) | F77N x402 verify-then-settle + SettlementCache; F82N nginx rate limit; session IP/UA bind |
 | `submit_signed_escrow_tx` relay | F79N instruction whitelist: escrow program + ComputeBudget + Associated Token Account program only — direct SPL Token transfers are rejected (tested) |
+| `services/escrow-keeper` (F96N P1) | **Settle-only** worker: permissionless on-chain `settle` ix; VPS key is **fee payer** (devnet SOL) only — **never** signs `claim`/`refund` for users; kill switch `NATT_PUNDIT_ESCROW_KEEPER_ENABLED` |
 | Web `/api/solana/rpc` + gateway `/v1/solana/rpc` | F81N JSON-RPC method allowlist + body size cap; F95N per-IP sliding-window rate limit (60/min default, `NATT_RPC_RATE_LIMIT_PER_MIN`) |
 
 ## Escrow position lifecycle (F84N)
