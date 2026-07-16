@@ -1,6 +1,6 @@
 # Natt Settlement
 
-[![tests](https://img.shields.io/badge/tests-220%2F220%20PASS-brightgreen)](./SECURITY.md) [![devnet](https://img.shields.io/badge/escrow-Solana%20devnet-blue)](https://hypernatt.com/fr/nattpundit?lang=en)
+[![tests](https://img.shields.io/badge/tests-228%2F228%20PASS-brightgreen)](./SECURITY.md) [![CI](https://github.com/DIALLOUBE-RESEARCH/natt-pundit/actions/workflows/ci.yml/badge.svg)](https://github.com/DIALLOUBE-RESEARCH/natt-pundit/actions/workflows/ci.yml) [![devnet](https://img.shields.io/badge/escrow-Solana%20devnet-blue)](https://hypernatt.com/fr/nattpundit?lang=en)
 
 **TxODDS World Cup — Prediction Markets & Settlement** track (Superteam). Live Shin consensus, SETUP/HOLD edge, Merkle settlement verification, devnet escrow pools, agent MCP.
 
@@ -12,7 +12,7 @@
 
 1. **TxLINE** streams odds and publishes a cryptographic match-result proof (Merkle).
 2. Our **Anchor escrow** CPI-validates that proof on Solana devnet (`validate_stat`) — fail-closed if invalid.
-3. A **permissionless keeper** settles finished pools (fee payer only); **users alone** sign deposit and USDC **claim**.
+3. **`services/escrow-keeper`** (F96N) — a **settle-only** worker polls finished fixtures, fetches CPI args from the gateway, and broadcasts `settle` (VPS fee payer only). **Fans never sign settle** — they sign **deposit** and **claim** only.
 
 The backend is **not** the score oracle — **TxLINE is the verifiable source of truth**; the on-chain program enforces settlement.
 
@@ -41,6 +41,7 @@ The backend is **not** the score oracle — **TxLINE is the verifiable source of
 | **5. Technical smoke** | [`docs/SUBMISSION_KIT.md`](./docs/SUBMISSION_KIT.md) |
 | **5b. TxLINE API feedback** | [`docs/TXLINE_FEEDBACK.md`](./docs/TXLINE_FEEDBACK.md) |
 | **6. TxLINE settlement (CPI)** | [`docs/TXLINE_SETTLEMENT.md`](./docs/TXLINE_SETTLEMENT.md) |
+| **6b. Escrow keeper (F96N)** | [`services/escrow-keeper/README.md`](./services/escrow-keeper/README.md) — settle-only worker, threat model |
 | **7. Cursor / MCP setup** | [`docs/CURSOR_NATT_PUNDIT_MCP.md`](./docs/CURSOR_NATT_PUNDIT_MCP.md) |
 | **8. Autonomous agent (CDP)** | [`docs/AUTONOMOUS_AGENT_CDP.md`](./docs/AUTONOMOUS_AGENT_CDP.md) |
 | **Anchor escrow (devnet)** | [`../solana-escrow/`](../solana-escrow/) — program `GPSU49hPRqWeEtTyMghWLWrXagV8hobFPkbFKVK3jxUD` |
@@ -79,14 +80,28 @@ Pre-submission multi-layer audit (Anchor escrow, MCP Pundit server, x402 Solana 
 - **Light/dark mode**: Stitch glass theme toggle (top-left); persists locally; **Reown wallet modal** syncs theme; night stadium art in dark mode
 - **Edge**: two-source combine vs Shin consensus `pi_tx`; **SETUP** only when net disagreement exceeds a pre-registered threshold (else **HOLD**)
 - **Settlement**: TxLINE stat-validation Merkle proofs verified off-chain (SHA-256, sibling order); on-chain CPI `validate_stat` on devnet escrow
-- **Escrow (devnet)**: USDC **shared pool** per WC fixture — bet by country, collect payout, refund; **escrow keeper** auto-settles pools post-proof (fan signs **claim** only)
+- **Escrow keeper (`services/escrow-keeper`)**: dedicated **settle-only** worker (F96N) — polls gateway for finished pools, broadcasts permissionless `settle` ix (fee payer only); **never** claims/refunds for users; kill switch `NATT_PUNDIT_ESCROW_KEEPER_ENABLED`; audited threat model in [`docs/AUDIT_F96N_KEEPER_SNAPSHOT.md`](./docs/AUDIT_F96N_KEEPER_SNAPSHOT.md)
+- **Escrow (devnet)**: USDC **shared pool** per WC fixture — bet by country, collect payout, refund; fans see **Settlement in progress…** then **one claim signature**
 - **Wallet UX (Solana)**: **Reown AppKit** + **WalletConnect** — Phantom, Solflare, mobile deeplink; fans sign **deposit + claim** (keeper auto-`settle`); agents/MCP may sign full loop; Sign-In With Solana for Data Lab export (not EVM / wagmi)
 - **Agents**: MCP server (20 tools) + x402 micropayments on Solana devnet; **autonomous betting loop** via CDP Server Wallet (`scripts/natt-agent-cdp-autonomous.mjs`) or dev keypair; read-only dashboard at `/agent` — see [`docs/AUTONOMOUS_AGENT_CDP.md`](./docs/AUTONOMOUS_AGENT_CDP.md)
 - **Data Lab** (`/datas`): append-only odds/edge/proof logger + CLV harness; ZIP export gated by Sign-In With Solana (allowlist)
 
 ---
 
-## Design Decisions & Known Limitations
+## Escrow keeper (F96N) — do not miss this
+
+| | |
+|---|---|
+| **Service** | `services/escrow-keeper` (`:4013`, health `/health`) |
+| **Role** | Auto **`settle`** on finished parimutuel pools after TxLINE CPI args are ready |
+| **What it does NOT do** | No `claim`, `refund`, or `deposit` for users — fan wallet signs payout collection |
+| **Trust** | Permissionless on-chain ix; keeper key = **SOL fees only**; wrong CPI → fail-closed on-chain |
+| **Ops** | Kill switch `NATT_PUNDIT_ESCROW_KEEPER_ENABLED`; poll interval `ESCROW_KEEPER_POLL_MS` |
+| **Docs** | [`services/escrow-keeper/README.md`](./services/escrow-keeper/README.md) · audit [`docs/AUDIT_F96N_KEEPER_SNAPSHOT.md`](./docs/AUDIT_F96N_KEEPER_SNAPSHOT.md) |
+
+Live fan UX: after full time → **Settlement in progress…** (keeper) → **Collect payout** (one wallet signature).
+
+---
 
 Honest scope for the TxODDS hackathon — not a production sportsbook.
 
@@ -245,6 +260,7 @@ Agents never hold user keys on the server; MCP returns **unsigned** txs, wallet/
 |---------|------|------------|
 | Gateway | `/api/natt-pundit/txline` | `/v1/fixtures`, `/v1/fixtures/:id/odds`, `/proof`, `/proof/verify`, `/cpi-args` |
 | Edge | `/api/natt-pundit/edge` | `/v1/edge/:id`, `/v1/edge/summary`, `/v1/data/clv`, `/v1/data/index` |
+| Keeper | internal `:4013` | `/health` — settle loop (not public HTTP API for jury; see README above) |
 | MCP | `/mcp-pundit/protocol` | 20 tools — see `services/mcp/server-card.json` |
 | Commentary | `/api/natt-pundit/commentary` | `/v1/commentary/:id/moments` (when enabled) |
 
@@ -270,7 +286,7 @@ Copy `.env.example` to `.env` for local overrides. **Never commit** `TXLINE_API_
 
 ## Deploy
 
-See [`DEPLOY.md`](DEPLOY.md). VPS services: `natt-pundit-gateway`, `natt-pundit-edge-api`, `natt-pundit-web`, `natt-pundit-mcp`, optional `natt-pundit-commentary`.
+See [`DEPLOY.md`](DEPLOY.md). VPS services: `natt-pundit-gateway`, `natt-pundit-edge-api`, `natt-pundit-web`, `natt-pundit-mcp`, **`natt-pundit-escrow-keeper`** (F96N settle loop), optional `natt-pundit-commentary`.
 
 ## License
 
