@@ -19,4 +19,5 @@ jobs:
       - run: node scripts/ensure-edge-engine.mjs
       - run: npm run build -w @natt-pundit/contracts
       - run: npm run build -w @natt-pundit/natt-core
+      - run: npm run build -w @natt-pundit/natt-edge-engine
       - run: npm test
