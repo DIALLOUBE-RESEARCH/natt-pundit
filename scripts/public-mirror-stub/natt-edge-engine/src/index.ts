@@ -5,7 +5,7 @@ export const EPSILON_NET = 0.03;
 export const MAX_1X2_HOME_JUMP = 0.12;
 export const SETUP_LATCH_MS = 900_000;
 export const SETUP_LATCH_INVALIDATE = -0.02;
-export const EDGE_FORMULA_VERSION = "stub";
+export const EDGE_FORMULA_VERSION = "f70n_v2";
 export const N_MIN_FIT = 500;
 export const CLV_MIN_DISPLAY = 30;
 export const CLV_BOOTSTRAP_ITERS = 200;
@@ -49,6 +49,9 @@ export function clvVerdict() {
   return "not_verified_yet" as const;
 }
 
-export function convictionFromEdgeScore(): "none" {
-  return "none";
+export function convictionFromEdgeScore(edgeScore: number): "none" | "low" | "medium" | "high" {
+  if (edgeScore <= 0) return "none";
+  if (edgeScore < 0.04) return "low";
+  if (edgeScore < 0.08) return "medium";
+  return "high";
 }
