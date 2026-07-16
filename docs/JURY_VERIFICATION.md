@@ -21,7 +21,30 @@ Fail-closed check: `.../18172280/cpi-args?outcome=home` → **502** (1–1 + pen
 
 ---
 
-## 2. On-chain — Solana devnet escrow
+## 2. On-chain — France vs Spain (`18237038`) — matches submission video
+
+Same fixture in the fan journey (segments D–E) and agent journey (segment G). **Spain wins 2–0** → fan on **France** loses (no claim); agent on **Spain** claims +1 USDC.
+
+| Actor | Wallet (devnet) | Action | Solscan |
+|-------|-----------------|--------|---------|
+| **Fan (you, video)** | `Eygd1V74pe9wNzsApnfWhFF1L9SMtBsLCGPNc17m834f` | **Deposit** 1 USDC on France (home) | https://solscan.io/tx/4zXLckTKbamNzGn7YWmmifaguuWUYrgREtJpivr74X2m4dxGERZGrSGvc8NFm9a9YH5yqvfz4hxjYdxzgF4Aioaw?cluster=devnet |
+| **Fan (you)** | same | **No claim tx** — losing side; UI shows **LOST −1 USDC** (correct) | — |
+| **Escrow keeper** | `7pD1AbeneQChXnXnty3pUoCsYuqcYL82eAkVdjtguvCN` | **Settle** + CPI `ValidateStat` (permissionless; fee payer only) | https://solscan.io/tx/63Z75dTZ61KRu2haiNpPHonVfm6vJFNyL3FhtNCWZvtcTh3BfZ11PvghHTirwJo7gU7R2yqdXrLMbVdmduWtNTbL?cluster=devnet |
+| **Agent (CDP)** | `2Kdxhz8yTR5e79VGr2zdeE7b6UY5hqBfaFu5g7uam4Qm` | **Deposit** on Spain (away) | https://solscan.io/tx/3BwKj5fz8xTB47aqTVhSRh79WFUszc7P7jfunuJd3pgb6sgXwrbKrbmSuMgaqGXx2yjaBvz2FbZdX4AeeUotvdxB?cluster=devnet |
+| **Agent (CDP)** | same | **Claim** payout — shown in video (`4S4bMc…`) | https://solscan.io/tx/4S4bMcZnwemMA5G2gEzSDg24PuvaokTGedFgmW4byxnd59m4meZfTcvkWdDZzFp4hE4yS9yB8rSrowNzs7sWYWaG?cluster=devnet |
+
+**Video ↔ chain coherence**
+
+| Video moment | What to verify |
+|--------------|----------------|
+| Fan places bet (France) | Fan **Deposit** tx above |
+| After FT — wallet **LOST** | No fan claim; check **Settle** tx + app wallet tab |
+| Agent dashboard **WON +1** | Agent **Deposit** + **Claim** txs |
+| Explorer shot in video | Agent **Claim** `4S4bMc…` |
+
+---
+
+## 2b. Program & mint (devnet)
 
 | What | Link |
 |------|------|
@@ -29,18 +52,7 @@ Fail-closed check: `.../18172280/cpi-args?outcome=home` → **502** (1–1 + pen
 | Same (Solana Explorer) | https://explorer.solana.com/address/GPSU49hPRqWeEtTyMghWLWrXagV8hobFPkbFKVK3jxUD?cluster=devnet |
 | Devnet USDC mint (F80N) | https://solscan.io/token/4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU?cluster=devnet |
 
-### Recent program transactions (video + prod demos)
-
-These are **real devnet txs** touching program `GPSU49…`. Open any signature — inspect instructions (`deposit`, `settle`, `claim`, CPI `validate_stat`).
-
-| # | Role (demo) | Solscan (devnet) |
-|---|-------------|------------------|
-| 1 | **Agent claim** — shown in submission video (`4S4bMc…`) | https://solscan.io/tx/4S4bMcZnwemMA5G2gEzSDg24PuvaokTGedFgmW4byxnd59m4meZfTcvkWdDZzFp4hE4yS9yB8rSrowNzs7sWYWaG?cluster=devnet |
-| 2 | Pool / settle flow | https://solscan.io/tx/63Z75dTZ61KRu2haiNpPHonVfm6vJFNyL3FhtNCWZvtcTh3BfZ11PvghHTirwJo7gU7R2yqdXrLMbVdmduWtNTbL?cluster=devnet |
-| 3 | Escrow interaction | https://solscan.io/tx/3BwKj5fz8xTB47aqTVhSRh79WFUszc7P7jfunuJd3pgb6sgXwrbKrbmSuMgaqGXx2yjaBvz2FbZdX4AeeUotvdxB?cluster=devnet |
-| 4 | Escrow interaction | https://solscan.io/tx/4zXLckTKbamNzGn7YWmmifaguuWUYrgREtJpivr74X2m4dxGERZGrSGvc8NFm9a9YH5yqvfz4hxjYdxzgF4Aioaw?cluster=devnet |
-
-**More txs:** Solscan → program page → **Transactions** tab (public ledger, unlimited history).
+**More txs:** Solscan program page → **Transactions** tab.
 
 ---
 
