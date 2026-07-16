@@ -39,6 +39,7 @@ The backend is **not** the score oracle — **TxLINE is the verifiable source of
 | **3. In-app manual (8 languages)** | https://hypernatt.com/fr/nattpundit?lang=en&tab=docs |
 | **4. Live app (English UI)** | https://hypernatt.com/fr/nattpundit?lang=en |
 | **5. Technical smoke** | [`docs/SUBMISSION_KIT.md`](./docs/SUBMISSION_KIT.md) |
+| **5a. Jury verification (on-chain links)** | [`docs/JURY_VERIFICATION.md`](./docs/JURY_VERIFICATION.md) |
 | **5b. TxLINE API feedback** | [`docs/TXLINE_FEEDBACK.md`](./docs/TXLINE_FEEDBACK.md) |
 | **6. TxLINE settlement (CPI)** | [`docs/TXLINE_SETTLEMENT.md`](./docs/TXLINE_SETTLEMENT.md) |
 | **6b. Escrow keeper (F96N)** | [`services/escrow-keeper/README.md`](./services/escrow-keeper/README.md) — settle-only worker, threat model |

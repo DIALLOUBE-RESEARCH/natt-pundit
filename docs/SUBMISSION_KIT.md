@@ -4,7 +4,7 @@
 
 **Deadline:** 2026-07-19
 
-**Pre-submit:** [`SUBMISSION_CHECKLIST.md`](./SUBMISSION_CHECKLIST.md) · Form copy-paste: [`SUBMISSION_FORM_READY.md`](./SUBMISSION_FORM_READY.md)
+**Pre-submit:** [`SUBMISSION_CHECKLIST.md`](./SUBMISSION_CHECKLIST.md) · Form copy-paste: [`SUBMISSION_FORM_READY.md`](./SUBMISSION_FORM_READY.md) · **On-chain proofs:** [`JURY_VERIFICATION.md`](./JURY_VERIFICATION.md)
 
 **Docs:** start with [`QUICKSTART_JURY.md`](./QUICKSTART_JURY.md) → [`USER_GUIDE.md`](./USER_GUIDE.md) → [`TXLINE_SETTLEMENT.md`](./TXLINE_SETTLEMENT.md) → this file (smoke curls).
 
