@@ -39,16 +39,17 @@ The backend is **not** the score oracle — **TxLINE is the verifiable source of
 | **3. In-app manual (8 languages)** | https://hypernatt.com/fr/nattpundit?lang=en&tab=docs |
 | **4. Live app (English UI)** | https://hypernatt.com/fr/nattpundit?lang=en |
 | **5. Technical smoke** | [`docs/SUBMISSION_KIT.md`](./docs/SUBMISSION_KIT.md) |
+| **5b. TxLINE API feedback** | [`docs/TXLINE_FEEDBACK.md`](./docs/TXLINE_FEEDBACK.md) |
 | **6. TxLINE settlement (CPI)** | [`docs/TXLINE_SETTLEMENT.md`](./docs/TXLINE_SETTLEMENT.md) |
-| **6. Cursor / MCP setup** | [`docs/CURSOR_NATT_PUNDIT_MCP.md`](./docs/CURSOR_NATT_PUNDIT_MCP.md) |
-| **7. Autonomous agent (CDP)** | [`docs/AUTONOMOUS_AGENT_CDP.md`](./docs/AUTONOMOUS_AGENT_CDP.md) |
+| **7. Cursor / MCP setup** | [`docs/CURSOR_NATT_PUNDIT_MCP.md`](./docs/CURSOR_NATT_PUNDIT_MCP.md) |
+| **8. Autonomous agent (CDP)** | [`docs/AUTONOMOUS_AGENT_CDP.md`](./docs/AUTONOMOUS_AGENT_CDP.md) |
 | **Anchor escrow (devnet)** | [`../solana-escrow/`](../solana-escrow/) — program `GPSU49hPRqWeEtTyMghWLWrXagV8hobFPkbFKVK3jxUD` |
 
 **Devnet faucets:** [SOL](https://faucet.solana.com/) · [USDC](https://faucet.circle.com/) (Solana Devnet) · **MCP:** `https://hypernatt.com/mcp-pundit/protocol`
 
 ## Security
 
-Pre-submission multi-layer audit (Anchor escrow, MCP Pundit server, x402 Solana protocol, nginx/RPC infra) — master plan [275_SECURITY_REMEDIATION_MASTER_PLAN.md](./docs/275_SECURITY_REMEDIATION_MASTER_PLAN.md): **17 findings** (**2** critical · **7** high · **6** medium · **1** low · **1** info). **All CRITICAL and HIGH closed** (devnet escrow `GPSU49…`, MCP Pundit, gateway/web). **F95N** (2026-07-10): removed `settle_knockout_tab` (no client-supplied penalty winner); ATA submit whitelist; RPC rate limit 60/min. Details: [SECURITY.md](./SECURITY.md). **Tests**: monorepo **220/220** PASS (MCP 50/50). Traceability: `9d9c95dd` (F95N escrow), `9ffd70ba` (rate-limit), `6dda3439` (submit guard).
+Pre-submission multi-layer audit (Anchor escrow, MCP Pundit server, x402 Solana protocol, nginx/RPC infra) — master plan [275_SECURITY_REMEDIATION_MASTER_PLAN.md](./docs/275_SECURITY_REMEDIATION_MASTER_PLAN.md): **17 findings** (**2** critical · **7** high · **6** medium · **1** low · **1** info). **All CRITICAL and HIGH closed** (devnet escrow `GPSU49…`, MCP Pundit, gateway/web). **F95N** (2026-07-10): removed `settle_knockout_tab` (no client-supplied penalty winner); ATA submit whitelist; RPC rate limit 60/min. **F96N keeper** (2026-07-13): settle-only worker + fan orchestrator tests — [AUDIT_F96N_KEEPER_SNAPSHOT.md](./docs/AUDIT_F96N_KEEPER_SNAPSHOT.md). Details: [SECURITY.md](./SECURITY.md). **Tests**: monorepo **228/228** PASS (MCP 50/50, keeper 5/5, fan orchestrator 5/5). Traceability: `9d9c95dd` (F95N escrow), `9ffd70ba` (rate-limit), `6dda3439` (submit guard).
 
 | Check | Tool | Result (2026-07-12) |
 |-------|------|---------------------|

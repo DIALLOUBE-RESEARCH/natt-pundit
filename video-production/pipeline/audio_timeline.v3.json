@@ -1,0 +1,133 @@
+{
+  "version": 3,
+  "sample_rate": 48000,
+  "note": "Owner pick — music_04_outro ONLY. VO boosted. Intro sync unchanged.",
+  "total_duration_sec": 272,
+  "music_regions": [
+    {
+      "id": "outro_bed_full",
+      "file": "../02_generative/lyria/music_04_outro.wav",
+      "start_sec": 0.0,
+      "end_sec": 272.0,
+      "fade_in_ms": 1200,
+      "fade_out_ms": 3000,
+      "loop": true,
+      "gain_db": -6,
+      "note": "Single stem owner-approved — full timeline"
+    }
+  ],
+  "vo_regions": [
+    {
+      "id": "founder_intro",
+      "file": "../02_generative/tts/00_founder_intro.wav",
+      "start_sec": 22.0,
+      "fade_in_ms": 60,
+      "fade_out_ms": 200
+    },
+    {
+      "id": "hook",
+      "file": "../02_generative/tts/01_hook.wav",
+      "start_sec": 32.8,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250
+    },
+    {
+      "id": "fixtures",
+      "file": "../02_generative/tts/02_fixtures.wav",
+      "start_sec": 42.4,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250
+    },
+    {
+      "id": "wallet",
+      "file": "../02_generative/tts/03_wallet.wav",
+      "start_sec": 55.8,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250
+    },
+    {
+      "id": "i18n",
+      "file": "../02_generative/tts/04_i18n.wav",
+      "start_sec": 58.5,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250
+    },
+    {
+      "id": "bet_france",
+      "file": "../02_generative/tts/05_bet_france.wav",
+      "start_sec": 71.5,
+      "fade_in_ms": 80,
+      "fade_out_ms": 300
+    },
+    {
+      "id": "result_lost",
+      "file": "../02_generative/tts/06_result_lost.wav",
+      "start_sec": 126.2,
+      "fade_in_ms": 80,
+      "fade_out_ms": 300
+    },
+    {
+      "id": "agent_twist",
+      "file": "../02_generative/tts/07_agent_twist.wav",
+      "start_sec": 152.5,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250
+    },
+    {
+      "id": "mcp",
+      "file": "../02_generative/tts/08_mcp.wav",
+      "start_sec": 160.0,
+      "fade_in_ms": 80,
+      "fade_out_ms": 300
+    },
+    {
+      "id": "agent_won",
+      "file": "../02_generative/tts/09_agent_won.wav",
+      "start_sec": 189.0,
+      "fade_in_ms": 80,
+      "fade_out_ms": 300
+    },
+    {
+      "id": "datalab",
+      "file": "../02_generative/tts/10_datalab.wav",
+      "start_sec": 214.0,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250
+    },
+    {
+      "id": "trust",
+      "file": "../02_generative/tts/11_trust.wav",
+      "start_sec": 229.0,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250
+    },
+    {
+      "id": "close",
+      "file": "../02_generative/tts/12_close.wav",
+      "start_sec": 247.0,
+      "fade_in_ms": 80,
+      "fade_out_ms": 400
+    },
+    {
+      "id": "founder_outro",
+      "file": "../02_generative/tts/13_founder_outro.wav",
+      "start_sec": 262.5,
+      "fade_in_ms": 60,
+      "fade_out_ms": 200
+    }
+  ],
+  "duck": {
+    "mode": "sidechain",
+    "music_baseline_volume": 0.2,
+    "vo_volume": 2.2,
+    "threshold": 0.015,
+    "ratio": 12,
+    "attack_ms": 15,
+    "release_ms": 380
+  },
+  "master": {
+    "loudnorm_I": -14,
+    "loudnorm_TP": -1.0,
+    "loudnorm_LRA": 9
+  }
+}

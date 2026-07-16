@@ -92,9 +92,9 @@ export function MatchDetailHero({
           >
             <div className="stitch-match-detail-team-stack">
               <div className="stitch-flag-circle stitch-flag-circle--detail">
-                <TeamFlag team={card.home} variant="circle" size="lg" muted={awayWin} />
+                <TeamFlag team={card.homeTeam} variant="circle" size="lg" muted={awayWin} />
               </div>
-              <span className="stitch-match-detail-team-label">{teamShortLabel(card.home, lang)}</span>
+              <span className="stitch-match-detail-team-label">{teamShortLabel(card.homeTeam, lang)}</span>
             </div>
           </div>
 
@@ -149,9 +149,9 @@ export function MatchDetailHero({
           >
             <div className="stitch-match-detail-team-stack">
               <div className="stitch-flag-circle stitch-flag-circle--detail">
-                <TeamFlag team={card.away} variant="circle" size="lg" muted={homeWin} />
+                <TeamFlag team={card.awayTeam} variant="circle" size="lg" muted={homeWin} />
               </div>
-              <span className="stitch-match-detail-team-label">{teamShortLabel(card.away, lang)}</span>
+              <span className="stitch-match-detail-team-label">{teamShortLabel(card.awayTeam, lang)}</span>
             </div>
           </div>
         </div>
@@ -184,8 +184,8 @@ export function MatchDetailHero({
               )}
               <MatchDetailOddsPill
                 odds={odds}
-                homeTeam={card.home}
-                awayTeam={card.away}
+                homeTeam={card.homeTeam}
+                awayTeam={card.awayTeam}
                 lang={lang}
                 wcFormat={wcFormat}
               />

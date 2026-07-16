@@ -63,23 +63,23 @@ Base: `https://hypernatt.com/api/natt-pundit/txline`
 | `GET /v1/fixtures/:id/proof/verify` | Local recompute; `validated: true/false` |
 | `GET /v1/fixtures/:id/cpi-args?outcome=home\|draw\|away` | Serialized TxLINE ix + metadata for `settle` |
 
-### Example fixture (finished, proof available)
+### Example fixtures (finished)
 
-Fixture id: `18172280` (substitute any finished WC fixture with proof).
+| Demo | Fixture | Curl |
+|------|---------|------|
+| Merkle proof + verify | `18172280` | `.../18172280/proof/verify` → `valid:true` |
+| CPI settle (FT win) | `18209181` (2–0) | `.../18209181/cpi-args?outcome=home` → **200** |
+| CPI regulation tie only | `18172280` (1–1 + pens) | `.../18172280/cpi-args?outcome=draw` → **200** |
 
 ```bash
-# Raw proof bundle
-curl -s https://hypernatt.com/api/natt-pundit/txline/v1/fixtures/18172280/proof | head -c 500
-
-# Off-chain verification (must return validated:true after FT)
+# Merkle (any finished fixture with proof)
 curl -s https://hypernatt.com/api/natt-pundit/txline/v1/fixtures/18172280/proof/verify
 
-# CPI args for home win settle (200 when escrow enabled + outcome provable)
-curl -s -o /dev/null -w "%{http_code}\n" \
-  "https://hypernatt.com/api/natt-pundit/txline/v1/fixtures/18172280/cpi-args?outcome=home"
+# CPI settle — canonical jury demo (France–Morocco FT 2–0)
+curl -s https://hypernatt.com/api/natt-pundit/txline/v1/fixtures/18209181/cpi-args?outcome=home
 ```
 
-404 on `cpi-args` usually means TxLINE has no provable stat sequence for that outcome (e.g. knockout edge case) — pool stays unsettled; `refund_all` safety applies.
+404/502 on `cpi-args` means TxLINE has no provable stat sequence for that **outcome** (e.g. `home` on a 1–1 + pens match) — pool stays unsettled; `refund_all` applies. See [`TXLINE_FEEDBACK.md`](./TXLINE_FEEDBACK.md).
 
 ---
 

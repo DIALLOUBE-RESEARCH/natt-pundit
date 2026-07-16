@@ -32,6 +32,16 @@ Rebuild `natt-pundit-web` with `NEXT_PUBLIC_NATT_ESCROW_KEEPER_ENABLED=true` so 
 curl -sf http://localhost:4013/health
 ```
 
+## Threat model (audit F96N)
+
+| Actor | Goal | Mitigation |
+|-------|------|------------|
+| Keeper key leak | Burn SOL on bogus settles | Key = fee-payer only; no user USDC custody; kill switch `NATT_PUNDIT_ESCROW_KEEPER_ENABLED` |
+| Fake CPI args | Settle wrong winner | On-chain TxLINE CPI fail-closed; gateway signs args from verified proof |
+| Fan double-settle | Race keeper + wallet | Web flag `NEXT_PUBLIC_NATT_ESCROW_KEEPER_ENABLED` skips fan `settlePool` |
+| Keeper claims user funds | Drain winners | Keeper never signs `claim` / `refund` (settle-only scope) |
+| Solo-side pool | Settle unmatched | `shouldAttemptSettle` requires >= 2 funded sides |
+
 ## Tests
 
 ```bash

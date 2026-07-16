@@ -89,9 +89,25 @@ const KEY_ALIASES: Record<string, string> = {
   "bosnia herzegovina": "bosnia and herzegovina",
 };
 
+const LABEL_TO_KEY: Map<string, string> = (() => {
+  const map = new Map<string, string>();
+  for (const [key, row] of Object.entries(TEAMS)) {
+    map.set(teamNameKey(key), key);
+    for (const label of Object.values(row)) {
+      map.set(teamNameKey(label), key);
+    }
+  }
+  for (const [alias, key] of Object.entries(KEY_ALIASES)) {
+    map.set(teamNameKey(alias), key);
+  }
+  return map;
+})();
+
 function resolveTeamKey(team: string): string | null {
   const n = teamNameKey(team);
   if (!n) return null;
+  const fromLabel = LABEL_TO_KEY.get(n);
+  if (fromLabel) return fromLabel;
   if (TEAMS[n]) return n;
   const compact = n.replace(/ /g, "");
   if (TEAMS[compact]) return compact;
@@ -107,6 +123,11 @@ function resolveTeamKey(team: string): string | null {
   if (/turk/.test(n)) return "turkey";
   if (/iran/.test(n)) return "iran";
   return null;
+}
+
+/** Resolve API / localized / short label → canonical TEAMS key (e.g. "Espagne" → "spain"). */
+export function canonicalTeamKey(team: string): string | null {
+  return resolveTeamKey(team);
 }
 
 /** Localized country / team label (display). */

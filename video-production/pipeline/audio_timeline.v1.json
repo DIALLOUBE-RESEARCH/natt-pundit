@@ -1,0 +1,134 @@
+{
+  "version": 2,
+  "sample_rate": 48000,
+  "note": "Spotted for manifest.v1 preview — intro 4s logo only, J/L-cuts, sidechain duck.",
+  "music_regions": [
+    {
+      "id": "intro_bed",
+      "file": "../02_generative/lyria/music_01_intro.wav",
+      "start_sec": 0.0,
+      "fade_in_ms": 800,
+      "fade_out_ms": 600,
+      "end_sec": 4.2,
+      "gain_db": -2
+    },
+    {
+      "id": "demo_bed",
+      "file": "../02_generative/lyria/music_02_demo.wav",
+      "start_sec": 3.5,
+      "fade_in_ms": 500,
+      "loop": true,
+      "end_sec": 72.0,
+      "gain_db": 0,
+      "note": "J-cut 0.5s before hook VO"
+    },
+    {
+      "id": "agent_bed",
+      "file": "../02_generative/lyria/music_03_agent.wav",
+      "start_sec": 70.5,
+      "fade_in_ms": 1200,
+      "fade_out_ms": 800,
+      "loop": true,
+      "end_sec": 100.0,
+      "gain_db": 0,
+      "crossfade_from": "demo_bed"
+    },
+    {
+      "id": "outro_bed",
+      "file": "../02_generative/lyria/music_04_outro.wav",
+      "start_sec": 98.5,
+      "fade_in_ms": 1000,
+      "fade_out_ms": 2500,
+      "loop": true,
+      "end_sec": null,
+      "gain_db": -1
+    }
+  ],
+  "vo_regions": [
+    {
+      "id": "hook",
+      "file": "../02_generative/tts/01_hook.wav",
+      "start_sec": 4.0,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250,
+      "pad_after_sec": 1.0
+    },
+    {
+      "id": "reveal",
+      "file": "../02_generative/tts/02_reveal.wav",
+      "start_sec": 16.2,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250,
+      "pad_after_sec": 0.9
+    },
+    {
+      "id": "stakes",
+      "file": "../02_generative/tts/03_stakes.wav",
+      "start_sec": 30.4,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250,
+      "pad_after_sec": 0.8
+    },
+    {
+      "id": "reward",
+      "file": "../02_generative/tts/04_reward.wav",
+      "start_sec": 44.2,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250,
+      "pad_after_sec": 0.8
+    },
+    {
+      "id": "twist",
+      "file": "../02_generative/tts/05_twist.wav",
+      "start_sec": 56.1,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250,
+      "pad_after_sec": 1.0
+    },
+    {
+      "id": "agents",
+      "file": "../02_generative/tts/06_agents.wav",
+      "start_sec": 70.0,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250,
+      "pad_after_sec": 1.0
+    },
+    {
+      "id": "trust",
+      "file": "../02_generative/tts/07_trust.wav",
+      "start_sec": 82.2,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250,
+      "pad_after_sec": 0.6
+    },
+    {
+      "id": "architecture",
+      "file": "../02_generative/tts/08_architecture.wav",
+      "start_sec": 95.7,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250,
+      "pad_after_sec": 0.5
+    },
+    {
+      "id": "close",
+      "file": "../02_generative/tts/09_close.wav",
+      "start_sec": 105.4,
+      "fade_in_ms": 80,
+      "fade_out_ms": 400,
+      "pad_after_sec": 1.5
+    }
+  ],
+  "duck": {
+    "mode": "sidechain",
+    "music_baseline_volume": 0.42,
+    "threshold": 0.025,
+    "ratio": 7,
+    "attack_ms": 25,
+    "release_ms": 450
+  },
+  "master": {
+    "loudnorm_I": -16,
+    "loudnorm_TP": -1.5,
+    "loudnorm_LRA": 11
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "version": 5,
+  "sample_rate": 48000,
+  "note": "VO synced to video_edl.v5 from manifest.full.v4 \u2014 each VO starts on its video segment.",
+  "edl_ref": "video_edl.v5.json",
+  "total_duration_sec": 272.0,
+  "music_regions": [
+    {
+      "id": "intro_music",
+      "file": "../02_generative/lyria/music_04_outro.wav",
+      "start_sec": 0.0,
+      "end_sec": 28.5,
+      "fade_in_ms": 1000,
+      "fade_out_ms": 2500,
+      "loop": true,
+      "gain_db": -4
+    },
+    {
+      "id": "outro_music",
+      "file": "../02_generative/lyria/music_04_outro.wav",
+      "start_sec": 237.6,
+      "end_sec": 272.0,
+      "fade_in_ms": 1500,
+      "fade_out_ms": 3000,
+      "loop": true,
+      "gain_db": -4
+    }
+  ],
+  "vo_regions": [
+    {
+      "id": "founder_intro",
+      "file": "../02_generative/tts/00_founder_intro.wav",
+      "start_sec": 10.0,
+      "fade_in_ms": 50,
+      "fade_out_ms": 180,
+      "note": "Hamet pendant A3 \u2014 finit avant VO fixtures"
+    },
+    {
+      "id": "fixtures",
+      "file": "../02_generative/tts/02_fixtures.wav",
+      "start_sec": 21.51,
+      "fade_in_ms": 70,
+      "fade_out_ms": 220,
+      "note": "grille TxLINE SETUP/HOLD"
+    },
+    {
+      "id": "i18n",
+      "file": "../02_generative/tts/04_i18n.wav",
+      "start_sec": 44.31,
+      "fade_in_ms": 70,
+      "fade_out_ms": 220,
+      "note": "8 langues \u2014 clip i18n uniquement"
+    },
+    {
+      "id": "bet_france",
+      "file": "../02_generative/tts/05_bet_france.wav",
+      "start_sec": 59.33,
+      "fade_in_ms": 70,
+      "fade_out_ms": 220,
+      "note": "pari France-Spain (match + Phantom + PLACE BET)"
+    },
+    {
+      "id": "result_lost",
+      "file": "../02_generative/tts/06_result_lost.wav",
+      "start_sec": 114.35,
+      "fade_in_ms": 70,
+      "fade_out_ms": 220,
+      "note": "FT LOST + Merkle"
+    },
+    {
+      "id": "agent_twist",
+      "file": "../02_generative/tts/07_agent_twist.wav",
+      "start_sec": 145.11,
+      "fade_in_ms": 70,
+      "fade_out_ms": 220,
+      "note": "J-cut avant MCP"
+    },
+    {
+      "id": "mcp",
+      "file": "../02_generative/tts/08_mcp.wav",
+      "start_sec": 158.39,
+      "fade_in_ms": 70,
+      "fade_out_ms": 220,
+      "note": "dashboard MCP + Claude \u2014 apres agent_twist (anti double VO)"
+    },
+    {
+      "id": "agent_won",
+      "file": "../02_generative/tts/09_agent_won.wav",
+      "start_sec": 196.43,
+      "fade_in_ms": 70,
+      "fade_out_ms": 220,
+      "note": "agent Spain WON"
+    },
+    {
+      "id": "trust",
+      "file": "../02_generative/tts/11_trust.wav",
+      "start_sec": 218.99,
+      "fade_in_ms": 70,
+      "fade_out_ms": 220,
+      "note": "slide 228 tests"
+    },
+    {
+      "id": "close",
+      "file": "../02_generative/tts/12_close.wav",
+      "start_sec": 237.07,
+      "fade_in_ms": 70,
+      "fade_out_ms": 220,
+      "note": "CTA github"
+    },
+    {
+      "id": "founder_outro",
+      "file": "../02_generative/tts/13_founder_outro.wav",
+      "start_sec": 253.11,
+      "fade_in_ms": 50,
+      "fade_out_ms": 180,
+      "note": "merci Hamet"
+    }
+  ],
+  "duck": {
+    "mode": "amix_weights",
+    "music_weight": 0.18,
+    "vo_volume": 3.2,
+    "music_baseline_volume": 0.18,
+    "threshold": 0.015,
+    "ratio": 12,
+    "attack_ms": 15,
+    "release_ms": 380
+  },
+  "master": {
+    "loudnorm_I": -14,
+    "loudnorm_TP": -1.0,
+    "loudnorm_LRA": 8
+  }
+}

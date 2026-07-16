@@ -42,6 +42,12 @@ curl -s https://hypernatt.com/api/natt-pundit/txline/v1/fixtures/18172280/proof
 curl -s https://hypernatt.com/api/natt-pundit/txline/v1/fixtures/18172280/proof/verify
 ```
 
+CPI settle args (canonical demo — FT win):
+
+```bash
+curl -s https://hypernatt.com/api/natt-pundit/txline/v1/fixtures/18209181/cpi-args?outcome=home
+```
+
 ---
 
 ## 3. Devnet escrow demo (2 min)

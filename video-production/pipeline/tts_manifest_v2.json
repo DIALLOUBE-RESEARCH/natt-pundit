@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "generated": "2026-07-16",
+  "model": "gemini-3.1-flash-tts-preview",
+  "voices": {
+    "doc": "Charon",
+    "founder": "Zubenelgenubi"
+  },
+  "total_vo_sec": 266.7,
+  "segments": [
+    {"id": "00_founder_intro", "voice": "Zubenelgenubi", "wav": "00_founder_intro.wav", "dur_sec": 10.6, "video_target_sec": 7},
+    {"id": "01_hook", "voice": "Charon", "wav": "01_hook.wav", "dur_sec": 9.48, "video_target_sec": 10},
+    {"id": "02_fixtures", "voice": "Charon", "wav": "02_fixtures.wav", "dur_sec": 22.36, "video_target_sec": 23},
+    {"id": "03_wallet", "voice": "Charon", "wav": "03_wallet.wav", "dur_sec": 20.96, "video_target_sec": 18},
+    {"id": "04_i18n", "voice": "Charon", "wav": "04_i18n.wav", "dur_sec": 11.44, "video_target_sec": 15},
+    {"id": "05_bet_france", "voice": "Charon", "wav": "05_bet_france.wav", "dur_sec": 38.92, "video_target_sec": 55},
+    {"id": "06_result_lost", "voice": "Charon", "wav": "06_result_lost.wav", "dur_sec": 28.92, "video_target_sec": 33},
+    {"id": "07_agent_twist", "voice": "Charon", "wav": "07_agent_twist.wav", "dur_sec": 12.88, "video_target_sec": 10},
+    {"id": "08_mcp", "voice": "Charon", "wav": "08_mcp.wav", "dur_sec": 37.64, "video_target_sec": 35},
+    {"id": "09_agent_won", "voice": "Charon", "wav": "09_agent_won.wav", "dur_sec": 16.24, "video_target_sec": 25},
+    {"id": "10_datalab", "voice": "Charon", "wav": "10_datalab.wav", "dur_sec": 13.08, "video_target_sec": 15},
+    {"id": "11_trust", "voice": "Charon", "wav": "11_trust.wav", "dur_sec": 17.68, "video_target_sec": 18},
+    {"id": "12_close", "voice": "Charon", "wav": "12_close.wav", "dur_sec": 15.64, "video_target_sec": 12},
+    {"id": "13_founder_outro", "voice": "Zubenelgenubi", "wav": "13_founder_outro.wav", "dur_sec": 4.28, "video_target_sec": 6}
+  ],
+  "archive_v1": "02_generative/tts/_archive_v1/",
+  "script_ref": "01_scripts/vo_pitch_v2.md"
+}

@@ -56,4 +56,20 @@ describe("matchEdgeToSummaryItem", () => {
     expect(card.setup).toBe("");
     expect(card.hold).toBe("");
   });
+
+  it("localizes team names on stitch cards", () => {
+    const fixture = {
+      fixtureId: "fx3",
+      homeTeam: "France",
+      awayTeam: "Spain",
+      kickoffAt: "2026-07-14T20:00:00Z",
+      status: "scheduled" as const,
+      competition: "WC",
+    };
+    const cardZh = fixtureToStitchCard(fixture, undefined, "zh");
+    expect(cardZh.home).toBe("法国");
+    expect(cardZh.away).toBe("西班牙");
+    expect(cardZh.homeTeam).toBe("France");
+    expect(cardZh.awayTeam).toBe("Spain");
+  });
 });

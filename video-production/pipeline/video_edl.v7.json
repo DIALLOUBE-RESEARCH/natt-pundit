@@ -1,0 +1,125 @@
+{
+  "manifest": "manifest.full.v7.json",
+  "segments": [
+    {
+      "id": "veo_a1",
+      "index": 0,
+      "start_sec": 0.0,
+      "end_sec": 8.0,
+      "duration_sec": 8.0,
+      "xfade_in_sec": 0
+    },
+    {
+      "id": "veo_a2",
+      "index": 1,
+      "start_sec": 8.0,
+      "end_sec": 12.0,
+      "duration_sec": 4.0,
+      "xfade_in_sec": 0
+    },
+    {
+      "id": "veo_a3",
+      "index": 2,
+      "start_sec": 12.0,
+      "end_sec": 18.0,
+      "duration_sec": 6.0,
+      "xfade_in_sec": 0
+    },
+    {
+      "id": "logos",
+      "index": 3,
+      "start_sec": 18.0,
+      "end_sec": 22.0,
+      "duration_sec": 4.0,
+      "xfade_in_sec": 0
+    },
+    {
+      "id": "fixtures",
+      "index": 4,
+      "start_sec": 20.5,
+      "end_sec": 43.51,
+      "duration_sec": 23.01,
+      "xfade_in_sec": 1.5
+    },
+    {
+      "id": "i18n",
+      "index": 5,
+      "start_sec": 43.51,
+      "end_sec": 58.53,
+      "duration_sec": 15.02,
+      "xfade_in_sec": 0
+    },
+    {
+      "id": "bet_france",
+      "index": 6,
+      "start_sec": 58.53,
+      "end_sec": 113.55,
+      "duration_sec": 55.02,
+      "xfade_in_sec": 0
+    },
+    {
+      "id": "result_lost",
+      "index": 7,
+      "start_sec": 113.55,
+      "end_sec": 146.61,
+      "duration_sec": 33.06,
+      "xfade_in_sec": 0
+    },
+    {
+      "id": "agent_mcp",
+      "index": 8,
+      "start_sec": 146.61,
+      "end_sec": 187.07,
+      "duration_sec": 40.46,
+      "xfade_in_sec": 0
+    },
+    {
+      "id": "agent_won",
+      "index": 9,
+      "start_sec": 187.07,
+      "end_sec": 212.07,
+      "duration_sec": 25.0,
+      "xfade_in_sec": 0
+    },
+    {
+      "id": "datalab",
+      "index": 10,
+      "start_sec": 212.07,
+      "end_sec": 227.07,
+      "duration_sec": 15.0,
+      "xfade_in_sec": 0
+    },
+    {
+      "id": "trust_ci",
+      "index": 11,
+      "start_sec": 227.07,
+      "end_sec": 241.07,
+      "duration_sec": 14.0,
+      "xfade_in_sec": 0
+    },
+    {
+      "id": "trust_merkle",
+      "index": 12,
+      "start_sec": 239.87,
+      "end_sec": 251.84,
+      "duration_sec": 11.97,
+      "xfade_in_sec": 1.2
+    },
+    {
+      "id": "cta_slide",
+      "index": 13,
+      "start_sec": 251.84,
+      "end_sec": 265.84,
+      "duration_sec": 14.0,
+      "xfade_in_sec": 0
+    },
+    {
+      "id": "founder_outro",
+      "index": 14,
+      "start_sec": 264.84,
+      "end_sec": 274.65,
+      "duration_sec": 9.81,
+      "xfade_in_sec": 1.0
+    }
+  ]
+}

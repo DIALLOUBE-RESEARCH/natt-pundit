@@ -1,0 +1,631 @@
+[
+  {
+    "source": "01_fixtures_setup_hold_20260713_203523.mp4",
+    "duration_sec": 39.34,
+    "interval_sec": 3.0,
+    "frame_count": 11,
+    "frames_dir": "03_capture/_shot_log_frames/01_fixtures_setup_hold_20260713_203523",
+    "frames": [
+      {
+        "t_sec": 0.0,
+        "file": "f_0001.jpg"
+      },
+      {
+        "t_sec": 3.0,
+        "file": "f_0002.jpg"
+      },
+      {
+        "t_sec": 6.0,
+        "file": "f_0003.jpg"
+      },
+      {
+        "t_sec": 9.0,
+        "file": "f_0004.jpg"
+      },
+      {
+        "t_sec": 12.0,
+        "file": "f_0005.jpg"
+      },
+      {
+        "t_sec": 15.0,
+        "file": "f_0006.jpg"
+      },
+      {
+        "t_sec": 18.0,
+        "file": "f_0007.jpg"
+      },
+      {
+        "t_sec": 21.0,
+        "file": "f_0008.jpg"
+      },
+      {
+        "t_sec": 24.0,
+        "file": "f_0009.jpg"
+      },
+      {
+        "t_sec": 27.0,
+        "file": "f_0010.jpg"
+      },
+      {
+        "t_sec": 30.0,
+        "file": "f_0011.jpg"
+      }
+    ]
+  },
+  {
+    "source": "01_fixtures_setup_hold_20260713_203705_23s.mp4",
+    "duration_sec": 23.01,
+    "interval_sec": 3.0,
+    "frame_count": 7,
+    "frames_dir": "03_capture/_shot_log_frames/01_fixtures_setup_hold_20260713_203705_23s",
+    "frames": [
+      {
+        "t_sec": 0.0,
+        "file": "f_0001.jpg"
+      },
+      {
+        "t_sec": 3.0,
+        "file": "f_0002.jpg"
+      },
+      {
+        "t_sec": 6.0,
+        "file": "f_0003.jpg"
+      },
+      {
+        "t_sec": 9.0,
+        "file": "f_0004.jpg"
+      },
+      {
+        "t_sec": 12.0,
+        "file": "f_0005.jpg"
+      },
+      {
+        "t_sec": 15.0,
+        "file": "f_0006.jpg"
+      },
+      {
+        "t_sec": 18.0,
+        "file": "f_0007.jpg"
+      }
+    ]
+  },
+  {
+    "source": "03_polish_i18n_flash_21s.mp4",
+    "duration_sec": 21.08,
+    "interval_sec": 3.0,
+    "frame_count": 7,
+    "frames_dir": "03_capture/_shot_log_frames/03_polish_i18n_flash_21s",
+    "frames": [
+      {
+        "t_sec": 0.0,
+        "file": "f_0001.jpg"
+      },
+      {
+        "t_sec": 3.0,
+        "file": "f_0002.jpg"
+      },
+      {
+        "t_sec": 6.0,
+        "file": "f_0003.jpg"
+      },
+      {
+        "t_sec": 9.0,
+        "file": "f_0004.jpg"
+      },
+      {
+        "t_sec": 12.0,
+        "file": "f_0005.jpg"
+      },
+      {
+        "t_sec": 15.0,
+        "file": "f_0006.jpg"
+      },
+      {
+        "t_sec": 18.0,
+        "file": "f_0007.jpg"
+      }
+    ]
+  },
+  {
+    "source": "04_agent_spain_counterbet_20260714_205239.mp4",
+    "duration_sec": 17.07,
+    "interval_sec": 3.0,
+    "frame_count": 6,
+    "frames_dir": "03_capture/_shot_log_frames/04_agent_spain_counterbet_20260714_205239",
+    "frames": [
+      {
+        "t_sec": 0.0,
+        "file": "f_0001.jpg"
+      },
+      {
+        "t_sec": 3.0,
+        "file": "f_0002.jpg"
+      },
+      {
+        "t_sec": 6.0,
+        "file": "f_0003.jpg"
+      },
+      {
+        "t_sec": 9.0,
+        "file": "f_0004.jpg"
+      },
+      {
+        "t_sec": 12.0,
+        "file": "f_0005.jpg"
+      },
+      {
+        "t_sec": 15.0,
+        "file": "f_0006.jpg"
+      }
+    ]
+  },
+  {
+    "source": "04_bet_france_collect_20260716_011734.mp4",
+    "duration_sec": 36.73,
+    "interval_sec": 3.0,
+    "frame_count": 12,
+    "frames_dir": "03_capture/_shot_log_frames/04_bet_france_collect_20260716_011734",
+    "frames": [
+      {
+        "t_sec": 0.0,
+        "file": "f_0001.jpg"
+      },
+      {
+        "t_sec": 3.0,
+        "file": "f_0002.jpg"
+      },
+      {
+        "t_sec": 6.0,
+        "file": "f_0003.jpg"
+      },
+      {
+        "t_sec": 9.0,
+        "file": "f_0004.jpg"
+      },
+      {
+        "t_sec": 12.0,
+        "file": "f_0005.jpg"
+      },
+      {
+        "t_sec": 15.0,
+        "file": "f_0006.jpg"
+      },
+      {
+        "t_sec": 18.0,
+        "file": "f_0007.jpg"
+      },
+      {
+        "t_sec": 21.0,
+        "file": "f_0008.jpg"
+      },
+      {
+        "t_sec": 24.0,
+        "file": "f_0009.jpg"
+      },
+      {
+        "t_sec": 27.0,
+        "file": "f_0010.jpg"
+      },
+      {
+        "t_sec": 30.0,
+        "file": "f_0011.jpg"
+      },
+      {
+        "t_sec": 33.0,
+        "file": "f_0012.jpg"
+      }
+    ]
+  },
+  {
+    "source": "04_bet_france_vs_spain_20260714_203424.mp4",
+    "duration_sec": 69.2,
+    "interval_sec": 3.0,
+    "frame_count": 22,
+    "frames_dir": "03_capture/_shot_log_frames/04_bet_france_vs_spain_20260714_203424",
+    "frames": [
+      {
+        "t_sec": 0.0,
+        "file": "f_0001.jpg"
+      },
+      {
+        "t_sec": 3.0,
+        "file": "f_0002.jpg"
+      },
+      {
+        "t_sec": 6.0,
+        "file": "f_0003.jpg"
+      },
+      {
+        "t_sec": 9.0,
+        "file": "f_0004.jpg"
+      },
+      {
+        "t_sec": 12.0,
+        "file": "f_0005.jpg"
+      },
+      {
+        "t_sec": 15.0,
+        "file": "f_0006.jpg"
+      },
+      {
+        "t_sec": 18.0,
+        "file": "f_0007.jpg"
+      },
+      {
+        "t_sec": 21.0,
+        "file": "f_0008.jpg"
+      },
+      {
+        "t_sec": 24.0,
+        "file": "f_0009.jpg"
+      },
+      {
+        "t_sec": 27.0,
+        "file": "f_0010.jpg"
+      },
+      {
+        "t_sec": 30.0,
+        "file": "f_0011.jpg"
+      },
+      {
+        "t_sec": 33.0,
+        "file": "f_0012.jpg"
+      },
+      {
+        "t_sec": 36.0,
+        "file": "f_0013.jpg"
+      },
+      {
+        "t_sec": 39.0,
+        "file": "f_0014.jpg"
+      },
+      {
+        "t_sec": 42.0,
+        "file": "f_0015.jpg"
+      },
+      {
+        "t_sec": 45.0,
+        "file": "f_0016.jpg"
+      },
+      {
+        "t_sec": 48.0,
+        "file": "f_0017.jpg"
+      },
+      {
+        "t_sec": 51.0,
+        "file": "f_0018.jpg"
+      },
+      {
+        "t_sec": 54.0,
+        "file": "f_0019.jpg"
+      },
+      {
+        "t_sec": 57.0,
+        "file": "f_0020.jpg"
+      },
+      {
+        "t_sec": 60.0,
+        "file": "f_0021.jpg"
+      },
+      {
+        "t_sec": 63.0,
+        "file": "f_0022.jpg"
+      }
+    ]
+  },
+  {
+    "source": "06_agent_claim_won_20260716_012729.mp4",
+    "duration_sec": 61.87,
+    "interval_sec": 3.0,
+    "frame_count": 21,
+    "frames_dir": "03_capture/_shot_log_frames/06_agent_claim_won_20260716_012729",
+    "frames": [
+      {
+        "t_sec": 0.0,
+        "file": "f_0001.jpg"
+      },
+      {
+        "t_sec": 3.0,
+        "file": "f_0002.jpg"
+      },
+      {
+        "t_sec": 6.0,
+        "file": "f_0003.jpg"
+      },
+      {
+        "t_sec": 9.0,
+        "file": "f_0004.jpg"
+      },
+      {
+        "t_sec": 12.0,
+        "file": "f_0005.jpg"
+      },
+      {
+        "t_sec": 15.0,
+        "file": "f_0006.jpg"
+      },
+      {
+        "t_sec": 18.0,
+        "file": "f_0007.jpg"
+      },
+      {
+        "t_sec": 21.0,
+        "file": "f_0008.jpg"
+      },
+      {
+        "t_sec": 24.0,
+        "file": "f_0009.jpg"
+      },
+      {
+        "t_sec": 27.0,
+        "file": "f_0010.jpg"
+      },
+      {
+        "t_sec": 30.0,
+        "file": "f_0011.jpg"
+      },
+      {
+        "t_sec": 33.0,
+        "file": "f_0012.jpg"
+      },
+      {
+        "t_sec": 36.0,
+        "file": "f_0013.jpg"
+      },
+      {
+        "t_sec": 39.0,
+        "file": "f_0014.jpg"
+      },
+      {
+        "t_sec": 42.0,
+        "file": "f_0015.jpg"
+      },
+      {
+        "t_sec": 45.0,
+        "file": "f_0016.jpg"
+      },
+      {
+        "t_sec": 48.0,
+        "file": "f_0017.jpg"
+      },
+      {
+        "t_sec": 51.0,
+        "file": "f_0018.jpg"
+      },
+      {
+        "t_sec": 54.0,
+        "file": "f_0019.jpg"
+      },
+      {
+        "t_sec": 57.0,
+        "file": "f_0020.jpg"
+      },
+      {
+        "t_sec": 60.0,
+        "file": "f_0021.jpg"
+      }
+    ]
+  },
+  {
+    "source": "06_agent_mcp_claude_102s.mp4",
+    "duration_sec": 102.41,
+    "interval_sec": 3.0,
+    "frame_count": 34,
+    "frames_dir": "03_capture/_shot_log_frames/06_agent_mcp_claude_102s",
+    "frames": [
+      {
+        "t_sec": 0.0,
+        "file": "f_0001.jpg"
+      },
+      {
+        "t_sec": 3.0,
+        "file": "f_0002.jpg"
+      },
+      {
+        "t_sec": 6.0,
+        "file": "f_0003.jpg"
+      },
+      {
+        "t_sec": 9.0,
+        "file": "f_0004.jpg"
+      },
+      {
+        "t_sec": 12.0,
+        "file": "f_0005.jpg"
+      },
+      {
+        "t_sec": 15.0,
+        "file": "f_0006.jpg"
+      },
+      {
+        "t_sec": 18.0,
+        "file": "f_0007.jpg"
+      },
+      {
+        "t_sec": 21.0,
+        "file": "f_0008.jpg"
+      },
+      {
+        "t_sec": 24.0,
+        "file": "f_0009.jpg"
+      },
+      {
+        "t_sec": 27.0,
+        "file": "f_0010.jpg"
+      },
+      {
+        "t_sec": 30.0,
+        "file": "f_0011.jpg"
+      },
+      {
+        "t_sec": 33.0,
+        "file": "f_0012.jpg"
+      },
+      {
+        "t_sec": 36.0,
+        "file": "f_0013.jpg"
+      },
+      {
+        "t_sec": 39.0,
+        "file": "f_0014.jpg"
+      },
+      {
+        "t_sec": 42.0,
+        "file": "f_0015.jpg"
+      },
+      {
+        "t_sec": 45.0,
+        "file": "f_0016.jpg"
+      },
+      {
+        "t_sec": 48.0,
+        "file": "f_0017.jpg"
+      },
+      {
+        "t_sec": 51.0,
+        "file": "f_0018.jpg"
+      },
+      {
+        "t_sec": 54.0,
+        "file": "f_0019.jpg"
+      },
+      {
+        "t_sec": 57.0,
+        "file": "f_0020.jpg"
+      },
+      {
+        "t_sec": 60.0,
+        "file": "f_0021.jpg"
+      },
+      {
+        "t_sec": 63.0,
+        "file": "f_0022.jpg"
+      },
+      {
+        "t_sec": 66.0,
+        "file": "f_0023.jpg"
+      },
+      {
+        "t_sec": 69.0,
+        "file": "f_0024.jpg"
+      },
+      {
+        "t_sec": 72.0,
+        "file": "f_0025.jpg"
+      },
+      {
+        "t_sec": 75.0,
+        "file": "f_0026.jpg"
+      },
+      {
+        "t_sec": 78.0,
+        "file": "f_0027.jpg"
+      },
+      {
+        "t_sec": 81.0,
+        "file": "f_0028.jpg"
+      },
+      {
+        "t_sec": 84.0,
+        "file": "f_0029.jpg"
+      },
+      {
+        "t_sec": 87.0,
+        "file": "f_0030.jpg"
+      },
+      {
+        "t_sec": 90.0,
+        "file": "f_0031.jpg"
+      },
+      {
+        "t_sec": 93.0,
+        "file": "f_0032.jpg"
+      },
+      {
+        "t_sec": 96.0,
+        "file": "f_0033.jpg"
+      },
+      {
+        "t_sec": 99.0,
+        "file": "f_0034.jpg"
+      }
+    ]
+  },
+  {
+    "source": "07_datalab_bonus_20260716_013426.mp4",
+    "duration_sec": 51.64,
+    "interval_sec": 3.0,
+    "frame_count": 17,
+    "frames_dir": "03_capture/_shot_log_frames/07_datalab_bonus_20260716_013426",
+    "frames": [
+      {
+        "t_sec": 0.0,
+        "file": "f_0001.jpg"
+      },
+      {
+        "t_sec": 3.0,
+        "file": "f_0002.jpg"
+      },
+      {
+        "t_sec": 6.0,
+        "file": "f_0003.jpg"
+      },
+      {
+        "t_sec": 9.0,
+        "file": "f_0004.jpg"
+      },
+      {
+        "t_sec": 12.0,
+        "file": "f_0005.jpg"
+      },
+      {
+        "t_sec": 15.0,
+        "file": "f_0006.jpg"
+      },
+      {
+        "t_sec": 18.0,
+        "file": "f_0007.jpg"
+      },
+      {
+        "t_sec": 21.0,
+        "file": "f_0008.jpg"
+      },
+      {
+        "t_sec": 24.0,
+        "file": "f_0009.jpg"
+      },
+      {
+        "t_sec": 27.0,
+        "file": "f_0010.jpg"
+      },
+      {
+        "t_sec": 30.0,
+        "file": "f_0011.jpg"
+      },
+      {
+        "t_sec": 33.0,
+        "file": "f_0012.jpg"
+      },
+      {
+        "t_sec": 36.0,
+        "file": "f_0013.jpg"
+      },
+      {
+        "t_sec": 39.0,
+        "file": "f_0014.jpg"
+      },
+      {
+        "t_sec": 42.0,
+        "file": "f_0015.jpg"
+      },
+      {
+        "t_sec": 45.0,
+        "file": "f_0016.jpg"
+      },
+      {
+        "t_sec": 48.0,
+        "file": "f_0017.jpg"
+      }
+    ]
+  }
+]

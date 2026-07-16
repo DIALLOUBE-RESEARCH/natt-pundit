@@ -1,0 +1,184 @@
+{
+  "version": 2,
+  "sample_rate": 48000,
+  "note": "Radio mix v2 — 14 VO (Charon + Zubenelgenubi), 4 Lyria stems, sidechain duck. Spotted 2026-07-16.",
+  "total_duration_sec": 278,
+  "music_regions": [
+    {
+      "id": "intro_bed",
+      "file": "../02_generative/lyria/music_01_intro.wav",
+      "start_sec": 0.0,
+      "end_sec": 33.0,
+      "fade_in_ms": 800,
+      "fade_out_ms": 1800,
+      "gain_db": -1,
+      "note": "Music from frame 0 — Veo + logos + founder (no silence gap)"
+    },
+    {
+      "id": "demo_bed",
+      "file": "../02_generative/lyria/music_02_demo.wav",
+      "start_sec": 31.5,
+      "end_sec": 160.0,
+      "fade_in_ms": 2000,
+      "fade_out_ms": 2000,
+      "loop": true,
+      "gain_db": -2,
+      "note": "J-cut 0.5s before fixtures — fixtures through collect"
+    },
+    {
+      "id": "agent_bed",
+      "file": "../02_generative/lyria/music_03_agent.wav",
+      "start_sec": 158.0,
+      "end_sec": 236.0,
+      "fade_in_ms": 2000,
+      "fade_out_ms": 2000,
+      "loop": true,
+      "gain_db": -2,
+      "note": "MCP + agent won + datalab"
+    },
+    {
+      "id": "outro_bed",
+      "file": "../02_generative/lyria/music_04_outro.wav",
+      "start_sec": 234.0,
+      "end_sec": 278.0,
+      "fade_in_ms": 1500,
+      "fade_out_ms": 3500,
+      "loop": true,
+      "gain_db": -3,
+      "note": "Trust slide + CTA + founder outro fade"
+    }
+  ],
+  "vo_regions": [
+    {
+      "id": "founder_intro",
+      "file": "../02_generative/tts/00_founder_intro.wav",
+      "start_sec": 22.0,
+      "fade_in_ms": 60,
+      "fade_out_ms": 200,
+      "pad_after_sec": 0.4,
+      "voice": "Zubenelgenubi"
+    },
+    {
+      "id": "hook",
+      "file": "../02_generative/tts/01_hook.wav",
+      "start_sec": 32.8,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250,
+      "pad_after_sec": 0.3
+    },
+    {
+      "id": "fixtures",
+      "file": "../02_generative/tts/02_fixtures.wav",
+      "start_sec": 42.4,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250,
+      "pad_after_sec": 0.5
+    },
+    {
+      "id": "wallet",
+      "file": "../02_generative/tts/03_wallet.wav",
+      "start_sec": 55.8,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250,
+      "pad_after_sec": 0.3,
+      "note": "No wallet rush — VO over i18n open"
+    },
+    {
+      "id": "i18n",
+      "file": "../02_generative/tts/04_i18n.wav",
+      "start_sec": 58.5,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250,
+      "pad_after_sec": 0.3,
+      "note": "During i18n clip — overlaps wallet tail OK"
+    },
+    {
+      "id": "bet_france",
+      "file": "../02_generative/tts/05_bet_france.wav",
+      "start_sec": 71.5,
+      "fade_in_ms": 80,
+      "fade_out_ms": 300,
+      "pad_after_sec": 0.8,
+      "note": "Starts with bet video — air on Phantom taps"
+    },
+    {
+      "id": "result_lost",
+      "file": "../02_generative/tts/06_result_lost.wav",
+      "start_sec": 126.2,
+      "fade_in_ms": 80,
+      "fade_out_ms": 300,
+      "pad_after_sec": 0.8,
+      "note": "AFTER bet — LOST + Merkle"
+    },
+    {
+      "id": "agent_twist",
+      "file": "../02_generative/tts/07_agent_twist.wav",
+      "start_sec": 158.5,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250,
+      "pad_after_sec": 0.4
+    },
+    {
+      "id": "mcp",
+      "file": "../02_generative/tts/08_mcp.wav",
+      "start_sec": 160.0,
+      "fade_in_ms": 80,
+      "fade_out_ms": 300,
+      "pad_after_sec": 0.5
+    },
+    {
+      "id": "agent_won",
+      "file": "../02_generative/tts/09_agent_won.wav",
+      "start_sec": 195.0,
+      "fade_in_ms": 80,
+      "fade_out_ms": 300,
+      "pad_after_sec": 0.5
+    },
+    {
+      "id": "datalab",
+      "file": "../02_generative/tts/10_datalab.wav",
+      "start_sec": 220.0,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250,
+      "pad_after_sec": 0.4
+    },
+    {
+      "id": "trust",
+      "file": "../02_generative/tts/11_trust.wav",
+      "start_sec": 235.0,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250,
+      "pad_after_sec": 0.4
+    },
+    {
+      "id": "close",
+      "file": "../02_generative/tts/12_close.wav",
+      "start_sec": 253.0,
+      "fade_in_ms": 80,
+      "fade_out_ms": 400,
+      "pad_after_sec": 0.5
+    },
+    {
+      "id": "founder_outro",
+      "file": "../02_generative/tts/13_founder_outro.wav",
+      "start_sec": 268.5,
+      "fade_in_ms": 60,
+      "fade_out_ms": 200,
+      "pad_after_sec": 1.0,
+      "voice": "Zubenelgenubi"
+    }
+  ],
+  "duck": {
+    "mode": "sidechain",
+    "music_baseline_volume": 0.34,
+    "threshold": 0.02,
+    "ratio": 10,
+    "attack_ms": 18,
+    "release_ms": 420
+  },
+  "master": {
+    "loudnorm_I": -16,
+    "loudnorm_TP": -1.5,
+    "loudnorm_LRA": 11
+  }
+}

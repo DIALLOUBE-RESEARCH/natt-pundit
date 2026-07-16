@@ -136,18 +136,65 @@ export function teamFlagIso(team: string): string | null {
   return null;
 }
 
+const FLAGCDN_WIDTHS = [20, 40, 80, 160, 320, 640] as const;
+
+/** Allowed ISO codes for the flag proxy (subset of TEAM_ISO values). */
+export const ALLOWED_FLAG_ISOS = new Set(
+  Object.values(TEAM_ISO).map((iso) => iso.toLowerCase()),
+);
+
+export function normalizeFlagWidth(width: number): (typeof FLAGCDN_WIDTHS)[number] {
+  if (FLAGCDN_WIDTHS.includes(width as (typeof FLAGCDN_WIDTHS)[number])) {
+    return width as (typeof FLAGCDN_WIDTHS)[number];
+  }
+  if (width <= 40) return 40;
+  if (width <= 80) return 80;
+  return 160;
+}
+
+export function isAllowedFlagIso(iso: string): boolean {
+  return ALLOWED_FLAG_ISOS.has(iso.toLowerCase());
+}
+
 /** flagcdn.com widths: 20, 40, 80, 160, 320, 640 */
 export function teamFlagUrl(team: string, width = 80): string | null {
   const iso = teamFlagIso(team);
   if (!iso) return null;
-  const w = [20, 40, 80, 160, 320, 640].includes(width)
-    ? width
-    : width <= 40
-      ? 40
-      : width <= 80
-        ? 80
-        : 160;
+  const w = normalizeFlagWidth(width);
   return `https://flagcdn.com/w${w}/${iso}.png`;
+}
+
+/** Same-origin cached proxy — avoids third-party CDN rate limits on desktop grids. */
+export function teamFlagProxyUrl(team: string, width = 80): string | null {
+  const iso = teamFlagIso(team);
+  if (!iso) return null;
+  const w = normalizeFlagWidth(width);
+  const base = process.env.NEXT_PUBLIC_BASE_PATH || "/fr/nattpundit";
+  return `${base}/api/flags/${encodeURIComponent(iso.toLowerCase())}?w=${w}`;
+}
+
+/** Ordered sources: our proxy first, then flagcdn, then circle SVG (circle UI only). */
+export function teamFlagImageSources(
+  team: string,
+  opts: { circle?: boolean; size?: "xs" | "sm" | "md" | "lg" | "xl" } = {},
+): string[] {
+  const circle = opts.circle ?? false;
+  const size = opts.size ?? "md";
+  const width =
+    size === "xs" || size === "sm" ? 80 : size === "xl" || size === "lg" ? 160 : 80;
+
+  const out: string[] = [];
+  const proxy = teamFlagProxyUrl(team, width);
+  const cdn = teamFlagUrl(team, width);
+  if (proxy) out.push(proxy);
+  if (cdn && cdn !== proxy) out.push(cdn);
+  if (circle) {
+    const svg = teamCircleFlagUrl(team);
+    if (svg) out.push(svg);
+  }
+  const nano = teamNanoFlagUrl(team);
+  if (nano) out.push(nano);
+  return out;
 }
 
 /** High-quality circular SVG flags (Stitch / iOS-grade). */
@@ -157,7 +204,7 @@ export function teamCircleFlagUrl(team: string): string | null {
   return `https://hatscripts.github.io/circle-flags/flags/${iso.toLowerCase()}.svg`;
 }
 
-/** Nano Banana bundled flags (public/ui/flags/{iso}.png) — optional local R&D; prod uses circle-flags CDN. */
+/** Nano Banana bundled flags (public/ui/flags/{iso}.png) — optional local R&D. */
 export function teamNanoFlagUrl(team: string): string | null {
   const iso = teamFlagIso(team);
   if (!iso) return null;

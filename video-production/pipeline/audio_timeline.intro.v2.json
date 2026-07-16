@@ -1,0 +1,62 @@
+{
+  "version": 2,
+  "sample_rate": 48000,
+  "note": "Intro radio mix only 0:00-0:58 — validate music + founder + hook before full mix.",
+  "music_regions": [
+    {
+      "id": "intro_bed",
+      "file": "../02_generative/lyria/music_01_intro.wav",
+      "start_sec": 0.0,
+      "end_sec": 33.0,
+      "fade_in_ms": 800,
+      "fade_out_ms": 1800,
+      "gain_db": -1
+    },
+    {
+      "id": "demo_bed",
+      "file": "../02_generative/lyria/music_02_demo.wav",
+      "start_sec": 31.5,
+      "end_sec": 58.0,
+      "fade_in_ms": 2000,
+      "fade_out_ms": 1200,
+      "loop": true,
+      "gain_db": -2
+    }
+  ],
+  "vo_regions": [
+    {
+      "id": "founder_intro",
+      "file": "../02_generative/tts/00_founder_intro.wav",
+      "start_sec": 22.0,
+      "fade_in_ms": 60,
+      "fade_out_ms": 200
+    },
+    {
+      "id": "hook",
+      "file": "../02_generative/tts/01_hook.wav",
+      "start_sec": 32.8,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250
+    },
+    {
+      "id": "fixtures",
+      "file": "../02_generative/tts/02_fixtures.wav",
+      "start_sec": 42.4,
+      "fade_in_ms": 80,
+      "fade_out_ms": 250
+    }
+  ],
+  "duck": {
+    "mode": "sidechain",
+    "music_baseline_volume": 0.34,
+    "threshold": 0.02,
+    "ratio": 10,
+    "attack_ms": 18,
+    "release_ms": 420
+  },
+  "master": {
+    "loudnorm_I": -16,
+    "loudnorm_TP": -1.5,
+    "loudnorm_LRA": 11
+  }
+}

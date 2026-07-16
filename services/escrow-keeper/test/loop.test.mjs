@@ -41,4 +41,15 @@ describe("escrow-keeper loop", () => {
       true,
     );
   });
+
+  it("shouldAttemptSettle skips already settled pool (idempotent)", () => {
+    assert.equal(
+      shouldAttemptSettle({
+        fixtureStatus: "finished",
+        pool: { exists: true, settled: true },
+        sideTotals: ["1000000", "0", "2000000"],
+      }),
+      false,
+    );
+  });
 });

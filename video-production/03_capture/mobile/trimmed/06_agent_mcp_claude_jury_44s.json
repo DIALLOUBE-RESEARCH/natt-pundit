@@ -1,0 +1,16 @@
+{
+  "source": "03_capture/mobile/06_agent_mcp_claude_102s.mp4",
+  "output": "03_capture/mobile/trimmed/06_agent_mcp_claude_jury_44s.mp4",
+  "segments": [
+    {
+      "start_sec": 26.0,
+      "duration_sec": 8.5
+    },
+    {
+      "start_sec": 66.0,
+      "duration_sec": 36.5
+    }
+  ],
+  "duration_sec": 40.46,
+  "note": "connector + Get pundit manifest + Claude Jury Summary verdict"
+}

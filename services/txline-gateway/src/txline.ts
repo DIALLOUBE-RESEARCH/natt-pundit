@@ -12,6 +12,9 @@ import {
   WC_FREE_SERVICE_LEVEL_REALTIME,
   SUBSCRIBE_DURATION_WEEKS,
   filterWc26ListableFixtures,
+  filterKnockoutEliminatedFixtures,
+  wcMatchFormat,
+  type WcBracketFixture,
 } from "@natt-pundit/natt-core";
 import { z } from "zod";
 import { txlineGet, fetchScoreUpdates } from "./txlineClient.js";
@@ -52,11 +55,10 @@ function loadMockBundle(name: string) {
 const liveBundle = loadMockBundle("wc_live_match.json");
 const replayBundle = loadMockBundle("wc_replay_match.json");
 
-function mockFixtures(): { fixtures: Fixture[]; source: "mock" } {
-  return {
-    fixtures: [...liveBundle.fixtures, ...replayBundle.fixtures],
-    source: "mock",
-  };
+function mockFixtures(): Promise<{ fixtures: Fixture[]; source: "mock" }> {
+  return applyKnockoutBracketFilter([...liveBundle.fixtures, ...replayBundle.fixtures]).then(
+    (fixtures) => ({ fixtures, source: "mock" }),
+  );
 }
 
 export async function listFixtures(): Promise<{
@@ -77,8 +79,26 @@ export async function listFixtures(): Promise<{
   // after TxLINE drops them from its snapshot (jury / post-tournament demo).
   const visible = reconcileFixtures(live);
   const merged = mergeVisibleWithArchive(visible, listArchivedFixtures());
-  const fixtures = filterWc26ListableFixtures(merged);
+  const listable = filterWc26ListableFixtures(merged);
+  const fixtures = await applyKnockoutBracketFilter(listable);
   return { fixtures, source: "txline" };
+}
+
+async function applyKnockoutBracketFilter(fixtures: Fixture[]): Promise<Fixture[]> {
+  const bracketInput: WcBracketFixture[] = await Promise.all(
+    fixtures.map(async (f): Promise<WcBracketFixture> => {
+      const knockout = f.wcFormat === "knockout" || wcMatchFormat(f.kickoffAt) === "knockout";
+      if (f.status !== "finished" || !knockout || f.score) return f;
+      const scores = await getFixtureScores(f.fixtureId);
+      if (!scores?.score) return f;
+      return {
+        ...f,
+        score: scores.score,
+        penScore: scores.penScore,
+      };
+    }),
+  );
+  return filterKnockoutEliminatedFixtures(bracketInput);
 }
 
 export async function getFixtureOdds(fixtureId: string): Promise<OddsLine[]> {

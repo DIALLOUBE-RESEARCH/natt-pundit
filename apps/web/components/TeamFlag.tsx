@@ -1,5 +1,6 @@
-import { useMemo, useState } from "react";
-import { teamCircleFlagUrl, teamFlagIso, teamFlagUrl } from "@/lib/countryFlags";
+import { useEffect, useMemo, useState } from "react";
+import { teamFlagImageSources, teamFlagIso } from "@/lib/countryFlags";
+import { canonicalTeamKey } from "@/lib/teamI18n";
 import { initials } from "@/lib/teamColors";
 
 type Props = {
@@ -11,12 +12,6 @@ type Props = {
 
 const SIZES = { xs: 32, sm: 40, md: 48, lg: 56, xl: 64 };
 
-function cdnWidth(size: "xs" | "sm" | "md" | "lg" | "xl"): number {
-  if (size === "xs" || size === "sm") return 80;
-  if (size === "xl" || size === "lg") return 320;
-  return 160;
-}
-
 export function TeamFlag({
   team,
   size = "md",
@@ -26,18 +21,23 @@ export function TeamFlag({
   const px = SIZES[size];
   const circle = variant === "circle";
 
-  const sources = useMemo(() => {
-    if (circle) {
-      const svg = teamCircleFlagUrl(team);
-      const cdn = teamFlagUrl(team, 160);
-      return [svg, cdn].filter((u): u is string => Boolean(u));
-    }
-    const cdn = teamFlagUrl(team, cdnWidth(size));
-    return cdn ? [cdn] : [];
-  }, [team, size, circle]);
+  const flagTeam = useMemo(() => canonicalTeamKey(team) ?? team, [team]);
+
+  const sources = useMemo(
+    () => teamFlagImageSources(flagTeam, { circle, size }),
+    [flagTeam, size, circle],
+  );
+  const sourcesKey = sources.join("|");
 
   const [sourceIndex, setSourceIndex] = useState(0);
-  const url = sources[sourceIndex] ?? null;
+  const [exhausted, setExhausted] = useState(false);
+
+  useEffect(() => {
+    setSourceIndex(0);
+    setExhausted(false);
+  }, [team, sourcesKey]);
+
+  const url = !exhausted && sources.length > 0 ? (sources[sourceIndex] ?? null) : null;
 
   const wrapClass = [
     "team-flag-wrap",
@@ -53,13 +53,18 @@ export function TeamFlag({
     : ({ width: px, height: Math.round(px * 0.68) } as const);
 
   const bumpFallback = () => {
-    setSourceIndex((i) => (i + 1 < sources.length ? i + 1 : i));
+    setSourceIndex((i) => {
+      if (i + 1 < sources.length) return i + 1;
+      setExhausted(true);
+      return i;
+    });
   };
 
   if (url) {
     return (
       <div className={wrapClass} style={boxStyle}>
         <img
+          key={url}
           src={url}
           alt={`${team} flag`}
           className="team-flag-img"
@@ -74,7 +79,7 @@ export function TeamFlag({
     );
   }
 
-  const iso = teamFlagIso(team);
+  const iso = teamFlagIso(flagTeam);
   return (
     <div
       className={`team-flag-fallback${circle ? " team-flag-fallback--circle" : ""}`}

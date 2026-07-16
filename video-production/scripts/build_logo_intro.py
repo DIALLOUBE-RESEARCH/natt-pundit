@@ -18,7 +18,8 @@ TMP_DIR = ROOT / "02_generative" / "intro" / "_tmp"
 
 FPS = 30
 DURATION_S = 4.0
-FADE_IN_S = 1.0
+FADE_IN_S = 1.2
+FADE_OUT_S = 0.9
 SAFE_MARGIN_X = 0.10  # 10% each side
 MAX_STACK_WIDTH_RATIO = 0.80
 LABEL = (235, 238, 245)
@@ -187,13 +188,14 @@ def render_overlay_video(
     height: int,
     duration: float,
     fade_in: float,
+    fade_out: float = FADE_OUT_S,
 ) -> None:
     ffmpeg = ffmpeg_bin()
-    fade_out_start = max(0.0, duration - 0.6)
+    fade_out_start = max(fade_in + 0.1, duration - fade_out - 0.05)
     filter_complex = (
         f"[1:v]scale={width}:{height}:flags=lanczos,format=rgba,"
         f"fade=t=in:st=0:d={fade_in}:alpha=1,"
-        f"fade=t=out:st={fade_out_start}:d=0.5:alpha=1[ov];"
+        f"fade=t=out:st={fade_out_start}:d={fade_out}:alpha=1[ov];"
         f"[0:v][ov]overlay=0:0:format=auto,format=yuv420p[v]"
     )
     cmd = [
@@ -229,6 +231,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--out", type=Path, default=OUT)
     p.add_argument("--duration", type=float, default=DURATION_S)
     p.add_argument("--fade-in", type=float, default=FADE_IN_S)
+    p.add_argument("--fade-out", type=float, default=FADE_OUT_S)
     return p.parse_args()
 
 
@@ -244,8 +247,13 @@ def main() -> int:
     build_overlay_png(overlay_png, width, height)
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
-    render_overlay_video(args.base, overlay_png, args.out, width, height, args.duration, args.fade_in)
-    print(f"Wrote {args.out} ({width}x{height}, base={args.base.name}, fade={args.fade_in}s)")
+    render_overlay_video(
+        args.base, overlay_png, args.out, width, height, args.duration, args.fade_in, args.fade_out
+    )
+    print(
+        f"Wrote {args.out} ({width}x{height}, base={args.base.name}, "
+        f"fade_in={args.fade_in}s fade_out={args.fade_out}s)"
+    )
     return 0
 
 

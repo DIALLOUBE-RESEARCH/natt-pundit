@@ -72,6 +72,12 @@ export {
   type WcFixtureListGate,
 } from "./wcMatchRules.js";
 export {
+  filterKnockoutEliminatedFixtures,
+  knockoutEliminatedTeams,
+  isBracketVisibleFixture,
+  type WcBracketFixture,
+} from "./wcBracketFilter.js";
+export {
   resolveCpiScoreTarget,
   resolveCpiSettlementPlan,
   isKnockoutTab,

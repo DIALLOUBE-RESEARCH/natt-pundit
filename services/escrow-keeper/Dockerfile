@@ -3,7 +3,8 @@ WORKDIR /app
 RUN apk add --no-cache ca-certificates && update-ca-certificates
 COPY services/mcp/package.json ./package.json
 RUN npm install --omit=dev && npm install bs58@4 --omit=dev
-COPY services/mcp/*.mjs services/mcp/idl ./mcp/
+COPY services/mcp/*.mjs ./mcp/
+COPY services/mcp/idl ./mcp/idl/
 COPY services/escrow-keeper ./keeper/
 WORKDIR /app/keeper
 ENV ESCROW_KEEPER_PORT=4013

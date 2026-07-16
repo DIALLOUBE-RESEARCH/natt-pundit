@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "note": "v2 — intro FULL 4s, real rushes only, ZERO black slates, hard cuts (no fadeblack).",
+  "video_join": "concat",
+  "audio_timeline": "audio_timeline.v2.json",
+  "output": {
+    "path": "../05_export/final/natt-pundit_preview_v2.mp4",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "segments": [
+    {
+      "id": "intro",
+      "file": "../02_generative/intro/logo_intro_9x16_silent.mp4"
+    },
+    {
+      "id": "fixtures",
+      "file": "../03_capture/mobile/01_fixtures_setup_hold_20260713_203705_23s.mp4"
+    },
+    {
+      "id": "i18n",
+      "file": "../03_capture/mobile/03_polish_i18n_flash_21s.mp4"
+    },
+    {
+      "id": "agent_mcp",
+      "file": "../03_capture/mobile/06_agent_mcp_claude_102s.mp4",
+      "duration_sec": 55
+    }
+  ]
+}

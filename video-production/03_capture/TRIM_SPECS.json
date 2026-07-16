@@ -1,0 +1,46 @@
+{
+  "generated": "trim_mobile_captures.py",
+  "out_dir": "03_capture/mobile/trimmed",
+  "clips": [
+    {
+      "source": "03_capture/mobile/03_polish_i18n_flash_21s.mp4",
+      "output": "03_capture/mobile/trimmed/03_polish_i18n_flash_15s.mp4",
+      "trim_end_tc_s": 15.0,
+      "source_duration_s": 21.08,
+      "output_duration_s": 15.02,
+      "id": "C",
+      "label": "03 Polish i18n",
+      "note": "keep 00:00-00:15 inclusive; tail removed"
+    },
+    {
+      "source": "03_capture/mobile/04_agent_spain_counterbet_20260714_205239.mp4",
+      "output": "03_capture/mobile/trimmed/04_agent_spain_counterbet_10s.mp4",
+      "trim_end_tc_s": 10.0,
+      "source_duration_s": 17.07,
+      "output_duration_s": 10.01,
+      "id": "agent_spain",
+      "label": "04 Agence Spain",
+      "note": "keep 00:00-00:10 inclusive; tail removed"
+    },
+    {
+      "source": "03_capture/mobile/04_bet_france_collect_20260716_011734.mp4",
+      "output": "03_capture/mobile/trimmed/04_bet_france_collect_33s.mp4",
+      "trim_end_tc_s": 33.0,
+      "source_duration_s": 36.73,
+      "output_duration_s": 33.06,
+      "id": "E",
+      "label": "04 Bet France Collect",
+      "note": "keep 00:00-00:33 inclusive; tail removed"
+    },
+    {
+      "source": "03_capture/mobile/04_bet_france_vs_spain_20260714_203424.mp4",
+      "output": "03_capture/mobile/trimmed/04_bet_france_vs_spain_55s.mp4",
+      "trim_end_tc_s": 55.0,
+      "source_duration_s": 69.2,
+      "output_duration_s": 55.02,
+      "id": "D",
+      "label": "04 Bet France vs Espagne",
+      "note": "keep 00:00-00:55 inclusive; tail removed"
+    }
+  ]
+}

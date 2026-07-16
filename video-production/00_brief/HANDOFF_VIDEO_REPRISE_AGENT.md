@@ -63,18 +63,25 @@ render_from_manifest.py  ← FFmpeg (imageio-ffmpeg, deja dans le repo)
 
 | Priorite | Tache | Owner |
 |----------|-------|-------|
-| **P0** | Captures scrcpy mobile **100%** (fixtures, pari, wallet, agent `/agent`, MCP Connect) | Hamet |
+| **P0** | Captures scrcpy **beat sheet v2** (voir §2) — ordre : fixtures → wallet Reown/Phantom → i18n flash → bet France→claim → proof 18172280 → agent/MCP/Claude | Hamet |
+| **P0** | Slides trust (228 tests) + CTA + devnet disclaimer | Agent ou Hamet |
 | **Mix audio final** | — | — | **TODO** — `AUDIO_FINISHING_PRO.md` (EDL evenements, J/L-cuts, duck, pas sync naive) |
 | **Intro radio mix** | — | — | **TODO** — `render_audio_timeline.py` + `pipeline/audio_timeline.intro.json` |
 | **P2** | Grade CapCut (`GRADE.md`) — **optionnel** seulement | Hamet |
 
 ### Prochaine action immediate
 
-1. **Hamet** : scrcpy → `03_capture/mobile/` (fixtures, pari, wallet, `/agent`, bouton **CONNECT AGENT**)
-2. **Agent** : manifest complet (Veo A1-A3 + logo + captures + 9 VO)
-3. **Agent** : intro radio mix (`render_audio_timeline.py`) → validation oreille owner ; puis mux video apres scrcpy
-4. **Pas** `render_from_manifest.py` pour livrable jury — preview concat seulement
-4. Owner review 1x — tweak manifest si besoin (pas refilm tout)
+1. **Hamet** : tournage J-1 — voir **§11 plan capture ce soir**
+2. **Demain match** : rush `04_bet_france` post-FT collect seulement (si depot fait ce soir)
+
+### Decision beat sheet v2 (2026-07-13 owner GO)
+
+- Contexte **TxLINE SETUP/HOLD** avant connect wallet
+- **Reown AppKit + Phantom** (Solana) — **pas wagmi**
+- i18n flash EN→ZH→EN (~15s) — **jour/nuit coupe** (gain temps)
+- Bet complet France `18237038` + proof fixture finie `18172280`
+- Agent Spain + Claude web MCP avec **1 tool call visible**
+- Trust : **228** tests (sous-titre ; VO 07 dit encore 220)
 
 ---
 
@@ -94,35 +101,33 @@ Docs structure : `WC_PITCH_PLAYBOOK.md` | `BEAT_SHEET.md` | `INTRO_STRATEGY.md`
 
 ---
 
-## 2. Beat sheet detaille (5:00)
+## 2. Beat sheet detaille (5:00) — **v2 jury TxLINE**
 
-| Temps | Scene | Source | Fichier / script |
-|-------|-------|--------|------------------|
-| 0:00–0:08 | Bar tension, phone dos/profil | Veo A1 | `A1_bar_tension_9x16_silent.mp4` |
-| 0:08–0:12 | Joie tribune | Veo A2 | `A2_stadium_joy_9x16_silent_4s.mp4` |
-| 0:12–0:18 | Gros plan emotion | Veo A3 | `A3_fan_face_emotion_9x16_silent.mp4` |
-| 0:18–0:22 | (marge / pacing) | edit | 4s libres ou rallonger un plan en CapCut |
-| 0:22–0:26 | Logos centres fade-in | overlay | `logo_intro_9x16_silent.mp4` |
-| 0:26–0:36 | Hook VO | TTS | `tts/01_hook.wav` |
-| 0:36–1:10 | Fixtures SETUP/HOLD | scrcpy | `03_capture/mobile/` |
-| 1:10–1:50 | Pari France (home) | scrcpy | idem |
-| 1:50–2:30 | Wallet collect / PnL | scrcpy | idem |
-| 2:30–3:15 | Agent `/agent` pari Spain | scrcpy mobile | `03_capture/mobile/` |
-| 3:15–3:45 | MCP Connect (header) | scrcpy mobile | idem |
-| 3:45–4:15 | 220 tests F95N | overlay | slide / terminal |
-| 4:15–5:00 | Archi + CTA | slide | `tts/08_architecture.wav` + `09_close.wav` |
+> Source complete : **`BEAT_SHEET.md`** (timestamps + noms fichiers capture).
 
-**Match demo** : France vs Spain — fixture **`18237038`**
+| Temps | Scene | Source |
+|-------|-------|--------|
+| 0:00–0:26 | Intro Veo + logos | LOCK (A1/A2/A3 + logo) |
+| 0:26–0:40 | Hook — TxLINE decide le score | TTS `01_hook` |
+| 0:40–1:00 | Fixtures **SETUP/HOLD** | scrcpy `01_fixtures_setup_hold` |
+| 1:00–1:25 | **Connect Reown → Phantom** | scrcpy `02_wallet_connect_reown_phantom` |
+| 1:25–1:40 | Flash i18n EN→ZH→EN | scrcpy `03_polish_i18n_flash` |
+| 1:40–2:50 | France bet → keeper → **Collect** | scrcpy `04_bet_france_full_journey` |
+| 2:50–3:15 | Proof Merkle match fini `18172280` | scrcpy `05_proof_merkle_finished` |
+| 3:15–4:15 | Agent Spain + MCP + **Claude web** 1 tool | scrcpy `06_agent_mcp_claude` |
+| 4:30–4:45 | Trust **228 tests** + archi CPI | overlay (sous-titre corrige 220) |
+| 4:45–5:00 | CTA repo + 19 juillet | TTS `09_close` |
 
-| Role | Surface | Action |
-|------|---------|--------|
-| Hamet | Mobile scrcpy | Pari **France (home)** |
-| Natt Agent CDP | `/agent?lang=en` | Pari **Spain (away)** — script VPS coulisse |
-| Jury | URLs prod EN | Ledger read-only |
+**Matchs** :
+- Live : **`18237038`** France vs Spain — Hamet **home**, agent **away**
+- Proof backup : **`18172280`** (deja fini)
+
+**Stack wallet (dire au jury)** : **Reown AppKit + WalletConnect — Solana devnet** (pas wagmi EVM).
 
 **URLs prod** :
 - App : https://hypernatt.com/fr/nattpundit?lang=en
 - Agent : https://hypernatt.com/fr/nattpundit/agent?lang=en
+- MCP : https://hypernatt.com/mcp-pundit/protocol
 
 ---
 
@@ -138,7 +143,7 @@ Script texte : `01_scripts/vo_pitch_draft.md`
 | `04_reward.wav` | 1:50–2:30 | Track PnL. Merkle proof… |
 | `05_twist.wav` | 2:30–3:15 | Autonomous agent bets on its own… |
 | `06_agents.wav` | 3:15–3:45 | Twenty MCP tools… |
-| `07_trust.wav` | 3:45–4:15 | Two hundred twenty tests… |
+| `07_trust.wav` | 4:30–4:45 | Two hundred twenty-eight tests. Keeper settle-only. (**regen 2026-07-13**) |
 | `08_architecture.wav` | 4:15–4:30 | Mainnet data from TxLINE… |
 | `09_close.wav` | 4:30–5:00 | Natt Settlement. July nineteenth. |
 
@@ -300,7 +305,53 @@ python scripts/render_from_manifest.py
 
 ---
 
+## 11. Plan capture J-1 (ce soir) vs J0 (match)
+
+### Avant de lancer scrcpy
+
+1. Phone : **Options developpeur** → **Depbogage USB** ON
+2. Brancher USB → popup phone **Autoriser** ce PC
+3. Verifier : `C:\scrcpy\adb.exe devices` → doit afficher un id `device`
+4. Phantom : reseau **Devnet** + un peu de SOL + USDC
+5. Chrome mobile : https://hypernatt.com/fr/nattpundit?lang=en
+
+### Ce soir (rushs libres)
+
+| # | Commande PowerShell | Action a l'ecran |
+|---|---------------------|------------------|
+| 1 | `.\scrcpy_record.ps1 -OutName "02_wallet_connect"` | **Deconnecte** → Wallet → Reown → Phantom |
+| 2 | `.\scrcpy_record.ps1 -OutName "01_fixtures_setup_hold"` | Matches → scroll SETUP/HOLD |
+| 3 | `.\scrcpy_record.ps1 -OutName "03_polish_i18n_flash"` | Header langue EN→ZH→EN |
+| 4 | `.\scrcpy_record.ps1 -OutName "05_proof_merkle"` | Match fini `18172280` → proof vert |
+| 5 | `.\scrcpy_record.ps1 -OutName "06_agent_mcp_claude"` | `/agent` + CONNECT AGENT |
+| 6 | (opt) `04_bet_france_deposit_only` | `18237038` → pari France **avant** FT |
+
+**Ctrl+C** dans le terminal pour arreter chaque rush.
+
+### Demain seulement (match France–Espagne)
+
+| Rush | Quand |
+|------|-------|
+| `04_bet_france_collect` | Apres FT : Settlement in progress → Collect → Wallet |
+
+Dossier sortie : `03_capture/mobile/`
+
+---
+
 ## 10. Journal session
+
+### 2026-07-13 — TTS regen selective (03 + 07, Charon)
+
+- `03_stakes.wav` : wallet Reown/Phantom + pari
+- `07_trust.wav` : 228 tests + keeper settle-only
+- Commande : `python generate_all_tts.py 03_stakes 07_trust`
+- Les 7 autres WAV inchanges
+
+### 2026-07-13 — Beat sheet v2 (owner GO jury TxLINE + fan journey)
+
+- Fusion SUBMISSION_KIT §5 + flow Hamet (wallet Phantom, i18n flash, bet→claim, agent/Claude MCP)
+- Coupe jour/nuit ; garde i18n ~15s ; proof fixture 18172280 ; 228 tests sous-titre
+- `BEAT_SHEET.md` reecrit — 8 fichiers capture nommes dans `03_capture/mobile/`
 
 ### 2026-07-13 — Lyria v2 (ref You Can't Hold A Torch)
 

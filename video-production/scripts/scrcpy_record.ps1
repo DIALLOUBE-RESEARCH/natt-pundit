@@ -21,7 +21,7 @@ $Stamp = Get-Date -Format "yyyyMMdd_HHmmss"
 $OutFile = Join-Path $OutDir "${OutName}_${Stamp}.mp4"
 
 if (-not (Test-Path $Scrcpy)) {
-  Write-Error "scrcpy not found at $Scrcpy — install to C:\scrcpy first"
+  Write-Error "scrcpy not found at $Scrcpy - install to C:\scrcpy first"
   exit 1
 }
 
@@ -37,9 +37,8 @@ Write-Host "[scrcpy] Ctrl+C to stop"
 & $Scrcpy `
   --record $OutFile `
   --max-size $MaxSize `
-  --bit-rate $BitRate `
+  --video-bit-rate $BitRate `
   --max-fps $MaxFps `
-  --stay-awake `
-  --turn-screen-off
+  --stay-awake
 
 Write-Host "[scrcpy] done: $OutFile"

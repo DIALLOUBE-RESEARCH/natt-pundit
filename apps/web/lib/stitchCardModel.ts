@@ -5,12 +5,16 @@ import { liveIndicator } from "@/lib/matchStatus";
 import { holdPillValue } from "@/lib/edgePublicI18n";
 import { ui } from "@/lib/i18n";
 import { stitchStadiumLabel } from "@/lib/stadiumI18n";
+import { teamShortLabel } from "@/lib/teamDisplay";
 import { STITCH_STADIUM_ASSETS, type StitchStadiumKey } from "@/lib/uiAssets";
 
 export type GlowVariant = "glow-red" | "glow-gold" | "glow-blue" | "glow-green";
 
 export type StitchCardModel = {
   fixtureId: string;
+  /** Canonical API team name — use for TeamFlag, not `home`/`away` labels. */
+  homeTeam: string;
+  awayTeam: string;
   home: string;
   away: string;
   stadiumName: string;
@@ -97,8 +101,10 @@ export function fixtureToStitchCard(
 
   return {
     fixtureId: fixture.fixtureId,
-    home: fixture.homeTeam,
-    away: fixture.awayTeam,
+    homeTeam: fixture.homeTeam,
+    awayTeam: fixture.awayTeam,
+    home: teamShortLabel(fixture.homeTeam, lang),
+    away: teamShortLabel(fixture.awayTeam, lang),
     stadiumName: stitchStadiumLabel(asset, lang),
     kickoff: formatKickoffDate(fixture.kickoffAt, lang),
     scoreOrTime,

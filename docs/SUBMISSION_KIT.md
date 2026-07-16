@@ -4,6 +4,8 @@
 
 **Deadline:** 2026-07-19
 
+**Pre-submit:** [`SUBMISSION_CHECKLIST.md`](./SUBMISSION_CHECKLIST.md) · Form copy-paste: [`SUBMISSION_FORM_READY.md`](./SUBMISSION_FORM_READY.md)
+
 **Docs:** start with [`QUICKSTART_JURY.md`](./QUICKSTART_JURY.md) → [`USER_GUIDE.md`](./USER_GUIDE.md) → [`TXLINE_SETTLEMENT.md`](./TXLINE_SETTLEMENT.md) → this file (smoke curls).
 
 ### Superteam Earn — short description (copy-paste)
@@ -22,11 +24,12 @@ Natt Settlement turns TxLINE World Cup data into trustless Solana prediction-mar
 | Edge health | https://hypernatt.com/api/natt-pundit/edge/health |
 | MCP health | https://hypernatt.com/mcp-pundit/health |
 | MCP manifest | https://hypernatt.com/mcp-pundit/pundit/info |
-| Example proof | https://hypernatt.com/api/natt-pundit/txline/v1/fixtures/18172280/proof |
+| Example proof (Merkle) | https://hypernatt.com/api/natt-pundit/txline/v1/fixtures/18172280/proof |
 | Proof verify | https://hypernatt.com/api/natt-pundit/txline/v1/fixtures/18172280/proof/verify |
 | Edge board | https://hypernatt.com/api/natt-pundit/edge/v1/edge/summary |
 | CLV verdict | https://hypernatt.com/api/natt-pundit/edge/v1/data/clv |
-| Escrow CPI args (devnet) | https://hypernatt.com/api/natt-pundit/txline/v1/fixtures/18172280/cpi-args?outcome=home |
+| **Escrow CPI args (devnet)** | https://hypernatt.com/api/natt-pundit/txline/v1/fixtures/18209181/cpi-args?outcome=home |
+| CPI regulation tie (optional) | https://hypernatt.com/api/natt-pundit/txline/v1/fixtures/18172280/cpi-args?outcome=draw |
 | Natt escrow program (devnet) | `GPSU49hPRqWeEtTyMghWLWrXagV8hobFPkbFKVK3jxUD` |
 
 ## Escrow devnet demo (F71N + F75N refund)
@@ -45,14 +48,14 @@ Natt Settlement turns TxLINE World Cup data into trustless Solana prediction-mar
 - **Solo side** (≤1 country backed): after kickoff → `refund()` 100%, no settle.
 - **Shared pool** (≥2 countries backed): **keeper** permissionless `settle` on-chain, then fan **claim** pro-rata.
 
-Smoke CPI args:
+Smoke CPI args (canonical jury fixture — France–Morocco FT 2–0):
 
 ```bash
 curl -s -o /dev/null -w "%{http_code}\n" \
-  "https://hypernatt.com/api/natt-pundit/txline/v1/fixtures/18172280/cpi-args?outcome=home"
+  "https://hypernatt.com/api/natt-pundit/txline/v1/fixtures/18209181/cpi-args?outcome=home"
 ```
 
-(503 until `NATT_ESCROW_ENABLED=true` on VPS.)
+Expect **200**. (Fixture `18172280` is 1–1 + pens: use `?outcome=draw` for regulation CPI, not `home` — see [`TXLINE_FEEDBACK.md`](./TXLINE_FEEDBACK.md).)
 
 ## MCP + x402 (F72N)
 
@@ -135,7 +138,7 @@ curl -s -o /dev/null -w "%{http_code}\n" \
 7. **4:15–4:45** — Architecture slide: web → gateway/edge/MCP → TxLINE; devnet escrow; `natt-core` tests.
 8. **4:45–5:00** — CTA: public mirror, TxLINE activate, deadline 2026-07-19.
 
-**Finished match (proof):** fixture `18172280`. **Escrow refund demo:** solo deposit post-kickoff → recover stake.
+**Finished match (proof):** fixture `18172280` (Merkle verify). **Escrow CPI settle demo:** fixture `18209181` outcome=home (FT 2–0). **Refund demo:** solo deposit post-kickoff → recover stake.
 
 ## What we prove
 

@@ -67,11 +67,11 @@ export function FixtureCard({ card, featured, favorited, onToggleFavorite }: Pro
           <div className="stitch-card-main">
             <div className="stitch-card-flags">
               <div className="stitch-flag-circle">
-                <TeamFlag team={card.home} variant="circle" size="sm" />
+                <TeamFlag team={card.homeTeam} variant="circle" size="sm" />
               </div>
-              <span className="stitch-vs">vs</span>
+              <span className="stitch-vs">{t.matchVs}</span>
               <div className="stitch-flag-circle">
-                <TeamFlag team={card.away} variant="circle" size="sm" />
+                <TeamFlag team={card.awayTeam} variant="circle" size="sm" />
               </div>
             </div>
 

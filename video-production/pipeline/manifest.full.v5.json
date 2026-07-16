@@ -1,0 +1,92 @@
+{
+  "version": 5,
+  "note": "Same video as v4. VO resynced via video_edl.v5 + audio_timeline.v5.",
+  "video_join": "xfade",
+  "audio_timeline": "audio_timeline.v5.json",
+  "audio_duration_sec": 273.5,
+  "output": {
+    "path": "../05_export/final/natt-pundit_submission_v5.mp4",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "segments": [
+    {
+      "id": "veo_a1",
+      "file": "../02_generative/veo/A1_bar_tension_9x16_silent.mp4",
+      "duration_sec": 8.0
+    },
+    {
+      "id": "veo_a2",
+      "file": "../02_generative/veo/A2_stadium_joy_9x16_silent_4s.mp4",
+      "duration_sec": 4.0
+    },
+    {
+      "id": "veo_a3",
+      "file": "../02_generative/veo/A3_fan_face_emotion_9x16_silent.mp4",
+      "duration_sec": 6.0
+    },
+    {
+      "id": "logos",
+      "file": "../02_generative/intro/logo_intro_9x16_silent.mp4",
+      "duration_sec": 4.0,
+      "transition_out": { "type": "fade", "duration_sec": 1.5 }
+    },
+    {
+      "id": "fixtures",
+      "file": "../03_capture/mobile/01_fixtures_setup_hold_20260713_203705_23s.mp4"
+    },
+    {
+      "id": "i18n",
+      "file": "../03_capture/mobile/trimmed/03_polish_i18n_flash_15s.mp4"
+    },
+    {
+      "id": "bet_france",
+      "file": "../03_capture/mobile/trimmed/04_bet_france_vs_spain_55s.mp4"
+    },
+    {
+      "id": "result_lost",
+      "file": "../03_capture/mobile/trimmed/04_bet_france_collect_33s.mp4"
+    },
+    {
+      "id": "agent_mcp",
+      "file": "../03_capture/mobile/06_agent_mcp_claude_102s.mp4",
+      "trim_start_sec": 26.0,
+      "duration_sec": 35.0
+    },
+    {
+      "id": "agent_won",
+      "file": "../03_capture/mobile/06_agent_claim_won_20260716_012729.mp4",
+      "trim_start_sec": 0.0,
+      "duration_sec": 25.0
+    },
+    {
+      "id": "datalab",
+      "file": "../03_capture/mobile/07_datalab_bonus_20260716_013426.mp4",
+      "trim_start_sec": 0.0,
+      "duration_sec": 15.0
+    },
+    {
+      "id": "trust_slide",
+      "slate": {
+        "color": "0x05080c",
+        "text": "228 tests · settle-only keeper"
+      },
+      "duration_sec": 18.0
+    },
+    {
+      "id": "cta_slide",
+      "slate": {
+        "color": "0x05080c",
+        "text": "github.com/HametGh/NATTAPP-portfolio"
+      },
+      "duration_sec": 14.0,
+      "transition_out": { "type": "fade", "duration_sec": 1.0 }
+    },
+    {
+      "id": "founder_outro",
+      "slate": { "color": "0x0f1419" },
+      "duration_sec": 5.0
+    }
+  ]
+}

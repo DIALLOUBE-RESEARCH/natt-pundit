@@ -1,0 +1,59 @@
+{
+  "version": 2,
+  "note": "Preview v1 — logo_intro only, real scrcpy rushes, slates TBD for wallet/bet/proof. Owner 2026-07-13.",
+  "audio_timeline": "audio_timeline.v1.json",
+  "output": {
+    "path": "../05_export/final/natt-pundit_preview_v1.mp4",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "segments": [
+    {
+      "id": "intro",
+      "file": "../02_generative/intro/logo_intro_9x16_silent.mp4",
+      "transition_out": { "type": "fadeblack", "duration_sec": 0.55 }
+    },
+    {
+      "id": "fixtures",
+      "file": "../03_capture/mobile/01_fixtures_setup_hold_20260713_203705_23s.mp4",
+      "duration_sec": 20,
+      "transition_out": { "type": "fade", "duration_sec": 0.4 }
+    },
+    {
+      "id": "wallet_tbd",
+      "slate": { "color": "0x0a0e14", "label": "TBD — wallet connect" },
+      "duration_sec": 10,
+      "transition_out": { "type": "fade", "duration_sec": 0.4 }
+    },
+    {
+      "id": "i18n",
+      "file": "../03_capture/mobile/03_polish_i18n_flash_21s.mp4",
+      "duration_sec": 18,
+      "transition_out": { "type": "smoothright", "duration_sec": 0.45 }
+    },
+    {
+      "id": "bet_tbd",
+      "slate": { "color": "0x0a0e14", "label": "TBD — France bet + collect" },
+      "duration_sec": 14,
+      "transition_out": { "type": "fade", "duration_sec": 0.4 }
+    },
+    {
+      "id": "agent_mcp",
+      "file": "../03_capture/mobile/06_agent_mcp_claude_102s.mp4",
+      "duration_sec": 52,
+      "transition_out": { "type": "fade", "duration_sec": 0.5 }
+    },
+    {
+      "id": "trust_tbd",
+      "slate": { "color": "0x0a0e14", "label": "TBD — 228 tests + proof" },
+      "duration_sec": 8,
+      "transition_out": { "type": "fadeblack", "duration_sec": 0.45 }
+    },
+    {
+      "id": "cta",
+      "slate": { "color": "0x05080c", "label": "Natt Settlement — devnet — July 19" },
+      "duration_sec": 6
+    }
+  ]
+}

@@ -25,7 +25,6 @@ import {
   type PoolSnapshot,
   type UserPositionView,
 } from "@/lib/nattEscrow";
-import { escrowCluster } from "@/lib/escrowCluster";
 import { escrowBettableBeforeKickoff } from "@/lib/escrowUx";
 import { allowsDrawBetting } from "@/lib/wcMatchRules";
 import {
@@ -253,7 +252,7 @@ export function FanBetSlip({
       <div className="stitch-fan-bet-slip-head">
         <p className="stitch-fan-bet-disclaimer">{c.disclaimer}</p>
         <LiquidGlassPill as="div" variant="agent" className="stitch-fan-bet-cluster">
-          <span>{escrowCluster()}</span>
+          <span>{c.clusterDevnet}</span>
         </LiquidGlassPill>
       </div>
 
