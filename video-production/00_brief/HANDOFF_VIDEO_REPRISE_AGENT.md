@@ -1,17 +1,31 @@
 # HANDOFF — Video production Natt Pundit (reprise agent)
 
-> **Lis ce fichier EN ENTIER avant toute action video.**
-> **Date snapshot** : 2026-07-13 UTC
+> **Status** : **DONE / SUBMITTED** — video jury en ligne, form Superteam depose (owner 2026-07-17).
+> **Date snapshot** : 2026-07-18 UTC (resync post-submission)
 > **Owner** : Hamet — tutoiement FR, direct
-> **Deadline hackathon** : **2026-07-19 23:59 UTC**
+> **Deadline hackathon** : **2026-07-19 23:59 UTC** (soumission faite la veille)
+> **YouTube final** : https://youtu.be/5X3aXO4YfvE (~4:39, 9:16)
 > **Handoff produit parent** : `hackathon/natt-pundit/docs/259_HANDOFF_NATT_PUNDIT_REPRISE_AGENT.md`
 > **Skill ref** : `.cursor/skills/nattapp-work-method/SKILL.md` (posture) — pipeline video = creatif + FFmpeg, pas AUDIT/SPEC trading
 
 ---
 
-## 0bis. REPRISE IMMEDIATE — etat exact (2026-07-13)
+## 0bis. REPRISE IMMEDIATE — etat exact (2026-07-18)
 
-### PLAN MONTAGE AUTO (decision owner — NE PAS OUBLIER)
+### Verdict
+
+**Pipeline video CLOSED.** Pas de scrcpy / Veo / TTS / render a refaire sauf demande owner explicite.
+
+| Livrable | Etat |
+|----------|------|
+| Intro Veo Pack A + logos | **LOCK / DONE** |
+| TTS Charon 9 acts | **LOCK / DONE** |
+| Captures + montage final | **DONE** (upload YouTube) |
+| Formulaire Superteam | **SUBMITTED** 2026-07-17 |
+
+**Prochaine action** : aucune. Maintenance produit via handoff parent `259` seulement si owner demande.
+
+### Archive — PLAN MONTAGE AUTO (decision owner historique)
 
 **Doc recherche** : `00_brief/AUTOMATION_PIPELINE_RESEARCH.md`
 
@@ -61,18 +75,18 @@ render_from_manifest.py  ← FFmpeg (imageio-ffmpeg, deja dans le repo)
 
 ### Ce qui reste TODO
 
-| Priorite | Tache | Owner |
-|----------|-------|-------|
-| **P0** | Captures scrcpy **beat sheet v2** (voir §2) — ordre : fixtures → wallet Reown/Phantom → i18n flash → bet France→claim → proof 18172280 → agent/MCP/Claude | Hamet |
-| **P0** | Slides trust (228 tests) + CTA + devnet disclaimer | Agent ou Hamet |
-| **Mix audio final** | — | — | **TODO** — `AUDIO_FINISHING_PRO.md` (EDL evenements, J/L-cuts, duck, pas sync naive) |
-| **Intro radio mix** | — | — | **TODO** — `render_audio_timeline.py` + `pipeline/audio_timeline.intro.json` |
-| **P2** | Grade CapCut (`GRADE.md`) — **optionnel** seulement | Hamet |
+**RIEN** — tout livre + YouTube + form Superteam (2026-07-17). Historique ci-dessous obsolete.
+
+| Priorite | Tache | Status |
+|----------|-------|--------|
+| Captures scrcpy beat sheet v2 | **DONE** (dans video finale) |
+| Slides trust / CTA | **DONE** |
+| Mix audio / intro radio | **DONE** (dans export YouTube) |
+| Grade CapCut optionnel | N/A post-submit |
 
 ### Prochaine action immediate
 
-1. **Hamet** : tournage J-1 — voir **§11 plan capture ce soir**
-2. **Demain match** : rush `04_bet_france` post-FT collect seulement (si depot fait ce soir)
+**Aucune.** Pipeline video CLOSED.
 
 ### Decision beat sheet v2 (2026-07-13 owner GO)
 

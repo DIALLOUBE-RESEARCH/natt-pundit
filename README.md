@@ -53,6 +53,8 @@ The backend is **not** the score oracle — **TxLINE is the verifiable source of
 
 Pre-submission multi-layer audit (Anchor escrow, MCP Pundit server, x402 Solana protocol, nginx/RPC infra) — master plan [275_SECURITY_REMEDIATION_MASTER_PLAN.md](./docs/275_SECURITY_REMEDIATION_MASTER_PLAN.md): **17 findings** (**2** critical · **7** high · **6** medium · **1** low · **1** info). **All CRITICAL and HIGH closed** (devnet escrow `GPSU49…`, MCP Pundit, gateway/web). **F95N** (2026-07-10): removed `settle_knockout_tab` (no client-supplied penalty winner); ATA submit whitelist; RPC rate limit 60/min. **F96N keeper** (2026-07-13): settle-only worker + fan orchestrator tests — [AUDIT_F96N_KEEPER_SNAPSHOT.md](./docs/AUDIT_F96N_KEEPER_SNAPSHOT.md). Details: [SECURITY.md](./SECURITY.md). **Tests**: monorepo **228/228** PASS (MCP 50/50, keeper 5/5, fan orchestrator 5/5). Traceability: `9d9c95dd` (F95N escrow), `9ffd70ba` (rate-limit), `6dda3439` (submit guard).
 
+**x402 MCP seller:** hardened with our open Solana skill + heuristic lint checker — [solana-x402-seller-security-skill](https://github.com/DIALLOUBE-RESEARCH/solana-x402-seller-security-skill) (Security Invariants + `x402-seller-lint`; same seller discipline as HyperNatt Terminal MCP).
+
 | Check | Tool | Result (2026-07-12) |
 |-------|------|---------------------|
 | Packages (`contracts`, `natt-core`) | `npm audit --audit-level=high` | **PASS** — 0 vulnerabilities |

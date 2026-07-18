@@ -73,7 +73,7 @@ In-app **Data Lab** → **Recent Merkle anchors** shows verified/pending rows wi
 | Demo in video | Where jury clicks |
 |---------------|-------------------|
 | Fixtures + SETUP/HOLD | https://hypernatt.com/fr/nattpundit?lang=en |
-| Fan bet → result | Wallet tab after connecting Phantom (devnet) |
+| Fan bet → LOST (no claim) | https://hypernatt.com/fr/nattpundit?lang=en&tab=wallet |
 | Merkle green badge | Match detail → settlement proof panel |
 | Agent WON + explorer | https://hypernatt.com/fr/nattpundit/agent?lang=en |
 | MCP 20 tools | https://hypernatt.com/mcp-pundit/pundit/info |
@@ -95,8 +95,10 @@ In-app **Data Lab** → **Recent Merkle anchors** shows verified/pending rows wi
 
 - [ ] `proof/verify` → JSON contains `"valid": true`
 - [ ] `18209181/cpi-args?outcome=home` → HTTP 200 + CPI payload
-- [ ] Open Solscan tx `4S4bMc…` → **Success**, program `GPSU49…`
-- [ ] Agent dashboard shows bet rows; cross-check wallet on explorer
+- [ ] Fan **Deposit** tx (`4zXLck…`) → `Instruction: Deposit`
+- [ ] Keeper **Settle** tx (`63Z75d…`) → CPI `ValidateStat`
+- [ ] Agent **Claim** tx (`4S4bMc…`) → `Instruction: Claim` (video shot)
+- [ ] Fan wallet tab → **France vs Spain LOST** (no claim — coherent)
 - [ ] `curl` MCP `/pundit/info` → 20 tool names
 
 **Tests (repo):** `npm test` in public mirror — **228/228** PASS · CI badge on README.
