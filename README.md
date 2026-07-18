@@ -10,7 +10,7 @@
 
 **Natt Settlement** turns TxLINE World Cup data into **trustless Solana prediction-market settlement** (devnet USDC — not real money).
 
-1. **TxLINE** streams odds and publishes a cryptographic match-result proof (Merkle).
+1. **TxLINE** streams live odds, scores, and **match events** (goals, cards, subs) — and publishes a cryptographic match-result proof (Merkle).
 2. Our **Anchor escrow** CPI-validates that proof on Solana devnet (`validate_stat`) — fail-closed if invalid.
 3. **`services/escrow-keeper`** (F96N) — a **settle-only** worker polls finished fixtures, fetches CPI args from the gateway, and broadcasts `settle` (VPS fee payer only). **Fans never sign settle** — they sign **deposit** and **claim** only.
 
@@ -79,6 +79,7 @@ Pre-submission multi-layer audit (Anchor escrow, MCP Pundit server, x402 Solana 
 ## What it does
 
 - **2D dashboard**: WC fixtures, live odds (TxLINE), scores, SETUP/HOLD badges
+- **Live match timeline (TxLINE)**: on each match page, goals / cards / substitutions stream in real time from TxLINE event data (not mocked) — open any fixture e.g. https://hypernatt.com/fr/nattpundit/match/18241006?lang=en
 - **i18n (8 languages)**: **en, fr, es, zh, ja, ru, pt, de** — full fan journey (fixtures, match detail, bet slip, wallet, in-app docs, agent connect); header switch + `?lang=` URL
 - **Light/dark mode**: Stitch glass theme toggle (top-left); persists locally; **Reown wallet modal** syncs theme; night stadium art in dark mode
 - **Edge**: two-source combine vs Shin consensus `pi_tx`; **SETUP** only when net disagreement exceeds a pre-registered threshold (else **HOLD**)

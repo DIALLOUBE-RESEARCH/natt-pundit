@@ -13,6 +13,7 @@ Read this first, then [`USER_GUIDE.md`](./USER_GUIDE.md) (betting + wallet), [`T
 |------|-----|
 | App | https://hypernatt.com/fr/nattpundit?lang=en |
 | **User manual (8 langs)** | https://hypernatt.com/fr/nattpundit?lang=en&tab=docs |
+| **Live match timeline (TxLINE events)** | https://hypernatt.com/fr/nattpundit/match/18241006?lang=en — goals, cards, subs from TxLINE (not mocked) |
 | Wallet + bet history | https://hypernatt.com/fr/nattpundit?lang=en&tab=wallet |
 | Data Lab | https://hypernatt.com/fr/nattpundit/datas?lang=en |
 | Agent dashboard (read-only) | https://hypernatt.com/fr/nattpundit/agent?lang=en |
@@ -21,6 +22,8 @@ Read this first, then [`USER_GUIDE.md`](./USER_GUIDE.md) (betting + wallet), [`T
 Change language in the header — Docs tab follows (**en, fr, es, de, pt, ru, ja, zh**).
 
 **Also try:** sun/moon toggle (top-left) for **light/dark** Stitch theme — wallet modal syncs.
+
+**TxLINE live ingest:** open a match page → **Timeline** shows each event as TxLINE publishes it (goals, yellow/red cards, substitutions). This is core feed usage, not only settlement proofs.
 
 ---
 
