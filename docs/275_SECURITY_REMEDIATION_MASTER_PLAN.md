@@ -34,9 +34,9 @@
 | **I4** | Classic revival (close/reopen PDA) | LOW | no `close` on position | **WAIVE** | doc F84N |
 | **I4b** | Stale `amount` after claim (UI accounting) | INFO | `position.amount` non-zero | **PARTIAL** UI fix F75N | — |
 | **T1** | Terminal MCP async settle / no cache | MEDIUM | `mcp-signal-server.mjs` | **DONE** F85N | **F85N** |
-| **C2** | `settle_knockout_tab`: client-supplied `pen_winner_side` (never proven on-chain) | **CRITICAL** | `lib.rs` (pre F95N) | **DONE** F95N `9d9c95dd` — instruction removed; pen winner via standard settle keys 5001/5002, else `refund_all` fail-closed | **F95N** |
-| **H7** | Submit whitelist blocked agent txs (missing ATA) + no theft vector tested | HIGH | `escrow-submit-guard.mjs` | **DONE** F95N `6dda3439` — ATA program whitelist, direct SPL transfer rejected (tested) | **F95N** |
-| **H8** | Public RPC relays without per-IP rate limit (web + gateway) | HIGH | `api/solana/rpc.ts`, gateway | **DONE** F95N `9ffd70ba` — sliding window 60/min per IP | **F95N** |
+| **C2** | `settle_knockout_tab`: client-supplied `pen_winner_side` (never proven on-chain) | **CRITICAL** | `lib.rs` (pre F95N) | **DONE** F95N — instruction removed; pen winner via standard settle keys 5001/5002, else `refund_all` fail-closed | **F95N** |
+| **H7** | Submit whitelist blocked agent txs (missing ATA) + no theft vector tested | HIGH | `escrow-submit-guard.mjs` | **DONE** F95N — ATA program whitelist, direct SPL transfer rejected (tested) | **F95N** |
+| **H8** | Public RPC relays without per-IP rate limit (web + gateway) | HIGH | `api/solana/rpc.ts`, gateway | **DONE** F95N — sliding window 60/min per IP | **F95N** |
 | **M7** | CPI parser does not pin stat keys (theoretical stat substitution with valid Merkle proof) | MEDIUM | `txline_ix.rs` | **OPEN documented** — pinning deferred: ambiguous live keys (observed 1002/1003 vs feed doc 1/2) | F96N (future) |
 
 ---
@@ -209,4 +209,4 @@ Each open F#NN:
 
 **PASS** — full plan documented. Waves A–D delivered + **F95N** (C2/H7/H8) shipped 2026-07-10. **1 OPEN item documented:** M7 stat-key pinning (live proof prerequisite).
 
-*Last update: 2026-07-10 — F95N commits `9d9c95dd` / `6dda3439` / `9ffd70ba`, devnet program upgrade in progress.*
+*Last update: 2026-07-20 — F95N/F96N closed on live surfaces; public mirror uses feature IDs (not private monorepo git SHAs) for jury traceability.*

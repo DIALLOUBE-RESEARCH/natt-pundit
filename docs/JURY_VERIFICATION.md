@@ -101,7 +101,9 @@ In-app **Data Lab** → **Recent Merkle anchors** shows verified/pending rows wi
 - [ ] Fan wallet tab → **France vs Spain LOST** (no claim — coherent)
 - [ ] `curl` MCP `/pundit/info` → 20 tool names
 
-**Tests (repo):** `npm test` in public mirror — **228/228** PASS · CI badge on README.
+**Tests (repo):** `npm test` in public mirror — CI suite PASS (MCP / packages / keeper) · badge on README.
+
+**Escrow program tests (honest):** the Anchor workspace points at `tests/**/*.ts`, but that TS suite is **not** in the public tree yet. A Rust unit test in `txline_ix.rs` parses a CPI fixture and **skips** if the fixture path is missing (mirror layout). Judges should treat **on-chain Solscan links above** + CPI `/cpi-args` + `scripts/smoke_view_validate.ts` as the settlement verification path — not `anchor test`.
 
 ---
 

@@ -9,6 +9,17 @@ programs/natt_escrow/   Anchor program (create_pool, deposit, settle, claim)
 scripts/                smoke_view_validate.ts (TxLINE .view() before CPI)
 ```
 
+## Tests (honest — jury)
+
+`Anchor.toml` declares `tests/**/*.ts`, but **that TS suite is not present in this tree yet** (hackathon focus was live CPI + fan/MCP product). Settlement verification for judges:
+
+1. Live Solscan deposit / settle / claim — see `natt-pundit/docs/JURY_VERIFICATION.md`
+2. Gateway CPI args + fail-closed knockout paths
+3. `npx tsx scripts/smoke_view_validate.ts` (TxLINE `.view()` before CPI)
+4. Optional Rust parse fixture in `programs/natt_escrow/src/txline_ix.rs` (skips if fixture file missing)
+
+Do not expect `anchor test` green out of the box on a fresh clone.
+
 ## Prerequisites
 
 - [Anchor 0.31.1](https://www.anchor-lang.com/docs/installation)

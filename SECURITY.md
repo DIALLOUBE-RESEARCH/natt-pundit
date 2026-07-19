@@ -26,6 +26,12 @@ Match outcomes are never asserted by a client. The escrow program (`GPSU49...`) 
 - Classic Solana revival via `close` + reopen is **not applicable** (no close instruction).
 - Stale `amount` on claimed positions is a UI/accounting quirk only — funds cannot be withdrawn twice.
 
+## What the README Security badge means
+
+**“app audit CRIT/HIGH closed”** = findings from our pre-submission application audit ([275](./docs/275_SECURITY_REMEDIATION_MASTER_PLAN.md)) on escrow / MCP / x402 / RPC surfaces are closed (F95N, F96N, …).
+
+It does **not** mean zero advisories in the full `apps/web` Next.js / wallet dependency tree. Traceability uses **feature IDs** (F95N…) and the live program id — private monorepo git SHAs are **not** expected to resolve on this public mirror.
+
 ## Known limitations (documented on purpose)
 
 We prefer an honest list over a silent gap:
@@ -34,6 +40,8 @@ We prefer an honest list over a silent gap:
 2. **Demo x402 open access.** `devnet_open_access` keeps some MCP tools free for jury evaluation. This is a deliberate hackathon setting, controlled by env, not an oversight.
 3. **Devnet only.** No mainnet funds are ever custodied. The TxLINE mainnet RPC relay exists solely for the TxLINE data subscription flow (user-signed, no custody).
 4. **npm audit (2026-07-10).** `npm audit --omit=dev` reports transitive issues in `viem`/`ws` (wallet stack). No exploitable path in our server surfaces; tracked for post-hackathon dependency bump — not a runtime escrow/MCP risk.
+5. **`apps/web` Next.js pin (`14.2.28`).** Known upstream middleware/SSRF advisories exist on this line; patched minors are available. Post-hackathon bump planned — out of escrow/MCP runtime scope; no redeploy mid-jury without regression risk.
+6. **Anchor TS test suite not in public tree.** `Anchor.toml` points at `tests/**/*.ts` which is not shipped yet; judges should use [JURY_VERIFICATION.md](./docs/JURY_VERIFICATION.md) on-chain txs + CPI smoke, not `anchor test`.
 
 ## MCP Server & Dependencies Security Scan
 

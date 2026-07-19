@@ -9,8 +9,8 @@
 [![Keeper](https://img.shields.io/badge/Keeper-settle--only-teal)](./services/escrow-keeper/README.md)
 [![MCP](https://img.shields.io/badge/Agents-MCP%20%2B%20x402-9c27b0)](https://hypernatt.com/mcp-pundit/health)
 [![Claude](https://img.shields.io/badge/Claude.ai-1--click%20prefilled%20connector-7c3aed)](./docs/CURSOR_NATT_PUNDIT_MCP.md)
-[![Security](https://img.shields.io/badge/Security-CRIT%2FHIGH%20closed-brightgreen)](./SECURITY.md)
-[![tests](https://img.shields.io/badge/tests-228%2F228%20PASS-brightgreen)](./SECURITY.md)
+[![Security](https://img.shields.io/badge/Security-app%20audit%20CRIT%2FHIGH%20closed-brightgreen)](./SECURITY.md)
+[![tests](https://img.shields.io/badge/tests-CI%20npm%20suite%20PASS-brightgreen)](./SECURITY.md)
 [![CI](https://github.com/DIALLOUBE-RESEARCH/natt-pundit/actions/workflows/ci.yml/badge.svg)](https://github.com/DIALLOUBE-RESEARCH/natt-pundit/actions/workflows/ci.yml)
 [![Video](https://img.shields.io/badge/Demo-YouTube%209%3A16-red)](https://youtu.be/5X3aXO4YfvE)
 
@@ -18,9 +18,9 @@
 
 **Jury in 60s:** [Live app (mobile)](https://hypernatt.com/fr/nattpundit?lang=en) · [Demo video 9:16](https://youtu.be/5X3aXO4YfvE) · [Quickstart](./docs/QUICKSTART_JURY.md) · [On-chain proofs](./docs/JURY_VERIFICATION.md) · [Security](./SECURITY.md) · [Connect Agent / Claude 1-click](./docs/CURSOR_NATT_PUNDIT_MCP.md)
 
-Mobile-first PWA · CPI `validate_stat` fail-closed · escrow keeper (fans sign deposit/claim only) · MCP 20 tools · **Connect Agent:** Cursor deeplink + **Claude.ai prefilled connector** (Name + MCP URL) · security CRIT/HIGH closed.
+Mobile-first PWA · CPI `validate_stat` fail-closed · escrow keeper (fans sign deposit/claim only) · MCP 20 tools · **Connect Agent:** Cursor deeplink + **Claude.ai prefilled connector** (Name + MCP URL) · **app-audit** CRIT/HIGH closed (not a claim of zero npm/Next CVEs).
 
-> **Public mirror note:** This repo is synced from the private NATTAPP monorepo (`hackathon/natt-pundit/` via `scripts/sync-public-github.ps1`). Git history here is incremental mirror commits, not the full dev timeline. Proprietary edge engine stays off the public tree.
+> **Public mirror note:** This repo is synced from the private NATTAPP monorepo (`hackathon/natt-pundit/` via `scripts/sync-public-github.ps1`). Git history here is incremental mirror commits, **not** the private monorepo timeline — do not expect private commit SHAs to resolve here. Proprietary edge engine stays off the public tree.
 
 ## In 20 seconds
 
@@ -67,7 +67,11 @@ The backend is **not** the score oracle — **TxLINE is the verifiable source of
 
 ## Security
 
-Pre-submission multi-layer audit (Anchor escrow, MCP Pundit server, x402 Solana protocol, nginx/RPC infra) — master plan [275_SECURITY_REMEDIATION_MASTER_PLAN.md](./docs/275_SECURITY_REMEDIATION_MASTER_PLAN.md): **17 findings** (**2** critical · **7** high · **6** medium · **1** low · **1** info). **All CRITICAL and HIGH closed** (devnet escrow `GPSU49…`, MCP Pundit, gateway/web). **F95N** (2026-07-10): removed `settle_knockout_tab` (no client-supplied penalty winner); ATA submit whitelist; RPC rate limit 60/min. **F96N keeper** (2026-07-13): settle-only worker + fan orchestrator tests — [AUDIT_F96N_KEEPER_SNAPSHOT.md](./docs/AUDIT_F96N_KEEPER_SNAPSHOT.md). Details: [SECURITY.md](./SECURITY.md). **Tests**: monorepo **228/228** PASS (MCP 50/50, keeper 5/5, fan orchestrator 5/5). Traceability: `9d9c95dd` (F95N escrow), `9ffd70ba` (rate-limit), `6dda3439` (submit guard).
+Pre-submission multi-layer **application** audit (Anchor escrow, MCP Pundit server, x402 Solana protocol, nginx/RPC infra) — master plan [275_SECURITY_REMEDIATION_MASTER_PLAN.md](./docs/275_SECURITY_REMEDIATION_MASTER_PLAN.md): **17 findings** (**2** critical · **7** high · **6** medium · **1** low · **1** info). **All CRITICAL and HIGH closed** on our surfaces (devnet escrow `GPSU49…`, MCP Pundit, gateway/web). This badge is **not** a claim that every transitive npm/Next.js advisory is patched — see [SECURITY.md](./SECURITY.md) Known limitations.
+
+**F95N** (2026-07-10): removed `settle_knockout_tab` (no client-supplied penalty winner); ATA submit whitelist; RPC rate limit 60/min. **F96N keeper** (2026-07-13): settle-only worker + fan orchestrator tests — [AUDIT_F96N_KEEPER_SNAPSHOT.md](./docs/AUDIT_F96N_KEEPER_SNAPSHOT.md). Traceability (feature IDs, not public-repo git SHAs): **F95N** escrow + submit guard + RPC rate-limit — details in the master plan + live program `GPSU49…`.
+
+**Tests (honest split):** CI / `npm test` covers MCP, contracts, keeper, fan orchestrator (suite PASS — see CI badge). **Anchor TS suite** (`Anchor.toml` → `tests/**/*.ts`) is **not** shipped in this public tree yet; on-chain settlement is verified via [live Solscan txs](./docs/JURY_VERIFICATION.md) + CPI smoke (`solana-escrow/scripts/smoke_view_validate.ts`) + Rust parse fixture when present.
 
 **x402 MCP seller:** hardened with our open Solana skill + heuristic lint checker — [solana-x402-seller-security-skill](https://github.com/DIALLOUBE-RESEARCH/solana-x402-seller-security-skill) (Security Invariants + `x402-seller-lint`; same seller discipline as HyperNatt Terminal MCP).
 
