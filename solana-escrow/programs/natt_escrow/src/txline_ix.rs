@@ -97,27 +97,44 @@ fn parse_lightweight(payload: &[u8]) -> Result<(i64, Comparison)> {
 mod tests {
     use super::*;
 
-    fn fixture_path(name: &str) -> std::path::PathBuf {
-        std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-            .join("../../../natt-pundit/services/mcp/test/fixtures")
-            .join(name)
-    }
+    /// Live TxLINE CPI vector (home win) — in-tree so CI never silent-skips.
+    const HOME_B64: &str = include_str!("../fixtures/validate_stat_ix_home.b64");
 
     #[test]
     fn parse_home_fixture_vector() {
-        let path = fixture_path("validate_stat_ix_home.b64");
-        if !path.exists() {
-            return;
-        }
-        let b64 = std::fs::read_to_string(&path).expect("read fixture");
-        let data = base64_decode(b64.trim());
-        let (fixture_id, side) = parse_validate_stat_ix(&data).expect("parse");
+        let data = base64_decode(HOME_B64.trim());
+        let (fixture_id, side) = parse_validate_stat_ix(&data).expect("parse home fixture");
         assert_eq!(fixture_id, 18_172_280);
-        assert_eq!(side, 0);
+        assert_eq!(side, 0, "GreaterThan → home");
+    }
+
+    #[test]
+    fn reject_empty_ix() {
+        assert!(parse_validate_stat_ix(&[]).is_err());
+    }
+
+    #[test]
+    fn reject_wrong_discriminator() {
+        let mut data = base64_decode(HOME_B64.trim());
+        data[0] ^= 0xff;
+        assert!(parse_validate_stat_ix(&data).is_err());
+    }
+
+    #[test]
+    fn reject_truncated_after_discriminator() {
+        assert!(parse_validate_stat_ix(&VALIDATE_STAT_DISCRIMINATOR).is_err());
+    }
+
+    #[test]
+    fn comparison_to_side_1x2_mapping() {
+        assert_eq!(comparison_to_side(Comparison::GreaterThan).unwrap(), 0);
+        assert_eq!(comparison_to_side(Comparison::EqualTo).unwrap(), 1);
+        assert_eq!(comparison_to_side(Comparison::LessThan).unwrap(), 2);
     }
 
     fn base64_decode(input: &str) -> Vec<u8> {
-        const TABLE: &[u8; 64] = b"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+        const TABLE: &[u8; 64] =
+            b"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
         let bytes: Vec<u8> = input
             .bytes()
             .filter(|b| *b != b'=' && !b.is_ascii_whitespace())

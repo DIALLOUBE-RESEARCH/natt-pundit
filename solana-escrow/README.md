@@ -11,14 +11,20 @@ scripts/                smoke_view_validate.ts (TxLINE .view() before CPI)
 
 ## Tests (honest — jury)
 
-**No automated Anchor/TS suite yet.** `Anchor.toml` still declares `tests/**/*.ts`, but that folder does **not** exist (this is not a public-mirror omission). Settlement verification for judges:
+```bash
+cd solana-escrow
+cargo test -p natt_escrow --manifest-path programs/natt_escrow/Cargo.toml
+# or: npm test
+```
+
+**Covered:** settle-critical `validate_stat` parse (live home CPI fixture in `programs/natt_escrow/fixtures/`) + reject empty/wrong-discriminator/truncated + 1X2 side mapping. Wired in public CI (`escrow-unit`).
+
+**Not covered yet:** full localnet Anchor e2e (create_pool → deposit → settle CPI against TxLINE program on validator). Settlement verification for judges:
 
 1. Live Solscan deposit / settle / claim — see `natt-pundit/docs/JURY_VERIFICATION.md`
 2. Gateway CPI args + fail-closed knockout paths
 3. `npx tsx scripts/smoke_view_validate.ts` (TxLINE `.view()` before CPI)
-4. Optional Rust parse fixture in `programs/natt_escrow/src/txline_ix.rs` (skips if fixture file missing)
-
-Do not expect `anchor test` to run — there is no suite to execute.
+4. This Rust parse suite
 
 ## Prerequisites
 

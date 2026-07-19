@@ -103,7 +103,7 @@ In-app **Data Lab** → **Recent Merkle anchors** shows verified/pending rows wi
 
 **Tests (repo):** `npm test` in public mirror — CI suite PASS (MCP / packages / keeper) · badge on README.
 
-**Escrow program tests (honest):** **no automated Anchor/TS suite yet** — `Anchor.toml` declares `tests/**/*.ts`, but that folder does not exist (not a mirror omission). A Rust unit test in `txline_ix.rs` parses a CPI fixture and **skips** if the fixture path is missing. Judges should treat **on-chain Solscan links above** + CPI `/cpi-args` + `scripts/smoke_view_validate.ts` as the settlement verification path — not `anchor test`.
+**Escrow program tests (honest):** Rust unit suite for settle-critical `validate_stat` parse (`cargo test -p natt_escrow`, CI `escrow-unit`) — in-tree CPI fixture, rejects bad/truncated ix (no silent skip). **Not yet:** full localnet Anchor e2e vs TxLINE program. Judges should still treat **on-chain Solscan links above** + CPI `/cpi-args` + `scripts/smoke_view_validate.ts` as the end-to-end settlement path.
 
 ---
 

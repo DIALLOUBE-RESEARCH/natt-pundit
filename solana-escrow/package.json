@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
+    "test": "cargo test -p natt_escrow --manifest-path programs/natt_escrow/Cargo.toml -- --nocapture",
     "smoke:view": "tsx scripts/smoke_view_validate.ts"
   },
   "dependencies": {

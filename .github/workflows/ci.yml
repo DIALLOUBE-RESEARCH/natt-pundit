@@ -21,3 +21,14 @@ jobs:
       - run: npm run build -w @natt-pundit/natt-core
       - run: npm run build -w @natt-pundit/natt-edge-engine
       - run: npm test
+
+  escrow-unit:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: solana-escrow
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Escrow parse unit tests (settle-critical)
+        run: cargo test -p natt_escrow --manifest-path programs/natt_escrow/Cargo.toml -- --nocapture
