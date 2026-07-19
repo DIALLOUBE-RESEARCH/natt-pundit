@@ -5,6 +5,7 @@ use anchor_lang::solana_program::{
 };
 use anchor_spl::token::{self, InitializeAccount3, Mint, Token, TokenAccount, Transfer};
 
+mod guards;
 mod txline_ix;
 
 /// TxLINE devnet program (F71N escrow CPI on devnet).
@@ -110,19 +111,16 @@ pub mod natt_escrow {
         let (fixture_id, winning_side) = txline_ix::parse_validate_stat_ix(&txline_ix_data)?;
 
         let pool = &mut ctx.accounts.pool;
-        require!(!pool.settled, EscrowError::AlreadySettled);
-        require!(
-            !is_unmatched_pool(&pool.side_totals),
-            EscrowError::UnmatchedPoolUseRefund
-        );
-        require!(
-            fixture_id as u64 == pool.fixture_id,
-            EscrowError::FixtureMismatch
-        );
-        require!(winning_side < 3, EscrowError::InvalidSide);
-
         let clock = Clock::get()?;
-        require!(clock.unix_timestamp >= pool.kickoff_ts, EscrowError::TooEarly);
+        guards::check_settle_guards(
+            pool.settled,
+            &pool.side_totals,
+            pool.fixture_id,
+            fixture_id,
+            winning_side,
+            clock.unix_timestamp,
+            pool.kickoff_ts,
+        )?;
 
         let txline_ix = Instruction {
             program_id: TXLINE_PROGRAM_ID,
@@ -161,26 +159,17 @@ pub mod natt_escrow {
 
     pub fn claim(ctx: Context<Claim>) -> Result<()> {
         let pool = &ctx.accounts.pool;
-        require!(pool.settled, EscrowError::PoolNotSettled);
-        require!(
-            !is_unmatched_pool(&pool.side_totals),
-            EscrowError::UnmatchedPoolUseRefund
-        );
-
         let position = &mut ctx.accounts.position;
-        require!(!position.claimed, EscrowError::AlreadyClaimed);
-        require!(position.side == pool.winning_side, EscrowError::NotWinner);
+        guards::check_claim_guards(
+            pool.settled,
+            &pool.side_totals,
+            pool.winning_side,
+            position.claimed,
+            position.side,
+        )?;
 
         let side_total = pool.side_totals[pool.winning_side as usize];
-        require!(side_total > 0, EscrowError::VoidResultUseRefundAll);
-
-        let payout = (position.amount as u128)
-            .checked_mul(pool.total_deposited as u128)
-            .ok_or(EscrowError::MathOverflow)?
-            .checked_div(side_total as u128)
-            .ok_or(EscrowError::MathOverflow)? as u64;
-
-        require!(payout > 0, EscrowError::ZeroPayout);
+        let payout = guards::parimutuel_payout(position.amount, pool.total_deposited, side_total)?;
 
         transfer_from_vault(
             &ctx.accounts.vault,
@@ -197,17 +186,15 @@ pub mod natt_escrow {
     /// UNMATCHED pool (<=1 funded side): full stake return after kickoff, no settle/CPI.
     pub fn refund(ctx: Context<Refund>) -> Result<()> {
         let pool = &ctx.accounts.pool;
-        require!(
-            !pool.settled,
-            EscrowError::PoolSettled
-        );
-        require!(
-            is_unmatched_pool(&pool.side_totals),
-            EscrowError::ParimutuelActive
-        );
-
         let clock = Clock::get()?;
-        require!(clock.unix_timestamp >= pool.kickoff_ts, EscrowError::TooEarly);
+        guards::check_refund_unmatched_guards(
+            pool.settled,
+            &pool.side_totals,
+            clock.unix_timestamp,
+            pool.kickoff_ts,
+            ctx.accounts.position.claimed,
+            ctx.accounts.position.amount,
+        )?;
 
         refund_full_position(
             pool,
@@ -221,18 +208,13 @@ pub mod natt_escrow {
     /// PARIMUTUEL pool settled on a winning issue with zero liquidity — full refunds.
     pub fn refund_all(ctx: Context<Refund>) -> Result<()> {
         let pool = &ctx.accounts.pool;
-        require!(pool.settled, EscrowError::PoolNotSettled);
-        require!(
-            !is_unmatched_pool(&pool.side_totals),
-            EscrowError::UnmatchedPoolUseRefund
-        );
-
-        let winning_side = pool.winning_side as usize;
-        require!(winning_side < 3, EscrowError::InvalidSide);
-        require!(
-            pool.side_totals[winning_side] == 0,
-            EscrowError::WinningSideFunded
-        );
+        guards::check_refund_all_guards(
+            pool.settled,
+            &pool.side_totals,
+            pool.winning_side,
+            ctx.accounts.position.claimed,
+            ctx.accounts.position.amount,
+        )?;
 
         refund_full_position(
             pool,

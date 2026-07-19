@@ -17,14 +17,20 @@ cargo test -p natt_escrow --manifest-path programs/natt_escrow/Cargo.toml
 # or: npm test
 ```
 
-**Covered:** settle-critical `validate_stat` parse (live home CPI fixture in `programs/natt_escrow/fixtures/`) + reject empty/wrong-discriminator/truncated + 1X2 side mapping. Wired in public CI (`escrow-unit`).
+**Covered (24+ unit tests):**
 
-**Not covered yet:** full localnet Anchor e2e (create_pool → deposit → settle CPI against TxLINE program on validator). Settlement verification for judges:
+- settle-critical `validate_stat` parse (live home CPI fixture in `programs/natt_escrow/fixtures/`)
+- reject empty / wrong-discriminator / truncated ix + 1X2 side mapping
+- settle / claim / refund / refund_all / parimutuel payout **money guards** (`guards.rs`)
+
+Wired in public CI (`escrow-unit`).
+
+**Not covered yet:** full localnet BPF e2e (create_pool → deposit → settle CPI against TxLINE on validator) — requires Anchor CLI. Settlement verification for judges:
 
 1. Live Solscan deposit / settle / claim — see `natt-pundit/docs/JURY_VERIFICATION.md`
 2. Gateway CPI args + fail-closed knockout paths
 3. `npx tsx scripts/smoke_view_validate.ts` (TxLINE `.view()` before CPI)
-4. This Rust parse suite
+4. This Rust suite
 
 ## Prerequisites
 

@@ -103,7 +103,7 @@ In-app **Data Lab** → **Recent Merkle anchors** shows verified/pending rows wi
 
 **Tests (repo):** `npm test` in public mirror — CI suite PASS (MCP / packages / keeper) · badge on README.
 
-**Escrow program tests (honest):** Rust unit suite for settle-critical `validate_stat` parse (`cargo test -p natt_escrow`, CI `escrow-unit`) — in-tree CPI fixture, rejects bad/truncated ix (no silent skip). **Not yet:** full localnet Anchor e2e vs TxLINE program. Judges should still treat **on-chain Solscan links above** + CPI `/cpi-args` + `scripts/smoke_view_validate.ts` as the end-to-end settlement path.
+**Escrow program tests (honest):** Rust suite (`cargo test -p natt_escrow`, CI `escrow-unit`) — CPI parse + settle/claim/refund/payout money guards. **Not on CI yet:** full localnet BPF e2e vs TxLINE (needs Anchor). Judges still use **on-chain Solscan links above** + CPI `/cpi-args` + `scripts/smoke_view_validate.ts` for end-to-end settlement.
 
 ---
 

@@ -40,8 +40,8 @@ We prefer an honest list over a silent gap:
 2. **Demo x402 open access.** `devnet_open_access` keeps some MCP tools free for jury evaluation. This is a deliberate hackathon setting, controlled by env, not an oversight.
 3. **Devnet only.** No mainnet funds are ever custodied. The TxLINE mainnet RPC relay exists solely for the TxLINE data subscription flow (user-signed, no custody).
 4. **npm audit (2026-07-10).** `npm audit --omit=dev` reports transitive issues in `viem`/`ws` (wallet stack). No exploitable path in our server surfaces; tracked for post-hackathon dependency bump — not a runtime escrow/MCP risk.
-5. **`apps/web` Next.js pin (`14.2.28`).** Known upstream middleware/SSRF advisories exist on this line; patched minors are available. Post-hackathon bump planned — out of escrow/MCP runtime scope; no redeploy mid-jury without regression risk.
-6. **Escrow unit tests = parse suite, not full localnet e2e.** `cargo test -p natt_escrow` covers settle-critical `validate_stat` parse (in-tree fixture + reject paths). Full create/deposit/settle against TxLINE on a local validator is **not** automated yet — see [JURY_VERIFICATION.md](./docs/JURY_VERIFICATION.md) for live Solscan settlement proofs.
+5. **`apps/web` Next.js pin (`14.2.35`).** Patched to the last 14.2.x security line (includes middleware/SSRF fixes from 14.2.29+). 14.x is EOL upstream — major upgrade tracked post-hackathon.
+6. **Escrow unit tests = parse + money guards (not full localnet BPF e2e).** `cargo test -p natt_escrow` covers settle-critical `validate_stat` parse + settle/claim/refund/payout guards. Full create/deposit/settle against TxLINE on a local validator still needs Anchor CLI (not on Windows jury laptops) — see [JURY_VERIFICATION.md](./docs/JURY_VERIFICATION.md) for live Solscan settlement proofs.
 
 ## MCP Server & Dependencies Security Scan
 
