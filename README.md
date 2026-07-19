@@ -1,8 +1,23 @@
 # Natt Settlement
 
-[![tests](https://img.shields.io/badge/tests-228%2F228%20PASS-brightgreen)](./SECURITY.md) [![CI](https://github.com/DIALLOUBE-RESEARCH/natt-pundit/actions/workflows/ci.yml/badge.svg)](https://github.com/DIALLOUBE-RESEARCH/natt-pundit/actions/workflows/ci.yml) [![devnet](https://img.shields.io/badge/escrow-Solana%20devnet-blue)](https://hypernatt.com/fr/nattpundit?lang=en)
+[![Track](https://img.shields.io/badge/Track-Prediction%20Markets%20%26%20Settlement-6f42c1)](https://superteam.fun/earn/listing/prediction-markets-and-settlement)
+[![Live](https://img.shields.io/badge/Live-hypernatt.com-00c853)](https://hypernatt.com/fr/nattpundit?lang=en)
+[![Mobile](https://img.shields.io/badge/UX-Mobile--first%20PWA-ff69b4)](https://hypernatt.com/fr/nattpundit?lang=en)
+[![i18n](https://img.shields.io/badge/i18n-8%20languages-1e88e5)](https://hypernatt.com/fr/nattpundit?lang=en&tab=docs)
+[![CPI](https://img.shields.io/badge/Settlement-TxLINE%20CPI%20validate__stat-orange)](./docs/TXLINE_SETTLEMENT.md)
+[![Escrow](https://img.shields.io/badge/Escrow-Solana%20devnet%20USDC-blue)](./solana-escrow/)
+[![Keeper](https://img.shields.io/badge/Keeper-settle--only-teal)](./services/escrow-keeper/README.md)
+[![MCP](https://img.shields.io/badge/Agents-MCP%20%2B%20x402-9c27b0)](https://hypernatt.com/mcp-pundit/health)
+[![Security](https://img.shields.io/badge/Security-CRIT%2FHIGH%20closed-brightgreen)](./SECURITY.md)
+[![tests](https://img.shields.io/badge/tests-228%2F228%20PASS-brightgreen)](./SECURITY.md)
+[![CI](https://github.com/DIALLOUBE-RESEARCH/natt-pundit/actions/workflows/ci.yml/badge.svg)](https://github.com/DIALLOUBE-RESEARCH/natt-pundit/actions/workflows/ci.yml)
+[![Video](https://img.shields.io/badge/Demo-YouTube%209%3A16-red)](https://youtu.be/5X3aXO4YfvE)
 
 **TxODDS World Cup — Prediction Markets & Settlement** track (Superteam). Live Shin consensus, SETUP/HOLD edge, Merkle settlement verification, devnet escrow pools, agent MCP.
+
+**Jury in 60s:** [Live app (mobile)](https://hypernatt.com/fr/nattpundit?lang=en) · [Demo video 9:16](https://youtu.be/5X3aXO4YfvE) · [Quickstart](./docs/QUICKSTART_JURY.md) · [On-chain proofs](./docs/JURY_VERIFICATION.md) · [Security](./SECURITY.md)
+
+Mobile-first PWA · CPI `validate_stat` fail-closed · escrow keeper (fans sign deposit/claim only) · MCP 20 tools · security CRIT/HIGH closed.
 
 > **Public mirror note:** This repo is synced from the private NATTAPP monorepo (`hackathon/natt-pundit/` via `scripts/sync-public-github.ps1`). Git history here is incremental mirror commits, not the full dev timeline. Proprietary edge engine stays off the public tree.
 
@@ -28,7 +43,7 @@ The backend is **not** the score oracle — **TxLINE is the verifiable source of
 | Multi-oracle consensus | Single TxLINE Merkle + CPI path (documented) |
 | Multisig program upgrade (devnet) | Fast-iteration deployer key; multisig noted as prod requirement |
 
-**Deep dive:** [`docs/TXLINE_SETTLEMENT.md`](./docs/TXLINE_SETTLEMENT.md) · On-chain program: [`../solana-escrow/`](../solana-escrow/)
+**Deep dive:** [`docs/TXLINE_SETTLEMENT.md`](./docs/TXLINE_SETTLEMENT.md) · On-chain program: [`./solana-escrow/`](./solana-escrow/)
 
 ## Start here
 
@@ -45,7 +60,7 @@ The backend is **not** the score oracle — **TxLINE is the verifiable source of
 | **6b. Escrow keeper (F96N)** | [`services/escrow-keeper/README.md`](./services/escrow-keeper/README.md) — settle-only worker, threat model |
 | **7. Cursor / MCP setup** | [`docs/CURSOR_NATT_PUNDIT_MCP.md`](./docs/CURSOR_NATT_PUNDIT_MCP.md) |
 | **8. Autonomous agent (CDP)** | [`docs/AUTONOMOUS_AGENT_CDP.md`](./docs/AUTONOMOUS_AGENT_CDP.md) |
-| **Anchor escrow (devnet)** | [`../solana-escrow/`](../solana-escrow/) — program `GPSU49hPRqWeEtTyMghWLWrXagV8hobFPkbFKVK3jxUD` |
+| **Anchor escrow (devnet)** | [`./solana-escrow/`](./solana-escrow/) — program `GPSU49hPRqWeEtTyMghWLWrXagV8hobFPkbFKVK3jxUD` |
 
 **Devnet faucets:** [SOL](https://faucet.solana.com/) · [USDC](https://faucet.circle.com/) (Solana Devnet) · **MCP:** `https://hypernatt.com/mcp-pundit/protocol`
 
@@ -60,7 +75,7 @@ Pre-submission multi-layer audit (Anchor escrow, MCP Pundit server, x402 Solana 
 | Packages (`contracts`, `natt-core`) | `npm audit --audit-level=high` | **PASS** — 0 vulnerabilities |
 | MCP server (`@natt-pundit/mcp`) | `npm audit --audit-level=high --omit=dev` | **PASS** — 0 direct; 5 high transitive Solana SDK only (tracked) |
 | Dependency scan (Snyk) | `snyk test` | **WAIVE** — requires `snyk auth` / `SNYK_TOKEN` (not available pre-submission) |
-| Escrow program (devnet) | `cargo audit` + Sec3 X-Ray | **PASS** — see [`../solana-escrow/SECURITY.md`](../solana-escrow/SECURITY.md) |
+| Escrow program (devnet) | `cargo audit` + Sec3 X-Ray | **PASS** — see [`./solana-escrow/SECURITY.md`](./solana-escrow/SECURITY.md) |
 
 | | |
 |---|---|
