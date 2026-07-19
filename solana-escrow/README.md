@@ -11,14 +11,14 @@ scripts/                smoke_view_validate.ts (TxLINE .view() before CPI)
 
 ## Tests (honest — jury)
 
-`Anchor.toml` declares `tests/**/*.ts`, but **that TS suite is not present in this tree yet** (hackathon focus was live CPI + fan/MCP product). Settlement verification for judges:
+**No automated Anchor/TS suite yet.** `Anchor.toml` still declares `tests/**/*.ts`, but that folder does **not** exist (this is not a public-mirror omission). Settlement verification for judges:
 
 1. Live Solscan deposit / settle / claim — see `natt-pundit/docs/JURY_VERIFICATION.md`
 2. Gateway CPI args + fail-closed knockout paths
 3. `npx tsx scripts/smoke_view_validate.ts` (TxLINE `.view()` before CPI)
 4. Optional Rust parse fixture in `programs/natt_escrow/src/txline_ix.rs` (skips if fixture file missing)
 
-Do not expect `anchor test` green out of the box on a fresh clone.
+Do not expect `anchor test` to run — there is no suite to execute.
 
 ## Prerequisites
 

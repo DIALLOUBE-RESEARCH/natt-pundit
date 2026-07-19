@@ -41,7 +41,7 @@ We prefer an honest list over a silent gap:
 3. **Devnet only.** No mainnet funds are ever custodied. The TxLINE mainnet RPC relay exists solely for the TxLINE data subscription flow (user-signed, no custody).
 4. **npm audit (2026-07-10).** `npm audit --omit=dev` reports transitive issues in `viem`/`ws` (wallet stack). No exploitable path in our server surfaces; tracked for post-hackathon dependency bump — not a runtime escrow/MCP risk.
 5. **`apps/web` Next.js pin (`14.2.28`).** Known upstream middleware/SSRF advisories exist on this line; patched minors are available. Post-hackathon bump planned — out of escrow/MCP runtime scope; no redeploy mid-jury without regression risk.
-6. **Anchor TS test suite not in public tree.** `Anchor.toml` points at `tests/**/*.ts` which is not shipped yet; judges should use [JURY_VERIFICATION.md](./docs/JURY_VERIFICATION.md) on-chain txs + CPI smoke, not `anchor test`.
+6. **No automated Anchor/TS suite yet.** `Anchor.toml` still points at `tests/**/*.ts`, but that folder does not exist (private or public) — not a mirror gap. Judges should use [JURY_VERIFICATION.md](./docs/JURY_VERIFICATION.md) on-chain txs + CPI smoke + optional Rust fixture parse, not `anchor test`.
 
 ## MCP Server & Dependencies Security Scan
 

@@ -71,7 +71,7 @@ Pre-submission multi-layer **application** audit (Anchor escrow, MCP Pundit serv
 
 **F95N** (2026-07-10): removed `settle_knockout_tab` (no client-supplied penalty winner); ATA submit whitelist; RPC rate limit 60/min. **F96N keeper** (2026-07-13): settle-only worker + fan orchestrator tests — [AUDIT_F96N_KEEPER_SNAPSHOT.md](./docs/AUDIT_F96N_KEEPER_SNAPSHOT.md). Traceability (feature IDs, not public-repo git SHAs): **F95N** escrow + submit guard + RPC rate-limit — details in the master plan + live program `GPSU49…`.
 
-**Tests (honest split):** CI / `npm test` covers MCP, contracts, keeper, fan orchestrator (suite PASS — see CI badge). **Anchor TS suite** (`Anchor.toml` → `tests/**/*.ts`) is **not** shipped in this public tree yet; on-chain settlement is verified via [live Solscan txs](./docs/JURY_VERIFICATION.md) + CPI smoke (`solana-escrow/scripts/smoke_view_validate.ts`) + Rust parse fixture when present.
+**Tests (honest split):** CI / `npm test` covers MCP, contracts, keeper, fan orchestrator (suite PASS — see CI badge). **No automated Anchor/TS suite yet** (`Anchor.toml` still points at `tests/**/*.ts`, but that folder does not exist — private or public). Settlement is verified via [live Solscan txs](./docs/JURY_VERIFICATION.md) + CPI smoke (`solana-escrow/scripts/smoke_view_validate.ts`) + optional Rust parse fixture when present.
 
 **x402 MCP seller:** hardened with our open Solana skill + heuristic lint checker — [solana-x402-seller-security-skill](https://github.com/DIALLOUBE-RESEARCH/solana-x402-seller-security-skill) (Security Invariants + `x402-seller-lint`; same seller discipline as HyperNatt Terminal MCP).
 
