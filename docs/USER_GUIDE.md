@@ -90,16 +90,17 @@ Or `~/.cursor/mcp.json`:
 
 First prompt: `get_pundit_manifest`
 
-### Claude.ai (web)
+### Claude.ai (web) — 1-click from the app
 
-Connectors → Add custom → Name **Natt Pundit**, URL = MCP endpoint, OAuth empty.
+**Connect Agent** → Claude → **Claude.ai (web)** — opens Add custom connector with **Name + MCP URL prefilled**. Confirm Add → new chat → enable connector → `get_pundit_manifest`. OAuth empty.
+
+Manual: https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Natt%20Pundit&connectorUrl=https%3A%2F%2Fhypernatt.com%2Fmcp-pundit%2Fprotocol
 
 ### Claude Code
 
 ```bash
 claude mcp add --scope user --transport http natt-pundit https://hypernatt.com/mcp-pundit/protocol
 ```
-
 See also: [CURSOR_NATT_PUNDIT_MCP.md](./CURSOR_NATT_PUNDIT_MCP.md)
 
 ---

@@ -28,7 +28,7 @@ Natt Settlement turns TxLINE World Cup feeds into trustless Solana prediction-ma
 
 Fans and AI agents see live fixtures, odds, and SETUP/HOLD edge badges. When a match finishes, TxLINE publishes a Merkle stat-validation proof. Our gateway verifies it off-chain, then an Anchor escrow CPI-calls TxLINE validate_stat on Solana devnet. A permissionless keeper settles pools; users only sign deposit and claim.
 
-Includes: 8-language mobile web app, Data Lab (CLV harness), 20-tool MCP server for Cursor/Claude agents, and an autonomous CDP wallet betting loop. Fail-closed by design — no payout without a verifiable TxLINE proof.
+Includes: 8-language mobile-first web app, Data Lab (CLV harness), 20-tool MCP server with in-app Connect Agent (Cursor 1-click deeplink + Claude.ai prefilled connector), and an autonomous CDP wallet betting loop. Fail-closed by design — no payout without a verifiable TxLINE proof.
 ```
 
 ---
@@ -108,7 +108,15 @@ On-chain: Solana devnet escrow GPSU49hPRqWeEtTyMghWLWrXagV8hobFPkbFKVK3jxUD — 
 
 MCP for agents: https://hypernatt.com/mcp-pundit/protocol (20 tools).
 
+Agent DX (not fully shown in video): in-app Connect Agent.
+• Cursor: 1-click deeplink install
+• Claude.ai: 1-click opens Add custom connector with Name "Natt Pundit" + MCP URL prefilled. Confirm Add → enable in chat → get_pundit_manifest.
+Try: https://hypernatt.com/fr/nattpundit?lang=en → Connect Agent → Claude
+Docs: https://github.com/DIALLOUBE-RESEARCH/natt-pundit/blob/main/docs/CURSOR_NATT_PUNDIT_MCP.md
+
 Smoke: curl https://hypernatt.com/api/natt-pundit/txline/v1/fixtures/18209181/cpi-args?outcome=home
+
+In-app docs (8 langs): https://hypernatt.com/fr/nattpundit?lang=en&tab=docs
 ```
 
 ---

@@ -43,16 +43,22 @@ Expected: `natt-pundit` — **20 tools**, green status (streamable HTTP).
 
 ---
 
-## Claude.ai (web)
+## Claude.ai (web) — 1-click from the app
 
-1. https://claude.ai/customize/connectors
-2. **Add custom connector**
-3. **Name:** `Natt Pundit`
-4. **URL:** `https://hypernatt.com/mcp-pundit/protocol`
-5. **OAuth:** leave empty (public data / x402 separate)
-6. New chat → enable connector → `get_pundit_manifest`
+**Preferred (jury):** open the live app → header **Connect Agent** → **Claude** tab → **Claude.ai (web)**.
 
-**UI:** Connect Agent → Claude tab → copy URL + instructions.
+That button opens Anthropic’s Add custom connector dialog with **Name** and **MCP URL already prefilled** (query params `modal=add-custom-connector&connectorName=…&connectorUrl=…`). You only confirm **Add**, then:
+
+1. Start a **new chat**
+2. **Enable** the `Natt Pundit` connector
+3. Call **`get_pundit_manifest`**
+
+**OAuth / Client ID:** leave empty (public data; x402 is separate).
+
+**Manual fallback** (same fields, no app):
+
+1. https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Natt%20Pundit&connectorUrl=https%3A%2F%2Fhypernatt.com%2Fmcp-pundit%2Fprotocol
+2. Confirm **Add** → new chat → enable connector → `get_pundit_manifest`
 
 ---
 

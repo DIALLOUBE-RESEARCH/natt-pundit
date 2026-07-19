@@ -8,6 +8,7 @@
 [![Escrow](https://img.shields.io/badge/Escrow-Solana%20devnet%20USDC-blue)](./solana-escrow/)
 [![Keeper](https://img.shields.io/badge/Keeper-settle--only-teal)](./services/escrow-keeper/README.md)
 [![MCP](https://img.shields.io/badge/Agents-MCP%20%2B%20x402-9c27b0)](https://hypernatt.com/mcp-pundit/health)
+[![Claude](https://img.shields.io/badge/Claude.ai-1--click%20prefilled%20connector-7c3aed)](./docs/CURSOR_NATT_PUNDIT_MCP.md)
 [![Security](https://img.shields.io/badge/Security-CRIT%2FHIGH%20closed-brightgreen)](./SECURITY.md)
 [![tests](https://img.shields.io/badge/tests-228%2F228%20PASS-brightgreen)](./SECURITY.md)
 [![CI](https://github.com/DIALLOUBE-RESEARCH/natt-pundit/actions/workflows/ci.yml/badge.svg)](https://github.com/DIALLOUBE-RESEARCH/natt-pundit/actions/workflows/ci.yml)
@@ -15,9 +16,9 @@
 
 **TxODDS World Cup — Prediction Markets & Settlement** track (Superteam). Live Shin consensus, SETUP/HOLD edge, Merkle settlement verification, devnet escrow pools, agent MCP.
 
-**Jury in 60s:** [Live app (mobile)](https://hypernatt.com/fr/nattpundit?lang=en) · [Demo video 9:16](https://youtu.be/5X3aXO4YfvE) · [Quickstart](./docs/QUICKSTART_JURY.md) · [On-chain proofs](./docs/JURY_VERIFICATION.md) · [Security](./SECURITY.md)
+**Jury in 60s:** [Live app (mobile)](https://hypernatt.com/fr/nattpundit?lang=en) · [Demo video 9:16](https://youtu.be/5X3aXO4YfvE) · [Quickstart](./docs/QUICKSTART_JURY.md) · [On-chain proofs](./docs/JURY_VERIFICATION.md) · [Security](./SECURITY.md) · [Connect Agent / Claude 1-click](./docs/CURSOR_NATT_PUNDIT_MCP.md)
 
-Mobile-first PWA · CPI `validate_stat` fail-closed · escrow keeper (fans sign deposit/claim only) · MCP 20 tools · security CRIT/HIGH closed.
+Mobile-first PWA · CPI `validate_stat` fail-closed · escrow keeper (fans sign deposit/claim only) · MCP 20 tools · **Connect Agent:** Cursor deeplink + **Claude.ai prefilled connector** (Name + MCP URL) · security CRIT/HIGH closed.
 
 > **Public mirror note:** This repo is synced from the private NATTAPP monorepo (`hackathon/natt-pundit/` via `scripts/sync-public-github.ps1`). Git history here is incremental mirror commits, not the full dev timeline. Proprietary edge engine stays off the public tree.
 

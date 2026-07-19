@@ -75,9 +75,9 @@ Pool modes: **Shared pool** (2+ countries backed) → collect after FT · **Solo
 
 | Client | How |
 |--------|-----|
-| **Cursor** | App → **Connect Agent** → Cursor, or see [`CURSOR_NATT_PUNDIT_MCP.md`](./CURSOR_NATT_PUNDIT_MCP.md) |
-| **Claude.ai** | Connectors → custom → Name `Natt Pundit`, URL above, OAuth empty |
-| **Claude Code** | `claude mcp add --scope user --transport http natt-pundit https://hypernatt.com/mcp-pundit/protocol` |
+| **Cursor** | App → **Connect Agent** → Cursor → 1-click `cursor://` deeplink — see [`CURSOR_NATT_PUNDIT_MCP.md`](./CURSOR_NATT_PUNDIT_MCP.md) |
+| **Claude.ai (1-click)** | App → **Connect Agent** → Claude → **Claude.ai (web)** — opens Add custom connector with **Name + MCP URL prefilled**. Confirm Add → new chat → enable connector → `get_pundit_manifest`. OAuth empty. |
+| **Claude Code** | App → Connect Agent → Claude → copy CLI, or: `claude mcp add --scope user --transport http natt-pundit https://hypernatt.com/mcp-pundit/protocol` |
 | **Other** | Connect Agent → Other → copy JSON or URL |
 
 First tool call: **`get_pundit_manifest`**
